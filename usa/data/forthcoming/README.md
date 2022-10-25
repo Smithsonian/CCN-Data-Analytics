@@ -1,0 +1,3 @@
+## Forthcoming Cores
+
+The information on forthcoming cores in this folder has been removed because this data is currently in embargo. The workflow used to summarize the number of forthcoming cores in each state can be found in the scripts folder (scripts/forbidden_synthesis.R). The output from this workflow is located in the resources folder (resources/forthcoming_core_contacts.csv) and was used in the report to indicate how many forthcoming cores are expected for each state and who to contact for further information. 
