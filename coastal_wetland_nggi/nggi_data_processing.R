@@ -182,11 +182,14 @@ View(reported %>% distinct(study_id, accumulation_type) %>%
 
 # create a function will perform unit conversions for C accumulation?
 
-# "gramsPerSquareCentimeterPerYear" => divide by 0.0001
+# mass accumulation
+# "gramsPerSquareCentimeterPerYear" => divide by 1000
 # "gramsPerSquareMeterPerYear"=> do nothing   
 # "kilogramsPerSquareMeterPerYear" => multiply by 1000 
-# "millimeterPerYear" => 
-# "centimeterPerYear" =>  
+
+# depth accumulation
+# "millimeterPerYear" => ?
+# "centimeterPerYear" =>  ?
 
 accumulation <- reported %>% 
   select(contains("id"), core_count, accumulation_type, habitat,
