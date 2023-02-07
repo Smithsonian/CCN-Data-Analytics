@@ -1,0 +1,225 @@
+"Important (1 - Yes: Using for WG or high priority for buidling international nodes, 2 - Maybe: Investigating or Deciding, 3 - No)","Urgent (1 - Yes: There's a data release we can find, 2 - Maybe/In Progress, 3 - No: Data release doesn't exist yet)",last_updated,status,study_id,Author(s) Year,Title / Citation,"Point of Contact 
+<Email Address>",Embargo,Location Description,Data Types,Action(s) Needed,Notes,Approval Date,Added to synthesis Date
+3,1,,in progress,,Ariolla et al 2019a,https://doi-org.libproxy.lib.unc.edu/10.1007/s12237-019-00566-6,Jill Arriola <arriola@email.unc.edu>,,"Yellow River, China",TBD,Review paper.,Data in SI.,,
+2,3,,in progress,,Ariolla et al 2019b,"Arriola, Jill, 2019, ""Data for ""Salt marsh carbon burial variability along the United States Gulf of Mexico at local and regional scales"""", https://doi.org/10.15139/S3/4JHDKR, UNC Dataverse, V1",Jill Arriola <arriola@email.unc.edu>,,Louisiana Gulf Coast,Carbon stocks; Age depth model,Needs hook script,"Paper is in review, but data made available ahead of time because of AGU policy. 
+
+Jill sent core coordinates on 2019-09-26.
+
+Paper rejected. Reviewer wanted a reformatted dataset. Dataset taken down for the time being.",,
+2,3,,in progress,,Ariolla et al 2019c,TBD,Jill Arriola <arriola@email.unc.edu>,,Texas Coast,TBD,TBD,Waiting for Jill to make the data public on UNC data server.,,
+1,2,,in progress,,Baustian et al YYYYa,Long-term (12-100 cm) soil core data at 24 sites in coastal Louisiana,Melissa Baustian <mbaustian@thewaterinstitute.org>,,Louisiana Gulf Coast,Carbon Stocks; Age Depth Models; Elevation,Melissa and Camille Stagg need to send draft data release. Then we need to write a Hook Script.,"Will be released by USGS. Camille and I agreed to send us an advanced copy, but I they haven't sent it yet.",,
+3,1,,in progress,,Baustian et al YYYYb,30 cm soil core data collected for the Mississippi River Hydrodynamics and Delta Management project.,Melissa Baustian <mbaustian@thewaterinstitute.org>,,Louisiana Gulf Coast,Carbon Stocks,Hook Script,"Already released by LA Coastal Protection and Restoration Authority (see attachment of metadata, link below and clip of data repository below).  
+http://mrhdms.coastal.louisiana.gov/site/mrhdmsFiles_public.aspx
+To get to the soil core data set:
+a.        Click on “MRHDMS-Delta Mgmt” folder - see the folder structure on the left
+b.        Click on “SEDGS” folder
+c.        Click on the 2nd file in that folder that ends with “0010.zip”
+
+NOTE: Check against existing CRMS data.",,
+3,2,,in progress,,Baustian et al YYYYc,Short-term (0-10 cm) core data at 24 sites in coastal Louisiana,Melissa Baustian <mbaustian@thewaterinstitute.org>,,Louisiana Gulf Coast,Carbon Stocks,Hook Script,Will be release by USGS.,,
+2,3,,in progress,,Beckett 2012,"Beckett, L. H. M. (2012). Subsidence, accretion, and elevation trends in estuarine wetlands and relationships to salinity and sediment stratigraphy (Doctoral dissertation).",Andy Baldwin ‎<baldwin@umd.edu>‎; Leah Beckett ‎<leahbeckett5@gmail.com>‎,,"Chesapeake; Nanticoke River, Maryland",Carbon Stocks; Age Depth Model,TBD,"Stocks in Sci. Reports paper, not data release. Also a lot of 14C dates we can digitize. Andy and Leah are still looking to publish.
+
+JH sent feeler email 2019-09-23.
+
+2019-09-24. Andy Baldwin says they expect to submit a paper this year and not to redistribute.",,
+2,3,,in progress,,Bernhardt Unpublished,TBD,,,,,TBD,,,
+2,3,,in progress,,Bianchi et al 2013,"Bianchi, T. S., Allison, M. A., Zhao, J., Li, X., Comeaux, R. S., Feagin, R. A., & Kulawardhana, R. W. (2013). Historical reconstruction of mangrove expansion in the Gulf of Mexico: linking climate change with carbon sequestration in coastal wetlands. Estuarine, Coastal and Shelf Science, 119, 7-16.",,,"Port Aransas, TX","Carbon stocks, Age-Depth",,"JH: Bianchi did submit data to CCRCN. I'm not sure why we didn't end up using it. I'll need to check. 
+
+Checked. BD is modeled not measured. No organics as far as I could see.",,
+2,3,,in progress,,Breithaupt et al 2017,"Breithaupt, J. L., Smoak, J. M., Rivera-Monroy, V. H., Castañeda-Moya, E., Moyer, R. P., Simard, M., & Sanders, C. J. (2017). Partitioning the relative contributions of organic matter and mineral sediment to accretion rates in carbonate platform mangrove soils. Marine Geology, 390, 170-180.",Joshua Breithaupt <jlbreith@mail.usf.edu>,,Everglades,Carbon Stocks; Age Depth Model,Waiting for metadata from Josh. Data release for data beind Figure S1.,Carbon stocks in Holmquist et al. Sci. Reports. Need data release for 210Pb. JH Followed up on 2019-06-25.,,
+2,3,,in progress,,Breithaupt et al 2019,"Breithaupt, J. L., Smoak, J. M., Sanders, C. J., & Troxler, T. G. (2019). Spatial Variability of Organic Carbon, CaCO 3 and Nutrient Burial Rates Spanning a Mangrove Productivity Gradient in the Coastal Everglades. Ecosystems, 22(4), 844-858.",Joshua Breithaupt <jlbreith@mail.usf.edu>,,Everglades,Carbon Stocks; Age Depth Model,Waiting for metadata from Josh. Hook script for appendix. Data release for underlying 210Pb data.,Need data release for 210Pb. JH Followed up on 2019-06-25.,,
+3,2,,in progress,,Brown et al 2019,"Main text. https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/2019GL082076
+
+SI https://www.readcube.com/articles/supplement?doi=10.1029%2F2019GL082076&index=0",d.brown.34@student.scu.edu.au,,SE Australia,"Carbon Stocks, Age-Depth",Needs a data release for age-depth.,"Carbon stocks are in SI. Age-depth could be digitized from figures, but overall needs a new data release since errors could compound a lot in log space.",,
+1,2,,in progress,,Brown Unpublished,TBD,Lauren Brown <lnbrown@ucla.edu>; Glen MacDonald <gmacdonal@geog.ucla.edu>,Partial,California,Carbon Stocks; Age Depth Model,Lauren needs to send data updates.,"Carbon stocks in Holmquist et al. Sci. Reports. Lauren needs to supply age-depth models.
+
+Lauren sent data 2019-09-30.",,
+2,3,,in progress,,Cifuentes Unpublished,TBD,Miguel Cifuentes Jara <miguel.cifuentes@catie.ac.cr>,,Global,Carbon Stocks; TBD,TBD,Invite Miguel to a webinar.,,
+2,3,,in progress,,Corbett YYYY,TBD,,TBD,North Carolina,Many dated cores,Meet with Reid and Technician.,David Lagomasino says Reid Corbett is interested in submitting 50-60 cores that he has data for. He wants to send a technician up to learn the ropes and help us with the data ingestion.,,
+2,3,,in progress,,Craft et al 2003; Cornell et al 2007,"Craft, C., Megonigal, P., Broome, S., Stevenson, J., Freese, R., Cornell, J., ... & Sacco, J. (2003). The pace of ecosystem development of constructed Spartina alterniflora marshes. Ecological applications, 13(5), 1417-1432.
+
+Cornell, J. A., Craft, C. B., & Megonigal, J. P. (2007). Ecosystem gas exchange across a created salt marsh chronosequence. Wetlands, 27(2), 240-250.","Craft, Christopher B <ccraft@indiana.edu>; Megonigal",No,"North Carolina, Restored Spartina alterniflora marshes",Biomass; Carbon Stocks; Age-Depth; CH4 flux; CO2 flux,Initial data consultation,,,
+1,1,,in progress,,Crooks,UAE dated cores,,,,,,,,
+1,1,,in progress,,Crooks,Pakistan Stocks,,,,,,,,
+2,3,,in progress,,Currin et al Unpublished,TBD,Nathan McTigue <nathan.mctigue@noaa.gov>; Carolyn Currin <carolyn.currin@noaa.gov>; Jenny Davis <jenny.davis@noaa.gov>,,Flordia Panhandle,TBD,"Metadata entry app (google forms version) sent to Currin, she responded on 7/8/19 saying she'd start soon","Carolyn Currin, mentioned these cores are in the works, but other than that JH doesn't know anything elese about them. JH sent follow up on 2019-06-25.",,
+3,1,,in progress,,Deegan et al 2012,"Deegan L., D. FitzGerald, S. Fagherazzi. 2012. 2009 LENS geotechnical core results. Environmental Data Initiative.https://doi.org/10.6073/pasta/5866a2d75008661c256f82f68ed5f3d6. Dataset accessed 1/19/2019.",NA,,Plum Island LTER,Carbon Stocks,Hook Script,,,
+2,2,,in progress,,Delaune et al 2018,"Delaune, R. D., White, J. R., Elsey-Quirk, T., Roberts, H. H., & Wang, D. Q. (2018). Differences in long-term vs short-term carbon and nitrogen sequestration in a coastal river delta wetland: Implications for global budgets. Organic geochemistry, 123, 67-73.",Tracy-Elsy Quirk,,Atchafalaya Delta,Carbon Stocks,Need initial evaluation.,Tracy Quirk sent JH this paper. Need SI to evaluate tables.,,
+3,3,,in progress,,DU Unpublished,Ducks Unlimited Data,Ellen Herbert <eherbert@ducks.org>,,US Wide,Carbon Stocks; TBD,TBD,Pat and Jim met with Ellen last year and she said she was interested in futher leveraging and getting Ducks unlimited data out there.,,
+3,3,,in progress,,Duffy et al ,unknown. Emmett mentioned to us that he has short cores in (Zhoston?) marine eelgrass in Finland and other northern hemisphere locations,duffye@si.edu,,,,reach out to Emmett,,,
+3,1,,in progress,,Engel 2013,"Engel, Annette (2013) Marsh soil profiles of Carbon/Nitrogen and d13C/ d15N, Grand Isle, Port Sulphur, Terrebonne Bay, Louisiana, May-October 2013. Distributed by: Gulf of Mexico Research Initiative Information and Data Cooperative (GRIIDC), Harte Research Institute, Texas A&M University-Corpus Christi. doi:10.7266/N7DZ067D",,,Louisiana Gulf coastl,Carbon stocks,Hook Script,,,
+0,0,,in progress,,Ensign et al 2015,"Ensign, S. H., Noe, G. B., Hupp, C. R., & Skalak, K. J. (2015). Head‐of‐tide bottleneck of particulate material transport from watersheds to estuaries. Geophysical Research Letters, 42(24).",Greg Noe <gnoe@usgs.gov>,,US Southeast,Carbon Stocks; Age Depth Model,Initial data formatting,"Ensign is interested and will check in mid-September.
+
+2019-09-23. Ensign sent data via email.",,
+3,2,,in progress,,Fell and Chapman Unpublished,TBD,Claire Fell <cfell1@villanova.edu>,TBD,GTM NERR St. Augustine Florida,Carbon Stocks; Elevation,Initial data consultation; Will send data in early 2020.,,,
+3,3,,in progress,,Fennessy et al 2019,https://www.sciencedirect.com/science/article/pii/S0272771418308825,fennessym@kenyon.edu,,"Ebro Delta, Spain","Carbon Stocks, Age-Depth",Needs a data release.,,,
+3,2,,in progress,,Gedan et al. unpublished,Barrier island migration and back-barrier tidal marsh blue carbon,Jessica MacGregor <jmacgreg@email.gwu.edu>,Partial ,"Parramore/Cedar Islands, Virginia; Long Beach/Brigantine Islands, NJ ",Carbon Stocks,None,Long embargo period requested (1-2 years). Partial embargo approved.,,
+1,2,,in progress,,Gonnea et al TBD,RI cores,Meagan Gonnea,,,Carbon Stocks; Age Depth Model,Waiting for official ScienceBase Release.,"Orphan cores. MG says she'll publish data release.
+
+MG sent us a draft of the data release that's going into USGS ScienceBase. Let's prep. a hook script in the Soils Working Group GitHub, reformat and merge with other available data.
+
+Hook script draft in Soils WG repo.",,
+1,2,,in progress,,Gonnea et al TBD,MA cores,Meagan Gonnea,,,Carbon Stocks; Age Depth Model,Waiting for official ScienceBase Release.,"Manuscript in works. MG says she'll push data soon.
+
+2019-09-25 MG sent data via email. Data is for Soils WG. She's creating a ScienceBase data release.
+
+Hook script draft in Soils WG repo.",,
+1,3,,in progress,,Gonnea et al TBD,FL cores,Meagan Gonnea,,,,,,,
+2,2,,in progress,,Hupp et al 2019,https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018JG004533,crhupp@usgs.gov,,Atchafalaya Delta,"Carbon Stocks, Age-Depth",,"JH - I read the paper and there's not enough information in their on it's own to do a data ingestion. Would need to do a data release. Greg Noe says that first author was not iterested in doing one for the paper. I don't know if they'd change their mind if we were to offer to take on the effort.
+
+Hupp is not interested. We could probably make do if we had the positional information for the plots.
+
+Greg will help.",,
+,3,,in progress,,ISCN,SOC-DRaHR,Kathe Todd-Brown,,,Carbon Stocks,Hook Script,,,
+3,3,,in progress,,Johnson et al Unpublished,TBD,Beverly Johnson <bjohnso3@bates.edu>,,Maine,Carbon Stocks; TBD,TBD,,,
+3,3,,in progress,,Lu et al unpublished,https://www.nature.com/articles/s41586-019-0951-7,LuM@si.edu,,China,carbon stocks,Data release,Need meng to publish review from China data.,,
+2,3,,in progress,,Macredie 2017,"Macreadie, P. I., Ollivier, Q. R., Kelleway, J. J., Serrano, O., Carnell, P. E., Lewis, C. E., ... & Duarte, C. M. (2017). Carbon sequestration by Australian tidal marshes. Scientific reports, 7, 44071. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5345033/",Peter Macredie,,Australia,Carbon Stocks; TBD,TBD,"There is a supplemental data section, but it's does not contain disaggregated data. https://media.nature.com/original/nature-assets/srep/2017/170310/srep44071/extref/srep44071-s1.pdf",,
+3,3,,in progress,,Megonigal,Unpublished GCREW Data,Pat Megonigal,,Chesapeake,Carbon Stocks,Needs manager review,"Carbon stocks in Holmquist et al. Sci. Reports paper, but not in the data release. Top priority once we get FigShare figured up.",,
+2,2,,in progress,,Merill 1999,"Merrill, J.Z., 1999. Tidal Freshwater Marshes as Nutrient Sinks: particulate Nutrient Burial and
+Denitrification. Ph.D. Dissertation, University of Maryland, College Park, MD, 342pp",NA,,Mid-Atlantic and U.S. Northeast,Carbon Stocks; Age Depth Model,Digitize Age-Depth Tables,"Carbon stocks in Holmquist et al. Sci. Reports. Need to digitize data from dissertation for 210Pb. Age depth tables are all in log scale. Probably can't reconstruct accurately using a plot digitizer. Could use the linear accreation rates from the age depth model.
+
+Need new guidence for simple method 210Pb.",,
+3,3,,in progress,,Moyer Unpublished,TBD,Ryan Moyer <Ryan.Moyer@MyFWC.com>,,Tampa Bay,Carbon Stocks; TBD,TBD,,,
+3,3,,in progress,,NASA Unpublished,NASA Soils Data,Lola Fatoyinbo <lola.fatoyinbo@nasa.gov>,,Global,Carbon Stocks,TBD,Need to ask whether these datasets are all together in one and what's available.,,
+3,3,,in progress,,Neubauer et al Unpublished,TBD,Scott Neubauer <sneubauer@vcu.edu>,,Chesapeake,,TBD,,,
+3,1,,in progress,,Nuttle 1996,Nuttle W. 1996. Marsh sediment dynamics and organic matter survey VCR/LTER 1987-1988. Environmental Data Initiative. http://dx.doi.org/10.6073/pasta/f20bcd9b51fb51b5e26df8fa03996baf. Dataset accessed 6/28/2017.,NA,,Coastal Virginia,Carbon Stocks; Age Depth Model,Hook Script,There's geochronology data here. It may be junk.,,
+3,3,,in progress,,Nyman et al 1993,"Nyman, J. A., DeLaune, R. D., Roberts, H. H., & Patrick Jr, W. H. (1993). Relationship between vegetation and soil formation in a rapidly submerging coastal marsh. Marine Ecology Progress Series, 269-279.",John A Nyman <jnyman@lsu.edu>,,LA Gulf Coast,Carbon Stocks; Age Depth Model; TBD,TBD,JH - I don't have age-depth model info.,,
+0,0,,in progress,,Oikawa,Eden Landing dated cores,,,,,,,,
+3,1,,in progress,,Ouyang and Lee 2019,Improved estimates on global carbon stock and carbon pools in tidal wetlands,,,,,,,,
+3,2,,in progress,,Patterson 2016,Bates College honors thesis: carbon/N stocks and AGB/BGB for 9 cores in southern Brazil,epatter2@bates.edu,,Southern Brazil,"C/N stocks, AGB/BGB",digitize tables from appendices,Bev Johnson's student,,
+3,3,,in progress,,Perez Thesis,TBD,Don Barber <dbarber@brynmawr.edu>,,Smyrna Creek,Carbon Stocks; TBD,TBD,,,
+3,3,,in progress,,Peteet et al 2005,"Pederson, D.C., D.M. Peteet, D. Kurdyla, and T. Guilderson. 2005. Medieval warming, Little Ice Age, and European impact on the environment during the last millennium in the lower Hudson Valley, New York, USA. Quaternary Research 63:238-249.",Dorthy Peteet,,"Piedmont Marsh, NY",Carbon Stocks; Age Depth,Dated core pulled in by ML. LOI data extracted from graph in paper. In SWG,Age-depth info IS available via NEOTOMA. Loss on ignition data is not. Dorthy says this is going into a new publication.,,
+1,1,,in progress,,Piazza et al 2011,"Piazza, S.C., Steyer, G.D., Cretini, K.F., Sasser, C.E., Visser, J.M., Holm, G.O., Jr., Sharp, L.A., Evers, D.E., and Meriwether, J.R., 2011, Geomorphic and ecological effects of Hurricanes Katrina and Rita on coastal Louisiana marsh communities: U. S. Geological Survey Open-File Report 2011–1094, 126 p.",Sarai Piazza <piazzas@usgs.gov>,NA (USGS release),Louisiana Gulf Coast,Carbon Stocks; Age Depth Model,Investigating USGS metadata creation,"JH sent a feeler email 2019-06-24.
+
+Sarai aggreed to data release.",,
+3,2,,in progress,,Postlethwaite et al 2018,Low blue carbon storage in eelgrass (Zostera marina) meadows on the Pacific Coast of Canada,vpostlet@sfu.ca,,"Vancouver bay, Canada",Carbon stocks and biomass for seagrass,"Some data in figures/tables on figshare that can be scraped, but mostly aggregated. Reach out to Victoria",,,
+3,3,,in progress,,Reay Unpublished,TBD,Willy Reay <wreay@vims.edu>,,"Goodwin Island, Virginia",Carbon Stocks; TBD,TBD,,,
+3,3,,in progress,,Rogers et al 2019,https://www.nature.com/articles/s41586-019-0951-7,,,Chain Valley Bay,"Carbon Stocks, Age-Depth",There are georeferenced cores with carbon stocks across depthseries in the SI...but could use a data release,,,
+1,1,,in progress,,Rovai 2018,"Rovai, A. S., Twilley, R. R., Castañeda-Moya, E., Riul, P., Cifuentes-Jara, M., Manrow-Villalobos, M., ... & Pagliosa, P. R. (2018). Global controls on carbon storage in mangrove soils. Nature Climate Change, 1.",Andre Rovai <asrovai@gmail.com>,,Global including south florida,Carbon Stocks,Data Release; Hook Script,Process is already started in the Soil Carbon WG github. Andre is giving WG first priority. Will use South Florida data if we can accomodate non-dated cores in the BHM with a missing data model.,,
+1,2,,in progress,,Schile-Beers,Global Dataset,Lisa Shile-Beers <schilel@si.edu>,Full,Global,Carbon Stocks,"Needs data viz test, manager review, and author approval",,,
+3,3,,in progress,,Schile-Beers 2017,Abu Dhubai Cores,Lisa Shile-Beers <schilel@si.edu>,,Abu Dhubai,Carbon Stocks,Biomass Standards; Hook Script,"Soil carbon is injested. Waiting for biomass, lower priority.",,
+2,3,,in progress,,Seranno et al 2019,"Australian vegetated coastal ecosystems as global
+hotspots for climate change mitigation",Cath Lovelock ,,,,Need access to underlying dataset.,,,
+3,1,,in progress,,Sharma et al 1987,Sedimentation and bioturbation in a salt marsh....,,,North Inlet,LOI; Age-Depth Model,Digitize Table and map figures.,Only do this if we decide a missing data model for BD is OK.,,
+1,2,,in progress,,Shaw,GCREW Core,Tim Shaw <tshaw@marine.rutgers.edu>,Full,Chesapeake,Carbon Stocks; Age Depth Model,https://figshare.com/s/73c939b50df59919bbe1,"Waiting for Tim Shaw and Ben Horton to publish these datasets. JH sent a reminder 2019-06-25. TS sent 210Pb and 137Cs data on 2019-06-26. 
+
+Sent 14C and horizon data soon after. JH started data release process on 2019-06-27.
+
+Initial draft done. Data visualization report done 2020-02-18. Needs a few fixes before sending back to authors. ",,
+2,2,,in progress,,Shields et al 2019,"Factors controlling storage, sources, and diagenetic state of organic carbon in a prograding subaerial delta: Wax Lake Delta, Louisiana",Mark Shields <shields892@ufl.edu>,,Wax Lake Delta,TBD,,No BD Data,,
+2,2,,in progress,,Suir et al 2019,"Suir, G. M., Sasser, C. E., DeLaune, R. D., & Murray, E. O. (2019). Comparing carbon accumulation in restored and natural wetland soils of coastal Louisiana. International Journal of Sediment Research.",Glenn Suir <Glenn.M.Suir@erdc.dren.mil>,,Louisiana Gulf Coast,TBD,Intial data consultation,,,
+3,1,,in progress,,TBD,North Inlet depthseries data,datamgr@belle.baruch.sc.edu; (843) 904-9032,,North Inlet-Winyah Bay NERR,carbon stocks?,"nothing at the moment. Maybe a data release, eventually.",Karen Sundberg was helpful in filling out the macro-enabled templates,,
+3,3,,in progress,,TBD,Stocks from Northern BC,Chris Janousek,,PNW,Carbon stocks,Waiting on data from Chris J.,Likely won't ever be published,,
+2,3,,in progress,,"Troche, Ressl and Vazquez YYYY",TBD,Carlos Troche <ctroche@conabio.gob.mx>; Berenice Vazquez <bvazquez@conabio.gob.mx>; Rainer Ressl <rressl@conabio.gob.mx>,,Mexico,,Initial Consultation,,,
+3,3,,in progress,,Velinsky Unpublished,TBD,David Velinsky <djv23@drexel.edu>,,"Brandywine River, Churchman Marsh, Dravo Marsh",Carbon Stocks; TBD,TBD,,,
+3,3,,in progress,,Walters Unpublished,TBD,David Walters <dcwalters@vims.edu>,,"Goodwin Island, Virginia",Carbon Stocks; TBD,TBD,,,
+3,3,,in progress,,Watanabe et al 2019,https://onlinelibrary.wiley.com/doi/epdf/10.1111/gcb.14558,watanabe-ke@p.mpat.go.jp,,Furen Laggon and Hichirippu Lagoon in Northern Japan,"Carbon Stocks, Age-Depth",Needs a data release.,,,
+3,3,,in progress,,Watson Unpublished,TBD,Beth Watson <elizabeth.b.watson@gmail.com>,,"Elkhorn Slough, CA",Carbon Stocks; Maybe Age Depth Model,TBD,,,
+1,3,,in progress,,Weston 2014,"Weston, N. B., Neubauer, S. C., Velinsky, D. J., & Vile, M. A. (2014). Net ecosystem carbon exchange and the greenhouse gas balance of tidal marshes along an estuarine salinity gradient. Biogeochemistry, 120(1-3), 163-189.",Nat Weston <nathaniel.weston@villanova.edu>,,"Delaware Bay, New Jersey Side",Carbon Stocks; Age Depth Model; Chamber Flux Data; TBD,Initial data consultation.,JH sent a feeler email on 2019-06-24. Followup on 2019-08-26. Initial convo 2019-08-28.,,
+1,1,,in progress,,Weston et al Unpublished,TBD,Nat Weston <nathaniel.weston@villanova.edu>,,East Coast,Carbon Stocks; Age Depth Model,Waiting on study and methods metadata,Initial convo 2019-08-28,,
+3,3,,in progress,,Wilson Grimes and Smith Unpublished,NERRS Dataset,Kristin Wilson Grimes <kristin.wilson@uvi.edu>,,"North-Inlet Winyah Bay National Estuarine Research Reserve (NERR), Guana Tolomato Matanzas NERR, Grand Bay NERR, San Francisco Bay NERR, Delaware NERR, Wells NERR",Carbon Stocks,TBD,"Short cores, no age depth models. Wrote to Kristen and co-authors offering help with archiving.",,
+3,3,,in progress,,Yando 2016,Need Citation,Mike Osland,,Gulf coast,Carbon Stocks,TBD,,,
+3,1,,in progress,,Yao et al 2015,"Yao, Q., K.-B. Liu, W.J. Platt, and V.H. Rivera-Monroy. 2015. Palynological reconstruction of environmental changes in coastal wetlands of the Florida Everglades since the mid-Holocene. Quaternary Research 83(3):449-458. [DOI: 10.1016/j.yqres.2015.03.005]; http://apps.neotomadb.org/Explorer/?datasetid=15936",,,Everglades,Loss-On-Ignition; Age-Depth Mdoel,Data Hook,The working group would use this data if we are going to create a missing data model for bulk density.,,
+z,z,2019,published,Abbott_et_al_2019,Abbott et al 2019,"Abbott, K. M., Elsey‐Quirk, T., & DeLaune, R. D. (2019). Factors influencing blue carbon accumulation across a 32‐year chronosequence of created coastal marshes. Ecosphere, 10(8), e02828.",Tracy Quirk <tquirk@lsu.edu>; Katherine Abott <kabbott27@gmail.com>,No,"Sabine Lake, Louisiana",Carbon Stocks; Age Depth Model; Elevation,"Write hook script, test in map.",,,
+z,z,2019,published,Belshe_et_al_2019,Belshe et al 2019,Belshe et al. 2019,Fay Belshe <fbelshe@gmail.com>,Full,Spain,Carbon Stocks; Age Depth Model,"Write hook script, test in map.","Version 1 is just age depth model, Version 2 will have full radioactivity counts and species data",,
+z,z,2019,published,Boyd_2012; Boyd_and_Sommerfield_2016; Boyd_et_al_2017; Unger_et_al_2016,Boyd 2012; Boyd and Sommerfield 2016; Unger et al 2016,"Boyd, B. (2012). Comparison of sediment accumulation and accretion in impounded and unimpounded marshes of the Delaware Estuary (Master's Thesis, University of Delaware).
+
+Boyd, B. M., & Sommerfield, C. K. (2016). Marsh accretion and sediment accumulation in a managed tidal wetland complex of Delaware Bay. Ecological Engineering, 92, 37-46.
+
+Unger, V., Elsey-Quirk, T., Sommerfield, C., & Velinsky, D. (2016). Stability of organic carbon accumulating in Spartina alterniflora-dominated salt marshes of the Mid-Atlantic US. Estuarine, Coastal and Shelf Science, 182, 179-189.",Brandon Boyd <brandon.m.boyd@usace.army.mil>; Christopher Sommerfield <cs@udel.edu>; Tracy Quirk <tquirk@lsu.edu>,,Delaware Bay and New Jersey,Carbon Stocks; Age Depth Model; Elevation,In map - testing,Carbon stocks in Holmquist et al. Sci. Reports. Brandon needs to supply age-depth models.,,
+z,z,2019,published,Callaway_et_al_2019,Callaway et al 2012,"Callaway, J. C., Borgnis, E. L., Turner, R. E., & Milan, C. S. (2012). Carbon sequestration and sediment accretion in San Francisco Bay tidal wetlands. Estuaries and Coasts, 35(5), 1163-1181.",John Callaway <Callaway@ucsf.edu>,,San Francisco Bay,Carbon Stocks; Age Depth Model; Elevation,In map - testing,,,
+z,z,2019,published,Doughty_et_al_2016,Doughty et al 2016,"Doughty, C.L., Langley, J.A., Walker, W.S., Feller, I.C., Schaub, R. and Chapman, S.K., 2016. Mangrove range expansion rapidly increases coastal wetland carbon storage. Estuaries and Coasts, 39(2), pp.385-396.",Cheryl Doughty <cdoughty@ucla.edu>,,Florida Atlantic Coast,Carbon Stocks,In map - testing,,,
+z,z,2020,published,Peck_et_al_2020,Peck Unpublished,TBD,peckerin@oregonstate.edu,Full,Oregon and Washington,Carbon Stocks; Age Depth Model; Elevation,"Needs to be brought into atlas, then promoted.",Embargoed - waiting for publication,,
+z,z,2019,published,Poppe_and_Rybczyk_2018; Poppe_and_Rybczyk_2019; Poppe_et_al_2019,Poppe and Rybczyk 2019; Poppe et al 2018; Crooks et al 2014; Poppe et al Unpublished,"A blue carbon assessment for the Stillaguamish River estuary: Quantifying the climate benefits of tidal marsh restoration. Report.
+
+Poppe, K. L., & Rybczyk, J. M. (2018). Carbon sequestration in a pacific northwest eelgrass (Zostera marina) meadow. Northwest science, 92(2), 80-92.
+
+""Crooks S, Rybczyk J, O’Connell K, Devier DL,
+Poppe K and Emmett-Mattox S. 2014.
+Coastal blue carbon opportunity assessment
+for the Snohomish Estuary: The climate
+benefits of estuary restoration. Report by
+Environmental Science Associates, Western
+Washington University, EarthCorps and
+Restore America’s Estuaries. February 2014""",Katrina Poppe,No,Stillaguamish River Estuary; Snohomish,Carbon Stocks; Age Depth Model; Elevation,Needs to be integrated into library and tested in map.,,,
+z,z,2019,published,Thom_1992,Thom et al 1992,"Thom, R. M. (1992). Accretion rates of low intertidal salt marshes in the Pacific Northwest. Wetlands, 12(3), 147-156.",Ronald Thom <thom.ronald@gmail.com>,No,Pacific Northwest,Carbon Stocks; Age Depth Model,Needs review,"Chris mentioned this as one of the datsets he's ingesting for PNW Blue Carbon Group. This is important data that has been rescued from an obscure lab notebook. 
+
+JH contacted Ron Thom on 2019-06-25.
+
+Ron sent data and agreed to data release on 2019-7-07.",,
+z,z,2019,published,Breithaupt_et_al_2014,Breithaupt et al 2014,"Breithaupt, J. L., Smoak, J. M., Smith, T. J., & Sanders, C. J. (2014). Temporal variability of carbon and nutrient burial, sediment accretion, and mass accumulation over the past century in a carbonate platform mangrove forest of the Florida Everglades. Journal of Geophysical Research: Biogeosciences, 119(10), 2032-2048.",Joshua Breithaupt <jlbreith@mail.usf.edu>,,Everglades,Carbon Stocks; Age Depth Model,,,11/21/19,
+z,z,2020,published,Breithaupt_et_al_2020,Breithaupt et al 2020,"Increasing rates of carbon burial in southwest Florida coastal wetlands [embargoed]
+",Joshua Breithaupt <jlbreith@mail.usf.edu>,Partial,Florida Gulf Coast,Carbon Stocks; Age Depth Model,"Needs to be ingested into library, then promoted.",,,
+z,z,2020,published,Buffington_et_al_2020,"Buffington, Janouseck, Thorne, Dugger et al YYYY",,Janouseck,,Sacramento Delta,Carbon Stocks; Age Depth Model; Elevation,Move to library/atlas,,,
+z,z,2020,published,Kemp_et_al_2020,Kemp et al 2012,"Kemp, A. C., Sommerfield, C. K., Vane, C. H., Horton, B. P., Chenery, S., Anisfeld, S., & Nikitina, D. (2012). Use of lead isotopes for developing chronologies in recent salt-marsh sediments. Quaternary Geochronology, 12, 40-49.",Andrew Kemp <Andrew.Kemp@tufts.edu>,No,Coastal New Jersey,Carbon Stocks; Age Depth Model; Elevation,Make live. Notify author. Add to synthesis.,"Asked 2x for underlying total 210Pb data. Didn't get it, so we're moving on with only excess 210Pb.",1/16/20,
+z,z,2020,published,Keshta_et_al_2020_a; Keshta_et_al_2020_b,"Keshta et al., TBD",Soil Redox and Hydropattern control Soil Carbon Stocks across different habitats in Tidal Freshwater Wetlands in a Sub-estuary of the Chesapeake Ba,Amr Keshta <akeshta@terpmail.umd.edu>,,,Carbon Stocks,,,,
+z,z,2020,published,Messerschmidt_and_Kirwan_2020,"Matt Kirwan, Tyler Messerschmidt",Unpublished GCREW Data,Matthew L. Kirwan <kirwan@vims.edu>,,Chesapeake,Carbon Stocks; Age Depth Model; Elevation,,D Klinges sent M Kirwan metadata templates on 2019-02-11. D Klinges received depthseries disaggregated data from M Kirwan.,,
+z,z,2020,published,McTigue_et_al_2020,McTigue et al. 2019,"McTigue, N., Davis, J., Rodriguez, A. B., McKee, B., Atencio, A., & Currin, C. (2019). Sea level rise explains changing carbon accumulation rates in a salt marsh over the past two millennia. Journal of Geophysical Research: Biogeosciences, 124. https://doi.org/ 10.1029/2019JG005207",Nathan McTigue <nathan.mctigue@noaa.gov>; Carolyn Currin <carolyn.currin@noaa.gov>,,"Freeman Creek, Onslow Bay, NC",Carbon Stocks; Age Depth Model; Elevation,Need to hook into library.,"These cores are part of an in-prep manuscript being resubmitted. JH sent follow up on 2019-06-25.
+
+Carolyn sent meta-data. 
+
+Caroyln sent data. A few discrepencies 2L is actuallly 2 cores. We should pull 14C data from the paper. The elevations listed in Carolyn's submission differ from what's listed in the paper.",,
+z,z,2020,published,Nolte_2020,Nolte et al 2013,"Nolte, S., Müller, F., Schuerch, M., Wanner, A., Esselink, P., Bakker, J. P., & Jensen, K. (2013). Does livestock grazing affect sediment deposition and accretion rates in salt marshes?. Estuarine, Coastal and Shelf Science, 135, 296-305.",Stefanie Nolte <stefanie.nolte@uni-hamburg.de>,,"Wadden Sea, Germany",Carbon Stocks; Age Depth Model; Elevation,Move to library/atlas,,,
+z,z,2020,published,Kauffman_et_al_2020,PNW Blue Carbon Group Unpublished,TBD,Christopher N Janousek <janousec@oregonstate.edu>; Craig Cornu <cecornu@gmail.com>; Jude Apple <japple@padillabay.gov>,,Columbia River; Coos; Yaquina; Padilla; Skagit; Snohomish; Gray's Harbor; Humboldt; Nehalem; Yaquina,Carbon Stocks,Add to Atlas.,,,
+z,z,2020,published,Sanborn_and_Coxson_2020,Sanborn & Coxson YYYY,TBD,Janouseck,,British Columbia,Carbon Stocks,Needs to be uploaded to FigShare and final confirmation from authors,Data set sent to JH via email.,,
+z,z,2020,published,StLaurent_et_al_2020,St. Laurent et al 2020,"Laurent, K. A. S., Hribar, D. J., Carlson, A. J., Crawford, C. M., & Siok, D. (2020). Assessing coastal carbon variability in two Delaware tidal marshes. Journal of Coastal Conservation, 24(6), 1-16.",Kari St. Lauren <kari.stlaurent@delaware.gov>,,DE Bay,Carbon Stocks,Initial data formatting,,,
+z,z,2020,published,Whigham_et_al_2020,TMON Unpublished,TMON GCREW Plot Biomass Data,TBD,,Chesapeake,Biomass,,,,
+1,2,2020,published,Vaughn_et_al_2020,Vaughn Unpublished,TBD,Derrick Vaughn <dvaughn1990@ufl.edu>,Full,Florida (east and west coast),Carbon Stocks; Age Depth Model,V1 public and in portal - V2 waiting on manuscript in review process,,,
+z,z,2020,published,Lagomasino_et_al_2020,Lagomasino et al 2013,"Lagomasino, D., Corbett, D. R., & Walsh, J. P. (2013). Influence of wind-driven inundation and coastal geomorphology on sedimentation in two microtidal marshes, Pamlico River Estuary, NC. Estuaries and coasts, 36(6), 1165-1180.",David Lagomasino <david.lagomasino@gmail.com>,No,Pamlico River Estuary,Carbon Stocks; Age Depth Model; Elevation,,,,
+z,z,,synthesized,,Ariolla et al 2018,"Arriola, J. M., & Cable, J. E. (2017). Variations in carbon burial and sediment accretion along a tidal creek in a Florida salt marsh. Limnology and Oceanography, 62(S1), S15-S28.",Jill Arriola <arriola@email.unc.edu>,,Florida Gulf Coast,Carbon stocks; Age depth model,,"Data in SI. Pretty good. May need manual edits to make machine readable.
+
+Jill sent core coordinates on 2019-09-26.
+
+Manager review done.",,
+z,z,,synthesized,,Cochran et al 1998,"Cochran, J. K., Hirschberg, D. J., Wang, J., & Dere, C. (1998). Atmospheric deposition of metals to coastal waters (Long Island Sound, New York USA): evidence from saltmarsh deposits. Estuarine, Coastal and Shelf Science, 46(4), 503-522.",Kirk Cochran <kirk.cochran@stonybrook.edu>,,Long Island Sound,Carbon Stocks; Age Depth Model,TBD,"JH: We have enough public info to ingest age-depth model from NASA BCMS. Want to double check these documents are public. Data didn't actually make it into synthesis. Don't know what happened.
+
+Checked. No original BD data.",,
+z,z,,synthesized,,Craft 2007,"Craft, C. (2007). Freshwater input structures soil properties, vertical accretion, and nutrient accumulation of Georgia and US tidal marshes. Limnology and oceanography, 52(3), 1220-1230.",NA,,Coastal Georgia,Carbon Stocks; Age Depth Model,Needs to be integrated into library and tested in map.,,,
+z,z,,synthesized,,Nahlik & Fennessy 2016,EPA National Wetlands Assessment,Amanda Nahlik,,CONUS,Carbon Stocks,DONE,https://www.nature.com/articles/ncomms13835/,,
+z,z,,,,Byrd et al 2017,"Byrd, K.B., Ballanti, L.R., Thomas, N.M., Nguyen, D.K., Holmquist, J.R. et al. (2017) Biomass/Remote Sensing dataset: 30m resolution tidal marsh biomass samples and remote sensing data for six regions in the conterminous United States: U.S. Geological Survey data release, https://doi.org/10.5066/F77943K8.",Kristen Byrd <kbyrd@usgs.gov>,,"GCREW, MD",Biomass,Data hooked into biomass/SERC folder in SWG repo,JH: Found GCREW biomass original measurements in share drive. ML will curate a version that works with the TMON dataset. ,,
+z,z,,,,Deegan et al 2013,"Deegan L., D. FitzGerald, S. Fagherazzi. 2012. 2009 LENS belowground biomass core results. Environmental Data Initiative. https://doi.org/10.6073/pasta/bc041b3546ba4a3730fd391852741620. Dataset accessed 1/19/2019.",NA,,Plum Island LTER,Below Ground Biomass,none,,,
+z,z,,,,Deegan et al 2014,"Deegan L., D. FitzGerald, S. Fagherazzi. 2012. 2009 LENS aboveground biomass results. Environmental Data Initiative. https://doi.org/10.6073/pasta/6830381e663fedc52bbdb3c501fdf3ee. Dataset accessed 1/19/2019.",NA,,Plum Island LTER,Above Ground Biomass,none,,,
+z,z,,,,Drexler et al 2009,"Drexler, J. Z., de Fontaine, C. S., & Brown, T. A. (2009). Peat accretion histories during the past 6,000 years in marshes of the Sacramento–San Joaquin Delta, CA, USA. Estuaries and Coasts, 32(5), 871-892.",Judith Drexler <jdrexler@usgs.gov>,,San Joaquin Delta,Carbon Stocks; Age Depth Model,Approved. Needs to be merged with master synthesis and updated in map.,,,
+z,z,,,,Drexler et al 2013,"Drexler, J. Z., Krauss, K. W., Sasser, M. C., Fuller, C. C., Swarzenski, C. M., Powell, A., ... & Orlando, J. (2013). A long-term comparison of carbon sequestration rates in impounded and naturally tidal freshwater marshes along the lower Waccamaw River, South Carolina. Wetlands, 33(5), 965-974.",Judith Drexler <jdrexler@usgs.gov>,,Waccamaw River,Carbon Stocks; Age Depth Model,2019-07-19: JH Approved.,"Most info is present in paper SI. Judy sent positional info,",2019-07-19: JH Approved.,7/23/19
+z,z,,,,Drexler et al 2019,"Drexler, J. Z., Woo, I., Fuller, C. C., & Nakai, G. Carbon accumulation and vertical accretion in a restored vs. historic salt marsh in southern Puget Sound, Washington, USA. Restoration Ecology.",Judith Drexler <jdrexler@usgs.gov>,,Nisqually National Wildlife Refuge,Carbon Stocks; Age Depth Model,2019-07-19: JH Approved.,Judy sent positional info. We may be on the hook for creating a separate science-base data release for isotope data.,2019-07-19: JH Approved.,7/23/19
+z,z,,,,Elsey-Quirk et al 2011,"Elsey-Quirk, T., Seliskar, D. M., Sommerfield, C. K., & Gallagher, J. L. (2011). Salt marsh carbon pool distribution in a mid-Atlantic lagoon, USA: sea level rise implications. Wetlands, 31(1), 87-99.",Tracy Quirk <tquirk@lsu.edu>,,Coastal Delaware,Carbon Stocks; Age Depth Model; AGB; Elevation; Inundation; Below Ground Traits,Needs hook script,"Waiting on Elsey-Quirk response for core release. Digitizing supplemental table 1 for AGB~elevation and belowground traits.
+
+Tracy will send da. Needs radioactivity data from Chris Sommerfield.
+
+Chris Sommerfield can't submit data. We could digitize table. Would need new guidence for archiving accretion rates from simple method 210Pb.",,
+z,z,,,,Fourqurean et al. 2012,Seagrass carbon stocks synthesis,Jim Fourqurean,,TBD,Carbon Stocks; TBD,Needs methods metadata needs to be coded.,,,
+z,z,,,,Gerlach et al 2017,"Gerlach, M. J., Engelhart, S. E., Kemp, A. C., Moyer, R. P., Smoak, J. M., Bernhardt, C. E., & Cahill, N. (2017). Reconstructing Common Era relative sea-level change on the Gulf Coast of Florida. Marine Geology, 390, 254-269.",Ryan Moyer <Ryan.Moyer@MyFWC.com>,,Tampa Bay,Carbon Stocks; Age Depth Model,Needs to be integrated into library and tested in map.,"Manager review notes: There is elevation data present. We can back calculate from what's represtented in figs. There's other horizon data and a 137Cs peaks reported in the text. I say let's include it.
+
+JH - I'm also writing to Moyer and Engelhardt to see if I can get the elevation data for the cores.
+
+SI has elevation for cores relative to MHW but Tab. 1, which has tide gauge info has an error, which gives me pause about simply back calculating to NAVD88.",,
+z,z,,,,Giblin et al 2018,"Giblin A., I. Forbrich. 2018. PIE LTER high marsh sediment chemistry and activity measurements, Nelson Island Creek marsh, Rowley, MA. Environmental Data Initiative. https://doi.org/10.6073/pasta/d1d5cbf87602ccf51de30b87b8e46d01. Dataset accessed 1/19/2019.",Inke Forbrich <iforbrich@mbl.edu>,,Plum Island LTER,Carbon Stocks; Age Depth Model,Approved. Push to map. Test updates.,,,
+z,z,,,,Hill and Anisfield 2015,"Hill, T. D., & Anisfeld, S. C. (2015). Coastal wetland response to sea level rise in Connecticut and New York. Estuarine, Coastal and Shelf Science, 163, 185-193.",Troy Hill <troy.hill@yale.edu>; Uses gmail now.,,Long Island Sound,Carbon Stocks; Age Depth Model,Needs data release for age-depth data.,"JH sent a feeler email 2019-06-24.
+
+Troy Hill is too busy to help.
+
+JH sent message to S Anisfeld on 2019-10-16",,
+z,z,,,,Johnson et al 2007,"Johnson, B. J., Moore, K. A., Lehmann, C., Bohlen, C., & Brown, T. A. (2007). Middle to Late Holocene fluctuations of C 3 and C 4 vegetation in a northern New England salt marsh, Sprague Marsh, Phippsburg Maine. Organic Geochemistry, 38(3), 394-403.",Beverly Johnson <bjohnso3@bates.edu>,,Maine,Carbon Stocks; Age Depth Model; TBD,Pull request and ingest into main synthesis - testing in map,"Carbon stocks in Holmquist et al. Sci. Reports. Need data release for 14C; Maybe a data rescue.
+
+2019-07-08:JH review complete. Looks good. Needs ingestion into main synthesis and testing in Atlas.",,7/23/19
+z,z,,,,Krauss et al 2018; Jones et al 2017,https://doi.org/10.5066/F7TM7930,"Miriam Jones, Ken Krauss",,"Waccama and Savannah River, SC",Biomass,curate data release,"same data release as above carbon stocks/age depth, but separeted as distinct item for biomass, which is lower priority",,
+z,z,,,,Krauss et al 2018; Jones et al 2017; Noe et al 2016,https://doi.org/10.5066/F7TM7930,"Miriam Jones, Ken Krauss",,"Waccama and Savannah River, SC",Carbon Stocks; Age Depth,"2019-07-02: Edits from manager review conducted. Back to manager review 
+
+2019-06-17: Manager review conducted. Revisions made.
+
+2019-07-08 2nd manager review. Needs methods meta-data, needs to be broken down as a synthesis with nested citations for original studies.","there remains biomass data in this data release that is uncurated. Adding this as a distinct item in ingestion priorities, lower down",,7/23/19
+z,z,,,,Neubeauer et al 2002,"Neubauer, S. C., Anderson, I. C., Constantine, J. A., & Kuehl, S. A. (2002). Sediment deposition and accretion in a mid-Atlantic (USA) tidal freshwater marsh. Estuarine, Coastal and Shelf Science, 54(4), 713-727.",Scott Neubauer <sneubauer@vcu.edu>,,Chesapeake,Carbon Stocks; Age Depth Model,TBD,One 137Cs core different from all the stocks data. No spatial differentiation in core location.,,
+z,z,,,,Peteet et al 2018,"Peteet, D. M., Nichols, J., Kenna, T., Chang, C., Browne, J., Reza, M., ... & Stern-Protz, S. (2018). Sediment starvation destroys New York City marshes’ resistance to sea level rise. Proceedings of the National Academy of Sciences, 115(41), 10281-10286.",Dorthy Peteet,,"Jamaica Bay, NY",Carbon Stocks; Age Depth,TBD,"Data availability statement says that data will be available via NEOTOMA and GEOCHRON, but the releases aren't there yet. JH wrote to follow up on 2019-06-26. JH wrote 2nd followup on 2019-08-26.",,
+z,z,,,,Schile-Beers et al 2014,"Schile, L. M., Callaway, J. C., Morris, J. T., Stralberg, D., Parker, V. T., & Kelly, M. (2014). Modeling tidal marsh distribution with sea-level rise: Evaluating the role of vegetation, sediment, and upland habitat in marsh resiliency. PLoS One, 9(2), e88760.",Lisa Shile-Beers <schilel@si.edu>,,San Francisco Bay,"Biomass, Elevation",Merge with synthesis,,,
+z,z,,,,Smith et al. 2015,"Smith, K.E.L., Flocks, J.G., Steyer, G.D., and Piazza, S.C., 2015, Wetland paleoecological study of southwest coastal Louisiana—Sediment cores and diatom calibration dataset: U.S. Geological Survey Data Series 877, https://dx.doi.org/10.3133/ds877.",,,,Carbon Stocks; Age Depth Models,Approved. Needs to be merged with master synthesis and updated in map.,,,
+z,z,,,,TBD,"Spartina alterniflora - Biomass, Productivity, Porewater Chemistry and Marsh Elevation https://www.baruch.sc.edu/biological-databases and https://portal.edirepository.org/nis/mapbrowse?packageid=edi.135.3",datamgr@belle.baruch.sc.edu; (843) 904-9032,,North Inlet-Winyah Bay NERR,Above Ground Biomass; Elevation,Data pulled into SWG,"Jim M referred us to his technician, Karen Sundberg, who may have core data",,
+z,z,,,,Theucrauf et al ,"Theuerkauf, E. J., Stephens, J. D., Ridge, J. T., Fodrie, F. J., & Rodriguez, A. B. (2015). Carbon export from fringing saltmarsh shoreline erosion overwhelms carbon storage across a critical width threshold. Estuarine, Coastal and Shelf Science, 164, 367-378.",Evan Theurkrauf <theuerk5@msu.edu>,,"Carrot Island, NC",Data Release,,"Submitted to NASA CMS but didn't have BD I think. 
+
+Sent feeler email on 2019-10-11.
+
+Responded on 2019-10-16. Interested but is currently in his first semester as a prof.
+
+Responded 2020-2-11 saying he couldn't find the data. Abandoning data release.",,
+z,z,,,,Thorne et al 2015 a,"Thorne, K. 2015.  Field and model data for studying the effects of sea-level rise on eight tidal marshes in coastal Washington and Oregon. US Geological Survey Data Release.  10.5066/F7SJ1HNC.",Kevin Buffington <kbuffington@usgs.gov>; Karen Thorne <kthorne@usgs.gov>,,Pacific Northwest,Carbon Stocks; Age Depth Model,Looks good -JH. ,137C peak is logical value in depthseries table,,
+z,z,,,,Trettin et al 2017,"Trettin, Carl C.; Stringer, Christina E.; Zarnoch, Stanley J.; Tang, Wenwu; Dai, Zhaohua. 2017. Mangrove carbon stocks in Zambezi River Delta, Mozambique. Fort Collins, CO: Forest Service Research Data Archive. https://doi.org/10.2737/RDS-2017-0053","Lola, David from NASA",,Mozambique,Biomass; Carbon Stocks,Carbon stocks good -JH. Need biomass data standards once they're in.,All good.,,
+z,z,,,,Watson and Byrne 2013,"Watson, E. B., & Byrne, R. (2013). Late Holocene Marsh Expansion in Southern San Francisco Bay, California. Estuaries and coasts, 36(3), 643-653.",Beth Watson <elizabeth.b.watson@gmail.com>,,South San Francisco Bay,Carbon Stocks; Age Depth Model,in library,Age depth data never added to Library,,
+z,z,,,,Weis et al 2001,,TBD,,Tijuana Estuary - Southern California,Carbon Stocks; Age Depth Model,Moved to library. Needs to be tested in map,"Nested citations, paper and thesis (data digitized from thesis)",,7/23/19
