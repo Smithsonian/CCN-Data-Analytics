@@ -25,7 +25,3 @@ leaflet(cr_cores) %>%
   addCircleMarkers(radius = 3)
 
 
-depthseries %>% 
-  filter(study_id %in% unique(cr_cores$study_id)) %>% 
-  
-ggplot()
