@@ -5,15 +5,18 @@ source("resources/refresh_data.R")
 ## Isotope Data ####
 
 isodata <- depthseries %>% drop_na(delta_c13) %>% 
-  left_join(cores %>% select(study_id, site_id, core_id, habitat, country)) %>% 
+  left_join(cores %>% select(study_id, site_id, core_id, habitat, country, admin_division)) %>% 
   mutate(habitat = recode(habitat, "scrub shrub" = "scrub/shrub")) %>% 
-  select(study_id, site_id, core_id, depth_min, depth_max, delta_c13, habitat, country)
+  select(study_id, site_id, core_id, depth_min, depth_max, delta_c13, habitat, country, admin_division)
 
-isodata %>% filter(depth_max < 30) %>% 
+isodata %>% 
+  # filter(depth_max < 30) %>% 
   ggplot(aes(delta_c13, col = habitat)) +
   geom_density() +
   theme_bw()
 
+min(isodata$delta_c13)
+max(isodata$delta_c13)
 
 isodata %>% 
   # filter(depth_max <= 100) %>% 
