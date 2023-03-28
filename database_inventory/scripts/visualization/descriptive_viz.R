@@ -8,9 +8,9 @@ library(lubridate)
 # library(leaflet)
 library(RColorBrewer)
 
-impacts <- read_csv("data/derived/ccn_conus_impacts.csv")
-stateinfo <- read_csv("data/derived/state_lookup.csv")
-cores <- read_csv("data/derived/ccn_conus_cores.csv", guess_max = 4000) %>% 
+impacts <- read_csv("database_inventory/data/derived/ccn_conus_impacts.csv")
+stateinfo <- read_csv("database_inventory/data/derived/state_lookup.csv")
+cores <- read_csv("database_inventory/data/derived/ccn_conus_cores.csv", guess_max = 4000) %>% 
   left_join(stateinfo)
 
 ## Look at the years that data was sampled in

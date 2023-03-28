@@ -22,15 +22,15 @@ coastal_cores <- cores %>%
                           "algal mat" = "EAB"))
 
 # write files
-write_csv(coastal_cores, "data/derived/ccn_conus_cores.csv")
+write_csv(coastal_cores, "database_inventory/data/synthesis/v2/ccn_conus_cores.csv")
 
 ## Impacts ####
-impacts <- read_csv(paste0(library_url, "CCRCN_impacts.csv"), col_types = cols(.default = "c")) 
-
-conus_impacts <- impacts %>%
-  filter(site_id %in% unique(coastal_cores$site_id))
-
-write_csv(conus_impacts, "data/derived/ccn_conus_impacts.csv")
+# impacts <- read_csv(paste0(library_url, "CCRCN_impacts.csv"), col_types = cols(.default = "c")) 
+# 
+# conus_impacts <- impacts %>%
+#   filter(site_id %in% unique(coastal_cores$site_id))
+# 
+# write_csv(conus_impacts, "data/derived/ccn_conus_impacts.csv")
 
 ## Synthesis Bibliography ####
 
@@ -50,6 +50,5 @@ citations <- read_csv(paste0(library_url, "CCRCN_study_citations.csv"))
 conus_citations <- citations %>% 
   filter(study_id %in% unique(coastal_cores$study_id))
   
-
 # write study citations
-write_csv(conus_citations, "data/derived/ccn_conus_citations.csv")
+write_csv(conus_citations, "database_inventory/data/synthesis/v2/ccn_conus_citations.csv")

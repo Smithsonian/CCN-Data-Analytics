@@ -53,7 +53,8 @@ ranked_quality <- quality %>%
   select(state, quality_metric_rank, quality_metric_weight)
 
 # Spatial Representativeness Metric
-spatial_rep <- read_csv("data/derived/spatial_rep_by_state.csv") %>% 
+spatial_rep <- spatial_rep_by_state %>% 
+  # read_csv("data/derived/spatial_rep_by_state.csv") %>% 
   arrange(-spatial_representativeness_metric) %>% 
   mutate(state = state.abb[match(state,state.name)]) %>% 
   mutate(spatial_metric_rank = row.names(.),
