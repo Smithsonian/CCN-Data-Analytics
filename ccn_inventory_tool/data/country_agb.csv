@@ -1,0 +1,117 @@
+﻿continent,country,max_height_m,mean_height_m,max_agb_Mg_ha,mean_agb_Mg_ha,total_agb_Mg,total_abg_carbon_Mg,total_area_ha
+Africa,Gabon,62.8,23.5,910.5,244,33578276,61504323,137597
+Africa,Equatorial Guinea,57.7,21.6,800,208.6,2630892,5337399,12613
+Africa,Cameroon,47.5,22.6,594.5,208.7,41603704,84360030,199303
+Africa,Angola,45.8,16.6,562.3,139.7,3738534,10090736,26779
+Africa,Cote d'Ivoire,44.1,16.1,530.8,130.4,249076,708115,1911
+Africa,Liberia,37.3,13.2,411.1,97,724245,2599351,7465
+Africa,Nigeria,33.9,13.4,355.3,96.5,66791716,240715439,691986
+Africa,Comoros,32.2,19.2,658,246.7,26858,48867,109
+Africa,Democratic Rep. of Congo,30.5,10.9,302.4,68.8,1396076,6684097,20304
+Africa,Ghana,28.8,9.4,277.1,59.8,689229,3724126,11523
+Africa,Sierra Leone,28.8,11.3,277.1,74.7,11701745,52204468,156682
+Africa,South Africa,28.8,14.9,519.2,160.9,226963,551950,1411
+Africa,Tanzania,28.8,16.4,519.2,182,17214904,38347862,94628
+Africa,Madagascar,27.2,14.6,456.3,146.8,39610740,102656269,268686
+Africa,Mayotte,25.5,15.3,397.7,152.1,78149,197952,514
+Africa,Europa Island,23.8,16.5,343.4,166.5,96445,228726,579
+Africa,Reunion and Mauritius,23.8,8.3,343.4,65.7,2107,10497,32
+Africa,Guinea,22.1,10.2,183.9,60.4,14682286,78699556,243227
+Africa,Seychelles,22.1,13.3,293.3,114.4,124380,391309,1087
+Africa,Togo,22.1,6.8,183.9,39.3,4894,38560,125
+Africa,Djibouti,20.4,11.3,269.2,93.4,50933,188495,545
+Africa,Guinea Bissau,20.4,11.8,162.7,71.6,24783942,114576720,346015
+Africa,Kenya,20.4,8.8,247.3,55.3,1789149,10363775,32373
+Africa,Mozambique,20.4,10.6,247.3,73.9,23639760,106169069,319023
+Africa,Gambia,18.7,8.1,142.4,42,2932013,21735458,69842
+Africa,Egypt,17,6.6,186.7,45.1,9502,66810,214
+Africa,Eritrea,15.3,8.2,151.1,53.1,307640,1847310,5797
+Africa,Somalia,15.3,6.3,134,30.7,78608,777134,2559
+Africa,Senegal,13.6,6.2,87.5,28.4,4587751,48735342,161316
+Africa,Mauritania,10.2,6.2,56.3,29.2,814,8450,28
+Africa,Benin,8.5,3,42.6,10,47369,1370222,4729
+Africa,Soudan,8.5,3.4,46.5,11,3551,93902,323
+Africa,Congo,0.8,1,1.3,1.3,445,100260,353
+Oceania,Papua New Guinea,45.8,27.7,432.5,242.4,113948576,209577515,469983
+Oceania,Micronesia,40.7,21.6,366.4,189,1839511,3990518,9733
+Oceania,New Zealand,30.5,12.3,257.3,118.6,3669821,11229992,30968
+Oceania,Australia,25.5,11.9,212.6,119.4,112797816,342085251,940941
+Oceania,Hawaii,25.5,10.6,122.6,35.6,25154,216808,706
+Oceania,Palau*,25.5,16.4,212.6,149.4,601312,1543040,4025
+Oceania,Solomon Islands*,25.5,14.2,212.6,136,4268817,11753573,31396
+Oceania,Vanuatu,25.5,12.1,212.6,120.3,163396,494188,1358
+Oceania,Wallis and Futuna,25.5,12.8,212.6,124.7,1717,5052,14
+Oceania,Samoa*,23.8,13,199,127.2,36766,106538,289
+Oceania,French Polynesia,22.8,18.5,191.7,161.7,176,425,1
+Oceania,Fiji*,22.1,5.5,185.9,83.5,8344792,33924129,100058
+Oceania,Northern Mariana Islands*,21.9,14.6,184.6,133.1,98,273,1
+Oceania,New Caledonia,18.7,8,161.5,92.1,2198955,8233948,23874
+Oceania,Tuvalu,17,4.5,150,76.8,585,2549,8
+Oceania,Tonga,13.6,7,128.5,89.9,69344,264770,771
+Oceania,Kiribati,0.8,0.8,57.4,57.4,980,5490,17
+Oceania,Marshall islands,0.8,0.8,57.4,57.4,60,334,1
+Asia,Indonesia,44.1,24.3,409.5,215.3,574318208,1140797712,2667356
+Asia,Brunei,39,28.4,346.2,241.1,2624305,4843908,10885
+Asia,Malaysia,33.9,19.9,290.6,172.9,95561040,220641786,552741
+Asia,Singapore,33.9,16.7,290.6,152,86206,218443,567
+Asia,Myanmar,30.5,13.7,257.3,130.7,61974552,175266415,472156
+Asia,Andaman and Nicobar*,25.5,16.1,421.2,192.7,9023870,19319468,46839
+Asia,Bangladesh,25.5,15.4,421.2,171.7,73916552,171532878,430607
+Asia,Timor Leste*,25.5,21.3,212.6,180.8,6423,14369,36
+Asia,Philipines,23.8,10.4,199,110.3,27886714,90271662,252763
+Asia,Japan*,22.1,13.3,185.9,127.4,100112,289565,785
+Asia,Thailand,22.1,13.4,185.9,126,30703280,89541480,243495
+Asia,Cambodia,20.4,9.8,173.4,107.1,5040616,16706995,47066
+Asia,Taiwan,18.7,8,161.5,96.4,12994,46890,135
+Asia,Hong Kong,17,5.7,150,80.9,46635,194432,576
+Asia,China,15.3,5.6,139,81.8,1266828,5243015,15518
+Asia,Macau,15.3,8.3,139,98.6,477,1689,5
+Asia,Sri Lanka,15.3,7.6,151.1,43.4,989212,7118467,22805
+Asia,Vietnam,15.3,6.4,139,87,17462792,68489813,200548
+Asia,India,13.6,7.3,119.3,41.1,13331113,100688547,324135
+Asia,Pakistan,8.5,5,46.5,17.9,961184,15842946,53700
+North and South America,Colombia,54.3,24,413.3,129.5,26648548,75973344,205179
+North and South America,Venezuela,52.6,30.7,392.8,184,45505364,100551457,247252
+North and South America,Panama,50.9,27.7,372.6,155.6,23676218,58979743,152189
+North and South America,French Guyana,49.2,23.2,352.9,129.2,10290431,29453310,79640
+North and South America,Costa Rica,45.8,23.4,314.7,116.4,4512007,13998836,38752
+North and South America,Guyana,42.4,24.5,278.2,127.8,2806631,8105363,21976
+North and South America,Brazil,40.7,19.9,260.5,92.5,97833808,363245344,1051244
+North and South America,Ecuador,40.7,19.4,260.5,88.2,11611429,45065625,131671
+North and South America,Guatemala,40.7,24.2,260.5,120.2,4142346,12548011,34503
+North and South America,Suriname,40.7,17.3,260.5,80.7,6937571,29000268,86001
+North and South America,El Salvador,39,18,243.3,75.9,2550341,11216253,33578
+North and South America,Saint Lucia,32.2,17.7,179.1,71.6,9892,45725,138
+North and South America,Trinidad and Tobago,32.2,19.5,179.1,84.3,532507,2144539,6313
+North and South America,Honduras,30.5,16.9,164.2,68,4519796,21857392,66502
+North and South America,US Virgin Islands,30.5,13.6,164.2,47.1,8510,56878,181
+North and South America,Nicaragua,28.8,14.7,149.9,55.1,4017509,23354504,72985
+North and South America,Barbados,27.2,15.6,136,58.6,2094,11514,36
+North and South America,Dominican Republic,27.2,12.9,136,45.3,801214,5543970,17687
+North and South America,Martinique,27.2,14.9,136,54.6,58613,343171,1073
+North and South America,Mexico,27.2,11.1,136,37.9,26388806,212888568,689596
+North and South America,Anguilla*,25.5,8.3,122.6,29.4,56,574,2
+North and South America,Grenada,25.5,16.1,122.6,61.1,12704,67394,208
+North and South America,Jamaica,25.5,10.6,122.6,35.6,325390,2806067,9143
+North and South America,Saint Vincent and the Grenadines*,23.8,11.7,109.8,40.7,1642,12536,40
+North and South America,Belize,22.1,8.8,97.5,26,1447931,16717298,55634
+North and South America,Cuba,22.1,9.9,97.5,30.2,12797064,128397896,423316
+North and South America,Peru,22.1,12.1,97.5,40.1,162545,1256800,4055
+North and South America,Saint Kitts and Nevis,22.1,9.9,97.5,31.6,1637,15732,52
+North and South America,United States (continental),22.1,10.6,97.5,33.3,7666705,70281607,230140
+North and South America,Guadeloupe,20.4,11,85.7,34.1,101593,911443,2979
+North and South America,Cayman Islands,18.7,11.2,74.6,34.3,259153,2309178,7544
+North and South America,Aruba,17,7.2,64,20.2,1956,28741,97
+North and South America,British Virgin Islands,17,5.8,64,14.2,1090,22465,77
+North and South America,Puerto Rico,17,8.2,64,21.8,170687,2333429,7840
+North and South America,Antigua and Barbuda,15.3,9.1,54,25.2,22607,269102,897
+North and South America,Bahamas,13.6,5.8,44.7,13.3,1016952,22295189,76367
+North and South America,Haiti,13.6,7.5,44.7,18,261748,4280545,14504
+North and South America,Turks and Caicos Islands,10.2,6.9,28.2,15.4,262418,4992163,17017
+Middle East,Oman,17,6.1,186.7,33.7,7825,70433,230
+Middle East,Iran,11.9,5.5,91.3,24.4,300787,3692116,12332
+Middle East,Saudi Arabia,11.9,3.9,91.3,16.2,109564,1941001,6599
+Middle East,Yemen,11.9,7.4,91.3,35.2,36737,319725,1043
+Middle East,Qatar,10.2,4.7,67,18,6892,112853,382
+Middle East,United Arab Emirates,10.2,3.7,67,11.9,140746,3435388,11805
+Middle East,Bahrain,6.8,2,29.7,4.5,328,20902,73

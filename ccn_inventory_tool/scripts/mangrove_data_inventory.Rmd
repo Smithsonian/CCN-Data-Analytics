@@ -1,0 +1,286 @@
+---
+title: "Mangrove Data Inventory Metrics"
+author: "Coastal Carbon Network"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: spacelab
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+# this sets the working directory to start where the R project is located
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+
+# no warnings or messages
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+
+# load libraries
+library(tidyverse)
+library(readxl)
+library(leaflet)
+library(DT)
+```
+
+```{r methods, echo=FALSE}
+
+# Mapping product preparation:
+
+# 1. Combine World countries and EEZ shapefiles - R
+    # having resolved countries and territories
+# 2. perform a self-union of the resulting shapefile - Arc
+# 3. Eliminate redundant (overlapping) polygons - R
+# 4. Clip GMW layer to the resulting World map - Arc
+    # intended to divide up any mangrove habitat spanning two/more countries
+# 5. Spatial join GMW clip to World map - Arc
+    # join based on mangrove polygon centroids
+# 6. Summary Statistics to summarize mangrove area by country - Arc
+# 7. Table to Excel to output results - Arc
+
+```
+
+
+```{r calculations, echo=FALSE, eval=FALSE}
+# Back of the Envelope ####
+# calculations base on GIS output
+
+# mangrove area calculations (convert to km^2)
+total_mangrove <- 154922803764.91104/10^6
+mangrove_eez <- 131612701087.77483/10^6
+mangrove_country <- 164114322670.57141/10^6 # why is this more than the total??
+
+# spatial join after clipping GMW to the countries + EEZ polygons
+# spatial join using "center is within feature"
+# 10 mangrove polys remained undefined (~13.9 km^2)
+# subtracting this, it still captures 99.99%
+mangrove_join <- 154922338547.92615/10^6 - 13919580.926222/10^6
+
+(mangrove_join/total_mangrove)*100 
+
+# select_mangrove_country <- 154586149853.85248/10^6 # makes more sense
+# select_mangrove_eez <- 131235982755.63179
+# 
+# (select_mangrove_country/total_mangrove)*100 # captures 99.8%...still should join the EEZs
+# select_mangrove_eez/total_mangrove
+
+# total_mangrove - mangrove_eez # 23310.1 km^2 not captured by the EEZ
+# total_mangrove - mangrove_country # 9191.5 km^2 more than expected..were shared polys counted twice?
+# 
+# (mangrove_eez/total_mangrove) * 100 # 85% 
+# (mangrove_country/total_mangrove) * 100 # 106%
+```
+
+```{r map-prep, echo=FALSE, eval=FALSE}
+
+## older calculations
+country_intersect_orig <- read_xls("global/data/mangroveCountryIntersect_Area.xls") 
+eez_intersect_orig <- read_xls("global/data/mangroveEEZIntersect_Area.xls") 
+
+# curate wetland area tables
+country_intersect <- country_intersect_orig %>% 
+  mutate(estimated_area_ha = SUM_ST_AREA_SH/10000) %>% 
+  rename(country = COUNTRY) %>% # same column used to assign geography to cores
+  select(-c(Rowid, FID, FREQUENCY, SUM_ST_AREA_SH, COUNTRYAFF))
+
+# resolve territories and sovereign countries
+eez_intersect <- eez_intersect_orig %>% 
+  mutate(TERRITORY1 = case_when(TERRITORY1 == "Democratic Republic of the Congo" ~ "Congo DRC",
+                                TERRITORY1 == "Republic of the Congo" ~ "Congo",
+                                TRUE ~ TERRITORY1)) %>% 
+  mutate(estimated_area_ha = SUM_ST_AREA_SH/10000) %>% 
+  rename(country = TERRITORY1) %>% 
+  select(-c(Rowid, FID, FREQUENCY, SUM_ST_AREA_SH, SOVEREIGN1))
+```
+
+```{r data-wrangling, echo=FALSE}
+
+# read in data
+data_path <- "https://raw.githubusercontent.com/Smithsonian/CCRCN-Data-Library/main/data/CCRCN_synthesis/"
+cores <- read_csv(paste0(data_path, "CCRCN_cores.csv"), guess_max = 7000) %>% 
+  filter(habitat == "mangrove") %>% 
+  mutate(country = ifelse(country == "Laos", "Vietnam", country)) # need to double check this
+# notes:
+# some cores with NA country but described mangrove habitat
+# there are some cores in countries with no mangrove area
+
+# finalized mangrove area per country
+mangrove_world_area_raw <- read_xls("global/data/mangroveWorld_Area.xls") 
+
+# prep mangrove world area 
+mangrove_world_area <- mangrove_world_area_raw %>% 
+  mutate(estimated_area_ha = SUM_ST_AREA_SH/10000) %>% 
+  rename(country = COUNTRY) %>% # same column used to assign geography to cores
+  select(-c(Rowid, FID, FREQUENCY, SUM_ST_AREA_SH)) %>% 
+  drop_na(country) # 13.9km^2 were not assigned geography
+
+
+# notes:
+# we have a few cores from Laos...are there mangroves that much inland? 
+# No, the coordinates are fuzzy, probably should be in Vietnam
+```
+
+## Mangrove Core Map
+
+Total number of mangrove cores available through the Coastal Carbon Atlas: `r length(unique(cores$core_id))`
+
+```{r core-map, echo=FALSE}
+
+# map_cores <- cores %>% distinct(study_id, site_id, core_id, latitude, longitude, country)
+
+# pal <- colorFactor(palette = "Set2", map_habs$habitat)
+
+cores %>% distinct(study_id, site_id, core_id, latitude, longitude, country) %>% 
+  # map_cores %>% 
+  leaflet(width = "100%") %>% 
+  # addTiles() %>%
+  addProviderTiles(providers$CartoDB) %>%
+  addCircleMarkers(lng = ~longitude, lat = ~latitude,
+                   radius = 2, 
+                   # color = ~pal(habitat),
+                   label = ~paste0(study_id, "; ", country))
+  # addLegend(pal = pal, values = ~habitat)
+
+```
+
+***
+
+## Global Wetland Area
+
+```{r wetland-area, echo=FALSE, fig.height=12}
+# country_intersect %>% 
+mangrove_world_area %>% 
+  mutate(cores_available = ifelse(country %in% unique(cores$country), "Yes", "No"),
+         percent_area = 100*(estimated_area_ha/sum(estimated_area_ha))) %>% 
+  filter(estimated_area_ha > 700) %>% 
+    ggplot(aes(x = reorder(country, percent_area), y = percent_area, col = cores_available)) +
+  # ggplot(aes(x = reorder(country, estimated_area_ha), y = estimated_area_ha, col = cores_available)) +
+  geom_point(pch=16) +
+  geom_segment(aes(xend=country, yend=0)) +
+  xlab(NULL) + ylab("Estimated Percent of Total Mangrove Habitat Area (%)") +
+  # ylab("Estimated Area (ha) Mangrove Habitat") +
+  coord_flip() +
+  theme_minimal()
+
+```
+
+Countries with less than 700 ha mangrove habitat not included. None of which had available cores.
+
+***
+
+## Data Quantity
+
+```{r quantity-metric, echo=FALSE, fig.height=6}
+# country wetland area
+quantity_country <- cores %>% 
+  group_by(country) %>% 
+  summarise(n = n()) %>% # calculate number of cores per country
+  ungroup() %>% 
+  # left_join(country_intersect) %>% 
+  left_join(mangrove_world_area) %>% 
+  mutate(cores_per_1000ha = n / estimated_area_ha * 1000) %>% # calculate number of cores per 1000ha of wetland in each country
+  arrange(desc(cores_per_1000ha)) %>% 
+  mutate(quantity_metric_rank = row.names(.), # rank country by metric
+         # calculate weighted metric for each country
+         quantity_metric_weight = cores_per_1000ha/sum(cores_per_1000ha, na.rm = T))
+
+quantity_country %>% drop_na(country) %>% 
+  ggplot(aes(x = reorder(country, cores_per_1000ha), y = cores_per_1000ha)) +
+  geom_point(pch=16) +
+  geom_segment(aes(xend=country, yend=0)) +
+  xlab(NULL) +
+  ylab("Cores per 1000 ha mangrove habitat") +
+  coord_flip() +
+  theme_minimal() +
+  ggtitle("Country-based Quantity Metric for Mangrove Habitat")
+
+```
+
+```{r eez, echo=FALSE, eval=FALSE}
+# # eez wetland area
+# quantity_eez <- cores %>% 
+#   group_by(country) %>% 
+#   summarise(n = n()) %>% # calculate number of cores per state
+#   ungroup() %>% 
+#   left_join(eez_intersect) %>% 
+#   mutate(cores_per_1000ha = n / estimated_area_ha * 1000) %>% # calculate number of cores per 1000ha of wetland in each states
+#   arrange(desc(cores_per_1000ha)) %>% 
+#   mutate(quantity_metric_rank = row.names(.), # rank states by metric
+#          # calculate weighted metric for each state
+#          quantity_metric_weight = cores_per_1000ha/sum(cores_per_1000ha, na.rm = T))
+# 
+# # plot
+# ggplot(data = quantity_eez, 
+#        aes(x = reorder(country, cores_per_1000ha), y = cores_per_1000ha)) +
+#   geom_point(pch=16) +
+#   geom_segment(aes(xend=country, yend=0)) +
+#   xlab(NULL) +
+#   ylab("Cores per 1000 ha mangrove habitat") +
+#   coord_flip() +
+#   theme_minimal() +
+#   ggtitle("EEZ-based Quantity Metric for Mangrove Habitat")
+# 
+# ## Differences in Country vs EEZ backed quantity metrics
+# 
+# diffs <- quantity_country %>% 
+#   select(country, cores_per_1000ha) %>% 
+#   rename(cores_per_1000ha_country = cores_per_1000ha) %>% 
+#   full_join(quantity_eez %>% 
+#               select(country, cores_per_1000ha) %>% 
+#               rename(cores_per_1000ha_eez = cores_per_1000ha)) %>% 
+#   mutate(quantity_metric_diff = cores_per_1000ha_eez - cores_per_1000ha_country)
+# # even
+# # plot
+# ggplot(diffs) +
+#   geom_point(aes(reorder(country, cores_per_1000ha_eez), cores_per_1000ha_eez, col = 'EEZ'), 
+#              size = 1.5, alpha = 0.5) +
+#   geom_point(aes(country, 
+#                  cores_per_1000ha_country, col = "Country"), 
+#              size = 1.5, alpha = 0.5) +
+#   xlab(NULL) +
+#   ylab("Cores per 1000 ha mangrove habitat") +
+#   coord_flip() +
+#   theme_minimal()
+```
+
+***
+
+## Data Quality
+
+```{r quality-metric, echo=FALSE}
+# Isolate definitions for quality codes
+quality_defs <- read_csv("https://raw.githubusercontent.com/Smithsonian/CCRCN-Data-Library/main/docs/ccrcn_database_structure.csv") %>% 
+  select(attribute_name, format_unit_codes) %>% 
+  filter(attribute_name %in% c("stocks_qual_code", "dates_qual_code", "elevation_qual_code")) %>% 
+  mutate(code_definition = str_split(format_unit_codes, "; ")) %>% 
+  unnest(code_definition) %>% 
+  separate(code_definition, into = c("quality_code", "code_definition"), sep = " = ") %>% 
+  select(quality_code, code_definition) %>% 
+  arrange(quality_code)
+
+quality_smry <- cores %>% 
+  select(study_id, site_id, core_id, country, stocks_qual_code, dates_qual_code, elevation_qual_code) %>% 
+  pivot_longer(cols = c(stocks_qual_code, dates_qual_code, elevation_qual_code), names_to = "use_category",
+               values_to = "quality_code") %>% 
+  drop_na(quality_code) %>% 
+  distinct() %>% 
+  count(country, use_category, quality_code, name = "core_count") %>% 
+  left_join(quality_defs) %>% 
+  mutate(use_category = recode(use_category,
+                               "dates_qual_code" = "Dated stratigraphy",
+                               "stocks_qual_code" = "Carbon stock",
+                               "elevation_qual_code" = "Elevation")) %>% 
+  drop_na(country) %>% 
+  arrange(country, use_category)
+
+datatable(quality_smry,
+          options = list(searching = TRUE,
+                         paging = FALSE,
+                         info = FALSE,
+                         scrollY = 300,
+                         scrollX = 300,
+                         scrollCollapse = TRUE),
+          rownames = FALSE)
+```
+
