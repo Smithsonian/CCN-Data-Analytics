@@ -40,22 +40,39 @@
 # other dating modeling resource
 # https://www.sciencedirect.com/science/article/abs/pii/S1871101420300558
 
+########################################
+######## Meng Lu et al Workflow ########
+
+# 1.1 Read in the assembled dataset.
+# 1.2 Convert the variables to units of Mg ha-1 for biomass, Mg C ha-1 for soil carbon stock and Mg C ha-1 yr-1 for sequestration rate.
+# 1.3 Calculate log10 value for each variable
+# 1.4 Calculate the mean values for log10 values
+# 1.5 Calculate the geomean values for each variable (with confidence interval)
+
+########################################
+
 ## Prepare Workspace ####
 
 library(tidyverse)
 library(readxl)
+library(googlesheets4)
 
 # source synthesis
-source("resources//refresh_data.R")
+source("resources/refresh_data.R")
+source("coastal_wetland_nggi/nggi_utils.R")
 
 # read in reported values
-reported <- read_csv("nggi_2022/input_data/NGGI_2022_reported_values - literature_values.csv") %>% 
-  mutate(study_id = case_when(study_id %in% c("Krauss_et_al_2018_Flux", "Krauss_et_al_2018_Holocene") ~ "Krauss_et_al_2018", 
-                              site_id == "US-EDN" ~ "Carlin_et_al_2021", 
-                              T ~ study_id))
+# reported <- read_csv("coastal_wetland_nggi/input_data/NGGI_2022_reported_values - literature_values.csv")
+  # mutate(study_id = case_when(study_id %in% c("Krauss_et_al_2018_Flux", "Krauss_et_al_2018_Holocene") ~ "Krauss_et_al_2018", 
+  #                             site_id == "US-EDN" ~ "Carlin_et_al_2021", 
+  #                             T ~ study_id))
+
+gs4_deauth()
+reported <- read_sheet("https://docs.google.com/spreadsheets/d/1quotFXqVVJVOP4tTML7Lrby13JKCohlDSbU0-0Oi9S0/edit#gid=0", 
+                      na = c("NA", ""), col_types = "c")
 
 # read in climate zone table
-climate_zones <- read_xlsx("nggi_2022/input_data/Climate zones.xlsx") %>% 
+climate_zones <- read_xlsx("coastal_wetland_nggi/input_data/Climate zones.xlsx") %>% 
   mutate(Color = tolower(Color),
          Color = recode(Color, "oragen" = "orange"),
          State = recode(State, "Delamare" = "Delaware")) %>% 
@@ -70,8 +87,12 @@ dated_us_cores <- cores %>%
   # filter(habitat != "upland") %>% 
   drop_na(dates_qual_code) %>% 
   left_join(climate_zones) %>% 
-  mutate(habitat = recode(habitat, "scrub shrub" = "scrub/shrub")) %>% 
-  select(study_id, site_id, core_id, habitat, vegetation_class, climate_zone, everything())
+  mutate(habitat = recode(habitat, "scrub shrub" = "scrub/shrub"),
+         vegetation_class = case_when(core_id == "MR3" ~ "marsh",
+                                      T ~ vegetation_class)) %>% 
+  assignEcosystem() %>% 
+  arrange(study_id) %>% 
+  select(study_id, site_id, core_id, habitat, vegetation_class, salinity_class, ecosystem, climate_zone, everything())
   # left_join(methods %>% select())
   # left_join(depthseries %>% distinct(study_id, site_id, core_id, method_id)) %>% 
   # left_join(methods %>% select(study_id, method_id, fraction_carbon_type)) %>% 
@@ -79,8 +100,21 @@ dated_us_cores <- cores %>%
     # count(study_id, core_id)
   # filter(study_id %in% unique(reported$study_id))
 
-View(distinct(dated_us_cores, study_id, site_id, habitat, vegetation_class, climate_zone))
+View(dated_us_cores %>% 
+  drop_na(ecosystem) %>% 
+  distinct(study_id, ecosystem, climate_zone) %>% 
+  add_count(study_id) %>% filter(n > 1),
+  title = "check_assignments")
+
+# zone_count <- dated_us_cores %>% 
+#   count(ecosystem, climate_zone)
+              # study_id, site_id, habitat, 
+              # vegetation_class, salinity_class, 
+              # ecosystem, climate_zone) %>% arrange(ecosystem, climate_zone), title = "")
 # turn these into the NGGI classifications
+# Ecosystems: Estuarine Emergent Wetlands, Estuarine Forested Wetlands, Palustrine Emergent Wetland, Palustrine Forested Wetland, seagrass 
+
+# View(dated_us_cores %>% select(study_id, site_id, core_id, habitat, vegetation_class, salinity_class))
 
 # studies with split core methods
 # Okeefe-Suttles_et_al_2021_Cape
@@ -90,8 +124,8 @@ View(distinct(dated_us_cores, study_id, site_id, habitat, vegetation_class, clim
 
 # find the studies that don't match between the synthesis and the reported table
 nomatch <- distinct(dated_us_cores, study_id) %>% 
-  anti_join(reported %>% distinct(study_id))
-nomatch$study_id
+  anti_join(reported %>% distinct(study_id)) %>% pull(study_id)
+# nomatch$study_id
 
 # No associated article: 
   # Messerschmidt_and_Kirwan_2020 - CCN release, has interval sedimentation rate (mm yr-1). Need to derive %OC and calculate CAR
@@ -106,10 +140,155 @@ nomatch$study_id
   # Vaughn_et_al_2020: https://doi.org/10.1029/2019GB006334
   # Piazza_et_al_2020: https://pubs.usgs.gov/of/2011/1094/OF11-1094.pdf
   # Giblin_and_Forbrich_2018: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JG004336
+  # Weston et al 2020: https://doi.org/10.1029/2022EF003037
 
 nggi_bibs <- bib %>% 
   filter(study_id %in% unique(dated_us_cores$study_id))
   # filter(bibtype != "Misc")
+
+## Reported Values ####
+
+# investigate table
+# lookup <- distinct(reported, study_id, accumulation_type) %>% 
+#   full_join(gapfill_ds %>% distinct(study_id, action_flag)) %>% 
+#   arrange(study_id)
+
+View(reported %>% distinct(study_id, accumulation_type) %>% 
+       filter(accumulation_type %in% c("sediment accretion", "organic matter")), 
+      title = "reported_accumulation_type")
+# these studies will need fraction organic matter in order to 
+
+# define zones of climate and ecosystem
+zones <- dated_us_cores %>% 
+  # drop_na(ecosystem) %>% 
+  distinct(study_id, climate_zone) %>% 
+  arrange(study_id)
+
+## Pb-210 and Cs-137
+
+# create a function will perform unit conversions for C accumulation?
+
+# mass accumulation
+# "gramsPerSquareCentimeterPerYear"
+# "gramsPerSquareMeterPerYear" 
+# "kilogramsPerSquareMeterPerYear"
+
+# depth accumulation
+# "millimeterPerYear" => ?
+# "centimeterPerYear" =>  ?
+
+# 2L-Pb needs to be averaged 
+reported_smry <- reported %>% 
+  # drop_na(core_id) %>% add_count(site_id, core_id) %>% filter(n > 1) %>% 
+  filter(core_id == "2L-Pb") %>% 
+  group_by(study_id, site_id, core_id, habitat, management, accumulation_type, pb210_rate_unit) %>%
+  summarise(pb210_rate = mean(as.numeric(pb210_rate)),
+            pb210_rate_se = sd(as.numeric(pb210_rate)))
+
+reported_subset <- reported %>% 
+  
+  # filter(accumulation_type == "organic carbon") %>% # only work with C accumulation for now
+  filter(grepl("carbon", accumulation_type)) %>%  # total and organic carbon
+  filter(habitat != "mudflat") %>% 
+  filter(!grepl("-", pb210_rate)) %>% # Drexler study expressedes C accumulation as a range
+  # filter(management == "natural" | is.na(management)) %>% 
+
+  # select necessary cols and convert relevant cols to numeric
+  select(contains("id"), core_count, accumulation_type, habitat,
+         contains("depth"), contains("pb210"), contains("cs137")) %>% 
+  mutate(across(-c(study_id, site_id, core_id, accumulation_type, habitat, pb210_rate_unit, cs137_rate_unit), 
+                as.numeric)) %>% 
+  
+  # add averaged values for disaggregated core
+  filter(core_id != "2L-Pb") %>%
+  bind_rows(reported_smry) %>% 
+  
+  # bring the pb210 cic determined rates 
+  mutate(pb210_rate = ifelse(!is.na(pb210_rate_cic), pb210_rate_cic, pb210_rate),
+         pb210_rate_se = ifelse(!is.na(pb210_rate_cic_se), pb210_rate_cic_se, pb210_rate_se)) %>% 
+  select(-pb210_rate_cic, -pb210_rate_cic_se) %>% 
+  
+  # join climate zones and assign ecoystem types
+  left_join(zones) %>% 
+  assignEcosystemByHabitat() %>% 
+  select(study_id, site_id, core_id, accumulation_type, habitat, ecosystem, climate_zone, everything())
+  
+
+standardized <- reported_subset %>% 
+  # convert sequestration rates to gC ha-1 yr-1 
+  # what to do about cm/yr or mm/yr sediment accumulation rate? Leave out for now
+  mutate(pb210_standardized = case_when(pb210_rate_unit == "gramsPerSquareCentimeterPerYear" ~ pb210_rate*100,
+                                        pb210_rate_unit == "kilogramsPerSquareMeterPerYear" ~ pb210_rate*10,
+                                        pb210_rate_unit == "gramsPerSquareMeterPerYear" ~ pb210_rate/100,
+                                        T ~ NA_real_),
+         pb210_standardized_se = case_when(pb210_rate_unit == "gramsPerSquareCentimeterPerYear" ~ pb210_rate_se*100,
+                                           pb210_rate_unit == "kilogramsPerSquareMeterPerYear" ~ pb210_rate_se*10,
+                                           pb210_rate_unit == "gramsPerSquareMeterPerYear" ~ pb210_rate_se/100,
+                                           T ~ NA_real_),
+         cs137_standardized = case_when(cs137_rate_unit == "gramsPerSquareCentimeterPerYear" ~ cs137_rate*100,
+                                        cs137_rate_unit == "kilogramsPerSquareMeterPerYear" ~ cs137_rate*10,
+                                        cs137_rate_unit == "gramsPerSquareMeterPerYear" ~ cs137_rate/100,
+                                        T ~ NA_real_),
+         cs137_standardized_se = case_when(cs137_rate_unit == "gramsPerSquareCentimeterPerYear" ~ cs137_rate_se*100,
+                                        cs137_rate_unit == "kilogramsPerSquareMeterPerYear" ~ cs137_rate_se*10,
+                                        cs137_rate_unit == "gramsPerSquareMeterPerYear" ~ cs137_rate_se/100,
+                                        T ~ NA_real_)) %>% 
+  # calculate log10 of the activities in order to determine the geomean
+  mutate(log10_pb210 = log10(pb210_standardized),
+         log10_pb210_se = log10(pb210_standardized_se),
+         log10_cs137 = log10(cs137_standardized),
+         log10_cs137_se = log10(cs137_standardized_se))
+
+# accumulation %>% 
+#   drop_na(pb210_standardized) %>% 
+#   ggplot(aes(pb210_standardized, col = accumulation_type)) +
+#   geom_density() +
+#   facet_wrap(~accumulation_type, scales = "free", dir = "v")
+# 
+# accumulation %>%
+#   drop_na(pb210_standardized, cs137_standardized) %>%
+#   ggplot(aes(cs137_standardized, pb210_standardized, col = accumulation_type)) +
+#   geom_point()
+
+# calculate the geometric mean for each accumulation rate: mean = (a1 x a2 x...x an)^(1/n)
+geomean_pb210 <- standardized %>% 
+  drop_na(log10_pb210) %>% 
+  group_by(ecosystem, climate_zone) %>%
+  summarise(am = mean(log10_pb210, na.rm = T),
+            stdev = sd(log10_pb210, na.rm = T),
+            n = n(),
+            ci_upper = am + (1.96*stdev)/sqrt(n),
+            ci_lower = am - (1.96*stdev)/sqrt(n)
+            # gm_test = prod(pb210_standardized)^(1/n)
+            ) %>% 
+  mutate(gm = 10^am,
+         gm_ci_upper = 10^ci_upper,
+         gm_ci_lower = 10^ci_lower
+  )
+
+ggplot(geomean_pb210, aes(ecosystem, gm, col = climate_zone)) + 
+  geom_point() +
+  coord_flip()
+
+geomean_cs137 <- standardized %>% 
+  drop_na(log10_cs137) %>% 
+  group_by(ecosystem, climate_zone) %>%
+  summarise(am = mean(log10_cs137, na.rm = T),
+            stdev = sd(log10_cs137, na.rm = T),
+            n = n(),
+            ci_upper = am + (1.96*stdev)/sqrt(n),
+            ci_lower = am - (1.96*stdev)/sqrt(n)) %>% 
+  mutate(gm = 10^am,
+         gm_ci_upper = 10^ci_upper,
+         gm_ci_lower = 10^ci_lower
+  )
+
+# things to iron out
+# total vs. organic carbon sequestration
+# propagation of error from values that are already averaged to the site-level
+# standardize to depth?
+
+## GapFilling Depthseries ####
 
 gapfill_ds <- depthseries %>% 
   # filter(study_id %in% unique(dated_us_cores$study_id))
@@ -135,7 +314,7 @@ gapfill_ds <- depthseries %>%
          #                                                     "Rodriguez_et_al_2022") ~ "modeled",
          #                                 action_flag == "convert LOI to C" ~ "modeled",
          #                                     T ~ "measured"),
-         ) %>%
+  ) %>%
   drop_na(action_flag) %>% 
   select(study_id, fraction_organic_matter, contains("carbon"), action_flag, soc, everything())
 
@@ -167,67 +346,6 @@ gapfill_ds %>% drop_na(soc) %>%
   ggplot(aes(soc)) +
   geom_density() + geom_rug()
 
-## Reported Values ####
-
-# investigate table
-lookup <- distinct(reported, study_id, accumulation_type) %>% 
-  full_join(gapfill_ds %>% distinct(study_id, action_flag)) %>% 
-  arrange(study_id)
-
-View(reported %>% distinct(study_id, accumulation_type) %>% 
-       filter(accumulation_type %in% c("sediment accretion", "organic matter")))
-# these studies will need fraction organic matter in order to 
-
-## Pb-210 and Cs-137
-
-# create a function will perform unit conversions for C accumulation?
-
-# mass accumulation
-# "gramsPerSquareCentimeterPerYear" => divide by 1000
-# "gramsPerSquareMeterPerYear"=> do nothing   
-# "kilogramsPerSquareMeterPerYear" => multiply by 1000 
-
-# depth accumulation
-# "millimeterPerYear" => ?
-# "centimeterPerYear" =>  ?
-
-accumulation <- reported %>% 
-  select(contains("id"), core_count, accumulation_type, habitat,
-         contains("depth"), contains("pb210"), contains("cs137")) %>% 
-  filter(!grepl("-", pb210_rate)) %>% # Drexler study expressed C accumulation as a range
-  mutate(across(-c(study_id, site_id, core_id, accumulation_type, habitat, pb210_rate_unit, cs137_rate_unit), 
-                as.numeric)) %>% 
-    # bring the pb210 cic determined rates 
-  mutate(pb210_rate = ifelse(!is.na(pb210_rate_cic), pb210_rate_cic, pb210_rate),
-         pb210_rate_se = ifelse(!is.na(pb210_rate_cic_se), pb210_rate_cic_se, pb210_rate_se)) %>% 
-  select(-pb210_rate_cic, -pb210_rate_cic_se) %>% 
-  # unit conversions
-  # what to do about cm/yr or mm/yr sediment accumulation rate? Leave out for now
-  mutate(pb210_standardized = case_when(pb210_rate_unit == "gramsPerSquareCentimeterPerYear" ~ pb210_rate/1000,
-                                        pb210_rate_unit == "kilogramsPerSquareMeterPerYear" ~ pb210_rate*1000,
-                                        pb210_rate_unit == "gramsPerSquareMeterPerYear" ~ pb210_rate,
-                                        T ~ NA_real_),
-         pb210_standardized_se = case_when(pb210_rate_unit == "gramsPerSquareCentimeterPerYear" ~ pb210_rate_se/1000,
-                                           pb210_rate_unit == "kilogramsPerSquareMeterPerYear" ~ pb210_rate_se*1000,
-                                           pb210_rate_unit == "gramsPerSquareMeterPerYear" ~ pb210_rate_se,
-                                           T ~ NA_real_),
-         cs137_standardized = case_when(cs137_rate_unit == "gramsPerSquareCentimeterPerYear" ~ cs137_rate/1000,
-                                        cs137_rate_unit == "kilogramsPerSquareMeterPerYear" ~ cs137_rate*1000,
-                                        cs137_rate_unit == "gramsPerSquareMeterPerYear" ~ cs137_rate,
-                                        T ~ NA_real_),
-         cs137_standardized_se = case_when(cs137_rate_unit == "gramsPerSquareCentimeterPerYear" ~ cs137_rate_se/1000,
-                                        cs137_rate_unit == "kilogramsPerSquareMeterPerYear" ~ cs137_rate_se*1000,
-                                        cs137_rate_unit == "gramsPerSquareMeterPerYear" ~ cs137_rate_se,
-                                        T ~ NA_real_))
-
-accumulation %>% 
-  drop_na(pb210_standardized) %>% 
-  ggplot(aes(pb210_standardized, col = accumulation_type)) +
-  geom_density() +
-  facet_wrap(~accumulation_type, scales = "free", dir = "v")
 
 
-accumulation %>%
-  drop_na(pb210_standardized, cs137_standardized) %>%
-  ggplot(aes(cs137_standardized, pb210_standardized, col = accumulation_type)) +
-  geom_point()
+

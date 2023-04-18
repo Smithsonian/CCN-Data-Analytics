@@ -132,6 +132,7 @@ ggsave("figures/country_mangrove_1m_corestocks.jpg")
 
 ## Scale Estimates by wetland size
 
+# read in habitat area 
 mangrove_world_area <- readxl::read_xls("ccn_inventory_tool/data/mangroveWorld_Area.xls") %>% 
   mutate(habitat = "mangrove",
          habitat_area_ha = SUM_ST_AREA_SH/10000) %>% 
@@ -177,4 +178,46 @@ mangrove_stocks %>%
   ggtitle("Mangrove 1m Soil C Stocks by Country") +
   theme_bw()
 ggsave("figures/country_mangrove_soilC_1m.jpg")
+
+## Mapping Experimentation ----
+
+library(plotly)
+# library(cartography)
+
+# list of target countries
+targets <- c("Bangladesh",
+             "Brazil",
+             "Cambodia",
+             "Cameroon",
+             "Colombia",
+             "Costa Rica",
+             "Dominican Republic",
+             "East Timor",
+             "Ecuador",
+             "Federated States of Micronesia",
+             "Fiji",
+             "Ghana",
+             "India",
+             "Indonesia",
+             "Kiribati",
+             "Malaysia",
+             "Maldives",
+             "Marshall Islands",
+             "Mexico",
+             "Nauru",
+             "Palau",
+             "Papua New Guinea",
+             "The Philippines",
+             "Samoa",
+             "Senegal",
+             "Solomon Islands",
+             "South Africa",
+             "Sri Lanka",
+             "Thailand",
+             "Tonga",
+             "Tuvalu",
+             "Uganda",
+             "Vanuatu",
+             "Vietnam")
+
 

@@ -75,8 +75,8 @@ mangrove_join <- 154922338547.92615/10^6 - 13919580.926222/10^6
 ```{r map-prep, echo=FALSE, eval=FALSE}
 
 ## older calculations
-country_intersect_orig <- read_xls("global/data/mangroveCountryIntersect_Area.xls") 
-eez_intersect_orig <- read_xls("global/data/mangroveEEZIntersect_Area.xls") 
+country_intersect_orig <- read_xls("ccn_inventory_tool/data/mangroveCountryIntersect_Area.xls") 
+eez_intersect_orig <- read_xls("ccn_inventory_tool/data/mangroveEEZIntersect_Area.xls") 
 
 # curate wetland area tables
 country_intersect <- country_intersect_orig %>% 
@@ -106,7 +106,7 @@ cores <- read_csv(paste0(data_path, "CCRCN_cores.csv"), guess_max = 7000) %>%
 # there are some cores in countries with no mangrove area
 
 # finalized mangrove area per country
-mangrove_world_area_raw <- read_xls("global/data/mangroveWorld_Area.xls") 
+mangrove_world_area_raw <- read_xls("ccn_inventory_tool/data/mangroveWorld_Area.xls") 
 
 # prep mangrove world area 
 mangrove_world_area <- mangrove_world_area_raw %>% 
