@@ -10,37 +10,58 @@ root_dir <- "https://raw.githubusercontent.com/Smithsonian/CCRCN-Data-Library/ma
 # impacts <- read_csv(paste0(root_dir, "CCRCN_impacts.csv"), guess_max = 7000)
 cores <- read_csv(paste0(root_dir, "CCRCN_cores.csv"), guess_max = 7000)
 depthseries <- read_csv(paste0(root_dir, "CCRCN_depthseries.csv"), guess_max = 60000)
+
+# core_ds <- left_join(depthseries, cores)
 # bib <- read_csv(paste0(root_dir, "CCRCN_study_citations.csv"), guess_max = 600)
 
 # Soil carbon density (g cm-3) = dry bulk density (g cm-3) * (% C/100)
 # Amount carbon in core section (g cm-2) = Soil carbon density (g cm-3) * sample thickness interval (cm)
 
 # calculate carbon stock for each interval in the synthesis (test run, no standardization yet)
-raw_ds_stock <- depthseries %>%
-  drop_na(dry_bulk_density, fraction_carbon) %>% 
-  mutate(carbon_density = dry_bulk_density * fraction_carbon,
-         # calculate c stock in each interval (gC m-2)
-         # g/cm2 * 10000cm2/m2
-         cstock_interval = carbon_density * (depth_max-depth_min) * 10000)  %>% 
-  arrange(core_id, depth_min) %>% select(cstock_interval, everything())
+# raw_ds_stock <- depthseries %>%
+#   drop_na(dry_bulk_density, fraction_carbon) %>% 
+#   mutate(carbon_density = dry_bulk_density * fraction_carbon,
+#          # calculate c stock in each interval (gC m-2)
+#          # g/cm2 * 10000cm2/m2
+#          cstock_interval = carbon_density * (depth_max-depth_min) * 10000)  %>% 
+#   arrange(core_id, depth_min) %>% select(cstock_interval, everything())
+# 
+# # density plot
+# raw_ds_stock %>% 
+#   # filter(cstock_interval > 50000) %>% 
+#   ggplot(aes(abs(cstock_interval))) + # two Trettin depths are reversed
+#   geom_density() +
+#   geom_rug()
+# 
+# # plot a profile or two
+# raw_ds_stock %>% 
+#   filter(study_id == "Okeefe-Suttles_et_al_2021_FL") %>% 
+#   ggplot(aes(depth_min, cstock_interval, col = core_id)) +
+#   geom_line() +
+#   geom_point() +
+#   scale_x_reverse() + coord_flip() +
+#   ylab("Carbon Stock (gC m-2)") +
+#   theme_bw()
+# # facet_wrap(~core_id)
 
-# density plot
-raw_ds_stock %>% 
-  # filter(cstock_interval > 50000) %>% 
-  ggplot(aes(abs(cstock_interval))) + # two Trettin depths are reversed
-  geom_density() +
-  geom_rug()
+## Utility Functions ----
 
-# plot a profile or two
-raw_ds_stock %>% 
-  filter(study_id == "Okeefe-Suttles_et_al_2021_FL") %>% 
-  ggplot(aes(depth_min, cstock_interval, col = core_id)) +
-  geom_line() +
-  geom_point() +
-  scale_x_reverse() + coord_flip() +
-  ylab("Carbon Stock (gC m-2)") +
-  theme_bw()
-# facet_wrap(~core_id)
+LOItoC <- function(df){
+  if("habitat" %in% names(df)){
+    gf_ds <- df %>%
+      # gapfill carbon values using relationship developed by Jim for the synthesis
+      mutate(fraction_carbon = case_when(
+        is.na(fraction_carbon) & habitat == "marsh" ~ 0.427 * fraction_organic_matter + 0.0635 * (fraction_organic_matter^2),
+        is.na(fraction_carbon) & habitat == "mangrove" ~ 0.486 * fraction_organic_matter - 0.016 * (fraction_organic_matter^2),
+        T ~ fraction_carbon))
+    
+    return(gf_ds)
+    
+  } else {
+    print("Data table must have a habitat column.")
+  }
+}
+
 
 # Standardize depth intervals ####
 # what standard depth intervals will give the highest resolution C stock?
@@ -97,20 +118,32 @@ carbonStock <- function(df){
   return(corestock)
 }
 
-# try it on the synthesis
-synthesis_standardized <- standardizeDepths(depthseries, target_intervals = horizons)
+# gapfill depthseries - this adds a good number of cores, but also more uncertainty to propagate 
+gf_ds <- depthseries %>%
+  left_join(cores %>% select(study_id, site_id, core_id, habitat)) %>% 
+  LOItoC(.)
+
+# standardize synthesis to 1m
+synthesis_standardized <- standardizeDepths(gf_ds, target_intervals = horizons)
+
+# calculate whole 1m core stocks and scale to Mg/Ha
 synthesis_stocks <- carbonStock(synthesis_standardized) %>%
   # convert gC m-2 to MgC ha-1
   mutate(core_stock_MgHa = core_stock * (10^4/10^6))
 
-core_stocks <- left_join(cores, synthesis_stocks)
+# join to the core-level table
+# this will be the basis of the main table
+core_stocks <- left_join(cores, synthesis_stocks) %>% 
+  mutate(country = ifelse(country == "Laos", "Vietnam", country)) %>% 
+  mutate(habitat = recode(habitat, "scrub shrub" = "scrub/shrub"))
+write_csv(core_stocks, "ccn_inventory_tool/app_input/core_stocks.csv")
 
 ## Core Stock Plots ####
 
+# this is what may happen in the shinyapp
+
 ## ...Country ####
 country_stocks <- core_stocks %>% drop_na(core_stock) %>% 
-  mutate(country = ifelse(country == "Laos", "Vietnam", country)) %>% 
-  mutate(habitat = recode(habitat, "scrub shrub" = "scrub/shrub")) %>% 
   group_by(country, habitat) %>% 
   summarize(n = n(),
             stock_mean = mean(core_stock_MgHa, na.rm = T),
@@ -127,7 +160,7 @@ country_stocks %>% ungroup() %>%
   xlab("Carbon Stocks (MgC ha-1)") +
   ggtitle("Mangrove 1m Core C Stocks by Country") +
   theme_bw()
-ggsave("figures/country_mangrove_1m_corestocks.jpg")
+ggsave("ccn_inventory_tool/figures/country_mangrove_1m_corestocks_gapfilled.jpg")
 
 
 ## Scale Estimates by wetland size
@@ -142,11 +175,13 @@ mangrove_world_area <- readxl::read_xls("ccn_inventory_tool/data/mangroveWorld_A
   
 tier1_stocks <- mangrove_world_area %>% 
   # calculate global values for countries that we don't have data for
-  filter(!(country %in% unique(country_stocks$country))) %>% 
+  # filter(!(country %in% unique(country_stocks$country))) %>% 
   mutate(tier = "global",
-         stock_mean = 386,
-         stock_min = 55,
-         stock_max = 1376) 
+         stock_mean = 386
+         # these are range values, not deviation
+         # stock_min = 55,
+         # stock_max = 1376
+         ) 
 
 mangrove_stocks <- country_stocks %>% ungroup() %>% 
   filter(habitat == "mangrove") %>% 
@@ -156,23 +191,25 @@ mangrove_stocks <- country_stocks %>% ungroup() %>%
   left_join(mangrove_world_area) %>% 
   bind_rows(tier1_stocks) %>% 
   mutate(data_type = "soil",
-         habitat_stocks_TgC = (stock_mean * habitat_area_ha)/10^6,
-         habitat_stocks_TgC_min = (stock_min * habitat_area_ha)/10^6,
-         habitat_stocks_TgC_max = (stock_max * habitat_area_ha)/10^6) %>% 
+         habitat_stocks = stock_mean * habitat_area_ha / 10^6,
+         habitat_stocks_min = stock_min * habitat_area_ha / 10^6,
+         habitat_stocks_max = stock_max * habitat_area_ha / 10^6) %>% 
   # calculate co2 equivalent
-  mutate(co2_equiv = habitat_stocks_TgC * 3.67,
-         co2_equiv_min = habitat_stocks_TgC_min * 3.67,
-         co2_equiv_max = habitat_stocks_TgC_max * 3.67) %>% 
+  mutate(co2_equiv = habitat_stocks * 3.67,
+         co2_equiv_min = habitat_stocks_min * 3.67,
+         co2_equiv_max = habitat_stocks_max * 3.67) %>% 
   select(country, habitat, data_type, tier, everything())
+# divide stocks x wetland area by 10^6 to get TgC
 # filter the dataset by data type (and sub data type?) ex. soils => mineral v organic?
-write_csv(mangrove_stocks, "ccn_inventory_tool/app_input/mangrove_stocks.csv")
+# write_csv(mangrove_stocks, "ccn_inventory_tool/app_input/mangrove_stocks.csv")
 
 mangrove_stocks %>% 
-  mutate(country = paste0(country, ", n = ", n),
-         country = fct_reorder(country, habitat_stocks_TgC)) %>% 
-  ggplot(aes(habitat_stocks_TgC, country, col = tier,
-             xmin = habitat_stocks_TgC - habitat_stocks_TgC_min, 
-             xmax = habitat_stocks_TgC + habitat_stocks_TgC_max)) +
+  add_count(country) %>% filter(nn > 1) %>% 
+  # mutate(country = paste0(country, ", n = ", n),
+  #        country = fct_reorder(country, habitat_stocks_TgC)) %>% 
+  ggplot(aes(habitat_stocks, country, col = tier,
+             xmin = habitat_stocks - habitat_stocks_min, 
+             xmax = habitat_stocks + habitat_stocks_max)) +
   geom_point() +
   geom_errorbar() +
   ggtitle("Mangrove 1m Soil C Stocks by Country") +
