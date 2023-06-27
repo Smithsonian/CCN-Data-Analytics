@@ -7,7 +7,7 @@ library(sf)
 # library(gridExtra)
 
 # source inventorying functions
-source("database_inventory/scripts/metrics/inventory_functions.R")
+source("database_inventory/scripts/inventory_functions.R")
 
 # Import Core Data
 cores_v1 <- read_csv("database_inventory/data/synthesis/v1/CONUS_cores.csv", guess_max = 7000)
@@ -93,3 +93,15 @@ ggplot(scores_v2, aes(y = metric, x = state)) +
   ggtitle("State-Level Blue Carbon Data Report Card")
 
 ggsave("database_inventory/figures/blue_carbon_report_card_V2.jpg", width=5, height=5, dpi=300)
+
+
+## Render Blue Carbon Data Inventory report
+
+url_date <- format(Sys.time(), "%Y%m%d %H%M")
+formated_date <- format(Sys.time(), "%Y/%m/%d-%H:%M")
+
+# generate data contributor report
+rmarkdown::render(input = "./database_inventory/scripts/bcdi_report.Rmd",
+                  # output_format = "html_document",
+                  output_file = paste0("bcdi_report_", url_date),
+                  output_dir = "./database_inventory/inventory_reports/")
