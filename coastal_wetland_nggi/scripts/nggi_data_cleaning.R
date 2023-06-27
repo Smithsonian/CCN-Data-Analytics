@@ -60,7 +60,7 @@ source("coastal_wetland_nggi/scripts/nggi_utils.R")
 reported <- read_csv("coastal_wetland_nggi/data/original/NGGI_2022_reported_values - literature_values.csv")
 
 # read in data from previous NGGI
-mengdat <- read_xlsx("coastal_wetland_nggi/data/original/Coastal Carbon NGGI Data.xlsx")
+mengdat <- read_csv("coastal_wetland_nggi/data/original/US-BC-Analysis-1-105.csv")
 
 # read in synthesis data
 cores <- getSynthesisData("cores")
