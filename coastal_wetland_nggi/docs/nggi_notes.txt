@@ -1,0 +1,18 @@
+Steps needed for NGGI updates:
+
+1. Add old (Meng's) and new synthesis (lit review Henry and Rose did early on) to the same folder. Enforce consistent study, site and core IDs which match library.
+
+2. Calculate carbon stocks or organic matter stocks from Coastal Carbon Library. Make sure to do both 1m for all, as well as specified depth increments for the subset of cores where we only have accretion rates from lit review datasets. If there is a 137Cs date from 0 to 25 cm, calculate mean stock for 0 to 25 cm, if 210Pb from 0 to 100 cm, same thing.
+
+3. Normalize units. Organic matter accumulation should be gOM per m2 per year, carbon accumulation gC per m2 per year, and accretion rate rate units (centimeters per year). Calculate organic matter or carbon accumulation rate when only accretion and carbon stocks are present.
+
+4. Provide a master conversion to organic carbon from organic matter when organic carbon is missing.
+
+Mangrove: OC = 0.486 OM - 0.0160 OM^2
+Marsh: OC = 0.427 OM + 0.0635 OM^2
+
+5. Move the workflow over to special features in R. Find a file of Koppen climate zones and assign consistent classification of climate, same with state boarders.
+
+6. Summarize carbon accumulation rate, and stocks by climate zones. Means, medians, geometric means, s.d., n, s.e., minimum, maximum, upper and lower 95% distribution.
+
+6b. Probably want to do the same for states too.

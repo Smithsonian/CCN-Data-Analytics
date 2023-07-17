@@ -11,17 +11,17 @@ library(tidyverse)
 
 ## Read in final table
 
-nggi_table <- read_csv("")
+nggi_table <- read_csv("coastal_wetland_nggi/data/intermediate/reported_values_clean.csv")
 
 ## NGGI Summary Calculations
 
 
 nggi_smry <- nggi_table %>% 
-# calculate log10 of the activities in order to determine the geomean
-mutate(log10_pb210 = log10(pb210_standardized),
-       log10_pb210_se = log10(pb210_standardized_se),
-       log10_cs137 = log10(cs137_standardized),
-       log10_cs137_se = log10(cs137_standardized_se))
+  # calculate log10 of the activities in order to determine the geomean
+  mutate(log10_pb210 = log10(pb210_standardized),
+         log10_pb210_se = log10(pb210_standardized_se),
+         log10_cs137 = log10(cs137_standardized),
+         log10_cs137_se = log10(cs137_standardized_se))
 
 # accumulation %>% 
 #   drop_na(pb210_standardized) %>% 
@@ -35,7 +35,7 @@ mutate(log10_pb210 = log10(pb210_standardized),
 #   geom_point()
 
 # calculate the geometric mean for each accumulation rate: mean = (a1 x a2 x...x an)^(1/n)
-geomean_pb210 <- standardized %>% 
+geomean_pb210 <- nggi_smry %>% 
   drop_na(log10_pb210) %>% 
   group_by(ecosystem, climate_zone) %>%
   summarise(am = mean(log10_pb210, na.rm = T),

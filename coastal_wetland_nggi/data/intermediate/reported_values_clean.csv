@@ -1,0 +1,118 @@
+study_id,site_id,core_id,accumulation_type,habitat,ecosystem,climate_zone,core_count,depth_min_cm,depth_max_cm,pb210_rate,pb210_rate_se,pb210_rate_unit,cs137_rate,cs137_rate_se,cs137_rate_unit,management,pb210_standardized,pb210_standardized_se,cs137_standardized,cs137_standardized_se
+Carlin_et_al_2021,US-EDN,Mudflat,organic carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,NA,NA,51,12,gramsPerSquareCentimeterPerYear,NA,NA,NA,NA,5100,1200,NA,NA
+Carlin_et_al_2021,US-EDN,Spartina,organic carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,NA,NA,85,16,gramsPerSquareCentimeterPerYear,NA,NA,NA,NA,8500,1600,NA,NA
+Carlin_et_al_2021,US-EDN,Pickleweed,organic carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,NA,NA,73,17,gramsPerSquareCentimeterPerYear,NA,NA,NA,NA,7300,1700,NA,NA
+Arias-Ortiz_et_al_2021,US-Myb,TyphaM1,organic carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,68,220,40,gramsPerSquareCentimeterPerYear,NA,NA,NA,NA,22000,4000,NA,NA
+Arias-Ortiz_et_al_2021,US-Myb,Phragmites,organic carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,79,375,70,gramsPerSquareCentimeterPerYear,NA,NA,NA,NA,37500,7000,NA,NA
+Arias-Ortiz_et_al_2021,US-Myb,TyphaM2,organic carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,78,240,25,gramsPerSquareCentimeterPerYear,NA,NA,NA,NA,24000,2500,NA,NA
+Arias-Ortiz_et_al_2021,US-Tw1,TyphaW1,organic carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,81,460,140,gramsPerSquareCentimeterPerYear,NA,NA,NA,NA,46000,14000,NA,NA
+Arias-Ortiz_et_al_2021,US-Tw1,TyphaW2,organic carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,61,370,120,gramsPerSquareCentimeterPerYear,NA,NA,NA,NA,37000,12000,NA,NA
+Arias-Ortiz_et_al_2021,US-Tw1,TyphaW3,organic carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,81,210,100,gramsPerSquareCentimeterPerYear,NA,NA,NA,NA,21000,10000,NA,NA
+Baustian_et_al_2021,CRMS175,CRMS175,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,248.9,NA,gramsPerSquareMeterPerYear,180.4,NA,gramsPerSquareMeterPerYear,NA,2.489,NA,1.804,NA
+Baustian_et_al_2021,CRMS0211,CRMS0211,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,NA,NA,gramsPerSquareMeterPerYear,NA,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,NA
+Baustian_et_al_2021,CRMS0224,CRMS0224,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,190.7,NA,gramsPerSquareMeterPerYear,217.2,NA,gramsPerSquareMeterPerYear,NA,1.9069999999999998,NA,2.1719999999999997,NA
+Baustian_et_al_2021,CRMS0225,CRMS0225,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,185.3,NA,gramsPerSquareMeterPerYear,503,NA,gramsPerSquareMeterPerYear,NA,1.8530000000000002,NA,5.03,NA
+Baustian_et_al_2021,CRMS0237,CRMS0237,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,NA,NA,gramsPerSquareMeterPerYear,NA,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,NA
+Baustian_et_al_2021,CRMS0253,CRMS0253,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,349.6,NA,gramsPerSquareMeterPerYear,417.7,NA,gramsPerSquareMeterPerYear,NA,3.4960000000000004,NA,4.177,NA
+Baustian_et_al_2021,CRMS0273,CRMS0273,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,NA,NA,gramsPerSquareMeterPerYear,NA,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,NA
+Baustian_et_al_2021,CRMS0305,CRMS0305,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,153.1,NA,gramsPerSquareMeterPerYear,NA,NA,gramsPerSquareMeterPerYear,NA,1.531,NA,NA,NA
+Baustian_et_al_2021,CRMS0309,CRMS0309,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,356.8,NA,gramsPerSquareMeterPerYear,176.2,NA,gramsPerSquareMeterPerYear,NA,3.568,NA,1.7619999999999998,NA
+Baustian_et_al_2021,CRMS0327,CRMS0327,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,NA,NA,gramsPerSquareMeterPerYear,NA,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,NA
+Baustian_et_al_2021,CRMS0331,CRMS0331,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,NA,NA,gramsPerSquareMeterPerYear,NA,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,NA
+Baustian_et_al_2021,CRMS0337,CRMS0337,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,208.5,NA,gramsPerSquareMeterPerYear,276.5,NA,gramsPerSquareMeterPerYear,NA,2.085,NA,2.765,NA
+Baustian_et_al_2021,CRMS0367,CRMS0367,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,NA,NA,gramsPerSquareMeterPerYear,NA,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,NA
+Baustian_et_al_2021,CRMS0377,CRMS0377,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,61.5,NA,gramsPerSquareMeterPerYear,136.7,NA,gramsPerSquareMeterPerYear,NA,0.615,NA,1.367,NA
+Baustian_et_al_2021,CRMS0398,CRMS0398,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,431.1,NA,gramsPerSquareMeterPerYear,485,NA,gramsPerSquareMeterPerYear,NA,4.311,NA,4.85,NA
+Baustian_et_al_2021,CRMS0399,CRMS0399,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,396.4,NA,gramsPerSquareMeterPerYear,383.7,NA,gramsPerSquareMeterPerYear,NA,3.964,NA,3.8369999999999997,NA
+Baustian_et_al_2021,CRMS2825,CRMS2825,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,NA,NA,gramsPerSquareMeterPerYear,NA,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,NA
+Baustian_et_al_2021,CRMS3166,CRMS3166,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,399,NA,gramsPerSquareMeterPerYear,997.6,NA,gramsPerSquareMeterPerYear,NA,3.99,NA,9.976,NA
+Baustian_et_al_2021,CRMS3565,CRMS3565,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,402,NA,gramsPerSquareMeterPerYear,332.1,NA,gramsPerSquareMeterPerYear,NA,4.02,NA,3.321,NA
+Baustian_et_al_2021,CRMS3617,CRMS3617,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,374.4,NA,gramsPerSquareMeterPerYear,295.2,NA,gramsPerSquareMeterPerYear,NA,3.7439999999999998,NA,2.952,NA
+Baustian_et_al_2021,CRMS4045,CRMS4045,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,298.1,NA,gramsPerSquareMeterPerYear,453.1,NA,gramsPerSquareMeterPerYear,NA,2.9810000000000003,NA,4.531000000000001,NA
+Baustian_et_al_2021,CRMS4245,CRMS4245,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,638.1,NA,gramsPerSquareMeterPerYear,903.6,NA,gramsPerSquareMeterPerYear,NA,6.381,NA,9.036,NA
+Baustian_et_al_2021,CRMS4455,CRMS4455,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,343.7,NA,gramsPerSquareMeterPerYear,348.1,NA,gramsPerSquareMeterPerYear,NA,3.437,NA,3.4810000000000003,NA
+Baustian_et_al_2021,BA-01-04,BA-01-04,total carbon,marsh,Estuarine Emergent Wetland,Subtropical,1,NA,NA,NA,NA,gramsPerSquareMeterPerYear,NA,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,NA
+Callaway_et_al_2019,WT_low,WT_low_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,52,NA,NA,NA,160.8,NA,gramsPerSquareMeterPerYear,NA,NA,NA,1.608,NA
+Callaway_et_al_2019,WT_low,WT_low_B,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,52,NA,NA,NA,132.6,NA,gramsPerSquareMeterPerYear,NA,NA,NA,1.3259999999999998,NA
+Callaway_et_al_2019,WT_mid,WT_mid_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,NA,NA,NA,117.9,NA,gramsPerSquareMeterPerYear,NA,NA,NA,1.179,NA
+Callaway_et_al_2019,WT_high,WT_high_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,52,NA,NA,NA,102.5,NA,gramsPerSquareMeterPerYear,NA,NA,NA,1.025,NA
+Callaway_et_al_2019,CC_low,CC_low_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,54,113.8,NA,gramsPerSquareMeterPerYear,186.2,NA,gramsPerSquareMeterPerYear,NA,1.138,NA,1.8619999999999999,NA
+Callaway_et_al_2019,CC_low,CC_low_B,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,77.9,NA,gramsPerSquareMeterPerYear,97.5,NA,gramsPerSquareMeterPerYear,NA,0.779,NA,0.975,NA
+Callaway_et_al_2019,CC_mid,CC_mid_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,52,65.8,NA,gramsPerSquareMeterPerYear,72.9,NA,gramsPerSquareMeterPerYear,NA,0.6579999999999999,NA,0.7290000000000001,NA
+Callaway_et_al_2019,CC_mid,CC_mid_B,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,78.2,NA,gramsPerSquareMeterPerYear,86.7,NA,gramsPerSquareMeterPerYear,NA,0.782,NA,0.867,NA
+Callaway_et_al_2019,CC_high,CC_high_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,126.7,NA,gramsPerSquareMeterPerYear,92,NA,gramsPerSquareMeterPerYear,NA,1.2670000000000001,NA,0.92,NA
+Callaway_et_al_2019,CC_high,CC_high_B,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,54.9,NA,gramsPerSquareMeterPerYear,82.1,NA,gramsPerSquareMeterPerYear,NA,0.5489999999999999,NA,0.821,NA
+Callaway_et_al_2019,PRM_low,PRM_low_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,48,57.1,NA,gramsPerSquareMeterPerYear,87.7,NA,gramsPerSquareMeterPerYear,NA,0.5710000000000001,NA,0.877,NA
+Callaway_et_al_2019,PRM_mid,PRM_mid_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,49.7,NA,gramsPerSquareMeterPerYear,53.5,NA,gramsPerSquareMeterPerYear,NA,0.49700000000000005,NA,0.535,NA
+Callaway_et_al_2019,PRM_mid,PRM_mid_B,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,65.4,NA,gramsPerSquareMeterPerYear,78.8,NA,gramsPerSquareMeterPerYear,NA,0.654,NA,0.7879999999999999,NA
+Callaway_et_al_2019,PRM_high,PRM_high_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,48,NA,gramsPerSquareMeterPerYear,53.5,NA,gramsPerSquareMeterPerYear,NA,0.48,NA,0.535,NA
+Callaway_et_al_2019,PRM_high,PRM_high_B,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,52,NA,NA,NA,63.8,NA,gramsPerSquareMeterPerYear,NA,NA,NA,0.638,NA
+Callaway_et_al_2019,CI_low,CI_low_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,73.4,NA,gramsPerSquareMeterPerYear,142.6,NA,gramsPerSquareMeterPerYear,NA,0.7340000000000001,NA,1.426,NA
+Callaway_et_al_2019,CI_low,CI_low_D,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,149,NA,gramsPerSquareMeterPerYear,232.4,NA,gramsPerSquareMeterPerYear,NA,1.49,NA,2.324,NA
+Callaway_et_al_2019,CI_mid,CI_mid_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,43.2,NA,gramsPerSquareMeterPerYear,68.2,NA,gramsPerSquareMeterPerYear,NA,0.43200000000000005,NA,0.682,NA
+Callaway_et_al_2019,CI_mid,CI_mid_B,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,30.9,NA,gramsPerSquareMeterPerYear,41.7,NA,gramsPerSquareMeterPerYear,NA,0.309,NA,0.41700000000000004,NA
+Callaway_et_al_2019,CI_mid,CI_mid_C,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,47.1,NA,gramsPerSquareMeterPerYear,47,NA,gramsPerSquareMeterPerYear,NA,0.47100000000000003,NA,0.47,NA
+Callaway_et_al_2019,CI_high,CI_high_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,70.2,NA,gramsPerSquareMeterPerYear,72.3,NA,gramsPerSquareMeterPerYear,NA,0.7020000000000001,NA,0.723,NA
+Callaway_et_al_2019,CI_high,CI_high_B,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,NA,NA,NA,124.7,NA,gramsPerSquareMeterPerYear,NA,NA,NA,1.247,NA
+Callaway_et_al_2019,CI_high,CI_high_C,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,35.3,NA,gramsPerSquareMeterPerYear,71.9,NA,gramsPerSquareMeterPerYear,NA,0.353,NA,0.7190000000000001,NA
+Callaway_et_al_2019,RR_low,RR_low_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,71,NA,gramsPerSquareMeterPerYear,118.4,NA,gramsPerSquareMeterPerYear,NA,0.71,NA,1.1840000000000002,NA
+Callaway_et_al_2019,RR_low,RR_low_B,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,52,54.4,NA,gramsPerSquareMeterPerYear,74.9,NA,gramsPerSquareMeterPerYear,NA,0.544,NA,0.7490000000000001,NA
+Callaway_et_al_2019,RR_mid,RR_mid_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,46,92.7,NA,gramsPerSquareMeterPerYear,129.1,NA,gramsPerSquareMeterPerYear,NA,0.927,NA,1.291,NA
+Callaway_et_al_2019,RR_mid,RR_mid_B,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,52,90,NA,gramsPerSquareMeterPerYear,106.7,NA,gramsPerSquareMeterPerYear,NA,0.9,NA,1.067,NA
+Callaway_et_al_2019,RR_high,RR_high_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,52,88.2,NA,gramsPerSquareMeterPerYear,79.1,NA,gramsPerSquareMeterPerYear,NA,0.882,NA,0.7909999999999999,NA
+Callaway_et_al_2019,RR_high,RR_high_B,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,86.9,NA,gramsPerSquareMeterPerYear,121.5,NA,gramsPerSquareMeterPerYear,NA,0.8690000000000001,NA,1.215,NA
+Callaway_et_al_2019,BRI_low,BRI_low_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,52,88.9,NA,gramsPerSquareMeterPerYear,158.4,NA,gramsPerSquareMeterPerYear,NA,0.889,NA,1.584,NA
+Callaway_et_al_2019,BRI_mid,BRI_mid_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,50,153.9,NA,gramsPerSquareMeterPerYear,165.5,NA,gramsPerSquareMeterPerYear,NA,1.5390000000000001,NA,1.655,NA
+Callaway_et_al_2019,BRI_mid,BRI_mid_B,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,46,79.9,NA,gramsPerSquareMeterPerYear,150.2,NA,gramsPerSquareMeterPerYear,NA,0.799,NA,1.5019999999999998,NA
+Callaway_et_al_2019,BRI_high,BRI_high_A,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,54,120.2,NA,gramsPerSquareMeterPerYear,174.1,NA,gramsPerSquareMeterPerYear,NA,1.202,NA,1.7409999999999999,NA
+Callaway_et_al_2019,BRI_high,BRI_high_B,total carbon,marsh,Estuarine Emergent Wetland,Mediterranean,1,0,54,112.9,NA,gramsPerSquareMeterPerYear,129.6,NA,gramsPerSquareMeterPerYear,NA,1.129,NA,1.296,NA
+Ensign_et_al_2020,Choptank,Choptank_non_tidal,total carbon,swamp,Palustrine Forested Wetland,Warm temperate,1,NA,NA,NA,NA,NA,94,NA,gramsPerSquareMeterPerYear,NA,NA,NA,0.94,NA
+Ensign_et_al_2020,Choptank,Choptank_head_of_tide,total carbon,swamp,Palustrine Forested Wetland,Warm temperate,1,NA,NA,NA,NA,NA,182,NA,gramsPerSquareMeterPerYear,NA,NA,NA,1.82,NA
+Ensign_et_al_2020,Choptank,Choptank_TFFW,total carbon,swamp,Palustrine Forested Wetland,Warm temperate,1,NA,NA,NA,NA,NA,105,NA,gramsPerSquareMeterPerYear,NA,NA,NA,1.05,NA
+Ensign_et_al_2020,Choptank,Choptank_marsh,total carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,NA,NA,NA,NA,NA,180,NA,gramsPerSquareMeterPerYear,NA,NA,NA,1.8,NA
+Ensign_et_al_2020,Pocomoke,Pocomoke_non_tidal,total carbon,swamp,Palustrine Forested Wetland,Warm temperate,1,NA,NA,NA,NA,NA,61,NA,gramsPerSquareMeterPerYear,NA,NA,NA,0.61,NA
+Ensign_et_al_2020,Pocomoke,Pocomoke_head_of_tide,total carbon,swamp,Palustrine Forested Wetland,Warm temperate,1,NA,NA,NA,NA,NA,154,NA,gramsPerSquareMeterPerYear,NA,NA,NA,1.54,NA
+Ensign_et_al_2020,Pocomoke,Pocomoke_TFFW,total carbon,swamp,Palustrine Forested Wetland,Warm temperate,1,NA,NA,NA,NA,NA,135,NA,gramsPerSquareMeterPerYear,NA,NA,NA,1.35,NA
+Ensign_et_al_2020,Pocomoke,Pocomoke_marsh,total carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,NA,NA,NA,NA,NA,176,NA,gramsPerSquareMeterPerYear,NA,NA,NA,1.76,NA
+Johnson_et_al_2007,Sprague_Marsh,SM02-VC1,total carbon,marsh,Estuarine Emergent Wetland,Cold Temperate,1,0,310,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Kemp_et_al_2020,Barnegat_Bay,BB1B,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,NA,36,0.25,NA,centimeterPerYear,0.25,NA,centimeterPerYear,NA,NA,NA,NA,NA
+McTigue_et_al_2020,Traps_Bay,1L,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,NA,0,224,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+McTigue_et_al_2020,Traps_Bay,2L,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,NA,0,194,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+McTigue_et_al_2020,Traps_Bay,3L,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,NA,0,90,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Noe_et_al_2016,Tidal freshwater forest,W1,total carbon,swamp,Palustrine Forested Wetland,Warm temperate,1,NA,NA,61,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,0.61,NA,NA,NA
+Noe_et_al_2016,Moderately salt-impacted forest,W2,total carbon,swamp,Palustrine Forested Wetland,Warm temperate,1,NA,NA,56,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,0.56,NA,NA,NA
+Noe_et_al_2016,Highly salt-impacted forest,W3,total carbon,swamp,Palustrine Forested Wetland,Warm temperate,1,NA,NA,65,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,0.65,NA,NA,NA
+Noe_et_al_2016,Oligohaline marsh,W4,total carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,NA,NA,21,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,0.21,NA,NA,NA
+Poppe_and_Rybczyk_2018,1,2J,total carbon,seagrass,Estuarine Aquatic Bed,Warm temperate,1,NA,14,7.51,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,0.0751,NA,NA,NA
+Poppe_and_Rybczyk_2018,2,3F,total carbon,seagrass,Estuarine Aquatic Bed,Warm temperate,1,NA,10,13.38,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,0.1338,NA,NA,NA
+Poppe_and_Rybczyk_2018,3,4F,total carbon,seagrass,Estuarine Aquatic Bed,Warm temperate,1,NA,8,5.03,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,0.050300000000000004,NA,NA,NA
+Poppe_and_Rybczyk_2018,4,5B,total carbon,seagrass,Estuarine Aquatic Bed,Warm temperate,1,NA,10,11.88,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,0.1188,NA,NA,NA
+Poppe_and_Rybczyk_2018,5,5F,total carbon,seagrass,Estuarine Aquatic Bed,Warm temperate,1,NA,16,8.52,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,0.0852,NA,NA,NA
+Poppe_and_Rybczyk_2018,6,5J,total carbon,seagrass,Estuarine Aquatic Bed,Warm temperate,1,NA,20,21.72,NA,gramsPerSquareMeterPerYear,NA,NA,NA,NA,0.21719999999999998,NA,NA,NA
+Giblin_and_Forbrich_2018,Nelson_Island_Creek,Giblin2018Core_1,organic carbon,marsh,Estuarine Emergent Wetland,Cold Temperate,1,0,40,111,NA,NA,114,NA,gramsPerSquareMeterPerYear,NA,NA,NA,1.14,NA
+Giblin_and_Forbrich_2018,Nelson_Island_Creek,Giblin2018Core_2,organic carbon,marsh,Estuarine Emergent Wetland,Cold Temperate,1,0,40,110,NA,NA,112,NA,gramsPerSquareMeterPerYear,NA,NA,NA,1.12,NA
+Giblin_and_Forbrich_2018,Nelson_Island_Creek,Giblin2018Core_3,organic carbon,marsh,Estuarine Emergent Wetland,Cold Temperate,1,0,40,NA,NA,NA,130,NA,gramsPerSquareMeterPerYear,NA,NA,NA,1.3,NA
+Giblin_and_Forbrich_2018,Nelson_Island_Creek,Giblin2018Core_4,organic carbon,marsh,Estuarine Emergent Wetland,Cold Temperate,1,0,40,110,NA,NA,93,NA,gramsPerSquareMeterPerYear,NA,NA,NA,0.93,NA
+Rodriguez_et_al_2022,JB,JB_1,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,90,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,JB,JB_5,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,101,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,JB,JB_6,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,82,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,JB,JB_7,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,58,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,JB,JB_8,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,27,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,LB,LB_3,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,124,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,LB,LB_5,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,83,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,LB,LB_6,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,80,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,LB,LB_7,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,51,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,LB,LB_8,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,25,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,LB,LB_9,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,31,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,NB,NB_1,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,51,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,NB,NB_9,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,31,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,NB,NB_3b,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,21,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,NPR_U,NPR_U_1,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,102,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,NPR_U,NPR_U_5,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,75,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,NPR_D,NPR_D_8,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,53,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,NPR_D,NPR_D_14,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,36,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,NPR_D,NPR_D_16,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,42,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,SRE_U,SRE_U_1,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,80,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,SRE_U,SRE_U_6,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,60,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Rodriguez_et_al_2022,SRE_D,SRE_D_1,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,1,0,31,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+McTigue_et_al_2020,Traps_Bay,2L-Pb,organic carbon,marsh,Estuarine Emergent Wetland,Warm temperate,NA,NA,NA,136.875,NA,gramsPerSquareMeterPerYear,NA,NA,NA,disturbed,1.36875,NA,NA,NA

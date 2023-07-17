@@ -229,7 +229,9 @@ standardized <- reported_subset %>%
 
 ## Merge Meng Data ####
 
-
+# maybe this needs to happen before? It probably doesn't matter.
 
 ## Write final NGGI table ####
+
+write_csv(standardized, "coastal_wetland_nggi/data/intermediate/reported_values_clean.csv")
 
