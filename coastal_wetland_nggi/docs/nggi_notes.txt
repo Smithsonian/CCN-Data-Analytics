@@ -16,3 +16,32 @@ Marsh: OC = 0.427 OM + 0.0635 OM^2
 6. Summarize carbon accumulation rate, and stocks by climate zones. Means, medians, geometric means, s.d., n, s.e., minimum, maximum, upper and lower 95% distribution.
 
 6b. Probably want to do the same for states too.
+
+Additional Notes:
+
+In the case where there's only accretion rate. 
+
+LOI or fraction carbon * dry bulk density 
+Scrub shrub and swamp - use mangrove relationship 
+
+If only a min/max range was reported, we need separate columns
+
+Multiply the carbon stock with the accretion rate (associated interval)
+
+
+Cases where we have accretion rates (ex. Cm/yr)
+Extract LOI and fraction carbon 
+For organic matter 
+Drexler rates and depths need to be in long form
+
+
+Accretion x stock => unit conversions => Calculate the depth weighted average for multiple depth increments
+New col for weight (proportion of the core that, sum of each value times its weight)
+
+Final cleaning
+Pivot longer
+Querying of carbon database (
+Accretion rate
+Unit conversions
+Bind to Meng
+
