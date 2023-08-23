@@ -1,6 +1,6 @@
 ## Coastal Wetland NGGI ####
 
-## Utility functions for adapting CCN data structures for inventorying lingo
+## Utility functions for updating NGGI with new data
 
 # calculate the geometric mean
 geometricMean <- function(x, na.rm = TRUE){ 
@@ -20,7 +20,6 @@ assignEcosystemByHabitat <- function(df){
     )
   return(new_df)
 }
-
 
 # more suited to missing data in the CCN core table, using habitat, veg class, and salinity class
 assignEcosystem <- function(df){
@@ -71,38 +70,43 @@ assignEcosystem <- function(df){
 
 ## Utility functions for carbon stock calculations
 
-LOItoC <- function(df){
-  if("habitat" %in% names(df)){
-    gf_ds <- df %>%
-      # gapfill carbon values using relationship developed by Jim for the synthesis
-      mutate(fraction_carbon = case_when(
-        is.na(fraction_carbon) & habitat == "marsh" ~ 0.427 * fraction_organic_matter + 0.0635 * (fraction_organic_matter^2),
-        is.na(fraction_carbon) & habitat == "mangrove" ~ 0.486 * fraction_organic_matter - 0.016 * (fraction_organic_matter^2),
-        T ~ fraction_carbon))
-    
-    return(gf_ds)
-    
-  } else {
-    print("Data table must have a habitat column.")
-  }
-}
+# LOItoC <- function(df){
+#   if("habitat" %in% names(df)){
+#     gf_ds <- df %>%
+#       # gapfill carbon values using relationship developed by Jim for the synthesis
+#       mutate(fraction_carbon = case_when(
+#         is.na(fraction_carbon) & habitat == "marsh" ~ 0.427 * fraction_organic_matter + 0.0635 * (fraction_organic_matter^2),
+#         is.na(fraction_carbon) & habitat == "mangrove" ~ 0.486 * fraction_organic_matter - 0.016 * (fraction_organic_matter^2),
+#         T ~ fraction_carbon))
+#     
+#     return(gf_ds)
+#     
+#   } else {
+#     print("Data table must have a habitat column.")
+#   }
+# }
 
 
-
-## Predict DBD from LOI
+## Predict DBD from LOI ----
 
 predict_dbd_from_loi <- function(fom, k1 = 0.098, k2 = 1.67) {
   return(1/((fom/k1) + ((1-fom)/k2)))
 }
 # plot(seq(0,1, by=0.01), predict_dbd_from_loi(seq(0,1, by=0.01)))
 
+## Predict OM from C ----
+
+# for mangrove
 predict_om_from_c_mangrove <- function(fraction_carbon, a=0.485667, b=-0.015966) {
   return((-b + sqrt((b^2) - 4*a*(0-fraction_carbon))) / (2*a))
 }
 
+# for marsh
 predict_om_from_c_marsh <- function(fraction_carbon, b=0.427391, a=0.063454) {
   return((-b + sqrt((b^2) - 4*a*(0-fraction_carbon))) / (2*a))
 }
+
+# Gapfill and Calculate C Stock ----
 
 carbonStock <- function(df){
   
@@ -127,13 +131,13 @@ carbonStock <- function(df){
       mutate(dry_bulk_density = case_when(
         is.na(dry_bulk_density) & !is.na(fraction_organic_matter) ~ predict_dbd_from_loi(fraction_organic_matter),
         T ~ dry_bulk_density)) %>% 
+      
       # calculate carbon density and interval stocks
       mutate(carbon_density = dry_bulk_density * fraction_carbon,
              # units: g/cm3 * cm * 10000cm2/m2 => gC m-2
              stock_gCm2 = carbon_density * (depth_max - depth_min) * 10000
              # stock_MgHa = stock_gCm2 * (10^4/10^6)
-             )
-    
+      )
     return(gf_ds)
     
   } else {
@@ -141,7 +145,7 @@ carbonStock <- function(df){
   }
 }
 
-# Standardize depth intervals ####
+## Standardize depth intervals ----
 # what standard depth intervals will give the highest resolution C stock?
 # do we standardize the depth intervals before or after calculating cstock for each interval?
 
@@ -153,8 +157,10 @@ carbonStock <- function(df){
 standardizeDepths <- function(df){
   
   # determine max depths of each core
+  # the target intervals are assumed to be the full length of the core
+  # might need to adjust this assumption in the near future
   target_intervals <- df %>% 
-    filter(complete.cases(depth_max)) %>% 
+    filter(complete.cases(depth_max)) %>%
     mutate(depth_max = as.numeric(depth_max)) %>% 
     group_by(study_id, core_id) %>% 
     summarise(horizon_max = max(depth_max, na.rm = T)) %>% 
@@ -179,7 +185,8 @@ standardizeDepths <- function(df){
     dplyr::summarise(dry_bulk_density = sum(dry_bulk_density * weight),
                      fraction_organic_matter = sum(fraction_organic_matter * weight),
                      fraction_carbon = sum(fraction_carbon * weight),
-                     stock_gCm2 = sum(stock_gCm2 * weight))
+                     stock_gCm2 = sum(stock_gCm2 * weight)) %>% 
+    ungroup()
   
   return(standard_ds)
 }
@@ -205,3 +212,42 @@ standardizeDepths <- function(df){
 #   
 #   return(corestock)
 # }
+
+# Convert Soil Accretion to CAR ####
+
+# Provide this function with the reported values table and it will convert accretion rates to carbon accumulation
+# Note: conversions still need to be applied after to standardize rates to gCm-2y-1
+
+# Applies the accretion rate to CAR formula:
+# Accretion rate (cm/yr) * DBD (g/cc) * fraction_carbon * 10000 (cm2/m2)
+accretionToCAR <- function(df){
+  
+  synthesis_carbon <- read_csv("coastal_wetland_nggi/data/intermediate/soil_carbon_calculations.csv", col_types = cols())
+  
+  new_df <- df %>% 
+    left_join(synthesis_carbon %>% select(-site_id)) %>% 
+    # populate final Pb210-based CAR
+    mutate(
+      CAR_pb210 = case_when(
+        accumulation_type == "sediment accretion" & pb210_rate_unit == "centimeterPerYear" ~ pb210_rate * dry_bulk_density * fraction_carbon * 10000,
+        accumulation_type == "sediment accretion" & pb210_rate_unit == "millimeterPerYear" ~ pb210_rate * dry_bulk_density * fraction_carbon * 1000,
+        T ~ pb210_rate),
+      CAR_pb210_unit = case_when(
+        accumulation_type == "sediment accretion" & !is.na(CAR_pb210) ~ "gramsPerSquareMeterPerYear",
+        accumulation_type == "sediment accretion" & !is.na(CAR_pb210) ~ "gramsPerSquareMeterPerYear",
+        T ~ pb210_rate_unit)
+    ) %>% 
+    # populate final Cs137-based CAR
+    mutate(
+      CAR_cs137 = case_when(
+        accumulation_type == "sediment accretion" & cs137_rate_unit == "centimeterPerYear" ~ cs137_rate * dry_bulk_density * fraction_carbon * 10000,
+        accumulation_type == "sediment accretion" & cs137_rate_unit == "millimeterPerYear" ~ cs137_rate * dry_bulk_density * fraction_carbon * 1000,
+        T ~ cs137_rate),
+      CAR_cs137_unit = case_when(
+        accumulation_type == "sediment accretion" & !is.na(CAR_cs137) ~ "gramsPerSquareMeterPerYear",
+        accumulation_type == "sediment accretion" & !is.na(CAR_cs137) ~ "gramsPerSquareMeterPerYear",
+        T ~ cs137_rate_unit)
+    )
+  
+  return(new_df)
+}
