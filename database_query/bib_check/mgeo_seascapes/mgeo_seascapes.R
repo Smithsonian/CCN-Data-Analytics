@@ -54,7 +54,7 @@ bib <- read_csv("data/CCRCN_synthesis/derivative/CCRCN_study_citations.csv") %>%
 # }
 # write_csv(review_papers, "query/data/mgeo_seascapes_papers.csv")
 
-review_papers <- read_csv("query/data/mgeo_seascapes_papers.csv")
+review_papers <- read_csv("database_query/bib_check/mgeo_seascapes/mgeo_seascapes_papers.csv")
 
 included <- review_papers %>% 
   mutate(Included = tolower(Included)) %>% 
