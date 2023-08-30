@@ -61,21 +61,21 @@ Baustian_et_al_2021,CRMS4455,CRMS4455,1,marsh,natural,total carbon,,,,,343.7,,,,
 Baustian_et_al_2021,BA-01-04,BA-01-04,1,marsh,natural,total carbon,,,,,NA,,,,gramsPerSquareMeterPerYear,NA,,gramsPerSquareMeterPerYear,,,,,,,,,,,,
 Boyd_2012,BBRC,BBRC1,1,marsh ,natural,sediment accretion,,,,,0.6,,,,centimeterPerYear,0.29,,centimeterPerYear,,,,,,,,,,"data available for accretion, mineral accumulation, organic accumulation rate ",,1
 Boyd_2012,BBRC,BBRC2,1,marsh ,natural,sediment accretion,,,,,0.72,,,,centimeterPerYear,0.2,,centimeterPerYear,,,,,,,,,,,,1
-Boyd_2012,LC,LC1,1,marsh ,impounded,sediment accretion,,,,,0.48,,,,centimeterPerYear,---,,centimeterPerYear,,,,,,,,,,,,1
+Boyd_2012,LC,LC1,1,marsh ,impounded,sediment accretion,,,,,0.48,,,,centimeterPerYear,,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,LC,LC2,1,marsh ,impounded,sediment accretion,,,,,0.32,,,,centimeterPerYear,0.28,,centimeterPerYear,,,,,,,,,,,,1
-Boyd_2012,LC,LC3,1,marsh ,impounded,sediment accretion,,,,,0.29,,,,centimeterPerYear,---,,centimeterPerYear,,,,,,,,,,,,1
-Boyd_2012,MH,MH1,1,marsh ,impounded,sediment accretion,,,,,0.32,,,,centimeterPerYear,---,,centimeterPerYear,,,,,,,,,,,,1
-Boyd_2012,MH,MH2,1,marsh ,impounded,sediment accretion,,,,,0.19,,,,centimeterPerYear,---,,centimeterPerYear,,,,,,,,,,,,1
+Boyd_2012,LC,LC3,1,marsh ,impounded,sediment accretion,,,,,0.29,,,,centimeterPerYear,,,centimeterPerYear,,,,,,,,,,,,1
+Boyd_2012,MH,MH1,1,marsh ,impounded,sediment accretion,,,,,0.32,,,,centimeterPerYear,,,centimeterPerYear,,,,,,,,,,,,1
+Boyd_2012,MH,MH2,1,marsh ,impounded,sediment accretion,,,,,0.19,,,,centimeterPerYear,,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,MH,MH3,1,marsh ,impounded,sediment accretion,,,,,0.18,,,,centimeterPerYear,0.11,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,NCBD,NCBD1,1,marsh ,impounded,sediment accretion,,,,,0.22,,,,centimeterPerYear,0.28,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,NCBD,NCBD2,1,marsh ,impounded,sediment accretion,,,,,0.23,,,,centimeterPerYear,0.54,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,NCBD,NCBD3,1,marsh ,impounded,sediment accretion,,,,,0.24,,,,centimeterPerYear,0.37,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,NCBW,NCBW1,1,marsh ,impounded,sediment accretion,,,,,0.26,,,,centimeterPerYear,0.28,,centimeterPerYear,,,,,,,,,,,,1
-Boyd_2012,NCBW,NCBW2,1,marsh ,impounded,sediment accretion,,,,,---,,,,centimeterPerYear,---,,centimeterPerYear,,,,,,,,,,,,1
-Boyd_2012,NCBW,NCBW3,1,marsh ,impounded,sediment accretion,,,,,---,,,,centimeterPerYear,0.28,,centimeterPerYear,,,,,,,,,,,,1
+Boyd_2012,NCBW,NCBW2,1,marsh ,impounded,sediment accretion,,,,,,,,,centimeterPerYear,,,centimeterPerYear,,,,,,,,,,,,1
+Boyd_2012,NCBW,NCBW3,1,marsh ,impounded,sediment accretion,,,,,,,,,centimeterPerYear,0.28,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,NCGB,NCGB1,1,marsh ,impounded,sediment accretion,,,,,0.87,,,,centimeterPerYear,0.72,,centimeterPerYear,,,,,,,,,,,,1
-Boyd_2012,NCGB,NCGB2,1,marsh ,impounded,sediment accretion,,,,,---,,,,centimeterPerYear,0.2,,centimeterPerYear,,,,,,,,,,,,1
-Boyd_2012,NCGB,NCGB3,1,marsh ,impounded,sediment accretion,,,,,0.44,,,,centimeterPerYear,---,,centimeterPerYear,,,,,,,,,,,,1
+Boyd_2012,NCGB,NCGB2,1,marsh ,impounded,sediment accretion,,,,,,,,,centimeterPerYear,0.2,,centimeterPerYear,,,,,,,,,,,,1
+Boyd_2012,NCGB,NCGB3,1,marsh ,impounded,sediment accretion,,,,,0.44,,,,centimeterPerYear,,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,NCLM,NCLM1,1,marsh ,natural,sediment accretion,,,,,0.36,,,,centimeterPerYear,0.72,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,NCLM,NCLM2,1,marsh ,natural,sediment accretion,,,,,0.53,,,,centimeterPerYear,0.8,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,NCLM,NCLM3,1,marsh ,natural,sediment accretion,,,,,0.49,,,,centimeterPerYear,0.72,,centimeterPerYear,,,,,,,,,,,,1
@@ -88,16 +88,16 @@ Boyd_2012,PK,PK3,1,marsh ,natural,sediment accretion,,,,,0.48,,,,centimeterPerYe
 Boyd_2012,PM,PM1,1,marsh ,natural,sediment accretion,,,,,0.45,,,,centimeterPerYear,0.47,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,PM,PM2,1,marsh ,natural,sediment accretion,,,,,0.26,,,,centimeterPerYear,0.29,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,PM,PM7,1,marsh ,natural,sediment accretion,,,,,0.44,,,,centimeterPerYear,0.54,,centimeterPerYear,,,,,,,,,,,,1
-Boyd_2012,PM,PM3,1,marsh ,impounded,sediment accretion,,,,,---,,,,centimeterPerYear,0.11,,centimeterPerYear,,,,,,,,,,,,1
-Boyd_2012,PM,PM4,1,marsh ,impounded,sediment accretion,,,,,---,,,,centimeterPerYear,0.11,,centimeterPerYear,,,,,,,,,,,,1
+Boyd_2012,PM,PM3,1,marsh ,impounded,sediment accretion,,,,,,,,,centimeterPerYear,0.11,,centimeterPerYear,,,,,,,,,,,,1
+Boyd_2012,PM,PM4,1,marsh ,impounded,sediment accretion,,,,,,,,,centimeterPerYear,0.11,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,PM,PM8,1,marsh ,impounded,sediment accretion,,,,,0.1,,,,centimeterPerYear,0.11,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,PM,PM5,1,marsh ,impounded,sediment accretion,,,,,0.12,,,,centimeterPerYear,0.2,,centimeterPerYear,,,,,,,,,,,,1
-Boyd_2012,PM,PM6,1,marsh ,impounded,sediment accretion,,,,,0.42,,,,centimeterPerYear,---,,centimeterPerYear,,,,,,,,,,,,1
+Boyd_2012,PM,PM6,1,marsh ,impounded,sediment accretion,,,,,0.42,,,,centimeterPerYear,,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,PM,PM9,1,marsh ,impounded,sediment accretion,,,,,0.31,,,,centimeterPerYear,0.19,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,PM,PM10,1,marsh ,natural,sediment accretion,,,,,0.52,,,,centimeterPerYear,0.36,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,PM,PM11,1,marsh ,natural,sediment accretion,,,,,0.33,,,,centimeterPerYear,0.28,,centimeterPerYear,,,,,,,,,,,,1
-Boyd_2012,PM,PM12,1,marsh ,natural,sediment accretion,,,,,---,,,,centimeterPerYear,0.23,,centimeterPerYear,,,,,,,,,,,,1
-Boyd_2012,TH,TH1,1,marsh ,impounded,sediment accretion,,,,,---,,,,centimeterPerYear,0.19,,centimeterPerYear,,,,,,,,,,,,1
+Boyd_2012,PM,PM12,1,marsh ,natural,sediment accretion,,,,,,,,,centimeterPerYear,0.23,,centimeterPerYear,,,,,,,,,,,,1
+Boyd_2012,TH,TH1,1,marsh ,impounded,sediment accretion,,,,,,,,,centimeterPerYear,0.19,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,TH,TH2,1,marsh ,impounded,sediment accretion,,,,,0.27,,,,centimeterPerYear,0.15,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,TH,TH3,1,marsh ,impounded,sediment accretion,,,,,0.21,,,,centimeterPerYear,0.28,,centimeterPerYear,,,,,,,,,,,,1
 Boyd_2012,TH,TH4,1,marsh ,impounded,sediment accretion,,,,,0.2,,,,centimeterPerYear,0.19,,centimeterPerYear,,,,,,,,,,,,1
@@ -181,8 +181,18 @@ Drexler_et_al_2013,Sandy Island Managed ,,2,marsh ,disturbed,total carbon,,,0,16
 Drexler_et_al_2013,Sandy Island Tidal,,2,marsh ,disturbed,total carbon,,,0,16-84,100-435,,,,gramsPerSquareMeterPerYear,,,,,,,,,,,,,,,
 Drexler_et_al_2013,Coastal EDU,,2,marsh ,disturbed,total carbon,,,0,16-84,100-250,,,,gramsPerSquareMeterPerYear,,,,,,,,,,,,,,,
 Drexler_et_al_2013,Bird Field Managed ,,2,marsh ,disturbed,total carbon,,,0,16-84,100-250,,,,gramsPerSquareMeterPerYear,,,,,,,,,,,,,,,
-Drexler_et_al_2019,SG,,6,marsh ,restored,total carbon,,,,,,,,,,,,,164,54,gramsPerSquareMeterPerYear,,,,,,,,,
-Drexler_et_al_2019,AS,,6,marsh,restored,total carbon,,,,,134,19,,,gramsPerSquareMeterPerYear,,,,,,,,,,,,,,,
+Drexler_et_al_2019,SG,SG4,1,marsh,restored,organic carbon,,,,,190,,,,gramsPerSquareMeterPerYear,,,,164,54,gramsPerSquareMeterPerYear,,,,,,,,,
+Drexler_et_al_2019,SG,SG5,1,marsh,restored,organic carbon,,,,,224,,,,gramsPerSquareMeterPerYear,,,,,,,,,,,,,,,
+Drexler_et_al_2019,SG,SG6,1,marsh,restored,organic carbon,,,,,139,,,,gramsPerSquareMeterPerYear,,,,,,,,,,,,,,,
+Drexler_et_al_2019,SG,SG10,1,marsh,restored,organic carbon,,,,,141,,,,gramsPerSquareMeterPerYear,,,,,,,,,,,,,,,
+Drexler_et_al_2019,SG,SG11,1,marsh,restored,organic carbon,,,,,81,,,,gramsPerSquareMeterPerYear,,,,,,,,,,,,,,,
+Drexler_et_al_2019,SG,SG12,1,marsh,restored,organic carbon,,,,,210,,,,gramsPerSquareMeterPerYear,,,,,,,,,,,,,,,
+Drexler_et_al_2019,AS,AS7,1,marsh,restored,organic carbon,,,,,140,15,,,gramsPerSquareMeterPerYear,,,,,,,,,,,,,,,
+Drexler_et_al_2019,AS,AS8,1,marsh,restored,organic carbon,,,,,123,8,,,gramsPerSquareMeterPerYear,,,,,,,,,,,,,,,
+Drexler_et_al_2019,AS,AS9,1,marsh,restored,organic carbon,,,,,129,15,,,gramsPerSquareMeterPerYear,,,,,,,,,,,,,,,
+Drexler_et_al_2019,AS,AS14,1,marsh,restored,organic carbon,,,,,168,11,,,gramsPerSquareMeterPerYear,,,,,,,,,,,,,,,
+Drexler_et_al_2019,AS,AS15,1,marsh,restored,organic carbon,,,,,129,8,,,gramsPerSquareMeterPerYear,,,,,,,,,,,,,,,
+Drexler_et_al_2019,AS,AS16,1,marsh,restored,organic carbon,,,,,115,10,,,gramsPerSquareMeterPerYear,,,,,,,,,,,,,,,
 Ensign_et_al_2020,Choptank,Choptank_non_tidal,1,swamp,natural,total carbon,,,,,,,,,,94,,gramsPerSquareMeterPerYear,,,,,,,,,,,,
 Ensign_et_al_2020,Choptank,Choptank_head_of_tide,1,swamp,natural,total carbon,,,,,,,,,,182,,gramsPerSquareMeterPerYear,,,,,,,,,,,,
 Ensign_et_al_2020,Choptank,Choptank_TFFW,1,swamp,natural,total carbon,,,,,,,,,,105,,gramsPerSquareMeterPerYear,,,,,,,,,,,,
