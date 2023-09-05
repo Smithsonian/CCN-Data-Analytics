@@ -90,17 +90,16 @@ reported_drex <- reported_raw %>%
 
 
 reported <- reported_raw %>%
+  separate(carbon_stock, into = c("carbon_stock", "carbon_stock_se"), sep = " [+][/][-] | [+][/][-]", convert = T) %>% 
 
   # remove the disaggregated core and replace with summary data
   filter(!grepl("2L-Pb", core_id)) %>%  
   # Drexler_et_al_2013 has pb210_rate as a range - remove and replace with summarized data
   filter(!grepl("Drexler_et_al_2013", study_id)) %>% 
   
-  mutate_at(c("pb210_rate", "pb210_rate_se", "cs137_rate", "cs137_rate_se", "depth_min_cm", "depth_max_cm", "carbon_stock"), as.numeric) %>% 
+  mutate_at(c("pb210_rate", "pb210_rate_se", "cs137_rate", "cs137_rate_se", "depth_min_cm", "depth_max_cm"), as.numeric) %>% 
   full_join(reported_avg) %>% 
   full_join(reported_drex) %>% 
-  
-  separate(carbon_stock, into = c("carbon_stock", "carbon_stock_se"), sep = " +/- | +/-", convert = T) %>%  
   
   # when CRS and CIC Pb210 rates are available, replace with their average
   mutate(pb210_rate = ifelse(!is.na(pb210_rate_cic & pb210_rate), (pb210_rate_cic + pb210_rate)/2, 
@@ -153,9 +152,9 @@ reported <- reported_raw %>%
                                          ifelse(pb210_rate_unit == "kilogramsPerSquareMeterPerYear", "accumulation", NA_character_))),
          
          # create column for accumulation rates
-         pb_CAR = ifelse(grepl("accretion", pb_accretion) & carbon_stock > 0, pb210_rate * carbon_stock, 
-                         ifelse(grepl("accumulation", pb_accumulation), pb210_rate,
-                                NA_character_)),
+         pb_CAR = case_when(grepl("accretion", pb_accretion) & carbon_stock > 0 ~ pb210_rate * carbon_stock, 
+                            grepl("accumulation", pb_accumulation) ~ pb210_rate,
+                            T ~ NA_character_),
          pb_CAR_se = ifelse(grepl("accretion", pb_accretion) & carbon_stock > 0, pb210_rate_se * carbon_stock, 
                          ifelse(grepl("accumulation", pb_accumulation), pb210_rate_se,
                                 NA_character_)),
@@ -278,7 +277,7 @@ depth_weights_core <- reported_merge %>%
 # repeat the same as above for the site-level only values
 depth_weights_site <- reported_merge %>% 
   filter(study_id %in% c("Breithaupt_et_al_2014", "Drexler_et_al_2013", 
-                         "Luk_et_al_2020", "Poppe_and_Rybczyk_2019", "Poppe_et_al_2019")) %>% 
+                         "Luk_et_al_2020", "Peck_et_al_2020", "Poppe_and_Rybczyk_2019", "Poppe_et_al_2019")) %>% 
   full_join(depth, by = c("study_id", "site_id")) %>% 
   drop_na(source) %>% # remove library entries not found in reported values
 
@@ -306,6 +305,7 @@ depth_summaries <- reported_merge %>%
   drop_na(core_id) %>% 
   full_join(depth_weights_core) %>% 
   full_join(depth_weights_site) %>% 
+  group_by(study_id, site_id, core_id) %>% 
   mutate(weighted_dry_bulk_density = dry_bulk_density * weight,
          weighted_fraction_organic_matter = fraction_organic_matter * weight,
          weighted_fraction_carbon = fraction_carbon * weight,
