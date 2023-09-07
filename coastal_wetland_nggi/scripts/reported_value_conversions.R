@@ -255,6 +255,7 @@ depth_weights_core <- reported_merge %>%
   full_join(depth, by = c("study_id", "core_id")) %>% # site_id is inconsistently assigned, but core_id is corrected for in reported_merge
   drop_na(source) %>% # remove library entries not found in reported values
   drop_na(core_id) %>% # remove site-level only data (summarized in depth_weights_site)
+  drop_na(depth_max, depth_min) %>% # remove rows without depth horizon
 
   # extract represented core length from reported values
   group_by(study_id, core_id) %>% 
@@ -337,21 +338,7 @@ depth_summaries <- reported_merge %>%
 
   
 
-# To do
-# Giblin_and_Forbrich_2018 accretion or accumulation?
-# why do i need this line at the end of reported & depth_summaries?
-   # mutate_at(c("pb_CAR", "pb_CAR_se", "cs_CAR", "cs_CAR_se"), as.numeric) 
-# depth_weights_core - boyd_et_al_2017 has NAs in depthseries depths and summarise gives NA for max(depth_max), if I use na.rm = T then other problems:
- # # recode missing values from depthseries table and reported values to NA
- #   mutate(rate_depth_max = gsub("Inf|-Inf", NA_character_, rate_depth_max),
- #       rate_depth_min = gsub("Inf|-Inf", NA_character_, rate_depth_min),
- #       horizon_max = gsub("Inf|-Inf", NA_character_, horizon_max),
- #       horizon_min = gsub("Inf|-Inf", NA_character_, horizon_min)) %>% 
- #   mutate_at(c("rate_depth_max", "rate_depth_min", "horizon_max", "horizon_min"), as.numeric) 
-  
 
-# look at meng workflow, keep summaries separate for comparison with RV data
-# tests (see nggi_data_analysis.R & docs folder & meeting notes & soil_carbon_calculations.R)
 
   
 
