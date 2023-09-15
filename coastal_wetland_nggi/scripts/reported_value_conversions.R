@@ -2,6 +2,8 @@
 # Workflow for standardizing C accumulation values for the 2022 NGGI
 # contact: Henry Betts, BettsH@si.edu
 
+
+
 ## Prepare workspace ####
 library(tidyverse)
 library(readxl)
@@ -19,6 +21,8 @@ mengdat <- read_csv("coastal_wetland_nggi/data/original/US-BC-Analysis-1-105.csv
 # read in synthesis data
 cores <- getSynthesisData("cores")
 depth <- getSynthesisData("depthseries")
+
+
 
 ## Meng data ####
 # Prepare Meng's 2017 synthesis data for merge with reported values
@@ -52,6 +56,7 @@ meng <- mengdat %>%
          depth_min = ifelse(!is.na(depth_max), 0, NA_character_)) 
  
 
+
 ## Prepare climate zone list ####
 climate_zones <- read_xlsx("coastal_wetland_nggi/data/original/Climate zones.xlsx") %>% 
   mutate(State = recode(State, "Delamare" = "Delaware")) %>% 
@@ -68,6 +73,7 @@ dated_us_cores <- cores %>%
                                       T ~ vegetation_class))
 
 
+
 ## Standardize reported values ####
 
 # look for disaggregated core data. average across depth intervals. (McTigue_et_al_2020: 2L-Pb)
@@ -75,7 +81,7 @@ dated_us_cores <- cores %>%
 #   drop_na(core_id) %>% add_count(site_id, core_id) %>% filter(n > 1) 
 reported_avg <- reported_raw %>% 
   filter(core_id == "2L-Pb") %>% 
-  mutate(core_id = "2L") %>% 
+  mutate(core_id = "TB_2L") %>% 
   group_by(study_id, site_id, core_id, pb210_rate_unit) %>%
   summarise(pb210_rate = mean(as.numeric(pb210_rate)),
             pb210_rate_se = sd(as.numeric(pb210_rate))) 
@@ -100,6 +106,9 @@ reported <- reported_raw %>%
   mutate_at(c("pb210_rate", "pb210_rate_se", "cs137_rate", "cs137_rate_se", "depth_min_cm", "depth_max_cm"), as.numeric) %>% 
   full_join(reported_avg) %>% 
   full_join(reported_drex) %>% 
+  
+  # only work with observations of Pb210 or Cs137 rate data
+  filter(!is.na(pb210_rate) | !is.na(cs137_rate)) %>% 
   
   # when CRS and CIC Pb210 rates are available, replace with their average
   mutate(pb210_rate = ifelse(!is.na(pb210_rate_cic & pb210_rate), (pb210_rate_cic + pb210_rate)/2, 
@@ -167,9 +176,7 @@ reported <- reported_raw %>%
   mutate_at(c("pb_CAR", "pb_CAR_se", "cs_CAR", "cs_CAR_se"), as.numeric) 
 
 
-## Merge reported values with depthseries data from library ####
-
-# remove redundant study_ids
+## Align dataframe to match depthseries data from library
 reported_merge <- reported %>% 
   
   # remove study_ids duplicated in the meng data:
@@ -178,16 +185,13 @@ reported_merge <- reported %>%
   # intersect(meng$study_id, reported_test$study_id)
   filter(study_id != "Craft_2007") %>% # 3 obs
   filter(study_id != "Noe_et_al_2016") %>% # 4 obs
-  filter(study_id != "Johnson_et_al_2007") %>% # 1 obs
   filter(study_id != "Boyd_and_Sommerfield_2016") %>%  # 12 obs; these core_ids were wrongly assigned, corrected below
-  filter(study_id != "Weston_et_al_2023") %>% # 10 obs; data not in depthseries table
-  filter(study_id != "Callaway_et_al_2019") %>% # 34 obs; Callaway_2019 in reported values = Callaway_2012 in meng
+  filter(study_id != "Callaway_et_al_2019") %>% # 34 obs; Callaway_2019 in reported values = Callaway_2012 in meng 
 
   # rename core_ids to match library data
-  mutate(source = "reported_value", # create a flag to remove unmatched cores after the depthseries data merge
-         depth_min_cm = ifelse(!is.na(depth_max_cm) & is.na(depth_min_cm), 0, depth_min_cm),
+  mutate(depth_min_cm = ifelse(!is.na(depth_max_cm) & is.na(depth_min_cm), 0, depth_min_cm),
          core_id = case_when(grepl("Nanticoke", site_id) ~ paste("NRM_", core_id, sep = ""), # Allen_et_al_2022
-                             grepl("Typha", core_id) ~ gsub("Typha", "Typha ", core_id), # Arias-Ortiz_et_al_2021 
+                             grepl("Typha", core_id) ~ gsub("Typha", "Typha ", core_id), # Arias-Ortiz_et_al_2021
                              grepl("Mouth", site_id) ~ "snipe_creek_M", # Arriola_and_Cable_2017
                              grepl("MC", site_id) ~ "snipe_creek_MC",
                              grepl("HE", site_id) ~ "snipe_creek_HE",
@@ -218,6 +222,7 @@ reported_merge <- reported %>%
                              grepl("5J", core_id) ~ "6_5J",
                              grepl("St_Augustine_Salt_marsh", core_id) ~ "St_Augustine_Salt_Marsh", # Vaughn_et_al_2020
                              grepl("Waccasassa_Bay_Salt_marsh", core_id) ~ "Waccasassa_Bay_Salt_Marsh",
+                             grepl("Luk_et_al_2020", study_id) ~ site_id, # Luk_et_al_2020
                              T ~ core_id),
          
          # rename site_ids to match library data where only site-level values are reported
@@ -241,23 +246,27 @@ reported_merge <- reported %>%
                              site_id == "WW" ~ "Snohomish_WDFW_Wetland",
                              site_id == "WF" ~ "Snohomish_WDFW_Forest",
                              T ~ site_id),
-         # note that Krauss_et_al_2018, Piazza_et_al_2021, Watson_and_Byrne_2013, and Abbott_et_al_2019 did not have Pb210 or Cs137 rates and were left out
+         # note that Krauss_et_al_2018, Watson_and_Byrne_2013, and Abbott_et_al_2019 did not have Pb210 or Cs137 rates and were left out
          
          # correct this core_id assignment
          study_id = case_when(core_id %in% c("PM1", "PM2", "PM3", "PM4", "PM5", "PM6", 
                                              "PM7", "PM8", "PM9", "PM10", "PM11", "PM12") ~ "Boyd_and_Sommerfield_2016",
-                              T ~ study_id)) %>% 
-  left_join(dated_us_cores) %>% 
-  assignEcosystem() 
+                              T ~ study_id)) 
 
-## Subset depthseries data into intervals represented by dating info
+
+
+## Pull depthseries summaries ####
+
+## Core-level data
+# Subset depthseries data into intervals represented by dating info
 depth_weights_core <- reported_merge %>% 
   full_join(depth, by = c("study_id", "core_id")) %>% # site_id is inconsistently assigned, but core_id is corrected for in reported_merge
-  drop_na(source) %>% # remove library entries not found in reported values
-  drop_na(core_id) %>% # remove site-level only data (summarized in depth_weights_site)
-  drop_na(depth_max, depth_min) %>% # remove rows without depth horizon
 
-  # extract represented core length from reported values
+  # remove observations not matched in core-level reported values 
+  filter(core_id %in% unique(reported_merge$core_id)) %>% 
+  filter(study_id != "Luk_et_al_2020") %>% 
+
+  # extract represented core length 
   group_by(study_id, core_id) %>% 
   summarise(rate_depth_max = max(depth_max_cm), # represented depth from reported values
             rate_depth_min = min(depth_min_cm),
@@ -267,81 +276,80 @@ depth_weights_core <- reported_merge %>%
   # determine the weight for dating rates (reported value depth interval / full depthseries depth interval,
   #                                        or: 1m depth interval / full depthseries depth interval,
   #                                        or: 1 [full dating rate])
-  drop_na(horizon_max) %>% # Drexler_et_al_2009's "BRI" core_id isn't in the depthseries table
   mutate(weight = case_when(!is.na(rate_depth_max) ~ (rate_depth_max - rate_depth_min) / (horizon_max - horizon_min), # if rate depth increment is present, use the interval to weight how much of the depthseries stock data to use
                             horizon_max > 100 ~ 100 / (horizon_max - horizon_min), # otherwise, if no rate depth increment is present and the core is deeper than 1m, weight the first meter of the core
                             T ~ 1)) # otherwise, use the entire rate given
 
-# repeat the same as above for the site-level only values
-depth_weights_site <- reported_merge %>% 
-  filter(study_id %in% c("Breithaupt_et_al_2014", "Drexler_et_al_2013", "Luk_et_al_2020", 
-                         "Peck_et_al_2020", "Poppe_and_Rybczyk_2019", "Poppe_et_al_2019")) %>% 
-  full_join(depth, by = c("study_id", "site_id")) %>% 
-  drop_na(source) %>% # remove library entries not found in reported values
+# Extract DBD/FOM/FOC core summaries
+depth_summary_core <- reported_merge %>% 
+  full_join(depth, by = c("study_id", "core_id")) %>% 
+  filter(core_id %in% unique(reported_merge$core_id)) %>% 
+  filter(study_id != "Luk_et_al_2020") %>% 
+  filter(!is.na(dry_bulk_density) | !is.na(fraction_carbon) | !is.na(fraction_organic_matter)) %>% 
+  group_by(study_id, core_id) %>% 
+  summarise(dry_bulk_density = mean(dry_bulk_density, na.rm = T), 
+            fraction_organic_matter = mean(fraction_organic_matter, na.rm = T),
+            fraction_carbon = mean(fraction_carbon, na.rm = T)) %>% 
+  full_join(depth_weights_core)
 
-  # extract represented core length from reported values
+
+## Site-level data
+# Repeat the same as above for Luk_et_al_2020 site-level summaries
+depth_weights_site <- reported_merge %>% 
+  full_join(depth, by = c("study_id", "site_id")) %>% 
+  filter(study_id == "Luk_et_al_2020") %>% 
   group_by(study_id, site_id) %>% 
-  summarise(rate_depth_max = max(depth_max_cm), # represented depth from reported values
+  summarise(rate_depth_max = max(depth_max_cm), 
             rate_depth_min = min(depth_min_cm),
-            horizon_max = max(depth_max), # represented depth from depthseries table
+            horizon_max = max(depth_max), 
             horizon_min = min(depth_min)) %>% 
+  mutate(weight = case_when(!is.na(rate_depth_max) ~ (rate_depth_max - rate_depth_min) / (horizon_max - horizon_min), 
+                            horizon_max > 100 ~ 100 / (horizon_max - horizon_min), 
+                            T ~ 1)) 
+
+depth_summary_site <- reported_merge %>% 
+  full_join(depth, by = c("study_id", "site_id")) %>% 
+  filter(study_id == "Luk_et_al_2020") %>% 
+  group_by(study_id, site_id) %>% 
+  summarise(dry_bulk_density = mean(dry_bulk_density, na.rm = T), 
+            fraction_organic_matter = mean(fraction_organic_matter, na.rm = T),
+            fraction_carbon = mean(fraction_carbon, na.rm = T)) %>% 
+  full_join(depth_weights_site) %>% 
+  mutate(core_id = site_id) %>% 
+  full_join(depth_summary_core) 
   
-  # determine the weight for dating rates (reported value depth interval / full depthseries depth interval,
-  #                                        or: 1m depth interval / full depthseries depth interval,
-  #                                        or: 1 [full dating rate])
-  drop_na(horizon_max) %>% # can't weight values that don't exist
-  mutate(weight = case_when(!is.na(rate_depth_max) ~ (rate_depth_max - rate_depth_min) / (horizon_max - horizon_min), # if rate depth increment is present, use the interval to weight how much of the depthseries stock data to use
-                            horizon_max > 100 ~ 100 / (horizon_max - horizon_min), # otherwise, if no rate depth increment is present and the core is deeper than 1m, weight the first meter of the core
-                            T ~ 1),
-         core_id = site_id)
+
 
 
 ## Create the finalized table ####
-depth_summaries <- reported_merge %>% 
-  full_join(depth) %>% 
-  filter(!grepl("-", dry_bulk_density)) %>% # remove negative DBD value
-  drop_na(source) %>% 
-  drop_na(core_id) %>% 
-  full_join(depth_weights_core) %>% 
-  full_join(depth_weights_site) %>% 
-  group_by(study_id, site_id, core_id) %>% 
-  mutate(weighted_dry_bulk_density = dry_bulk_density * weight,
-         weighted_fraction_organic_matter = fraction_organic_matter * weight,
-         weighted_fraction_carbon = fraction_carbon * weight,
+synthdat <- reported_merge %>% 
+  full_join(depth_summary_site, by = c("study_id", "core_id")) %>% 
+  left_join(dated_us_cores) %>% 
+  assignEcosystem() %>% 
+  mutate(weighted_dry_bulk_density = dry_bulk_density * weight, 
+         weighted_fraction_organic_matter = fraction_organic_matter * weight, 
+         weighted_fraction_carbon = fraction_carbon * weight, 
          
          # convert FOM to FOC depending on habitat type (same conversion as above in reported)
          OM_density = weighted_dry_bulk_density * weighted_fraction_organic_matter, 
          foc_calc = ifelse(grepl("marsh", habitat) & weighted_fraction_organic_matter > 0, 0.486 * OM_density - 0.0160 * OM_density^2,
                            ifelse(grepl("swamp", habitat) & weighted_fraction_organic_matter > 0, 0.427 * OM_density + 0.0635 * OM_density^2,
-                                  0)), # if FOM isn't available, mark as zero to omit in the CAR conversion below
+                                  NA)),
          
          # use the FOC calculated above to convert accretion rate to C accumulation rate
-         pb_CAR = ifelse(grepl("accretion", pb_accretion) & weighted_fraction_carbon > 0, pb210_rate * weighted_dry_bulk_density * weighted_fraction_carbon, # if FOC is present in the library
-                             ifelse(grepl("accretion", pb_accretion) & weighted_fraction_carbon == 0 & foc_calc > 0, pb210_rate * foc_calc, # if FOC isn't present in the library, use calculated c_stock from FOM 
-                                 ifelse(grepl("accretion", pb_accretion) & weighted_fraction_carbon == 0 & foc_calc == 0, NA_character_, # remove accretion rates that have no corresponding FOM or FOC
-                                        pb_CAR))), # the remainder are the already calculated/existing accumulation rates
-         pb_CAR_se = ifelse(grepl("accretion", pb_accretion) & weighted_fraction_carbon > 0, pb210_rate_se * weighted_dry_bulk_density * weighted_fraction_carbon, 
-                         ifelse(grepl("accretion", pb_accretion) & weighted_fraction_carbon == 0 & foc_calc > 0, pb210_rate_se * foc_calc,
-                                ifelse(grepl("accretion", pb_accretion) & weighted_fraction_carbon == 0 & foc_calc == 0, NA_character_, 
-                                       pb_CAR_se))), # the remainder are the already calculated/existing accumulation rates
-         cs_CAR = ifelse(grepl("accretion", cs_accretion) & weighted_fraction_carbon > 0, cs137_rate * weighted_dry_bulk_density * weighted_fraction_carbon,
-                               ifelse(grepl("accretion", cs_accretion) & weighted_fraction_carbon == 0 & foc_calc > 0, cs137_rate * foc_calc,
-                                      ifelse(grepl("accretion", cs_accretion) & weighted_fraction_carbon == 0 & foc_calc == 0, NA_character_, 
-                                             cs_CAR))),
-         cs_CAR_se = ifelse(grepl("accretion", cs_accretion) & weighted_fraction_carbon > 0, cs137_rate_se * weighted_dry_bulk_density * weighted_fraction_carbon,
-                         ifelse(grepl("accretion", cs_accretion) & weighted_fraction_carbon == 0 & foc_calc > 0, cs137_rate_se * foc_calc,
-                                ifelse(grepl("accretion", cs_accretion) & weighted_fraction_carbon == 0 & foc_calc == 0, NA_character_, 
-                                       cs_CAR_se)))) %>% 
-  mutate_at(c("pb_CAR", "pb_CAR_se", "cs_CAR", "cs_CAR_se", "carbon_stock", "carbon_stock_se"), as.numeric) %>% 
-  select(study_id, site_id, core_id, climate_zone, ecosystem, pb_CAR, pb_CAR_se, cs_CAR, cs_CAR_se, carbon_stock, carbon_stock_se) %>% 
-  distinct()
+         pb_CAR = ifelse(grepl("accretion", pb_accretion) & !is.na(weighted_fraction_carbon), pb210_rate * weighted_dry_bulk_density * weighted_fraction_carbon, # if FOC is present in the library # all present in pb_CAR
+                         ifelse(grepl("accretion", pb_accretion) & !is.na(foc_calc), pb210_rate * foc_calc, # if FOC isn't present in the library, use calculated c_stock from FOM 
+                                pb_CAR)), # the remainder are the already calculated/existing accumulation rates
+         pb_CAR_se = ifelse(grepl("accretion", pb_accretion) & !is.na(weighted_fraction_carbon), pb210_rate_se * weighted_dry_bulk_density * weighted_fraction_carbon, 
+                         ifelse(grepl("accretion", pb_accretion) & !is.na(foc_calc), pb210_rate_se * foc_calc, pb_CAR_se)), 
+         cs_CAR = ifelse(grepl("accretion", cs_accretion) & !is.na(weighted_fraction_carbon), cs137_rate * weighted_dry_bulk_density * weighted_fraction_carbon,
+                         ifelse(grepl("accretion", cs_accretion) & !is.na(foc_calc), cs137_rate * foc_calc, cs_CAR)),
+         cs_CAR_se = ifelse(grepl("accretion", cs_accretion) & !is.na(weighted_fraction_carbon), cs137_rate_se * weighted_dry_bulk_density * weighted_fraction_carbon,
+                            ifelse(grepl("accretion", cs_accretion) & !is.na(foc_calc), cs137_rate_se * foc_calc, cs_CAR_se))) %>% 
+  filter(!is.na(pb_CAR|cs_CAR)) %>% # remove instances without accumulation rates
+  distinct() %>% 
+  select(study_id, site_id, core_id, core_count, pb_CAR, pb_CAR_se, cs_CAR, cs_CAR_se, climate_zone, ecosystem)
 
   
-
-
-
-  
-
-
 
 
