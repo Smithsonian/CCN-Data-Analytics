@@ -41,13 +41,20 @@ ds_stocks <- ds %>%
 # 66% coverage  - gets better with more habitats assigned
 # Nahlic and Fennessey marsh outlier DBD sample_id NWCA11-3583-1-11-MD-019-016-1
 # density
-# ggplot(ds_stocks %>% filter(carbon_density < 0.8), aes(carbon_density, habitat)) + geom_boxplot()
+ggplot(ds_stocks %>% filter(carbon_density < 0.8), aes(carbon_density, habitat)) + geom_boxplot()
 # ggplot(ds_stocks, aes(fraction_organic_matter, fraction_carbon, col = habitat)) + geom_point()
 # stocks
 
 # Standardize calculations for specified interval(s)
 # this might need adjusting
 standard_stocks <- standardizeDepths(ds_stocks)
+
+# standard_stocks %>% 
+#   drop_na(stock_gCm2) %>% 
+#   mutate(stock_MgHa = stock_gCm2 * (10^4/10^6)) %>% 
+#   # filter(stock_MgHa < 1500) %>% 
+#   left_join(ds_stocks %>% distinct(study_id, core_id, habitat)) %>% 
+#   ggplot(aes(stock_MgHa, habitat)) + geom_boxplot()
 
 # write to intermediate folder for use in the accretionToCAR fxn
 write_csv(standard_stocks, "coastal_wetland_nggi/data/derived/soil_carbon_calculations.csv")

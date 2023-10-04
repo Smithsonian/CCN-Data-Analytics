@@ -1,6 +1,5 @@
 ## CCN-Data-Analytics
-## Author: Jaxine Wolfe <wolfejax@si.edu>
-## Date: 11-07-2022
+## Author: Jaxine Wolfe and Henry Betts
 
 ## Workflow for standardizing C accumulation values for the 2022 NGGI
 ## And merging the table with the previous NGGI table from 2017
@@ -57,7 +56,8 @@ source("resources/pull_synthesis.R")
 source("coastal_wetland_nggi/scripts/nggi_utils.R")
 
 # read in reported values
-reported <- read_csv("coastal_wetland_nggi/data/original/NGGI_2022_reported_values - literature_values.csv")
+reported_raw <- read_csv("coastal_wetland_nggi/data/original/NGGI_reported_values_20230818 - literature_values.csv",
+                         na = c("---", "NA", ""))
 
 # read in data from previous NGGI
 mengdat <- read_csv("coastal_wetland_nggi/data/original/US-BC-Analysis-1-105.csv")
@@ -66,50 +66,391 @@ mengdat <- read_csv("coastal_wetland_nggi/data/original/US-BC-Analysis-1-105.csv
 cores <- getSynthesisData("cores")
 bib <- getSynthesisData("citations")
 
-# read in climate zone table
-climate_zones <- read_xlsx("coastal_wetland_nggi/data/original/Climate zones.xlsx") %>% 
-  mutate(Color = tolower(Color),
-         Color = recode(Color, "oragen" = "orange"),
-         State = recode(State, "Delamare" = "Delaware")) %>% 
-  rename(admin_division = State, climate_zone = `Climate zone`, climate_color = Color)
+# read in climate zones
+climate_zones <- read_xlsx("coastal_wetland_nggi/data/original/Climate zones.xlsx") %>%
+  mutate(State = recode(State, "Delamare" = "Delaware")) %>%
+  rename(admin_division = State, climate_zone = `Climate zone`) %>%
+  select(-Color)
 
+## Standardize Reported Values ####
 
-# Prepare Synthesis Data ####
+reported_aligned <- reported_raw %>% 
+  
+  # remove study_ids duplicated in the meng data:
+  # reported_test <- reported %>% 
+  #   mutate(study_id = gsub("_et_al_|_and_.*_", "_", study_id)) # match the meng study_id structure
+  # intersect(meng$study_id, reported_test$study_id)
+  filter(study_id != "Craft_2007") %>% # 3 obs
+  filter(study_id != "Noe_et_al_2016") %>% # 4 obs
+  filter(study_id != "Johnson_et_al_2007") %>% # 1 obs
+  filter(study_id != "Boyd_and_Sommerfield_2016") %>%  # 12 obs; this was duplicated by Boyd_2012
+  # filter(study_id != "Weston_et_al_2023") %>% # 10 obs; data not in depthseries table
+  filter(study_id != "Callaway_et_al_2019") %>% # 34 obs; Callaway_2019 in reported values = Callaway_2012 in meng
+  # filter(!(study_id == "Boyd_2012" & site_id == "PM")) %>% 
+  
+  # rename core_ids to match library data
+  mutate(source = "reported_value", # create a flag to remove unmatched cores after the depthseries data merge
+         depth_min_cm = ifelse(!is.na(depth_max_cm) & is.na(depth_min_cm), 0, depth_min_cm),
+         core_id = case_when(grepl("Nanticoke", site_id) ~ paste("NRM_", core_id, sep = ""), # Allen_et_al_2022
+                             grepl("Typha", core_id) ~ gsub("Typha", "Typha ", core_id), # Arias-Ortiz_et_al_2021 
+                             grepl("Mouth", site_id) ~ "snipe_creek_M", # Arriola_and_Cable_2017
+                             grepl("MC", site_id) ~ "snipe_creek_MC",
+                             grepl("HE", site_id) ~ "snipe_creek_HE",
+                             grepl("HI", site_id) ~ "snipe_creek_HI",
+                             grepl("Upstream", site_id) ~ "snipe_creek_S",
+                             grepl("Forest", site_id) ~ "snipe_creek_F",
+                             grepl("CRMS|CRMS0", core_id) ~ gsub("CRMS|CRMS0", "", core_id), # Baustian_et_al_2021
+                             study_id == "Boyd_2012" ~ gsub("-", "", core_id), # Boyd_2012
+                             study_id == "Boyd_et_al_2017" ~ gsub("_", "", core_id), # Boyd_et_al_2017
+                             grepl("Mudflat", core_id) ~ "ELM1812-MFA1", # Carlin_et_al_2021
+                             grepl("Spartina", core_id) ~ "ELM1812-SPA2",
+                             grepl("Pickleweed", core_id) ~ "ELM1812-PWA1",
+                             grepl("Choptank_non_tidal", core_id) ~ "ChoptankNontidal", # Ensign_et_al_2020
+                             grepl("Choptank_head_of_tide", core_id) ~ "ChoptankUpperTidal",
+                             grepl("Choptank_TFFW", core_id) ~ "ChoptankMiddleTidal",
+                             grepl("Choptank_marsh", core_id) ~ "ChoptankLowerTidal",
+                             grepl("Pocomoke_non_tidal", core_id) ~ "PocomokeNontidal",
+                             grepl("Pocomoke_head_of_tide", core_id) ~ "PocomokeUpperTidal",
+                             grepl("Pocomoke_TFFW", core_id) ~ "PocomokeMiddleTidal",
+                             grepl("Pocomoke_marsh", core_id) ~ "PocomokeLowerTidal",
+                             grepl("SM02-VC1", core_id) ~ "SM02_VC1", # Johnson_et_al_2007
+                             # grepl("Traps_Bay", site_id) ~ paste("TB_", core_id, sep = ""), # McTigue_et_al_2020
+                             grepl("2J", core_id) ~ "1_2J", # Poppe_and_Rybczyk_2018
+                             grepl("3F", core_id) ~ "2_3F",
+                             grepl("4F", core_id) ~ "3_4F",
+                             study_id == "Poppe_and_Rybczyk_2018" & grepl("5B", core_id) ~ "4_5B",
+                             grepl("5F", core_id) ~ "5_5F",
+                             grepl("5J", core_id) ~ "6_5J",
+                             grepl("St_Augustine_Salt_marsh", core_id) ~ "St_Augustine_Salt_Marsh", # Vaughn_et_al_2020
+                             grepl("Waccasassa_Bay_Salt_marsh", core_id) ~ "Waccasassa_Bay_Salt_Marsh",
+                             study_id == "Weston_et_al_2023" ~ paste0(site_id, "_", core_id),
+                             core_id == "2L-Pb" ~ "TB_2L",
+                             T ~ core_id),
+         
+         # rename site_ids to match library data where only site-level values are reported
+         site_id = case_when(grepl("Wardlaw 1", site_id) ~ "Wardlaw_Shallow_Managed", # Drexler_et_al_2013
+                             grepl("Hasty Point", site_id) ~ "Hasty_Point_Managed_Shallow",
+                             grepl("Coastal EDU", site_id) ~ "Coastal_EDU_Field",
+                             grepl("Bird Field Managed", site_id) ~ "Bird_Field",
+                             grepl("Sandy Island Tidal", site_id) ~ "Sandy_Island_Natural",
+                             grepl("Sandy Island Managed", site_id) ~ "Sandy_Island_Deeply_Flooded",
+                             grepl("Poppe_and_Rybczyk_2019", study_id) ~ paste("Stillaguamish_", site_id, sep = ""), # Poppe_and_Rybczyk_2019
+                             site_id == "QM" ~ "Snohomish_Quilceda_Marsh", # Poppe_et_al_2019
+                             site_id == "HP" ~ "Snohomish_Heron_Point",
+                             site_id == "OI" ~ "Snohomish_Otter_Island",
+                             site_id == "NE" ~ "Snohomish_North_Ebey",
+                             site_id == "SP" ~ "Snohomish_Spencer_Island",
+                             site_id == "MA" ~ "Snohomish_Marysville_Mitigation",
+                             site_id == "US" ~ "Snohomish_Union_Slough",
+                             site_id == "SS" ~ "Snohomish_Smith_Island_City",
+                             site_id == "QW" ~ "Snohomish_Qwuloolt",
+                             site_id == "SN" ~ "Snohomish_Smith_Island_County",
+                             site_id == "WW" ~ "Snohomish_WDFW_Wetland",
+                             site_id == "WF" ~ "Snohomish_WDFW_Forest",
+                             T ~ site_id),
+         
+         # correct this core_id assignment
+         study_id = case_when(
+           # core_id %in% c("PM1", "PM2", "PM3", "PM4", "PM5", "PM6", 
+           #                                   "PM7", "PM8", "PM9", "PM10", "PM11", "PM12") ~ "Boyd_and_Sommerfield_2016",
+                              study_id == "Weston_et_al_2023" ~ "Weston_et_al_2020",
+                              T ~ study_id),
+         
+         pb210_rate_unit = ifelse(study_id %in% c("Arias-Ortiz_et_al_2021", "Carlin_et_al_2021"), 
+                                  "gramsPerSquareMeterPerYear", pb210_rate_unit)) 
 
-# isolate US cores with dating information and join climate zones
-dated_us_cores <- cores %>% 
+# check mismatches
+mismatch <- anti_join(reported_aligned %>% select(study_id, core_id), cores) 
+
+## Handle outliers in the reported values table
+
+# 2L-Pb core needs to be averaged across its depth intervals
+core_2L_Pb <- reported_aligned %>% 
+  # drop_na(core_id) %>% add_count(site_id, core_id) %>% filter(n > 1) %>% 
+  filter(core_id == "TB_2L") %>% 
+  group_by(study_id, site_id, core_id, habitat, management, accumulation_type, pb210_rate_unit) %>%
+  summarise(pb210_rate = mean(as.numeric(pb210_rate)),
+            pb210_rate_se = sd(as.numeric(pb210_rate)))
+
+# Drexler_et_al_2013 has pb210_rate as a range - remove and replace with summarized data
+reported_drex <- reported_aligned %>% 
+  filter(grepl("Drexler_et_al_2013", study_id)) %>% 
+  separate(pb210_rate, into = c("pb210_rate_min", "pb210_rate_max"), sep = "-", convert = T) %>% 
+  separate(depth_max_cm, into = c("depth_min_cm", "depth_max_cm"), sep = "-", convert = T) %>% 
+  mutate(pb210_rate = (as.numeric(pb210_rate_min) + as.numeric(pb210_rate_max))/2) %>% 
+  select(-pb210_rate_min, -pb210_rate_max) %>% 
+  select_if(~!all(is.na(.)))
+
+# Join climate zone data with core table
+core_categories <- cores %>%
   filter(country == "United States") %>% 
-  # filter(habitat != "upland") %>% 
-  drop_na(dates_qual_code) %>% # isolate dated cores
   left_join(climate_zones) %>% 
-  mutate(habitat = recode(habitat, "scrub shrub" = "scrub/shrub"),
-         vegetation_class = case_when(core_id == "MR3" ~ "marsh",
-                                      T ~ vegetation_class)) %>% 
-  assignEcosystem() %>% 
-  arrange(study_id) %>% 
-  select(study_id, site_id, core_id, habitat, vegetation_class, salinity_class, ecosystem, climate_zone, everything())
-  # left_join(methods %>% select())
-  # left_join(depthseries %>% distinct(study_id, site_id, core_id, method_id)) %>% 
-  # left_join(methods %>% select(study_id, method_id, fraction_carbon_type)) %>% 
-  # select(study_id, site_id, core_id, method_id, fraction_carbon_type, everything()) %>% 
-    # count(study_id, core_id)
-  # filter(study_id %in% unique(reported$study_id))
+  rename(habitat_ccn = habitat) %>% # so it won't be confused with the reported values table one
+  select(study_id, core_id, habitat_ccn, admin_division, climate_zone)
 
-View(dated_us_cores %>% 
-  drop_na(ecosystem) %>% 
-  distinct(study_id, ecosystem, climate_zone) %>% 
-  add_count(study_id) %>% filter(n > 1),
-  title = "check_assignments")
+# core_categories %>% filter(study_id %in% unique(mismatch$study_id)) %>% 
+  # distinct(study_id, climate_zone) %>% arrange(climate_zone)
 
-# zone_count <- dated_us_cores %>% 
-#   count(ecosystem, climate_zone)
-              # study_id, site_id, habitat, 
-              # vegetation_class, salinity_class, 
-              # ecosystem, climate_zone) %>% arrange(ecosystem, climate_zone), title = "")
+# Create the finalized reported 
+reported_clean <- reported_aligned %>% 
+  filter(study_id != "Drexler_et_al_2013") %>%
+  filter(is.na(core_id) | core_id != "TB_2L") %>%
+  # Peck 2020 has an SE value of "z" and Gerlach marker rate is a note
+  mutate(across(c(carbon_stock, depth_min_cm, depth_max_cm, pb210_rate, pb210_rate_se, marker_rate), 
+                as.numeric)) %>% 
+  bind_rows(reported_drex) %>% 
+  bind_rows(core_2L_Pb) %>% 
+  left_join(core_categories) %>% 
+  
+  # patch in some climate zones for studies that only had site-level rates
+  mutate(climate_zone = case_when(study_id %in% c("Poppe_et_al_2019", "Poppe_and_Rybczyk_2019", "Thom_1992",
+                                                  "Peck_et_al_2020", "McTigue_et_al_2020", "Krauss_et_al_2018",
+                                                  "Drexler_et_al_2019", "Drexler_et_al_2013", "Boyd_2012", "Boyd_and_Sommerfield_2016") ~ "Warm Temperate",
+                                  study_id %in% c("Breithaupt_et_al_2014", "Abbott_et_al_2019", "Piazza_et_al_2021") ~ "Subtropical",
+                                  study_id %in% c("Drexler_et_al_2009", "Watson_and_Byrne_2013") ~ "Mediterranean",
+                                  study_id == "Luk_et_al_2020" ~ "Cold Temperate",
+                                  T ~ climate_zone)) %>% 
+  
+  mutate(inventory_year = "nggi_2022") %>% 
+  
+  mutate(ecosystem = case_when(
+    habitat == "marsh" ~ "Estuarine Emergent Wetland",
+    grepl("scrub|shrub", habitat) ~ "Estuarine Scrub/Shrub Wetland",
+    habitat == "swamp" ~ "Palustrine Forested Wetland",
+    habitat == "mangrove" ~ "Estuarine Forested Wetland",
+    habitat == "seagrass" ~ "Estuarine Aquatic Bed",
+    T ~ NA_character_)
+  ) %>% 
+  
+  mutate(management = case_when(study_id %in% c("Giblin_and_Forbrich_2018", "Weston_et_al_2020") ~ "natural",
+                                T ~ management)) %>% 
+  # separate(carbon_stock, into = c("carbon_stock", "carbon_stock_se"), sep = " ") %>%
+  
+  # when CRS and CIC Pb210 rates are available, replace with their average
+  mutate(pb210_rate = ifelse(!is.na(pb210_rate_cic & pb210_rate), (pb210_rate_cic + pb210_rate)/2,
+                             ifelse(!is.na(pb210_rate_cic), pb210_rate_cic, pb210_rate)),
+         pb210_rate_se = ifelse(!is.na(pb210_rate_cic_se & pb210_rate_se), (pb210_rate_cic_se + pb210_rate_se)/2,
+                                ifelse(!is.na(pb210_rate_cic_se), pb210_rate_cic_se, pb210_rate_se)),
+         pb210_rate_unit = ifelse(is.na(pb210_rate), NA, pb210_rate_unit),
+         cs137_rate_unit = ifelse(is.na(cs137_rate), NA, cs137_rate_unit)
+         ) %>% 
+  arrange(study_id, site_id, core_id) 
+  
+
+## Convert accretion rates to CAR
+reported_convert <- accretionToCAR(reported_clean)
+
+# studies with sediment accretion
+# 1 Allen_et_al_2022         
+# 2 Boyd_2012                
+# 3 Boyd_and_Sommerfield_2016 # removed
+# 4 Boyd_et_al_2017          
+# 5 Drexler_et_al_2009  # radiocarbon rate
+# 6 Gerlach_et_al_2017  # not included 
+# 7 Lagomasino_et_al_2020    
+# 8 Luk_et_al_2020           
+# 9 Smith_et_al_2015         
+# 10 Thom_1992                
+# 11 Weis_et_al_2001          
+# 12 Vaughn_et_al_2020 
+
+# Baustian is missing rate data?
+
+# reported_final <- reported_convert %>% 
+#   # convert accumulation rates to gC ha-1 yr-1 
+#   # what to do about cm/yr or mm/yr sediment accumulation rate? Leave out for now
+#   mutate(pb210_rate_gChayr = case_when(pb210_rate_unit == "gramsPerSquareCentimeterPerYear" ~ pb210_rate*100,
+#                                # pb210_rate_unit == "kilogramsPerSquareMeterPerYear" ~ pb210_rate*10, # doesn't occur anymore
+#                                pb210_rate_unit == "gramsPerSquareMeterPerYear" ~ pb210_rate/100,
+#                                pb210_CAR_unit == "gramsPerSquareMeterPerYear" ~ pb210_CAR/100,
+#                                T ~ NA),
+#          cs137_rate_gChaya = case_when(cs137_rate_unit == "gramsPerSquareCentimeterPerYear" ~ cs137_rate*100,
+#                                # cs137_rate_unit == "kilogramsPerSquareMeterPerYear" ~ cs137_rate*10,
+#                                cs137_rate_unit == "gramsPerSquareMeterPerYear" ~ cs137_rate/100,
+#                                cs137_CAR_unit == "gramsPerSquareMeterPerYear" ~ cs137_CAR/100,
+#                                T ~ NA)
+#   )
+
+
+## Join Meng Data ####
+
+# Prepare Meng's 2017 synthesis data for merge with reported values
+meng <- mengdat %>% 
+  rename(latitude = Latitude,
+         longitude = Longitude,
+         habitat = Ecosystem,
+         # ecosystem = CCAP_Class,
+         management = Management,
+         climate_zone = Climate_Zone,
+         # carbon_stock = SOC1, 
+         # carbon_stock_unit = SOC1units,
+         depth_max_cm = SOC1depth, 
+         salinity_class = Salinity_Regime, 
+         pb210_CAR = delSOC1Pb, 
+         pb210_CAR_unit = delSOC1units,
+         cs137_CAR = delSOC2Cs,
+         cs137_CAR_unit = delSOC2units,
+         marker_rate = delSOC3Marker,
+         marker_rate_unit = delSOC3units,
+         SET_rate = delSOC4SET,
+         SET_rate_unit = delSOC4units,
+         radiocarbon_rate = delSOC5RadioC,
+         radiocarbon_rate_unit = delSOC5units) %>% 
+  mutate(inventory_year = "nggi_2017",
+         study_id = paste(First_Author, Year, sep = "_"),
+         salinity_class = case_when(salinity_class == "0-0.3" ~ "fresh",
+                                    salinity_class == "0-0.4" ~ "fresh",
+                                    salinity_class == "<0.5" ~ "fresh",
+                                    salinity_class == "0-15" ~ "mesohaline",
+                                    salinity_class == ">18" ~ "polyhaline",
+                                    salinity_class == "<18" ~ "mesohaline",
+                                    salinity_class == "20-35" ~ "mixoeuhaline",
+                                    salinity_class == "oligo" ~ "oligiohaline",
+                                    salinity_class == "poly" ~ "polyhaline",
+                                    salinity_class == "meso" ~ "mesohaline",
+                                    T ~ salinity_class),
+         
+         # if Ecosystem='marsh' then Ecosystem='Estuarine_Emergent_Wetlands';
+         # if Ecosystem='mangrove' and Stature='shrub' then Ecosystem='Estuarine_Emergent_Wetlands';
+         # if Ecosystem='mangrove' and Stature ne 'shrub' then Ecosystem='Estuarine_Forested_Wetlands';
+         # if Ecosystem='tidal_fresh_marsh' then Ecosystem='Palustrine_Emergent_Wetland';
+         # if Ecosystem='tidal_fresh_forest' then Ecosystem='Palustrine_Forested_Wetland';
+         ecosystem = case_when(habitat == "marsh" ~ "Estuarine Emergent Wetland",
+                               habitat == "mangrove" & Stature == "shrub" ~ "Estuarine Emergent Wetland",
+                               habitat == "mangrove" & Stature == "tree" ~ "Estuarine Forested Wetland",
+                               habitat == "mangrove" & is.na(Stature) ~ "Estuarine Forested Wetland",
+                               habitat == "tidal_fresh_marsh" ~ "Palustrine Emergent Wetland",
+                               habitat == "tidal_fresh_forest" ~ "Palustrine Forested Wetland",
+                               TRUE ~ NA), 
+         climate_zone = recode(climate_zone,
+                         "temperate_cold" = "Cold Temperate",
+                         "temperate_warm" = "Warm Temperate"),
+         pb210_CAR_unit = recode(pb210_CAR_unit, "gC_m2" = "gramsPerSquareMeterPerYear"),
+         cs137_CAR_unit = recode(cs137_CAR_unit, "gC_m2" = "gramsPerSquareMeterPerYear"),
+         carbon_stock  = case_when(SOC1units == "OCg_cc" ~ SOC1 * 10000, # need to check these conversions
+                                   SOC1units == "gC_m2" ~ SOC1 / 100, 
+                                   SOC1units == "MgC_ha" ~ SOC1,
+                                   T ~ NA),
+         carbon_stock_unit = ifelse(!is.na(carbon_stock), "megagramsPerHectare", NA),
+         depth_min_cm = ifelse(!is.na(depth_max_cm), 0, NA)) %>% 
+  # recode management
+  mutate(management = recode(management, 
+                             "N" = "natural",
+                             "R" = "restored",
+                             "D" = "disturbed",
+                             "M" = "impounded")) %>% 
+  select_if(~!all(is.na(.)))
+
+
+# bind all 
+reported_all <- bind_rows(reported_convert, meng) %>% 
+  mutate(climate_zone = str_to_title(climate_zone)) %>% 
+  select(names(reported_convert), everything()) %>% 
+  select(-c(pb210_rate, pb210_rate_se, pb210_rate_unit, pb210_rate_cic, pb210_rate_cic_se,
+            cs137_rate, cs137_rate_se, cs137_rate_unit, dry_bulk_density, fraction_organic_matter,
+            fraction_carbon, reported_rates, notes, publication_table, contains("stock"), SOC1, SOC1units,
+            Litter, BD, contains("Species"), contains("AGB"), contains("BGB"))) %>% 
+  filter_at(vars(pb210_CAR, pb210_CAR_unit, cs137_CAR, cs137_CAR_unit), any_vars(!is.na(.))) %>% 
+  select_if(~!all(is.na(.))) %>% 
+  arrange(study_id)
+
+# issues: 
+# Boyd 2012, core NCGB1
+# Lagomasino 2020, HG3, PP1, PP3
+
+# test <- reported_all %>%
+#   filter(inventory_year == "2022") %>%
+#   filter(management == "natural") %>%
+#   filter(habitat != "mudflat") %>%
+#   mutate(core_count = ifelse(is.na(core_count), 1, core_count))
+# sum(test$core_count)
+# 
+# nrow(meng %>% 
+#   filter_at(vars(pb210_CAR, pb210_CAR_unit, cs137_CAR, cs137_CAR_unit), any_vars(!is.na(.))) %>% 
+#   filter(management == "natural"))
+
+## NGGI Summary Calculations ####
+
+nggi_smry <- reported_all %>% 
+  filter(management == "natural") %>% 
+  filter(habitat != "mudflat") %>% 
+  # filter(is.na(core_count) | core_count == 1) %>% # until we know how to handle a mean from multiple cores
+  # convert from gC m-2 yr-1 to gC ha-1 yr-1 and calculate the geometric mean
+  mutate(NewdelSOC1Pb = ifelse(pb210_CAR_unit != "centimeterPerYear", log10(pb210_CAR/100), NA),
+         NewdelSOC2Cs = ifelse(cs137_CAR_unit != "centimeterPerYear", log10(cs137_CAR/100), NA)) %>% 
+  group_by(ecosystem, climate_zone) %>% 
+  summarize(MNewdelSOC1Pb = mean(NewdelSOC1Pb, na.rm = T),
+            SeNewdelSOC1Pb = se(NewdelSOC1Pb, na.rm = T),
+            SdNewdelSOC1Pb = sd(NewdelSOC1Pb, na.rm = T),
+            MNewdelSOC2Cs = mean(NewdelSOC2Cs, na.rm = T),
+            SeNewdelSOC2Cs = se(NewdelSOC2Cs, na.rm = T),
+            SdNewdelSOC2Cs = sd(NewdelSOC2Cs, na.rm = T),
+            pb210_n = sum(!is.na(NewdelSOC1Pb)),
+            cs137_n = sum(!is.na(NewdelSOC2Cs))) %>% 
+  ungroup() %>% 
+  mutate(MGeodelSOC1Pb = 10^MNewdelSOC1Pb,
+         MGeodelSOC2Cs = 10^MNewdelSOC2Cs,
+         # confidence intervals
+         LowerCIGeodelSOC1Pb = 10^(MNewdelSOC1Pb - (SeNewdelSOC1Pb*1.96)),
+         LowerCIGeodelSOC2Cs = 10^(MNewdelSOC2Cs - (SeNewdelSOC2Cs*1.96)),
+         UpperCIGeodelSOC1Pb = 10^(MNewdelSOC1Pb + (SeNewdelSOC1Pb*1.96)),
+         UpperCIGeodelSOC2Cs = 10^(MNewdelSOC2Cs + (SeNewdelSOC2Cs*1.96)))
+
+
+# things to iron out
+# propagation of error from values that are already averaged to the site-level
+# standardize to depth
+
+## Data Visualization ####
+
+rmarkdown::render(input = "coastal_wetland_nggi/scripts/nggi_2022_datavis.Rmd",
+                  output_dir = "coastal_wetland_nggi/docs/")
+
+
+## Write final NGGI table ####
+
+nggi_smry_clean <- nggi_smry %>% 
+  select(ecosystem, climate_zone, contains("Geo"), contains("_n")) %>% 
+  select(ecosystem, climate_zone, contains("pb"), contains("cs")) %>% 
+  mutate(across(everything(), ~replace_na(.x, NA)))
+
+write_csv(nggi_smry_clean, "coastal_wetland_nggi/data/final/NGGI_2022_CAR.csv")
+
+## Bibliography ####
+
+library(RefManageR)
+
+studies_for_bib <- reported_all %>% 
+  filter(management == "natural") %>% 
+  filter(habitat != "mudflat") %>% 
+  distinct(study_id) %>% pull(study_id)
+
+weston_article <- as.data.frame(GetBibEntryWithDOI("10.1029/2022EF003037")) %>% 
+  mutate(study_id = "Weston_et_al_2020",
+         bibliography_id = "Weston_et_al_2023_article",
+         publication_type = "associated source") %>% 
+  remove_rownames()
+
+gib_for_article <- as.data.frame(GetBibEntryWithDOI("10.1002/2017JG004336")) %>% 
+  mutate(study_id = "Giblin_and_Forbrich_2018",
+         bibliography_id = "Forbrich_et_al_2018_article",
+         publication_type = "associated source") %>% 
+  remove_rownames()
+
+nggi_bibs <- bib %>% 
+  filter(study_id %in% studies_for_bib) %>% 
+  mutate(across(everything(), as.character)) %>% 
+  bind_rows(weston_article, gib_for_article) %>% 
+  arrange(study_id)
+# filter(bibtype != "Misc")
+
+write_csv(nggi_bibs, "coastal_wetland_nggi/data/final/NGGI_2022_CAR_bibliography.csv")
+
+## Misc code ----
+
 # turn these into the NGGI classifications
 # Ecosystems: Estuarine Emergent Wetlands, Estuarine Forested Wetlands, Palustrine Emergent Wetland, Palustrine Forested Wetland, seagrass 
 
-# View(dated_us_cores %>% select(study_id, site_id, core_id, habitat, vegetation_class, salinity_class))
 
 # studies with split core methods
 # Okeefe-Suttles_et_al_2021_Cape
@@ -117,121 +458,19 @@ View(dated_us_cores %>%
 # Breithaupt_et_al_2014
 # McTigue_et_al_2020
 
-# find the studies that don't match between the synthesis and the reported table
-distinct(dated_us_cores, study_id) %>% 
-  anti_join(reported %>% distinct(study_id)) %>% pull(study_id)
-
 # No associated article: 
-  # Messerschmidt_and_Kirwan_2020 - CCN release, has interval sedimentation rate (mm yr-1). Need to derive %OC and calculate CAR
-  # O'keefe Suttles, other release - CAR needs to be extracted from data releases
-  # Weston_et_al_2020, CCN release - no accumulation rates, we have to calculate these or ask Nat
-  # Buffington_et_al_2020 - CCN release, 1 core annual accretion rate given as 4.8mm/yr, Need to derive %OC since %C is modeled total?
-  # Gonneea_et_al_2018 - other release, depth interval CAR in original 
-  # Breithaupt_et_al_2020 - CCN release, maybe a rate column? might have to age depth model it
+# Messerschmidt_and_Kirwan_2020 - CCN release, has interval sedimentation rate (mm yr-1). Need to derive %OC and calculate CAR
+# O'keefe Suttles, other release - CAR needs to be extracted from data releases
+# Weston_et_al_2020, CCN release - no accumulation rates, we have to calculate these or ask Nat
+# Buffington_et_al_2020 - CCN release, 1 core annual accretion rate given as 4.8mm/yr, Need to derive %OC since %C is modeled total?
+# Gonneea_et_al_2018 - other release, depth interval CAR in original 
+# Breithaupt_et_al_2020 - CCN release, maybe a rate column? might have to age depth model it
 
-# Need to be added: 
-  # Rodriguez_et_al_2022: https://doi.org/10.1038/s43247-022-00501-x
-  # Vaughn_et_al_2020: https://doi.org/10.1029/2019GB006334
-  # Piazza_et_al_2020: https://pubs.usgs.gov/of/2011/1094/OF11-1094.pdf
-  # Giblin_and_Forbrich_2018: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JG004336
-  # Weston et al 2020: https://doi.org/10.1029/2022EF003037
+# Need to be added: (Now added??)
+# Rodriguez_et_al_2022: https://doi.org/10.1038/s43247-022-00501-x
+# Vaughn_et_al_2020: https://doi.org/10.1029/2019GB006334
+# Piazza_et_al_2020: https://pubs.usgs.gov/of/2011/1094/OF11-1094.pdf
+# Giblin_and_Forbrich_2018: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JG004336
+# Weston et al 2020: https://doi.org/10.1029/2022EF003037
 
-nggi_bibs <- bib %>% 
-  filter(study_id %in% unique(dated_us_cores$study_id))
-  # filter(bibtype != "Misc")
-
-
-# investigate table
-# lookup <- distinct(reported, study_id, accumulation_type) %>% 
-#   full_join(gapfill_ds %>% distinct(study_id, action_flag)) %>% 
-#   arrange(study_id)
-
-View(reported %>% distinct(study_id, accumulation_type) %>% 
-       filter(accumulation_type %in% c("sediment accretion", "organic matter")), 
-      title = "reported_accumulation_type")
-# these studies will need fraction organic matter
-
-# define zones of climate and ecosystem
-# this is the table which will be joined with the reported values
-zones <- dated_us_cores %>% 
-  # drop_na(ecosystem) %>% 
-  distinct(study_id, climate_zone) %>% 
-  arrange(study_id)
-
-
-## Standardize Reported Values ####
-
-# mass accumulation unit variations
-# "gramsPerSquareCentimeterPerYear"
-# "gramsPerSquareMeterPerYear" 
-# "kilogramsPerSquareMeterPerYear"
-
-# depth accumulation unit variations
-# "millimeterPerYear" => ?
-# "centimeterPerYear" =>  ?
-
-# 2L-Pb core needs to be averaged across its depth intervals
-reported_smry <- reported %>% 
-  # drop_na(core_id) %>% add_count(site_id, core_id) %>% filter(n > 1) %>% 
-  filter(core_id == "2L-Pb") %>% 
-  group_by(study_id, site_id, core_id, habitat, management, accumulation_type, pb210_rate_unit) %>%
-  summarise(pb210_rate = mean(as.numeric(pb210_rate)),
-            pb210_rate_se = sd(as.numeric(pb210_rate)))
-
-reported_subset <- reported %>% 
-  
-  # filter(accumulation_type == "organic carbon") %>% # only work with C accumulation for now
-  filter(grepl("carbon", accumulation_type)) %>%  # total and organic carbon
-  filter(habitat != "mudflat") %>% 
-  filter(!grepl("-", pb210_rate)) %>% # Drexler study expresses C accumulation as a range
-  # filter(management == "natural" | is.na(management)) %>% 
-
-  # select necessary cols and convert relevant cols to numeric
-  select(contains("id"), core_count, accumulation_type, habitat,
-         contains("depth"), contains("pb210"), contains("cs137")) %>% 
-  mutate(across(-c(study_id, site_id, core_id, accumulation_type, habitat, pb210_rate_unit, cs137_rate_unit), 
-                as.numeric)) %>% 
-  
-  # add averaged values for disaggregated core
-  filter(core_id != "2L-Pb") %>%
-  bind_rows(reported_smry) %>% 
-  
-  # bring the pb210 cic determined rates 
-  mutate(pb210_rate = ifelse(!is.na(pb210_rate_cic), pb210_rate_cic, pb210_rate),
-         pb210_rate_se = ifelse(!is.na(pb210_rate_cic_se), pb210_rate_cic_se, pb210_rate_se)) %>% 
-  select(-pb210_rate_cic, -pb210_rate_cic_se) %>% 
-  
-  # join climate zones and assign ecoystem types
-  left_join(zones) %>% 
-  assignEcosystemByHabitat() %>% 
-  select(study_id, site_id, core_id, accumulation_type, habitat, ecosystem, climate_zone, everything())
-  
-# standardize Pb and Cs activity rates
-standardized <- reported_subset %>% 
-  # convert sequestration rates to gC ha-1 yr-1 
-  # what to do about cm/yr or mm/yr sediment accumulation rate? Leave out for now
-  mutate(pb210_standardized = case_when(pb210_rate_unit == "gramsPerSquareCentimeterPerYear" ~ pb210_rate*100,
-                                        pb210_rate_unit == "kilogramsPerSquareMeterPerYear" ~ pb210_rate*10,
-                                        pb210_rate_unit == "gramsPerSquareMeterPerYear" ~ pb210_rate/100,
-                                        T ~ NA_real_),
-         pb210_standardized_se = case_when(pb210_rate_unit == "gramsPerSquareCentimeterPerYear" ~ pb210_rate_se*100,
-                                           pb210_rate_unit == "kilogramsPerSquareMeterPerYear" ~ pb210_rate_se*10,
-                                           pb210_rate_unit == "gramsPerSquareMeterPerYear" ~ pb210_rate_se/100,
-                                           T ~ NA_real_),
-         cs137_standardized = case_when(cs137_rate_unit == "gramsPerSquareCentimeterPerYear" ~ cs137_rate*100,
-                                        cs137_rate_unit == "kilogramsPerSquareMeterPerYear" ~ cs137_rate*10,
-                                        cs137_rate_unit == "gramsPerSquareMeterPerYear" ~ cs137_rate/100,
-                                        T ~ NA_real_),
-         cs137_standardized_se = case_when(cs137_rate_unit == "gramsPerSquareCentimeterPerYear" ~ cs137_rate_se*100,
-                                        cs137_rate_unit == "kilogramsPerSquareMeterPerYear" ~ cs137_rate_se*10,
-                                        cs137_rate_unit == "gramsPerSquareMeterPerYear" ~ cs137_rate_se/100,
-                                        T ~ NA_real_))
-
-## Merge Meng Data ####
-
-# maybe this needs to happen before? It probably doesn't matter.
-
-## Write final NGGI table ####
-
-write_csv(standardized, "coastal_wetland_nggi/data/intermediate/reported_values_clean.csv")
 

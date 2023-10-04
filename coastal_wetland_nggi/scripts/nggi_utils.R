@@ -38,6 +38,19 @@ assignEcosystem <- function(df){
   return(new_df)
 }
 
+## Assign Climate Zone ----
+
+# assignClimateZone <- function(df){
+#   source("resources/pull_synthesis.R")
+#   cores <- getSynthesisData("cores") %>% select(study_id, site_id, core_id, country, admin_division)
+#   
+#   # read in climate zone table
+#   climate_zones <- read_xlsx("coastal_wetland_nggi/data/original/Climate zones.xlsx") %>% 
+#     mutate(State = recode(State, "Delamare" = "Delaware")) %>% 
+#     rename(admin_division = State, climate_zone = `Climate zone`) %>% 
+#     select(-Color)
+# }
+
 # assigned based on the reverse workflow to convert CCAP classes to CCN database structure
 # ccap_class %in% c("Estuarine Emergent Wetland",
 #                         "Palustrine Emergent Wetland"),
@@ -108,6 +121,10 @@ predict_om_from_c_marsh <- function(fraction_carbon, b=0.427391, a=0.063454) {
 
 # Gapfill and Calculate C Stock ----
 
+# need to integrate seagrass (Howard 2014)
+# For seagrass soils with % lOI < 0.20 % OC = -0.21 + 0.40 (% lOI); 
+# For seagrass soils with % lOI > 0.20 % OC = -0.33 + 0.43 (% lOI)
+
 carbonStock <- function(df){
   
   if("habitat" %in% names(df)){
@@ -118,13 +135,16 @@ carbonStock <- function(df){
       # gapfill carbon values using relationship developed by Jim for the synthesis
       mutate(fraction_carbon = case_when(
         is.na(fraction_carbon) & habitat == "marsh" ~ 0.427 * fraction_organic_matter + 0.0635 * (fraction_organic_matter^2),
-        is.na(fraction_carbon) & habitat == "mangrove" ~ 0.486 * fraction_organic_matter - 0.016 * (fraction_organic_matter^2),
+        is.na(fraction_carbon) & habitat %in% c("mangrove", "swamp, scrub/shrub") ~ 0.486 * fraction_organic_matter - 0.016 * (fraction_organic_matter^2),
+        # need to double check these two...turning fraction carbon negative 
+        # is.na(fraction_carbon) & habitat == "seagrass" & fraction_organic_matter < 0.002 ~ -0.0021 + 0.40 * fraction_organic_matter,
+        # is.na(fraction_carbon) & habitat == "seagrass" & fraction_organic_matter > 0.002 ~ -0.0033 + 0.43 * fraction_organic_matter,
         T ~ fraction_carbon)) %>% 
       
       # Case: no DBD but has C
       mutate(fraction_organic_matter = case_when(
         is.na(dry_bulk_density) & !is.na(fraction_carbon) & habitat == "marsh" ~ predict_om_from_c_marsh(fraction_carbon),
-        is.na(dry_bulk_density) & !is.na(fraction_carbon) & habitat == "mangrove" ~ predict_om_from_c_mangrove(fraction_carbon),
+        is.na(dry_bulk_density) & !is.na(fraction_carbon) & habitat %in% c("mangrove", "swamp, scrub/shrub") ~ predict_om_from_c_mangrove(fraction_carbon),
         T ~ fraction_organic_matter)) %>% 
       
       # Case: calculate DBD using LOI (preexisting and gapfilled)
@@ -222,32 +242,44 @@ standardizeDepths <- function(df){
 # Accretion rate (cm/yr) * DBD (g/cc) * fraction_carbon * 10000 (cm2/m2)
 accretionToCAR <- function(df){
   
-  synthesis_carbon <- read_csv("coastal_wetland_nggi/data/intermediate/soil_carbon_calculations.csv", col_types = cols())
+  synthesis_carbon <- read_csv("coastal_wetland_nggi/data/derived/soil_carbon_calculations.csv", col_types = cols())
   
   new_df <- df %>% 
     left_join(synthesis_carbon %>% select(-site_id)) %>% 
     # populate final Pb210-based CAR
     mutate(
-      CAR_pb210 = case_when(
+      pb210_CAR = case_when(
         accumulation_type == "sediment accretion" & pb210_rate_unit == "centimeterPerYear" ~ pb210_rate * dry_bulk_density * fraction_carbon * 10000,
         accumulation_type == "sediment accretion" & pb210_rate_unit == "millimeterPerYear" ~ pb210_rate * dry_bulk_density * fraction_carbon * 1000,
+        grepl("carbon", accumulation_type) & pb210_rate_unit == "gramsPerSquareCentimeterPerYear" ~ pb210_rate*100,
+        grepl("carbon", accumulation_type) & pb210_rate_unit == "gramsPerSquareMeterPerYear" ~ pb210_rate,
         T ~ pb210_rate),
-      CAR_pb210_unit = case_when(
-        accumulation_type == "sediment accretion" & !is.na(CAR_pb210) ~ "gramsPerSquareMeterPerYear",
-        accumulation_type == "sediment accretion" & !is.na(CAR_pb210) ~ "gramsPerSquareMeterPerYear",
+      pb210_CAR_unit = case_when(
+        accumulation_type == "sediment accretion" & !is.na(pb210_CAR) ~ "gramsPerSquareMeterPerYear",
+        accumulation_type == "sediment accretion" & !is.na(pb210_CAR) ~ "gramsPerSquareMeterPerYear",
         T ~ pb210_rate_unit)
     ) %>% 
     # populate final Cs137-based CAR
     mutate(
-      CAR_cs137 = case_when(
+      cs137_CAR = case_when(
         accumulation_type == "sediment accretion" & cs137_rate_unit == "centimeterPerYear" ~ cs137_rate * dry_bulk_density * fraction_carbon * 10000,
         accumulation_type == "sediment accretion" & cs137_rate_unit == "millimeterPerYear" ~ cs137_rate * dry_bulk_density * fraction_carbon * 1000,
+        grepl("carbon", accumulation_type) & cs137_rate_unit == "gramsPerSquareCentimeterPerYear" ~ cs137_rate * 100,
+        grepl("carbon", accumulation_type) & cs137_rate_unit == "gramsPerSquareMeterPerYear" ~ cs137_rate,
         T ~ cs137_rate),
-      CAR_cs137_unit = case_when(
-        accumulation_type == "sediment accretion" & !is.na(CAR_cs137) ~ "gramsPerSquareMeterPerYear",
-        accumulation_type == "sediment accretion" & !is.na(CAR_cs137) ~ "gramsPerSquareMeterPerYear",
+      cs137_CAR_unit = case_when(
+        accumulation_type == "sediment accretion" & !is.na(cs137_CAR) ~ "gramsPerSquareMeterPerYear",
+        accumulation_type == "sediment accretion" & !is.na(cs137_CAR) ~ "gramsPerSquareMeterPerYear",
         T ~ cs137_rate_unit)
     )
   
   return(new_df)
 }
+
+## Standard Error ####
+
+se <- function(x, na.rm=TRUE) {
+  if (na.rm) x <- na.omit(x)
+  sqrt(var(x)/length(x))
+}
+

@@ -219,7 +219,7 @@ all_metrics_long %>%
 
 ### Metric-Based Overview
 
-```{r metric-change, fig.height=12, fig.width=12}
+```{r metric-change, fig.height=12, fig.width=12, eval=FALSE}
 
 all_metrics_long %>% 
   ggplot(aes(state, change, col = state)) +
@@ -231,9 +231,78 @@ all_metrics_long %>%
   theme(legend.position = "none")
 ```
 
-### Mapping Change
+```{r echo=FALSE, message=FALSE, fig.width=12, fig.height=7}
 
-```{r change-map, echo=FALSE, warning=FALSE, message=FALSE}
+all_metrics %>% 
+  mutate(state = fct_reorder(state, quantity_metric)) %>% 
+  select(state, contains("quantity")) %>% 
+  pivot_longer(cols = -state, names_to = "metric_iteration", values_to = "score") %>% 
+  ggplot() +
+  geom_point(aes(score, state, col = metric_iteration), alpha = 0.5, size = 3) +
+  geom_segment(data = all_metrics %>% 
+                 filter(quant_diff > 0), aes(y = state, yend = state, x = quantity_metric, xend = quantity_metric_v2), 
+               colour = "black", arrow = arrow(length = unit(0.2, "cm"))) +
+  # facet_wrap(climate_zone ~ management, dir = "h") +
+  theme_bw(base_size = 15) +
+  theme(legend.position="bottom") +
+  ggtitle("Change in Quantity of Cores per 1000ha Wetland Habitat")
+```
+
+```{r echo=FALSE, message=FALSE, fig.width=12, fig.height=7}
+
+all_metrics %>% 
+  mutate(state = fct_reorder(state, quality_metric)) %>% 
+  select(state, contains("quality")) %>% 
+  pivot_longer(cols = -state, names_to = "metric_iteration", values_to = "score") %>% 
+  ggplot() +
+  geom_point(aes(score, state, col = metric_iteration), alpha = 0.5, size = 3) +
+  geom_segment(data = all_metrics %>% 
+                 filter(qual_diff > 0), aes(y = state, yend = state, x = quality_metric, xend = quality_metric_v2), 
+               colour = "black", arrow = arrow(length = unit(0.2, "cm"))) +
+  # facet_wrap(climate_zone ~ management, dir = "h") +
+  theme_bw(base_size = 15) +
+  theme(legend.position="bottom") +
+  ggtitle("Change in Quality (Use and Completeness) of Cores")
+```
+
+```{r echo=FALSE, message=FALSE, fig.width=12, fig.height=7}
+
+all_metrics %>% 
+  mutate(state = fct_reorder(state, spatial_metric)) %>% 
+  select(state, contains("spatial_metric")) %>% 
+  pivot_longer(cols = -state, names_to = "metric_iteration", values_to = "score") %>% 
+  ggplot() +
+  geom_point(aes(score, state, col = metric_iteration), alpha = 0.5, size = 3) +
+  geom_segment(data = all_metrics %>% 
+                 filter(spatial_diff > 0), aes(y = state, yend = state, x = spatial_metric, xend = spatial_metric_v2), 
+               colour = "black", arrow = arrow(length = unit(0.2, "cm"))) +
+  # facet_wrap(climate_zone ~ management, dir = "h") +
+  theme_bw(base_size = 15) +
+  theme(legend.position="bottom") +
+  ggtitle("Change in Spatial Coverage of Cores")
+```
+
+```{r echo=FALSE, message=FALSE, fig.width=12, fig.height=7}
+
+all_metrics %>% 
+  mutate(state = fct_reorder(state, habitat_metric)) %>% 
+  select(state, contains("habitat")) %>% 
+  pivot_longer(cols = -state, names_to = "metric_iteration", values_to = "score") %>% 
+  ggplot() +
+  geom_point(aes(score, state, col = metric_iteration), alpha = 0.5, size = 3) +
+  geom_segment(data = all_metrics %>% 
+                 filter(hab_diff != 0), aes(y = state, yend = state, x = habitat_metric, xend = habitat_metric_v2), 
+               colour = "black", arrow = arrow(length = unit(0.2, "cm"))) +
+  # facet_wrap(climate_zone ~ management, dir = "h") +
+  theme_bw(base_size = 15) +
+  theme(legend.position="bottom") +
+  ggtitle("Change in Habitat Representativeness of Cores")
+```
+
+
+<!-- ### Mapping Change -->
+
+```{r change-map, echo=FALSE, warning=FALSE, message=FALSE, eval=FALSE}
 
 # Import states
 states <- st_read("database_inventory/data/shapefiles/us_states/states_coastline_boundaries/cb_2017_us_state_500k.shp",
