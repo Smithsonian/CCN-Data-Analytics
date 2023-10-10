@@ -9,7 +9,10 @@
 library(tidyverse)
 
 # source synthesis
-source("resources/refresh_data.R")
+source("resources/pull_synthesis.R")
+
+cores <- getSynthesisData("cores")
+depthseries <- getSynthesisData("depthseries")
 
 ## Algorithm Assignment ####
 
