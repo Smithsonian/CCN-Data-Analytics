@@ -13,6 +13,8 @@ source("resources/pull_synthesis.R")
 
 cores <- getSynthesisData("cores")
 depthseries <- getSynthesisData("depthseries")
+methods <- getSynthesisData("methods")
+bib <- getSynthesisData("citations")
 
 ## Algorithm Assignment ####
 
@@ -21,7 +23,8 @@ dated_cores <- cores %>%
   drop_na(dates_qual_code) %>% 
   distinct(study_id, core_id) %>% 
   mutate(cs137_present = FALSE, 
-         pb210_present = FALSE,
+         sup_pb210_present = FALSE,
+         xs_pb210_present = FALSE,
          c14_or_horizons_present = FALSE)
 
 # # write table of dated core IDs for manual assignment of profile type
@@ -41,7 +44,10 @@ for(i in 1:nrow(dated_cores)){
   
   # Flag pb210 
   if("total_pb210_activity" %in% names(temp_ds)){
-    dated_cores$pb210_present[i] <-  TRUE
+    dated_cores$sup_pb210_present[i] <-  TRUE
+  }
+  if("excess_pb210_activity" %in% names(temp_ds)){
+    dated_cores$xs_pb210_present[i] <-  TRUE
   }
   
   # Flag radiocarbon dating or historical horizons 
@@ -49,6 +55,8 @@ for(i in 1:nrow(dated_cores)){
     dated_cores$c14_or_horizons_present[i] <-  TRUE
   }
 }
+
+# write_csv(dated_cores, "carbon_accumulation_rates/ccn_dated_cores.csv")
 
 # create table indicating which algorithms should be used for which cores
 dated_core_algos <- dated_cores %>% 
