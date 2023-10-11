@@ -16,13 +16,18 @@ depthseries <- getSynthesisData("depthseries")
 
 ## Algorithm Assignment ####
 
-# isolate cores with dating information and join climate zones
+# isolate cores with dating information
 dated_cores <- cores %>% 
   drop_na(dates_qual_code) %>% 
   distinct(study_id, core_id) %>% 
   mutate(cs137_present = FALSE, 
          pb210_present = FALSE,
          c14_or_horizons_present = FALSE)
+
+# # write table of dated core IDs for manual assignment of profile type
+# write_csv(cores %>% drop_na(dates_qual_code) %>% distinct(study_id, site_id, core_id) %>% 
+#             arrange(study_id, site_id, core_id),
+#           "carbon_accumulation_rates/ccn_dated_cores.csv")
 
 # loop through cores and determine presence/absence of necessary variables
 for(i in 1:nrow(dated_cores)){
