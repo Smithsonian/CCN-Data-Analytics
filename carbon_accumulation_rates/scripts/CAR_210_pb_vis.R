@@ -18,6 +18,14 @@ pb_depths <- depths %>%
 # Callaway should be ln(picocuries per gram)
 pb_depths[grepl("Weston", pb_depths$study_id), grepl("unit", names(pb_depths))] <- "microcuriesPerGram"
 pb_depths[grepl("Callaway", pb_depths$study_id), grepl("unit", names(pb_depths))] <- "lnPicocuriesPerGram"
+pb_depths[grepl("Giblin", pb_depths$study_id), grepl("pb214", names(pb_depths))] <- NA
+
+# Nolte_2020 NFB NFB_ungrazed_landward 0 to 64, should be 62 to 64
+# Nolte_2020 HH HH_ungrazed_landward 0 to 50, should be 48 to 50
+pb_depths[grepl("NFB_ungrazed_landward", pb_depths$core_id) & pb_depths$depth_max == 64, "depth_min"] <- 62
+pb_depths[grepl("HH_ungrazed_landward", pb_depths$core_id) & pb_depths$depth_max == 50, "depth_min"] <- 48
+
+
 
 
 convertToBqPerKg <- function(value, unit) {
@@ -96,6 +104,11 @@ high_uncertainty <- exp(quantile(log(pb_depths_xspb210_consistent$total_pb210_ac
                                  0.975, na.rm=T))
 
 
+hist(log(pb_depths_xspb210_consistent$ra226_activity_se/pb_depths_xspb210_consistent$ra226_activity))
+high_uncertainty_ra <- exp(quantile(log(pb_depths_xspb210_consistent$ra226_activity_se/pb_depths_xspb210_consistent$ra226_activity), 
+                                 0.975, na.rm=T))
+
+
 # Fill in missing ra 226 with mean value
 median_background <- median(pb_depths_xspb210_consistent$ra226_activity, na.rm=T)
 
@@ -112,7 +125,9 @@ pb_depths_gap_filled <- pb_depths_xspb210_consistent %>%
                                           ),
       total_pb210_activity_se = ifelse(!is.na(total_pb210_activity_se), 
                                           total_pb210_activity_se, 
-                                          total_pb210_activity*high_uncertainty)
+                                          total_pb210_activity*high_uncertainty),
+      ra226_activity_se = ifelse(!is.na(ra226_activity_se), ra226_activity_se,
+                                 ra226_activity*high_uncertainty_ra)
          )
 
 
@@ -149,10 +164,31 @@ for (i in 1:nrow(study_site_combos)) {
     xlab("Depth (cm)") +
     facet_wrap(site_id~core_id) +
     scale_x_reverse() +
-    coord_flip()
+    scale_y_log10() +
+    coord_flip() +
+    theme(legend.position = "bottom")
   
   (output_file)
+  
+  ncores <- length(unique(pb_vis_subset$core_id))
+  if (ncores == 1) {
+    width = 4.25
+    height = 5
+  } else if (ncores == 2) {
+    width = 5.61
+    height = 5
+  } else if (ncores <=4) {
+    width = 8.5
+    height = 5
+  } else if (ncores <=8) {
+    width = 8.5
+    height = 8.5
+  } else {
+    width = 8.5
+    height = 11
+  }
+  
   output_name <- paste0("carbon_accumulation_rates/output/figs/", study_site_combos$study_id[i], "_", study_site_combos$site_id[i], "_210Pb.jpg")
-  ggsave(output_name, output_file)
+  ggsave(output_name, output_file, width = width, height = height, units = "in")
 }
 
