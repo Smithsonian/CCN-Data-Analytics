@@ -29,7 +29,7 @@ unique(cs_depths$study_id)
 hist(log(cs_depths$cs137_activity_se/cs_depths$cs137_activity))
 
 high_uncertainty <- exp(quantile(log(cs_depths$cs137_activity_se/cs_depths$cs137_activity), 
-                                 0.5, na.rm=T))
+                                 0.975, na.rm=T))
 
 cs_depths_gap_filled <- cs_depths %>% 
   mutate(cs137_activity_se = ifelse(!is.na(cs137_activity_se), 

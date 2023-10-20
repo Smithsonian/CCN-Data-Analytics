@@ -164,7 +164,6 @@ for (i in 1:nrow(study_site_combos)) {
     xlab("Depth (cm)") +
     facet_wrap(site_id~core_id) +
     scale_x_reverse() +
-    scale_y_log10() +
     coord_flip() +
     theme(legend.position = "bottom")
   
