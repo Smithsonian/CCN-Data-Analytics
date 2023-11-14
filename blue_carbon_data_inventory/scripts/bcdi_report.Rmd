@@ -24,7 +24,7 @@ library(sf)
 library(rnaturalearth)
 ```
 
-```{r inventory, echo=FALSE, warning=FALSE, message=FALSE}
+```{r inventory, echo=FALSE, warning=FALSE, message=FALSE, eval=FALSE}
 
 # source inventorying functions
 source("database_inventory/scripts/inventory_functions.R")
@@ -92,8 +92,10 @@ scores_v1 %>%
   ylab(NULL) + xlab(NULL) +
   scale_fill_brewer(palette = "RdYlBu", direction = -1,
                     labels = c("Best", "", "", "Fair", "", "", "Poor", "No Data")) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) + # wrap text
+
   # facet_wrap(vars(metric)) +
-  theme_bw(base_size = 20) +
+  theme_bw(base_size = 15) +
   theme(legend.title = element_blank(),
     # axis.text.x = element_text(angle = 90),
         axis.line = element_line(colour = "black"),
@@ -101,7 +103,9 @@ scores_v1 %>%
         panel.grid.minor = element_blank(),
         panel.border = element_blank(),
         panel.background = element_blank()) +
-   ggtitle("State-Level Blue Carbon Data Report Card (Version 1)")
+   ggtitle("State-Level Blue Carbon Data Report Card (V1)")
+
+ggsave("blue_carbon_data_inventory/figures/cerf_figs/report_card_v1.jpg", width = 6, height = 6)
 
 ```
 
@@ -154,8 +158,9 @@ scores_v2 %>%
   ylab(NULL) + xlab(NULL) +
   scale_fill_brewer(palette = "RdYlBu", direction = -1,
                     labels = c("Best", "", "", "Fair", "", "", "Poor", "No Data")) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) + # wrap text
   # facet_wrap(vars(metric)) +
-  theme_bw(base_size = 20) +
+  theme_bw(base_size = 15) +
   theme(legend.title = element_blank(),
         # axis.text.x = element_text(angle = 90),
         axis.line = element_line(colour = "black"),
@@ -163,17 +168,18 @@ scores_v2 %>%
         panel.grid.minor = element_blank(),
         panel.border = element_blank(),
         panel.background = element_blank()) +
-   ggtitle("State-Level Blue Carbon Data Report Card (Version 2)")
+   ggtitle("State-Level Blue Carbon Data Report Card (V2)")
 
+ggsave("blue_carbon_data_inventory/figures/cerf_figs/report_card_v2.jpg", width = 6, height = 6)
 ```
 
 ## Data Inventory Change
 
 ```{r comparison, echo=FALSE, warning=FALSE, message=FALSE}
-v1 <- read_csv("database_inventory/tables/state_metrics_v1.csv") %>% 
+v1 <- read_csv("blue_carbon_data_inventory/tables/state_metrics_v1.csv") %>% 
   rename(spatial_metric = spatial_representativeness_metric)
 
-v2 <- read_csv("database_inventory/tables/state_metrics_v2.csv") %>% 
+v2 <- read_csv("blue_carbon_data_inventory/tables/state_metrics_v2.csv") %>% 
   # make this more elegant in the future
   rename(quantity_metric_v2 = quantity_metric,
          quality_metric_v2 = quality_metric,
@@ -243,9 +249,12 @@ all_metrics %>%
                  filter(quant_diff > 0), aes(y = state, yend = state, x = quantity_metric, xend = quantity_metric_v2), 
                colour = "black", arrow = arrow(length = unit(0.2, "cm"))) +
   # facet_wrap(climate_zone ~ management, dir = "h") +
+  xlab("Cores per 1000ha Wetland Habitat") + ylab("") +
   theme_bw(base_size = 15) +
   theme(legend.position="bottom") +
-  ggtitle("Change in Quantity of Cores per 1000ha Wetland Habitat")
+  ggtitle("Change in Quantity of Available Cores per State")
+
+ggsave("blue_carbon_data_inventory/figures/cerf_figs/change_quantity.jpg", width = 6, height = 6)
 ```
 
 ```{r echo=FALSE, message=FALSE, fig.width=12, fig.height=7}
@@ -260,9 +269,12 @@ all_metrics %>%
                  filter(qual_diff > 0), aes(y = state, yend = state, x = quality_metric, xend = quality_metric_v2), 
                colour = "black", arrow = arrow(length = unit(0.2, "cm"))) +
   # facet_wrap(climate_zone ~ management, dir = "h") +
+  xlab("Cores per 1000ha Wetland Habitat") + ylab("") +
   theme_bw(base_size = 15) +
   theme(legend.position="bottom") +
-  ggtitle("Change in Quality (Use and Completeness) of Cores")
+  ggtitle("Change in Use and Completeness of Cores")
+
+ggsave("blue_carbon_data_inventory/figures/cerf_figs/change_quality.jpg", width = 6, height = 6)
 ```
 
 ```{r echo=FALSE, message=FALSE, fig.width=12, fig.height=7}
@@ -274,12 +286,15 @@ all_metrics %>%
   ggplot() +
   geom_point(aes(score, state, col = metric_iteration), alpha = 0.5, size = 3) +
   geom_segment(data = all_metrics %>% 
-                 filter(spatial_diff > 0), aes(y = state, yend = state, x = spatial_metric, xend = spatial_metric_v2), 
+                 filter(spatial_diff != 0), aes(y = state, yend = state, x = spatial_metric, xend = spatial_metric_v2), 
                colour = "black", arrow = arrow(length = unit(0.2, "cm"))) +
   # facet_wrap(climate_zone ~ management, dir = "h") +
+  xlab("Mean Sampling Distance\n/ Idealized Sampling Distance") + ylab("") +
   theme_bw(base_size = 15) +
   theme(legend.position="bottom") +
   ggtitle("Change in Spatial Coverage of Cores")
+
+ggsave("blue_carbon_data_inventory/figures/cerf_figs/change_spatial.jpg", width = 6, height = 6)
 ```
 
 ```{r echo=FALSE, message=FALSE, fig.width=12, fig.height=7}
@@ -294,9 +309,13 @@ all_metrics %>%
                  filter(hab_diff != 0), aes(y = state, yend = state, x = habitat_metric, xend = habitat_metric_v2), 
                colour = "black", arrow = arrow(length = unit(0.2, "cm"))) +
   # facet_wrap(climate_zone ~ management, dir = "h") +
+  xlab("Difference Between Sampled\nand Mapped Proportions") + ylab("") +
   theme_bw(base_size = 15) +
   theme(legend.position="bottom") +
   ggtitle("Change in Habitat Representativeness of Cores")
+
+ggsave("blue_carbon_data_inventory/figures/cerf_figs/change_habitat.jpg", width = 6, height = 6)
+
 ```
 
 

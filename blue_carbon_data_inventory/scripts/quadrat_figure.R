@@ -62,7 +62,7 @@ all_states_quadrats <- quantity_metric %>%
   full_join(spatial_rep_metric) %>% 
   full_join(habitat_rep_metric)
 # write this table to folder?
-write_csv(all_states_quadrats, "database_inventory/tables/state_metrics_v2.csv")
+write_csv(all_states_quadrats, "blue_carbon_data_inventory/tables/state_metrics_v2.csv")
 # this could be the end of a quadrat function 
 
 # recode NA metric values as 0
