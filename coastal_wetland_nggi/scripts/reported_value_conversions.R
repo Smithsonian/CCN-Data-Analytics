@@ -348,7 +348,7 @@ synthdat <- reported_merge %>%
                             ifelse(grepl("accretion", cs_accretion) & !is.na(foc_calc), cs137_rate_se * foc_calc, cs_CAR_se))) %>% 
   filter(!is.na(pb_CAR|cs_CAR)) %>% # remove instances without accumulation rates
   distinct() %>% 
-  select(study_id, site_id, core_id, core_count, pb_CAR, pb_CAR_se, cs_CAR, cs_CAR_se, climate_zone, ecosystem, management)
+  select(study_id, site_id, core_id, core_count, pb_CAR, pb_CAR_se, cs_CAR, cs_CAR_se, climate_zone, ecosystem)
 
   
 
