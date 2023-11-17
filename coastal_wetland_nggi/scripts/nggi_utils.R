@@ -199,13 +199,13 @@ standardizeDepths <- function(df){
                                            (horizon_max-depth_min),
                                            (depth_max-horizon_min), na.rm = T)) %>%
     dplyr::group_by(study_id, site_id, core_id, horizon_min, horizon_max) %>%
-    dplyr::mutate(total_depth = sum(overlapping_depth),
+    dplyr::mutate(total_depth = sum(overlapping_depth, na.rm = T),
                   weight = overlapping_depth / total_depth) %>%
     # Aggregate by horizon intervals
-    dplyr::summarise(dry_bulk_density = sum(dry_bulk_density * weight),
-                     fraction_organic_matter = sum(fraction_organic_matter * weight),
-                     fraction_carbon = sum(fraction_carbon * weight),
-                     stock_gCm2 = sum(stock_gCm2 * weight)) %>% 
+    dplyr::summarise(dry_bulk_density = sum(dry_bulk_density * weight, na.rm = T),
+                     fraction_organic_matter = sum(fraction_organic_matter * weight, na.rm = T),
+                     fraction_carbon = sum(fraction_carbon * weight, na.rm = T),
+                     stock_gCm2 = sum(stock_gCm2 * weight, na.rm = T)) %>% 
     ungroup()
   
   return(standard_ds)
@@ -249,9 +249,9 @@ accretionToCAR <- function(df){
     # populate final Pb210-based CAR
     mutate(
       pb210_CAR = case_when(
-        accumulation_type == "sediment accretion" & pb210_rate_unit == "centimeterPerYear" ~ pb210_rate * dry_bulk_density * fraction_carbon * 10000,
-        accumulation_type == "sediment accretion" & pb210_rate_unit == "millimeterPerYear" ~ pb210_rate * dry_bulk_density * fraction_carbon * 1000,
-        grepl("carbon", accumulation_type) & pb210_rate_unit == "gramsPerSquareCentimeterPerYear" ~ pb210_rate*100,
+        pb210_rate_unit == "centimeterPerYear" ~ pb210_rate * dry_bulk_density * fraction_carbon * 10000,
+        pb210_rate_unit == "millimeterPerYear" ~ pb210_rate * dry_bulk_density * fraction_carbon * 1000,
+        grepl("carbon", accumulation_type) & pb210_rate_unit == "gramsPerSquareCentimeterPerYear" ~ pb210_rate*10000,
         grepl("carbon", accumulation_type) & pb210_rate_unit == "gramsPerSquareMeterPerYear" ~ pb210_rate,
         T ~ pb210_rate),
       pb210_CAR_unit = case_when(
@@ -262,9 +262,9 @@ accretionToCAR <- function(df){
     # populate final Cs137-based CAR
     mutate(
       cs137_CAR = case_when(
-        accumulation_type == "sediment accretion" & cs137_rate_unit == "centimeterPerYear" ~ cs137_rate * dry_bulk_density * fraction_carbon * 10000,
-        accumulation_type == "sediment accretion" & cs137_rate_unit == "millimeterPerYear" ~ cs137_rate * dry_bulk_density * fraction_carbon * 1000,
-        grepl("carbon", accumulation_type) & cs137_rate_unit == "gramsPerSquareCentimeterPerYear" ~ cs137_rate * 100,
+        cs137_rate_unit == "centimeterPerYear" ~ cs137_rate * dry_bulk_density * fraction_carbon * 10000,
+        cs137_rate_unit == "millimeterPerYear" ~ cs137_rate * dry_bulk_density * fraction_carbon * 1000,
+        grepl("carbon", accumulation_type) & cs137_rate_unit == "gramsPerSquareCentimeterPerYear" ~ cs137_rate * 10000,
         grepl("carbon", accumulation_type) & cs137_rate_unit == "gramsPerSquareMeterPerYear" ~ cs137_rate,
         T ~ cs137_rate),
       cs137_CAR_unit = case_when(

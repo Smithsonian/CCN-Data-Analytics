@@ -1,34 +1,34 @@
 i,study_id,site_id,core_id,variables_present
-1,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,1983-1,Historical Horizons
-2,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,1983-2,Historical Horizons
-3,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,1983-3,Historical Horizons
-4,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,1983-4,Historical Horizons
-5,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,1983-5,Historical Horizons
-6,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,1983-6,Historical Horizons
-7,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,1996-1,Historical Horizons
-8,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,1996-2,Historical Horizons
-9,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,1996-3,Historical Horizons
-10,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,1996-4,Historical Horizons
-11,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,1996-5,Historical Horizons
-12,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,1996-6,Historical Horizons
-13,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C1-1,Historical Horizons
-14,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C1-2,Historical Horizons
-15,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C1-3,Historical Horizons
-16,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C1-4,Historical Horizons
-17,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C1-5,Historical Horizons
-18,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C1-6,Historical Horizons
-19,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C2-1,Historical Horizons
-20,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C2-2,Historical Horizons
-21,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C2-3,Historical Horizons
-22,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C2-4,Historical Horizons
-23,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C2-5,Historical Horizons
-24,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C2-6,Historical Horizons
-25,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C3-1,Historical Horizons
-26,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C3-2,Historical Horizons
-27,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C3-3,Historical Horizons
-28,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C3-4,Historical Horizons
-29,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C3-5,Historical Horizons
-30,Abbott_et_al_2019,Sabine_National_Wildlife_Refuge,C3-6,Historical Horizons
+1,Abbott_et_al_2019,1983,1983-1,Historical Horizons
+2,Abbott_et_al_2019,1983,1983-2,Historical Horizons
+3,Abbott_et_al_2019,1983,1983-3,Historical Horizons
+4,Abbott_et_al_2019,1983,1983-4,Historical Horizons
+5,Abbott_et_al_2019,1983,1983-5,Historical Horizons
+6,Abbott_et_al_2019,1983,1983-6,Historical Horizons
+7,Abbott_et_al_2019,1996,1996-1,Historical Horizons
+8,Abbott_et_al_2019,1996,1996-2,Historical Horizons
+9,Abbott_et_al_2019,1996,1996-3,Historical Horizons
+10,Abbott_et_al_2019,1996,1996-4,Historical Horizons
+11,Abbott_et_al_2019,1996,1996-5,Historical Horizons
+12,Abbott_et_al_2019,1996,1996-6,Historical Horizons
+13,Abbott_et_al_2019,C1,C1-1,Historical Horizons
+14,Abbott_et_al_2019,C1,C1-2,Historical Horizons
+15,Abbott_et_al_2019,C1,C1-3,Historical Horizons
+16,Abbott_et_al_2019,C1,C1-4,Historical Horizons
+17,Abbott_et_al_2019,C1,C1-5,Historical Horizons
+18,Abbott_et_al_2019,C1,C1-6,Historical Horizons
+19,Abbott_et_al_2019,C2,C2-1,Historical Horizons
+20,Abbott_et_al_2019,C2,C2-2,Historical Horizons
+21,Abbott_et_al_2019,C2,C2-3,Historical Horizons
+22,Abbott_et_al_2019,C2,C2-4,Historical Horizons
+23,Abbott_et_al_2019,C2,C2-5,Historical Horizons
+24,Abbott_et_al_2019,C2,C2-6,Historical Horizons
+25,Abbott_et_al_2019,C3,C3-1,Historical Horizons
+26,Abbott_et_al_2019,C3,C3-2,Historical Horizons
+27,Abbott_et_al_2019,C3,C3-3,Historical Horizons
+28,Abbott_et_al_2019,C3,C3-4,Historical Horizons
+29,Abbott_et_al_2019,C3,C3-5,Historical Horizons
+30,Abbott_et_al_2019,C3,C3-6,Historical Horizons
 31,Allen_et_al_2022,Naticoke River Marsh 1,NRM_1A,Pb210
 32,Allen_et_al_2022,Naticoke River Marsh 1,NRM_1B,Pb210
 33,Allen_et_al_2022,Naticoke River Marsh 1,NRM_1C,Pb210
@@ -135,527 +135,596 @@ i,study_id,site_id,core_id,variables_present
 134,Boyd_et_al_2017,Island_Beach_State_Park,IB3,"Cs137, Pb210"
 135,Boyd_et_al_2017,Maurice_River,MR1,"Cs137, Pb210"
 136,Boyd_et_al_2017,Maurice_River,MR2,"Cs137, Pb210"
-137,Boyd_et_al_2017,Reedy_Creek,RC1,"Cs137, Pb210"
-138,Boyd_et_al_2017,Reedy_Creek,RC2,"Cs137, Pb210"
-139,Boyd_et_al_2017,Reedy_Creek,RC3,"Cs137, Pb210"
-140,Breithaupt_et_al_2014,WSC-5,SH3-1,Pb210
-141,Breithaupt_et_al_2014,WSC-5,SH3-3,"Cs137, Pb210"
-142,Breithaupt_et_al_2014,WSC-5,SH3-5,"Cs137, Pb210"
-143,Breithaupt_et_al_2014,WSC-5,SH3-7,"Cs137, Pb210"
-144,Breithaupt_et_al_2014,WSC-5,SH3-8,"Cs137, Pb210"
-145,Breithaupt_et_al_2014,WSC-5,SH3-9,"Cs137, Pb210"
-146,Breithaupt_et_al_2020,NMg,BWB1A,"Cs137, Pb210"
-147,Breithaupt_et_al_2020,NMg,CCB2,"Cs137, Pb210"
-148,Breithaupt_et_al_2020,NMg,UFU1A,"Cs137, Pb210"
-149,Breithaupt_et_al_2020,SMg,WSC2A,"Cs137, Pb210"
-150,Breithaupt_et_al_2020,SMg,WSC8A,"Cs137, Pb210"
-151,Breithaupt_et_al_2020,SMs,WSC2B,"Cs137, Pb210"
-152,Breithaupt_et_al_2020,SMs,WSC8B,"Cs137, Pb210"
-153,Buffington_et_al_2020,Miner_Slough,MS-C1,Cs137
-154,Callaway_et_al_2019,Brown_Island,Browns_Island_A_High,"Cs137, Pb210"
-155,Callaway_et_al_2019,Brown_Island,Browns_Island_A_Low,"Cs137, Pb210"
-156,Callaway_et_al_2019,Brown_Island,Browns_Island_A_Mid,"Cs137, Pb210"
-157,Callaway_et_al_2019,Brown_Island,Browns_Island_B_High,"Cs137, Pb210"
-158,Callaway_et_al_2019,Brown_Island,Browns_Island_B_Low,"Cs137, Pb210"
-159,Callaway_et_al_2019,Brown_Island,Browns_Island_B_Mid,"Cs137, Pb210"
-160,Callaway_et_al_2019,China_Camp,China_Camp_A_High,"Cs137, Pb210"
-161,Callaway_et_al_2019,China_Camp,China_Camp_A_Low,"Cs137, Pb210"
-162,Callaway_et_al_2019,China_Camp,China_Camp_A_Mid,"Cs137, Pb210"
-163,Callaway_et_al_2019,China_Camp,China_Camp_B_High,"Cs137, Pb210"
-164,Callaway_et_al_2019,China_Camp,China_Camp_B_Low,"Cs137, Pb210"
-165,Callaway_et_al_2019,China_Camp,China_Camp_B_Mid,"Cs137, Pb210"
-166,Callaway_et_al_2019,Coon_Island,Coon_Island_A_High,"Cs137, Pb210"
-167,Callaway_et_al_2019,Coon_Island,Coon_Island_A_Low,"Cs137, Pb210"
-168,Callaway_et_al_2019,Coon_Island,Coon_Island_A_Mid,"Cs137, Pb210"
-169,Callaway_et_al_2019,Coon_Island,Coon_Island_B_High,"Cs137, Pb210"
-170,Callaway_et_al_2019,Coon_Island,Coon_Island_B_Mid,"Cs137, Pb210"
-171,Callaway_et_al_2019,Coon_Island,Coon_Island_C_High,"Cs137, Pb210"
-172,Callaway_et_al_2019,Coon_Island,Coon_Island_C_Low,"Cs137, Pb210"
-173,Callaway_et_al_2019,Coon_Island,Coon_Island_C_Mid,Cs137
-174,Callaway_et_al_2019,Coon_Island,Coon_Island_D_High,"Cs137, Pb210"
-175,Callaway_et_al_2019,Coon_Island,Coon_Island_D_Low,"Cs137, Pb210"
-176,Callaway_et_al_2019,Coon_Island,Coon_Island_D_Mid,"Cs137, Pb210"
-177,Callaway_et_al_2019,Petaluma_River,Petaluma_River_Marsh_A_High,"Cs137, Pb210"
-178,Callaway_et_al_2019,Petaluma_River,Petaluma_River_Marsh_A_Low,"Cs137, Pb210"
-179,Callaway_et_al_2019,Petaluma_River,Petaluma_River_Marsh_A_Mid,"Cs137, Pb210"
-180,Callaway_et_al_2019,Petaluma_River,Petaluma_River_Marsh_B_High,"Cs137, Pb210"
-181,Callaway_et_al_2019,Petaluma_River,Petaluma_River_Marsh_B_Low,"Cs137, Pb210"
-182,Callaway_et_al_2019,Petaluma_River,Petaluma_River_Marsh_B_Mid,"Cs137, Pb210"
-183,Callaway_et_al_2019,Rush_Ranch,Rush_Ranch_A_High,"Cs137, Pb210"
-184,Callaway_et_al_2019,Rush_Ranch,Rush_Ranch_A_Low,"Cs137, Pb210"
-185,Callaway_et_al_2019,Rush_Ranch,Rush_Ranch_A_Mid,"Cs137, Pb210"
-186,Callaway_et_al_2019,Rush_Ranch,Rush_Ranch_B_High,"Cs137, Pb210"
-187,Callaway_et_al_2019,Rush_Ranch,Rush_Ranch_B_Low,"Cs137, Pb210"
-188,Callaway_et_al_2019,Rush_Ranch,Rush_Ranch_B_Mid,"Cs137, Pb210"
-189,Callaway_et_al_2019,Whale's_Tail,Whales_Tail_A_High,"Cs137, Pb210"
-190,Callaway_et_al_2019,Whale's_Tail,Whales_Tail_A_Low,"Cs137, Pb210"
-191,Callaway_et_al_2019,Whale's_Tail,Whales_Tail_A_Mid,"Cs137, Pb210"
-192,Callaway_et_al_2019,Whale's_Tail,Whales_Tail_B_High,"Cs137, Pb210"
-193,Callaway_et_al_2019,Whale's_Tail,Whales_Tail_B_Low,"Cs137, Pb210"
-194,Callaway_et_al_2019,Whale's_Tail,Whales_Tail_B_Mid,"Cs137, Pb210"
-195,Carlin_et_al_2021,ELM1812,ELM1812-PWA1,"Cs137, Pb210"
-196,Carlin_et_al_2021,ELM1812,ELM1812-SPA2,"Cs137, Pb210"
-197,Costa_et_al_2023,Baja-Bahia Magdalena,Baja-Bahia Magdalena-III,C14
-198,Costa_et_al_2023,Baja-El Merito I (EMI),Baja-El Merito I (EMI)-I,C14
-199,Costa_et_al_2023,Baja-Las Animas,Baja-Las Animas-I,C14
-200,Costa_et_al_2023,Baja-Punta Abreojos,Baja-Punta Abreojos-I,C14
-201,Costa_et_al_2023,Baja-San Gabriel II (SGII),Baja-San Gabriel II (SGII)-I,C14
-202,Costa_et_al_2023,Baja-San Jose (SJ),Baja-San Jose (SJ)-I,C14
-203,Costa_et_al_2023,Baja-San Jose (SJ),Baja-San Jose (SJ)-II,C14
-204,Costa_et_al_2023,Baja-San Lucas,Baja-San Lucas-3,C14
-205,Costa_et_al_2023,Baja-Santa Barbara II,Baja-Santa Barbara II-1,C14
-206,Costa_et_al_2023,PanamaPacific-LP I,PanamaPacific-LP I-2,C14
-207,Costa_et_al_2023,PanamaPacific-VE II,PanamaPacific-VE II-1,C14
-208,Craft_2007,Altamaha_River,Altamaha_River_Site_7_Levee,Cs137
-209,Craft_2007,Altamaha_River,Altamaha_River_Site_7_Plain,Cs137
-210,Craft_2007,Altamaha_River,Altamaha_River_Site_8_Levee,Cs137
-211,Craft_2007,Altamaha_River,Altamaha_River_Site_8_Plain,Cs137
-212,Craft_2007,Altamaha_River,Altamaha_River_Site_9_Levee,Cs137
-213,Craft_2007,Altamaha_River,Altamaha_River_Site_9_Plain,Cs137
-214,Craft_2007,Doboy_Sound,Doboy_Sound_Site_4_Levee,Cs137
-215,Craft_2007,Doboy_Sound,Doboy_Sound_Site_4_Plain,Cs137
-216,Craft_2007,Doboy_Sound,Doboy_Sound_Site_5_Levee,Cs137
-217,Craft_2007,Doboy_Sound,Doboy_Sound_Site_5_Plain,Cs137
-218,Craft_2007,Doboy_Sound,Doboy_Sound_Site_6_Levee,Cs137
-219,Craft_2007,Doboy_Sound,Doboy_Sound_Site_6_Plain,Cs137
-220,Craft_2007,Sapelo_River,Sapelo_River_Site_1_Levee,Cs137
-221,Craft_2007,Sapelo_River,Sapelo_River_Site_1_Plain,Cs137
-222,Craft_2007,Sapelo_River,Sapelo_River_Site_2_Levee,Cs137
-223,Craft_2007,Sapelo_River,Sapelo_River_Site_2_Plain,Cs137
-224,Craft_2007,Sapelo_River,Sapelo_River_Site_3_Levee,Cs137
-225,Craft_2007,Sapelo_River,Sapelo_River_Site_3_Plain,Cs137
-226,Drexler_et_al_2009,Bacon Channel Island,BACHI,C14
-227,Drexler_et_al_2009,Franks Wetland,FW,C14
-228,Drexler_et_al_2009,Time of Mandeval Tip,TT,C14
-229,Drexler_et_al_2013,Bird_Field,Bird_Field_1,"Cs137, Pb210"
-230,Drexler_et_al_2013,Bird_Field,Bird_Field_2,"Cs137, Pb210"
-231,Drexler_et_al_2013,Coastal_EDU_Field,Coastal_EDU_Field_1,"Cs137, Pb210"
-232,Drexler_et_al_2013,Coastal_EDU_Field,Coastal_EDU_Field_2,"Cs137, Pb210"
-233,Drexler_et_al_2013,Hasty_Point_Managed_Shallow,Hasty_Point_Managed_Shallow_1,"Cs137, Pb210"
-234,Drexler_et_al_2013,Hasty_Point_Managed_Shallow,Hasty_Point_Managed_Shallow_2,"Cs137, Pb210"
-235,Drexler_et_al_2013,Sandy_Island_Deeply_Flooded,Sandy_Island_Deeply_Flooded_1,"Cs137, Pb210"
-236,Drexler_et_al_2013,Sandy_Island_Deeply_Flooded,Sandy_Island_Deeply_Flooded_2,"Cs137, Pb210"
-237,Drexler_et_al_2013,Sandy_Island_Natural,Sandy_Island_Natural_2,"Cs137, Pb210"
-238,Drexler_et_al_2013,Sandy_Island_Natural,Sandy_Island_Natural_3,"Cs137, Pb210"
-239,Drexler_et_al_2013,Wardlaw_Shallow_Managed,Wardlaw_Shallow_Managed_1,"Cs137, Pb210"
-240,Drexler_et_al_2013,Wardlaw_Shallow_Managed,Wardlaw_Shallow_Managed_2,"Cs137, Pb210"
-241,Drexler_et_al_2019,Animal_Slough,AS14,Pb210
-242,Drexler_et_al_2019,Animal_Slough,AS15,Pb210
-243,Drexler_et_al_2019,Animal_Slough,AS16,Pb210
-244,Drexler_et_al_2019,Animal_Slough,AS7,Pb210
-245,Drexler_et_al_2019,Animal_Slough,AS8,Pb210
-246,Drexler_et_al_2019,Animal_Slough,AS9,Pb210
-247,Eagle_et_al_2021,Martin Peña East,MPE1,"Cs137, Pb210"
-248,Eagle_et_al_2021,Martin Peña East,MPE2,"Cs137, Pb210"
-249,Eagle_et_al_2021,Martin Peña West,MPW1,"Cs137, Pb210"
-250,Eagle_et_al_2021,Piñones,PIN1,"Cs137, Pb210"
-251,Eagle_et_al_2021,Piñones,PIN2,"Cs137, Pb210"
-252,Eagle_et_al_2021,San José Lagoon,SJ1,"Cs137, Pb210"
-253,Eagle_et_al_2021,San José Lagoon,SJ2,"Cs137, Pb210"
-254,Eagle_et_al_2021,Torrecilla Lagoon,TORR1,"Cs137, Pb210"
-255,Eagle_et_al_2021,Torrecilla Lagoon,TORR2,"Cs137, Pb210"
-256,Elsey_Quirk_et_al_2011,Little_Assawoman,Juncus_roemerianus_core,Cs137
-257,Elsey_Quirk_et_al_2011,Little_Assawoman,Spartina_alterniflora_core,Cs137
-258,Ensign_et_al_2020,Choptank River,ChoptankLowerTidal,Cs137
-259,Ensign_et_al_2020,Pocomoke River,PocomokeLowerTidal,Cs137
-260,Gerlach_et_al_2017,Mill_Bayou,LMR_14_9B,"C14, Historical Horizons"
-261,Giblin_and_Forbrich_2018,Nelson_Island_Creek,Giblin2018Core_1,"Cs137, Pb210"
-262,Giblin_and_Forbrich_2018,Nelson_Island_Creek,Giblin2018Core_2,"Cs137, Pb210"
-263,Giblin_and_Forbrich_2018,Nelson_Island_Creek,Giblin2018Core_3,"Cs137, Pb210"
-264,Giblin_and_Forbrich_2018,Nelson_Island_Creek,Giblin2018Core_4,"Cs137, Pb210"
-265,Gonneea_et_al_2018,Eel_Pond,EPA,"Cs137, Pb210"
-266,Gonneea_et_al_2018,Eel_Pond,EPB,"Cs137, Pb210"
-267,Gonneea_et_al_2018,Great_Pond,GPA,"Cs137, Pb210"
-268,Gonneea_et_al_2018,Great_Pond,GPB,"Cs137, Pb210"
-269,Gonneea_et_al_2018,Great_Pond,GPC,"Cs137, Pb210"
-270,Gonneea_et_al_2018,Hamblin_Pond,HBA,"Cs137, Pb210"
-271,Gonneea_et_al_2018,Hamblin_Pond,HBB,"Cs137, Pb210"
-272,Gonneea_et_al_2018,Hamblin_Pond,HBC,"Cs137, Pb210"
-273,Gonneea_et_al_2018,Sage_Log_Pond,SLPA,"Cs137, Pb210"
-274,Gonneea_et_al_2018,Sage_Log_Pond,SLPB,"Cs137, Pb210"
-275,Gonneea_et_al_2018,Sage_Log_Pond,SLPC,"Cs137, Pb210"
-276,Johnson_et_al_2007,Sprague_Marsh,SM02_VC1,C14
-277,Kemp_et_al_2020,Barnegat_Bay,BB1B,"Cs137, Historical Horizons, Pb210"
-278,Krauss_et_al_2018,Savannah,savannah_high_1,C14
+137,Boyd_et_al_2017,Maurice_River,MR3,"Cs137, Pb210"
+138,Boyd_et_al_2017,Reedy_Creek,RC1,"Cs137, Pb210"
+139,Boyd_et_al_2017,Reedy_Creek,RC2,"Cs137, Pb210"
+140,Boyd_et_al_2017,Reedy_Creek,RC3,"Cs137, Pb210"
+141,Breithaupt_et_al_2014,WSC-5,SH3-1,Pb210
+142,Breithaupt_et_al_2014,WSC-5,SH3-3,"Cs137, Pb210"
+143,Breithaupt_et_al_2014,WSC-5,SH3-5,"Cs137, Pb210"
+144,Breithaupt_et_al_2014,WSC-5,SH3-7,"Cs137, Pb210"
+145,Breithaupt_et_al_2014,WSC-5,SH3-8,"Cs137, Pb210"
+146,Breithaupt_et_al_2014,WSC-5,SH3-9,"Cs137, Pb210"
+147,Breithaupt_et_al_2020,NMg,BWB1A,"Cs137, Pb210"
+148,Breithaupt_et_al_2020,NMg,CCB2,"Cs137, Pb210"
+149,Breithaupt_et_al_2020,NMg,UFU1A,"Cs137, Pb210"
+150,Breithaupt_et_al_2020,SMg,WSC2A,"Cs137, Pb210"
+151,Breithaupt_et_al_2020,SMg,WSC8A,"Cs137, Pb210"
+152,Breithaupt_et_al_2020,SMs,WSC2B,"Cs137, Pb210"
+153,Breithaupt_et_al_2020,SMs,WSC8B,"Cs137, Pb210"
+154,Buffington_et_al_2020,Miner_Slough,MS-C1,Cs137
+155,Callaway_et_al_2019,Brown_Island,Browns_Island_A_High,"Cs137, Pb210"
+156,Callaway_et_al_2019,Brown_Island,Browns_Island_A_Low,"Cs137, Pb210"
+157,Callaway_et_al_2019,Brown_Island,Browns_Island_A_Mid,"Cs137, Pb210"
+158,Callaway_et_al_2019,Brown_Island,Browns_Island_B_High,"Cs137, Pb210"
+159,Callaway_et_al_2019,Brown_Island,Browns_Island_B_Low,"Cs137, Pb210"
+160,Callaway_et_al_2019,Brown_Island,Browns_Island_B_Mid,"Cs137, Pb210"
+161,Callaway_et_al_2019,China_Camp,China_Camp_A_High,"Cs137, Pb210"
+162,Callaway_et_al_2019,China_Camp,China_Camp_A_Low,"Cs137, Pb210"
+163,Callaway_et_al_2019,China_Camp,China_Camp_A_Mid,"Cs137, Pb210"
+164,Callaway_et_al_2019,China_Camp,China_Camp_B_High,"Cs137, Pb210"
+165,Callaway_et_al_2019,China_Camp,China_Camp_B_Low,"Cs137, Pb210"
+166,Callaway_et_al_2019,China_Camp,China_Camp_B_Mid,"Cs137, Pb210"
+167,Callaway_et_al_2019,Coon_Island,Coon_Island_A_High,"Cs137, Pb210"
+168,Callaway_et_al_2019,Coon_Island,Coon_Island_A_Low,"Cs137, Pb210"
+169,Callaway_et_al_2019,Coon_Island,Coon_Island_A_Mid,"Cs137, Pb210"
+170,Callaway_et_al_2019,Coon_Island,Coon_Island_B_High,"Cs137, Pb210"
+171,Callaway_et_al_2019,Coon_Island,Coon_Island_B_Mid,"Cs137, Pb210"
+172,Callaway_et_al_2019,Coon_Island,Coon_Island_C_High,"Cs137, Pb210"
+173,Callaway_et_al_2019,Coon_Island,Coon_Island_C_Low,"Cs137, Pb210"
+174,Callaway_et_al_2019,Coon_Island,Coon_Island_C_Mid,Cs137
+175,Callaway_et_al_2019,Coon_Island,Coon_Island_D_High,"Cs137, Pb210"
+176,Callaway_et_al_2019,Coon_Island,Coon_Island_D_Low,"Cs137, Pb210"
+177,Callaway_et_al_2019,Coon_Island,Coon_Island_D_Mid,"Cs137, Pb210"
+178,Callaway_et_al_2019,Petaluma_River,Petaluma_River_Marsh_A_High,"Cs137, Pb210"
+179,Callaway_et_al_2019,Petaluma_River,Petaluma_River_Marsh_A_Low,"Cs137, Pb210"
+180,Callaway_et_al_2019,Petaluma_River,Petaluma_River_Marsh_A_Mid,"Cs137, Pb210"
+181,Callaway_et_al_2019,Petaluma_River,Petaluma_River_Marsh_B_High,"Cs137, Pb210"
+182,Callaway_et_al_2019,Petaluma_River,Petaluma_River_Marsh_B_Low,"Cs137, Pb210"
+183,Callaway_et_al_2019,Petaluma_River,Petaluma_River_Marsh_B_Mid,"Cs137, Pb210"
+184,Callaway_et_al_2019,Rush_Ranch,Rush_Ranch_A_High,"Cs137, Pb210"
+185,Callaway_et_al_2019,Rush_Ranch,Rush_Ranch_A_Low,"Cs137, Pb210"
+186,Callaway_et_al_2019,Rush_Ranch,Rush_Ranch_A_Mid,"Cs137, Pb210"
+187,Callaway_et_al_2019,Rush_Ranch,Rush_Ranch_B_High,"Cs137, Pb210"
+188,Callaway_et_al_2019,Rush_Ranch,Rush_Ranch_B_Low,"Cs137, Pb210"
+189,Callaway_et_al_2019,Rush_Ranch,Rush_Ranch_B_Mid,"Cs137, Pb210"
+190,Callaway_et_al_2019,Whale's_Tail,Whales_Tail_A_High,"Cs137, Pb210"
+191,Callaway_et_al_2019,Whale's_Tail,Whales_Tail_A_Low,"Cs137, Pb210"
+192,Callaway_et_al_2019,Whale's_Tail,Whales_Tail_A_Mid,"Cs137, Pb210"
+193,Callaway_et_al_2019,Whale's_Tail,Whales_Tail_B_High,"Cs137, Pb210"
+194,Callaway_et_al_2019,Whale's_Tail,Whales_Tail_B_Low,"Cs137, Pb210"
+195,Callaway_et_al_2019,Whale's_Tail,Whales_Tail_B_Mid,"Cs137, Pb210"
+196,Carlin_et_al_2021,ELM1812,ELM1812-PWA1,"Cs137, Pb210"
+197,Carlin_et_al_2021,ELM1812,ELM1812-SPA2,"Cs137, Pb210"
+198,Costa_et_al_2023,Baja-Bahia Magdalena,Baja-Bahia Magdalena-III,C14
+199,Costa_et_al_2023,Baja-El Merito I (EMI),Baja-El Merito I (EMI)-I,C14
+200,Costa_et_al_2023,Baja-Las Animas,Baja-Las Animas-I,C14
+201,Costa_et_al_2023,Baja-Punta Abreojos,Baja-Punta Abreojos-I,C14
+202,Costa_et_al_2023,Baja-San Gabriel II (SGII),Baja-San Gabriel II (SGII)-I,C14
+203,Costa_et_al_2023,Baja-San Jose (SJ),Baja-San Jose (SJ)-I,C14
+204,Costa_et_al_2023,Baja-San Jose (SJ),Baja-San Jose (SJ)-II,C14
+205,Costa_et_al_2023,Baja-San Lucas,Baja-San Lucas-3,C14
+206,Costa_et_al_2023,Baja-Santa Barbara II,Baja-Santa Barbara II-1,C14
+207,Costa_et_al_2023,PanamaPacific-LP I,PanamaPacific-LP I-2,C14
+208,Costa_et_al_2023,PanamaPacific-VE II,PanamaPacific-VE II-1,C14
+209,Craft_2007,Altamaha_River,Altamaha_River_Site_7_Levee,Cs137
+210,Craft_2007,Altamaha_River,Altamaha_River_Site_7_Plain,Cs137
+211,Craft_2007,Altamaha_River,Altamaha_River_Site_8_Levee,Cs137
+212,Craft_2007,Altamaha_River,Altamaha_River_Site_8_Plain,Cs137
+213,Craft_2007,Altamaha_River,Altamaha_River_Site_9_Levee,Cs137
+214,Craft_2007,Altamaha_River,Altamaha_River_Site_9_Plain,Cs137
+215,Craft_2007,Doboy_Sound,Doboy_Sound_Site_4_Levee,Cs137
+216,Craft_2007,Doboy_Sound,Doboy_Sound_Site_4_Plain,Cs137
+217,Craft_2007,Doboy_Sound,Doboy_Sound_Site_5_Levee,Cs137
+218,Craft_2007,Doboy_Sound,Doboy_Sound_Site_5_Plain,Cs137
+219,Craft_2007,Doboy_Sound,Doboy_Sound_Site_6_Levee,Cs137
+220,Craft_2007,Doboy_Sound,Doboy_Sound_Site_6_Plain,Cs137
+221,Craft_2007,Sapelo_River,Sapelo_River_Site_1_Levee,Cs137
+222,Craft_2007,Sapelo_River,Sapelo_River_Site_1_Plain,Cs137
+223,Craft_2007,Sapelo_River,Sapelo_River_Site_2_Levee,Cs137
+224,Craft_2007,Sapelo_River,Sapelo_River_Site_2_Plain,Cs137
+225,Craft_2007,Sapelo_River,Sapelo_River_Site_3_Levee,Cs137
+226,Craft_2007,Sapelo_River,Sapelo_River_Site_3_Plain,Cs137
+227,Drexler_et_al_2009,Bacon Channel Island,BACHI,C14
+228,Drexler_et_al_2009,Franks Wetland,FW,C14
+229,Drexler_et_al_2009,Time of Mandeval Tip,TT,C14
+230,Drexler_et_al_2013,Bird_Field,Bird_Field_1,"Cs137, Pb210"
+231,Drexler_et_al_2013,Bird_Field,Bird_Field_2,"Cs137, Pb210"
+232,Drexler_et_al_2013,Coastal_EDU_Field,Coastal_EDU_Field_1,"Cs137, Pb210"
+233,Drexler_et_al_2013,Coastal_EDU_Field,Coastal_EDU_Field_2,"Cs137, Pb210"
+234,Drexler_et_al_2013,Hasty_Point_Managed_Shallow,Hasty_Point_Managed_Shallow_1,"Cs137, Pb210"
+235,Drexler_et_al_2013,Hasty_Point_Managed_Shallow,Hasty_Point_Managed_Shallow_2,"Cs137, Pb210"
+236,Drexler_et_al_2013,Sandy_Island_Deeply_Flooded,Sandy_Island_Deeply_Flooded_1,"Cs137, Pb210"
+237,Drexler_et_al_2013,Sandy_Island_Deeply_Flooded,Sandy_Island_Deeply_Flooded_2,"Cs137, Pb210"
+238,Drexler_et_al_2013,Sandy_Island_Natural,Sandy_Island_Natural_2,"Cs137, Pb210"
+239,Drexler_et_al_2013,Sandy_Island_Natural,Sandy_Island_Natural_3,"Cs137, Pb210"
+240,Drexler_et_al_2013,Wardlaw_Shallow_Managed,Wardlaw_Shallow_Managed_1,"Cs137, Pb210"
+241,Drexler_et_al_2013,Wardlaw_Shallow_Managed,Wardlaw_Shallow_Managed_2,"Cs137, Pb210"
+242,Drexler_et_al_2019,Animal_Slough,AS14,Pb210
+243,Drexler_et_al_2019,Animal_Slough,AS15,Pb210
+244,Drexler_et_al_2019,Animal_Slough,AS16,Pb210
+245,Drexler_et_al_2019,Animal_Slough,AS7,Pb210
+246,Drexler_et_al_2019,Animal_Slough,AS8,Pb210
+247,Drexler_et_al_2019,Animal_Slough,AS9,Pb210
+248,Eagle_et_al_2021,Martin Peña East,MPE1,"Cs137, Pb210"
+249,Eagle_et_al_2021,Martin Peña East,MPE2,"Cs137, Pb210"
+250,Eagle_et_al_2021,Martin Peña West,MPW1,"Cs137, Pb210"
+251,Eagle_et_al_2021,Piñones,PIN1,"Cs137, Pb210"
+252,Eagle_et_al_2021,Piñones,PIN2,"Cs137, Pb210"
+253,Eagle_et_al_2021,San José Lagoon,SJ1,"Cs137, Pb210"
+254,Eagle_et_al_2021,San José Lagoon,SJ2,"Cs137, Pb210"
+255,Eagle_et_al_2021,Torrecilla Lagoon,TORR1,"Cs137, Pb210"
+256,Eagle_et_al_2021,Torrecilla Lagoon,TORR2,"Cs137, Pb210"
+257,Elsey_Quirk_et_al_2011,Little_Assawoman,Juncus_roemerianus_core,Cs137
+258,Elsey_Quirk_et_al_2011,Little_Assawoman,Spartina_alterniflora_core,Cs137
+259,Ensign_et_al_2020,Choptank River,ChoptankLowerTidal,Cs137
+260,Ensign_et_al_2020,Pocomoke River,PocomokeLowerTidal,Cs137
+261,Gerlach_et_al_2017,Mill_Bayou,LMR_14_9B,"C14, Historical Horizons"
+262,Giblin_and_Forbrich_2018,Nelson_Island_Creek,Giblin2018Core_1,"Cs137, Pb210"
+263,Giblin_and_Forbrich_2018,Nelson_Island_Creek,Giblin2018Core_2,"Cs137, Pb210"
+264,Giblin_and_Forbrich_2018,Nelson_Island_Creek,Giblin2018Core_3,"Cs137, Pb210"
+265,Giblin_and_Forbrich_2018,Nelson_Island_Creek,Giblin2018Core_4,"Cs137, Pb210"
+266,Gonneea_et_al_2018,Eel_Pond,EPA,"Cs137, Pb210"
+267,Gonneea_et_al_2018,Eel_Pond,EPB,"Cs137, Pb210"
+268,Gonneea_et_al_2018,Great_Pond,GPA,"Cs137, Pb210"
+269,Gonneea_et_al_2018,Great_Pond,GPB,"Cs137, Pb210"
+270,Gonneea_et_al_2018,Great_Pond,GPC,"Cs137, Pb210"
+271,Gonneea_et_al_2018,Hamblin_Pond,HBA,"Cs137, Pb210"
+272,Gonneea_et_al_2018,Hamblin_Pond,HBB,"Cs137, Pb210"
+273,Gonneea_et_al_2018,Hamblin_Pond,HBC,"Cs137, Pb210"
+274,Gonneea_et_al_2018,Sage_Log_Pond,SLPA,"Cs137, Pb210"
+275,Gonneea_et_al_2018,Sage_Log_Pond,SLPB,"Cs137, Pb210"
+276,Gonneea_et_al_2018,Sage_Log_Pond,SLPC,"Cs137, Pb210"
+277,Johnson_et_al_2007,Sprague_Marsh,SM02_VC1,C14
+278,Kemp_et_al_2020,Barnegat_Bay,BB1B,"Cs137, Historical Horizons, Pb210"
 279,Krauss_et_al_2018,Savannah,savannah_low_1,C14
 280,Krauss_et_al_2018,Savannah,savannah_mid_1,C14
-281,Krauss_et_al_2018,Savannah,savannah_mid_2,C14
-282,Krauss_et_al_2018,Waccamaw,butler_island_1,C14
-283,Krauss_et_al_2018,Waccamaw,turkey_creek_1,C14
-284,Kusumaningtyas_et_al_2018,Berau,B2,Pb210
-285,Kusumaningtyas_et_al_2018,Segara_Anakan_Lagoon_Central,C24,Pb210
-286,Kusumaningtyas_et_al_2018,Segara_Anakan_Lagoon_East,E40,"Cs137, Pb210"
-287,Lafratta_et_al_2018,False bay,1B,C14
-288,Lafratta_et_al_2018,False bay,1Rc,C14
-289,Lafratta_et_al_2018,False bay,1Rs,"C14, Pb210"
-290,Lafratta_et_al_2018,False bay,2B,"C14, Pb210"
-291,Lafratta_et_al_2018,False bay,2Rc,C14
-292,Lafratta_et_al_2018,False bay,2Rs,C14
-293,Lafratta_et_al_2018,False bay,3B,"C14, Pb210"
-294,Lafratta_et_al_2018,False bay,3Rc,"C14, Pb210"
-295,Lafratta_et_al_2018,False bay,3Rs,"C14, Pb210"
-296,Lafratta_et_al_2018,False bay,4Rc,C14
-297,Lafratta_et_al_2018,False bay,5Rc,C14
-298,Lafratta_et_al_2018,False bay,6Rc,"C14, Pb210"
-299,Lagomasino_et_al_2020,Huddy_Gut,HG1,"Cs137, Pb210"
-300,Lagomasino_et_al_2020,Huddy_Gut,HG2,"Cs137, Pb210"
-301,Lagomasino_et_al_2020,Huddy_Gut,HG3,"Cs137, Pb210"
-302,Lagomasino_et_al_2020,Porpoise_Point,PP1,"Cs137, Pb210"
-303,Lagomasino_et_al_2020,Porpoise_Point,PP2,"Cs137, Pb210"
-304,Lagomasino_et_al_2020,Porpoise_Point,PP3,"Cs137, Pb210"
-305,Luk_et_al_2020,SITE_1,MARSH_1_1,"Cs137, Pb210"
-306,Luk_et_al_2020,SITE_1,MARSH_1_2,"Cs137, Pb210"
-307,Luk_et_al_2020,SITE_1,POND_1,"Cs137, Pb210"
-308,Luk_et_al_2020,SITE_2,MARSH_2_1,"Cs137, Pb210"
-309,Luk_et_al_2020,SITE_2,MARSH_2_2,"Cs137, Pb210"
-310,Luk_et_al_2020,SITE_2,POND_2,"Cs137, Pb210"
-311,Luk_et_al_2020,SITE_3,MARSH_3_1,"Cs137, Pb210"
-312,Luk_et_al_2020,SITE_3,MARSH_3_2,"Cs137, Pb210"
-313,Luk_et_al_2020,SITE_3,POND_3,"Cs137, Pb210"
-314,Marot_et_al_2020,Grand Bay,16CCT03_GB34M,"Cs137, Pb210"
-315,Marot_et_al_2020,Grand Bay,16CCT03_GB34S,Pb210
-316,McTigue_et_al_2020,Traps_Bay,TB_1L,C14
-317,McTigue_et_al_2020,Traps_Bay,TB_2L,Pb210
-318,Messerschmidt_and_Kirwan_2020,GCREW,C3,"Cs137, Pb210"
-319,Messerschmidt_and_Kirwan_2020,GCREW,C4,"Cs137, Pb210"
-320,Noe_et_al_2016,Bulter_Island,W2,Pb210
-321,Noe_et_al_2016,Richmond_Island,W1,Pb210
-322,Noe_et_al_2016,Turkey_Creek,W3,Pb210
-323,Noe_et_al_2016,Turkey_Creek,W4,Pb210
-324,Nolte_2020,DSK,DSK_grazed_landward,"Cs137, Pb210"
-325,Nolte_2020,DSK,DSK_grazed_seaward,"Cs137, Pb210"
-326,Nolte_2020,DSK,DSK_ungrazed_landward,"Cs137, Pb210"
-327,Nolte_2020,DSK,DSK_ungrazed_seaward,"Cs137, Pb210"
-328,Nolte_2020,HH,HH_grazed_landward,"Cs137, Pb210"
-329,Nolte_2020,HH,HH_grazed_seaward,"Cs137, Pb210"
-330,Nolte_2020,HH,HH_ungrazed_landward,"Cs137, Pb210"
-331,Nolte_2020,HH,HH_ungrazed_seaward,"Cs137, Pb210"
-332,Nolte_2020,NFB,NFB_grazed_landward,"Cs137, Pb210"
-333,Nolte_2020,NFB,NFB_grazed_seaward,"Cs137, Pb210"
-334,Nolte_2020,NFB,NFB_ungrazed_landward,"Cs137, Pb210"
-335,Nolte_2020,NFB,NFB_ungrazed_seaward,"Cs137, Pb210"
-336,Nolte_2020,SNK,SNK_grazed_landward,"Cs137, Pb210"
-337,Nolte_2020,SNK,SNK_grazed_seaward,"Cs137, Pb210"
-338,Nolte_2020,SNK,SNK_ungrazed_landward,"Cs137, Pb210"
-339,Nolte_2020,SNK,SNK_ungrazed_seaward,"Cs137, Pb210"
-340,Okeefe-Suttles_et_al_2021_Cape,Bass,MA_BCNA,"Cs137, Pb210"
-341,Okeefe-Suttles_et_al_2021_Cape,Bass,MA_BCNB,"Cs137, Pb210"
-342,Okeefe-Suttles_et_al_2021_Cape,Bass,MA_BCRA,"Cs137, Pb210"
-343,Okeefe-Suttles_et_al_2021_Cape,Bass,MA_BCRB,"Cs137, Pb210"
-344,Okeefe-Suttles_et_al_2021_Cape,Boat,MA_BMNA,"Cs137, Pb210"
-345,Okeefe-Suttles_et_al_2021_Cape,Boat,MA_BMNB,"Cs137, Pb210"
-346,Okeefe-Suttles_et_al_2021_Cape,Boat,MA_BMRA,"Cs137, Pb210"
-347,Okeefe-Suttles_et_al_2021_Cape,Boat,MA_BMRB,"Cs137, Pb210"
-348,Okeefe-Suttles_et_al_2021_Cape,Quivett,MA_QCNA,"Cs137, Pb210"
-349,Okeefe-Suttles_et_al_2021_Cape,Quivett,MA_QCNB,"Cs137, Pb210"
-350,Okeefe-Suttles_et_al_2021_Cape,Quivett,MA_QCRA,"Cs137, Pb210"
-351,Okeefe-Suttles_et_al_2021_Cape,Scusset,MA_MCA,"Cs137, Pb210"
-352,Okeefe-Suttles_et_al_2021_Cape,Scusset,MA_MCB,"Cs137, Pb210"
-353,Okeefe-Suttles_et_al_2021_Cape,Scusset,MA_SMB,"Cs137, Pb210"
-354,Okeefe-Suttles_et_al_2021_Cape,Stony,MA_SBNA,"Cs137, Pb210"
-355,Okeefe-Suttles_et_al_2021_Cape,Stony,MA_SBNB,"Cs137, Pb210"
-356,Okeefe-Suttles_et_al_2021_Cape,Stony,MA_SBRA,"Cs137, Pb210"
-357,Okeefe-Suttles_et_al_2021_Cape,Stony,MA_SBRB,"Cs137, Pb210"
-358,Okeefe-Suttles_et_al_2021_FL,E.G. Simmons,FL_EGSA,"Cs137, Pb210"
-359,Okeefe-Suttles_et_al_2021_FL,E.G. Simmons,FL_EGSB,"Cs137, Pb210"
-360,Okeefe-Suttles_et_al_2021_FL,Fort de Soto,FL_FDS,"Cs137, Pb210"
-361,Okeefe-Suttles_et_al_2021_FL,Holly House,FL_HHMA,"Cs137, Pb210"
-362,Okeefe-Suttles_et_al_2021_FL,Holly House,FL_HHMB,"Cs137, Pb210"
-363,Okeefe-Suttles_et_al_2021_FL,Rocky Creek,FL_RCRA,"Cs137, Pb210"
-364,Okeefe-Suttles_et_al_2021_FL,Rocky Creek,FL_RCRB,"Cs137, Pb210"
-365,Okeefe-Suttles_et_al_2021_FL,Upper Tampa Bay,FL_UTR,"Cs137, Pb210"
-366,Okeefe-Suttles_et_al_2021_FL,Weedon Island,FL_WI,"Cs137, Pb210"
-367,Okeefe-Suttles_et_al_2021_RI,Narragansett Bay,RI_MCA,"Cs137, Pb210"
-368,Okeefe-Suttles_et_al_2021_RI,Narragansett Bay,RI_MCB,"Cs137, Pb210"
-369,Okeefe-Suttles_et_al_2021_RI,Narragansett Bay,RI_MDA,"Cs137, Pb210"
-370,Okeefe-Suttles_et_al_2021_RI,Narragansett Bay,RI_MDB,"Cs137, Pb210"
-371,Okeefe-Suttles_et_al_2021_RI,Narragansett Bay,RI_PIA,"Cs137, Pb210"
-372,Okeefe-Suttles_et_al_2021_RI,Narragansett Bay,RI_PIB,"Cs137, Pb210"
-373,Okeefe-Suttles_et_al_2021_Wellfleet,Herring River,MA_HRCHA,"Cs137, Pb210"
-374,Okeefe-Suttles_et_al_2021_Wellfleet,Herring River,MA_HRCHB,"Cs137, Pb210"
-375,Okeefe-Suttles_et_al_2021_Wellfleet,Herring River,MA_HROCA,"Cs137, Pb210"
-376,Okeefe-Suttles_et_al_2021_Wellfleet,Herring River,MA_HROCB,"Cs137, Pb210"
-377,Okeefe-Suttles_et_al_2021_Wellfleet,Herring River,MA_HRPA,"Cs137, Pb210"
-378,Okeefe-Suttles_et_al_2021_Wellfleet,Herring River,MA_HRPB,"Cs137, Pb210"
-379,Okeefe-Suttles_et_al_2021_Wellfleet,Mayo Creek,MA_MYNA,"Cs137, Pb210"
-380,Okeefe-Suttles_et_al_2021_Wellfleet,Mayo Creek,MA_MYNB,"Cs137, Pb210"
-381,Okeefe-Suttles_et_al_2021_Wellfleet,Mayo Creek,MA_MYURA,"Cs137, Pb210"
-382,Okeefe-Suttles_et_al_2021_Wellfleet,Mayo Creek,MA_MYURB,"Cs137, Pb210"
-383,Peck_et_al_2020,Alsea,ABOR1702_01PU,"Cs137, Pb210"
-384,Peck_et_al_2020,Alsea,ABOR1702_02PU,"Cs137, Pb210"
-385,Peck_et_al_2020,Alsea,ABOR1702_05PU,"Cs137, Pb210"
-386,Peck_et_al_2020,Alsea,ABOR1702_06PU,"Cs137, Pb210"
-387,Peck_et_al_2020,Alsea,ABOR1702_07PU,"Cs137, Pb210"
-388,Peck_et_al_2020,Alsea,ABOR1702_08PU,"Cs137, Pb210"
-389,Peck_et_al_2020,Coquille,CMOR1706_01PU,"Cs137, Pb210"
-390,Peck_et_al_2020,Coquille,CMOR1706_02PU,"Cs137, Pb210"
-391,Peck_et_al_2020,Coquille,CMOR1706_03PU,"Cs137, Pb210"
-392,Peck_et_al_2020,Coquille,CMOR1706_04PU,"Cs137, Pb210"
-393,Peck_et_al_2020,Coquille,CMOR1706_05PU,"Cs137, Pb210"
-394,Peck_et_al_2020,Coquille,CMOR1706_08PU,"Cs137, Pb210"
-395,Peck_et_al_2020,Coquille,CMOR1706_09PU,"Cs137, Pb210"
-396,Peck_et_al_2020,Coquille,CMOR1706_10PU,"Cs137, Pb210"
-397,Peck_et_al_2020,Nehalem,NBOR1606_03PU,"Cs137, Pb210"
-398,Peck_et_al_2020,Nehalem,NBOR1606_04PU,"Cs137, Pb210"
-399,Peck_et_al_2020,Nehalem,NBOR1606_05PU,"Cs137, Pb210"
-400,Peck_et_al_2020,Nehalem,NBOR1606_07PU,"Cs137, Pb210"
-401,Peck_et_al_2020,Nehalem,NBOR1606_08PU,"Cs137, Pb210"
-402,Peck_et_al_2020,Nehalem,NBOR1609_01PU,"Cs137, Pb210"
-403,Peck_et_al_2020,Netarts,NTOR1709_01PU,"Cs137, Pb210"
-404,Peck_et_al_2020,Netarts,NTOR1709_02PU,"Cs137, Pb210"
-405,Peck_et_al_2020,Netarts,NTOR1709_03PU,"Cs137, Pb210"
-406,Peck_et_al_2020,Netarts,NTOR1709_04PU,"Cs137, Pb210"
-407,Peck_et_al_2020,Netarts,NTOR1802_01PU,"Cs137, Pb210"
-408,Peck_et_al_2020,Netarts,NTOR1802_02PU,"Cs137, Pb210"
-409,Peck_et_al_2020,Netarts,NTOR1802_05PU,"Cs137, Pb210"
-410,Peck_et_al_2020,Netarts,NTOR1802_06PU,"Cs137, Pb210"
-411,Peck_et_al_2020,Netarts,NTOR1802_09PU,"Cs137, Pb210"
-412,Peck_et_al_2020,Salmon River,SROR1509_01PU,"Cs137, Pb210"
-413,Peck_et_al_2020,Salmon River,SROR1509_02PU,"Cs137, Pb210"
-414,Peck_et_al_2020,Salmon River,SROR1509_03PU,"Cs137, Pb210"
-415,Peck_et_al_2020,Salmon River,SROR1509_04PU,"Cs137, Pb210"
-416,Peck_et_al_2020,Tillamook,TBOR1504_01PU,"Cs137, Pb210"
-417,Peck_et_al_2020,Tillamook,TBOR1504_02PU,"Cs137, Pb210"
-418,Peck_et_al_2020,Tillamook,TBOR1504_03PU,"Cs137, Pb210"
-419,Peck_et_al_2020,Tillamook,TBOR1504_04PU,"Cs137, Pb210"
-420,Peck_et_al_2020,Tillamook,TBOR1504_05PU,"Cs137, Pb210"
-421,Peck_et_al_2020,Youngs Bay,YBOR1502_01PU,"Cs137, Pb210"
-422,Peck_et_al_2020,Youngs Bay,YBOR1502_03PU,"Cs137, Pb210"
-423,Piazza_et_al_2020,CRMS0128,0128_1,Cs137
-424,Piazza_et_al_2020,CRMS0128,0128_2,Cs137
-425,Piazza_et_al_2020,CRMS0128_H,0128_H_1,Cs137
-426,Piazza_et_al_2020,CRMS0128_H,0128_H_2,Cs137
-427,Piazza_et_al_2020,CRMS0135,0135_1,Cs137
-428,Piazza_et_al_2020,CRMS0135,0135_2,Cs137
-429,Piazza_et_al_2020,CRMS0135_H,0135_H_1,Cs137
-430,Piazza_et_al_2020,CRMS0135_H,0135_H_2,Cs137
-431,Piazza_et_al_2020,CRMS0147,0147_1,Cs137
-432,Piazza_et_al_2020,CRMS0147,0147_2,Cs137
-433,Piazza_et_al_2020,CRMS0147_H,0147_H_1,Cs137
-434,Piazza_et_al_2020,CRMS0147_H,0147_H_2,Cs137
-435,Piazza_et_al_2020,CRMS0164,0164_1,Cs137
-436,Piazza_et_al_2020,CRMS0164,0164_2,Cs137
-437,Piazza_et_al_2020,CRMS0164_H,0164_H_1,Cs137
-438,Piazza_et_al_2020,CRMS0164_H,0164_H_2,Cs137
-439,Piazza_et_al_2020,CRMS0219,0219_1,Cs137
-440,Piazza_et_al_2020,CRMS0219,0219_2,Cs137
-441,Piazza_et_al_2020,CRMS0219_H,0219_H_1,Cs137
-442,Piazza_et_al_2020,CRMS0219_H,0219_H_2,Cs137
-443,Piazza_et_al_2020,CRMS0268,0268_1,Cs137
-444,Piazza_et_al_2020,CRMS0268,0268_2,Cs137
-445,Piazza_et_al_2020,CRMS0268_H,0268_H_1,Cs137
-446,Piazza_et_al_2020,CRMS0268_H,0268_H_2,Cs137
-447,Piazza_et_al_2020,CRMS0294,0294_1,Cs137
-448,Piazza_et_al_2020,CRMS0294,0294_2,Cs137
-449,Piazza_et_al_2020,CRMS0294_H,0294_H_1,Cs137
-450,Piazza_et_al_2020,CRMS0294_H,0294_H_2,Cs137
-451,Piazza_et_al_2020,CRMS0312,0312_1,Cs137
-452,Piazza_et_al_2020,CRMS0312,0312_2,Cs137
-453,Piazza_et_al_2020,CRMS0312_H,0312_H_1,Cs137
-454,Piazza_et_al_2020,CRMS0312_H,0312_H_2,Cs137
-455,Piazza_et_al_2020,CRMS0326,0326_1,Cs137
-456,Piazza_et_al_2020,CRMS0326,0326_2,Cs137
-457,Piazza_et_al_2020,CRMS0326_H,0326_H_1,Cs137
-458,Piazza_et_al_2020,CRMS0326_H,0326_H_2,Cs137
-459,Piazza_et_al_2020,CRMS0605,0605_1,Cs137
-460,Piazza_et_al_2020,CRMS0605,0605_2,Cs137
-461,Piazza_et_al_2020,CRMS0605_H,0605_H_1,Cs137
-462,Piazza_et_al_2020,CRMS0605_H,0605_H_2,Cs137
-463,Piazza_et_al_2020,CRMS0610,0610_1,Cs137
-464,Piazza_et_al_2020,CRMS0610,0610_2,Cs137
-465,Piazza_et_al_2020,CRMS0610_H,0610_H_1,Cs137
-466,Piazza_et_al_2020,CRMS0610_H,0610_H_2,Cs137
-467,Piazza_et_al_2020,CRMS0651,0651_1,Cs137
-468,Piazza_et_al_2020,CRMS0651,0651_2,Cs137
-469,Piazza_et_al_2020,CRMS0651_H,0651_H_1,Cs137
-470,Piazza_et_al_2020,CRMS0651_H,0651_H_2,Cs137
-471,Piazza_et_al_2020,CRMS0669,0669_1,Cs137
-472,Piazza_et_al_2020,CRMS0669,0669_2,Cs137
-473,Piazza_et_al_2020,CRMS0672,0672_1,Cs137
-474,Piazza_et_al_2020,CRMS0672,0672_2,Cs137
-475,Piazza_et_al_2020,CRMS0672_H,0672_H_1,Cs137
-476,Piazza_et_al_2020,CRMS0672_H,0672_H_2,Cs137
-477,Piazza_et_al_2020,CRMS1277,1277_1,Cs137
-478,Piazza_et_al_2020,CRMS1277,1277_2,Cs137
-479,Piazza_et_al_2020,CRMS1277_H,1277_H_1,Cs137
-480,Piazza_et_al_2020,CRMS1277_H,1277_H_2,Cs137
-481,Piazza_et_al_2020,CRMS2156,2156_1,Cs137
-482,Piazza_et_al_2020,CRMS2156,2156_2,Cs137
-483,Poppe_and_Rybczyk_2018,Padilla_1,1_2J,Pb210
-484,Poppe_and_Rybczyk_2018,Padilla_2,2_3F,Pb210
-485,Poppe_and_Rybczyk_2018,Padilla_3,3_4F,Pb210
-486,Poppe_and_Rybczyk_2018,Padilla_4,4_5B,Pb210
-487,Poppe_and_Rybczyk_2018,Padilla_5,5_5F,Pb210
-488,Poppe_and_Rybczyk_2018,Padilla_6,6_5J,Pb210
-489,Poppe_and_Rybczyk_2019,Stillaguamish_HM1,HM1_7,"Cs137, Pb210"
-490,Poppe_and_Rybczyk_2019,Stillaguamish_HM1,HM1_8,"Cs137, Pb210"
-491,Poppe_and_Rybczyk_2019,Stillaguamish_HM3,HM3_20,"Cs137, Pb210"
-492,Poppe_and_Rybczyk_2019,Stillaguamish_HM4,HM4_21,"Cs137, Pb210"
-493,Poppe_and_Rybczyk_2019,Stillaguamish_HM5,HM5_2,"Cs137, Pb210"
-494,Poppe_and_Rybczyk_2019,Stillaguamish_LM1,LM1_10,"Cs137, Pb210"
-495,Poppe_and_Rybczyk_2019,Stillaguamish_LM1,LM1_9,"Cs137, Pb210"
-496,Poppe_and_Rybczyk_2019,Stillaguamish_LM3,LM3_13,"Cs137, Pb210"
-497,Poppe_and_Rybczyk_2019,Stillaguamish_LM4,LM4_23,"Cs137, Pb210"
-498,Poppe_and_Rybczyk_2019,Stillaguamish_LM5,LM5_3,"Cs137, Pb210"
-499,Poppe_and_Rybczyk_2019,Stillaguamish_R1,25A,"Cs137, Pb210"
-500,Poppe_and_Rybczyk_2019,Stillaguamish_R2,26A,"Cs137, Pb210"
-501,Poppe_and_Rybczyk_2019,Stillaguamish_R3,27A,"Cs137, Pb210"
-502,Poppe_and_Rybczyk_2019,Stillaguamish_R4,28A,"Cs137, Pb210"
-503,Poppe_et_al_2019,Snohomish_Heron_Point,HP_A,"Cs137, Pb210"
-504,Poppe_et_al_2019,Snohomish_Marysville_Mitigation,MA_A,"Cs137, Pb210"
-505,Poppe_et_al_2019,Snohomish_North_Ebey,NE_A,"Cs137, Pb210"
-506,Poppe_et_al_2019,Snohomish_Otter_Island,OI_A,"Cs137, Pb210"
-507,Poppe_et_al_2019,Snohomish_Quilceda_Marsh,QM_A,"Cs137, Pb210"
-508,Poppe_et_al_2019,Snohomish_Qwuloolt,QW_B,"Cs137, Pb210"
-509,Poppe_et_al_2019,Snohomish_Smith_Island_City,SS_B,"Cs137, Pb210"
-510,Poppe_et_al_2019,Snohomish_Smith_Island_County,SN_B,"Cs137, Pb210"
-511,Poppe_et_al_2019,Snohomish_Spencer_Island,SP_A,"Cs137, Pb210"
-512,Poppe_et_al_2019,Snohomish_WDFW_Forest,WF_A,"Cs137, Pb210"
-513,Poppe_et_al_2019,Snohomish_WDFW_Wetland,WW_B,"Cs137, Pb210"
-514,Rodriguez_et_al_2022,JB,JB_1,C14
-515,Rodriguez_et_al_2022,JB,JB_5,C14
-516,Rodriguez_et_al_2022,JB,JB_6,C14
-517,Rodriguez_et_al_2022,JB,JB_7,C14
-518,Rodriguez_et_al_2022,LB,LB_3,C14
-519,Rodriguez_et_al_2022,LB,LB_5,C14
-520,Rodriguez_et_al_2022,LB,LB_6,C14
-521,Rodriguez_et_al_2022,LB,LB_7,C14
-522,Rodriguez_et_al_2022,LB,LB_8,C14
-523,Rodriguez_et_al_2022,NPR_U,NPR_U_1,C14
-524,Rodriguez_et_al_2022,NPR_U,NPR_U_5,C14
-525,Rodriguez_et_al_2022,SRE_U,SRE_U_1,C14
-526,Rodriguez_et_al_2022,SRE_U,SRE_U_6,C14
-527,Smith_et_al_2015,09WCC01,09WCC01_01,"Cs137, Pb210"
-528,Smith_et_al_2015,09WCC01,09WCC01_02,"Cs137, Pb210"
-529,Smith_et_al_2015,09WCC01,09WCC01_03,"Cs137, Pb210"
-530,Smith_et_al_2015,09WCC01,09WCC01_04,"Cs137, Pb210"
-531,Smith_et_al_2015,09WCC01,09WCC01_05,"Cs137, Pb210"
-532,Smith_et_al_2015,09WCC01,09WCC01_06,"Cs137, Pb210"
-533,Smith_et_al_2015,09WCC01,09WCC01_07,"Cs137, Pb210"
-534,Smith_et_al_2015,09WCC01,09WCC01_08,"Cs137, Pb210"
-535,Smith_et_al_2015,09WCC01,09WCC01_09,"Cs137, Pb210"
-536,Snedden_2018,171,171_1,"Cs137, Pb210"
-537,Snedden_2018,172,172_1,"Cs137, Pb210"
-538,Snedden_2018,173,173_1,"Cs137, Pb210"
-539,Snedden_2018,175,175_1,"Cs137, Pb210"
-540,Snedden_2018,189,189_1,"Cs137, Pb210"
-541,Snedden_2018,192,192_1,"Cs137, Pb210"
-542,Snedden_2018,209,209_1,"Cs137, Pb210"
-543,Snedden_2018,211,211_1,"Cs137, Pb210"
-544,Snedden_2018,224,224_1,"Cs137, Pb210"
-545,Snedden_2018,225,225_1,"Cs137, Pb210"
-546,Snedden_2018,237,237_1,"Cs137, Pb210"
-547,Snedden_2018,253,253_1,"Cs137, Pb210"
-548,Snedden_2018,261,261_1,"Cs137, Pb210"
-549,Snedden_2018,273,273_1,"Cs137, Pb210"
-550,Snedden_2018,287,287_1,"Cs137, Pb210"
-551,Snedden_2018,3054,3054_1,"Cs137, Pb210"
-552,Snedden_2018,3166,3166_1,"Cs137, Pb210"
-553,Snedden_2018,3169,3169_1,"Cs137, Pb210"
-554,Snedden_2018,3565,3565_1,"Cs137, Pb210"
-555,Snedden_2018,3617,3617_1,"Cs137, Pb210"
-556,Snedden_2018,3985,3985_1,"Cs137, Pb210"
-557,Snedden_2018,4218,4218_1,"Cs137, Pb210"
-558,Snedden_2018,4245,4245_1,"Cs137, Pb210"
-559,Snedden_2018,4529,4529_1,"Cs137, Pb210"
-560,Snedden_2018,4690,4690_1,"Cs137, Pb210"
-561,Snedden_2021,Breton_Sound_Basin,Breton_1,Cs137
-562,Snedden_2021,Breton_Sound_Basin,Breton_10,Cs137
-563,Snedden_2021,Breton_Sound_Basin,Breton_11,Cs137
-564,Snedden_2021,Breton_Sound_Basin,Breton_12,Cs137
-565,Snedden_2021,Breton_Sound_Basin,Breton_13,Cs137
-566,Snedden_2021,Breton_Sound_Basin,Breton_14,Cs137
-567,Snedden_2021,Breton_Sound_Basin,Breton_15,Cs137
-568,Snedden_2021,Breton_Sound_Basin,Breton_16,Cs137
-569,Snedden_2021,Breton_Sound_Basin,Breton_17,Cs137
-570,Snedden_2021,Breton_Sound_Basin,Breton_18,Cs137
-571,Snedden_2021,Breton_Sound_Basin,Breton_19,Cs137
-572,Snedden_2021,Breton_Sound_Basin,Breton_2,Cs137
-573,Snedden_2021,Breton_Sound_Basin,Breton_20,Cs137
-574,Snedden_2021,Breton_Sound_Basin,Breton_21,Cs137
-575,Snedden_2021,Breton_Sound_Basin,Breton_22,Cs137
-576,Snedden_2021,Breton_Sound_Basin,Breton_23,Cs137
-577,Snedden_2021,Breton_Sound_Basin,Breton_24,Cs137
-578,Snedden_2021,Breton_Sound_Basin,Breton_25,Cs137
-579,Snedden_2021,Breton_Sound_Basin,Breton_3,Cs137
-580,Snedden_2021,Breton_Sound_Basin,Breton_4,Cs137
-581,Snedden_2021,Breton_Sound_Basin,Breton_5,Cs137
-582,Snedden_2021,Breton_Sound_Basin,Breton_6,Cs137
-583,Snedden_2021,Breton_Sound_Basin,Breton_7,Cs137
-584,Snedden_2021,Breton_Sound_Basin,Breton_8,Cs137
-585,Snedden_2021,Breton_Sound_Basin,Breton_9,Cs137
-586,Thom_1992,Elk_River_Not_Diked,ER1,Cs137
-587,Thom_1992,Elk_River_Prev_Diked,ED1,Cs137
-588,Thom_1992,Nisqually_River_Delta,ND1,Cs137
-589,Thom_1992,Nisqually_River_Delta,ND2,Cs137
-590,Thom_1992,Nisqually_River_Delta,ND3,Cs137
-591,Thom_1992,Nisqually_River_Delta,ND4,Cs137
-592,Thom_1992,Padilla_Bay,PB3,Cs137
-593,Thom_1992,Salmon_River,SR1,Cs137
-594,Thom_1992,Salmon_River,SR2,Cs137
-595,Thom_1992,South_Slough,SS1,Cs137
-596,Thom_1992,Washington_Harbor,WH1,Cs137
-597,Vaughn_et_al_2020,St_Augustine,St_Augustine_Salt_Marsh,"Cs137, Pb210"
-598,Vaughn_et_al_2020,Waccasassa_Bay,Waccasassa_Bay_Salt_Marsh,"Cs137, Pb210"
-599,Wang_et_al_2023,Big_Egg,Big_Egg,"Cs137, Pb210"
-600,Wang_et_al_2023,Black_Bank,Black_Bank,"Cs137, Pb210"
-601,Wang_et_al_2023,Duck_Point,Duck_Point,"Cs137, Pb210"
-602,Wang_et_al_2023,East_High,East_High,"Cs137, Pb210"
-603,Wang_et_al_2023,Four_Sparrow,Four_Sparrow,"Cs137, Pb210"
-604,Wang_et_al_2023,Fresh_Creek,Fresh_Creek,"Cs137, Pb210"
-605,Wang_et_al_2023,JoCo,JoCo,"Cs137, Pb210"
-606,Wang_et_al_2023,Little_Egg,Little_Egg,"Cs137, Pb210"
-607,Wang_et_al_2023,Ruffle_Bar,Ruffle_Bar,"Cs137, Pb210"
-608,Wang_et_al_2023,Spring_Creek,Spring_Creek,"Cs137, Pb210"
-609,Wang_et_al_2023,Stony_Creek,Stony_Creek,"Cs137, Pb210"
-610,Wang_et_al_2023,Yellow_Bar,Yellow_Bar,"Cs137, Pb210"
-611,Watson_and_Byrne_2013,Bair_Island,Bair_Island_1,C14
-612,Watson_and_Byrne_2013,Bair_Island,Bair_Island_2,C14
-613,Watson_and_Byrne_2013,Bair_Island,Bair_Island_3,C14
-614,Watson_and_Byrne_2013,Bair_Island,Bair_Island_4,C14
-615,Watson_and_Byrne_2013,Corkscrew_Slough,Corkscrew_Slough_1,C14
-616,Watson_and_Byrne_2013,Coyote_Creek,Coyote_Creek_1,C14
-617,Watson_and_Byrne_2013,Coyote_Creek,Coyote_Creek_4,C14
-618,Watson_and_Byrne_2013,Damon_Slough,Damon_Slough_2,C14
-619,Watson_and_Byrne_2013,Greco_Island,Greco_Island_1,C14
-620,Watson_and_Byrne_2013,Mud_Slough,Mud_Slough_2,C14
-621,Watson_and_Byrne_2013,Mud_Slough,Mud_Slough_3,C14
-622,Watson_and_Byrne_2013,Plummer_Slough,Plummer_Slough_1,C14
-623,Watson_and_Byrne_2013,Ravenswood_Slough,Ravenswood_Slough_2,C14
-624,Weis_et_al_2001,Tijuana_Estuary,Tijuana_Estuary_East_low,Cs137
-625,Weis_et_al_2001,Tijuana_Estuary,Tijuana_Estuary_East_mid_1,Cs137
-626,Weis_et_al_2001,Tijuana_Estuary,Tijuana_Estuary_East_mid_2,Cs137
-627,Weis_et_al_2001,Tijuana_Estuary,Tijuana_Estuary_West_low,Cs137
-628,Weis_et_al_2001,Tijuana_Estuary,Tijuana_Estuary_West_mid_1,Cs137
-629,Weis_et_al_2001,Tijuana_Estuary,Tijuana_Estuary_West_mid_2,Cs137
-630,Weston_et_al_2023,Altamaha,ALT_3,"Cs137, Pb210"
-631,Weston_et_al_2023,Altamaha,ALT_5,"Cs137, Pb210"
-632,Weston_et_al_2023,Altamaha,ALT_6,"Cs137, Pb210"
-633,Weston_et_al_2023,Altamaha,ALT_9,"Cs137, Pb210"
-634,Weston_et_al_2023,Cape Fear,CPF_2,"Cs137, Pb210"
-635,Weston_et_al_2023,Cape Fear,CPF_4,"Cs137, Pb210"
-636,Weston_et_al_2023,Cape Fear,CPF_6,"Cs137, Pb210"
-637,Weston_et_al_2023,Cape Fear,CPF_7,"Cs137, Pb210"
-638,Weston_et_al_2023,Connecticut,CON_1,"Cs137, Pb210"
-639,Weston_et_al_2023,Connecticut,CON_2,"Cs137, Pb210"
-640,Weston_et_al_2023,Connecticut,CON_8,"Cs137, Pb210"
-641,Weston_et_al_2023,Delaware,DEL_3,"Cs137, Pb210"
-642,Weston_et_al_2023,Delaware,DEL_5,"Cs137, Pb210"
-643,Weston_et_al_2023,Delaware,DEL_9,"Cs137, Pb210"
-644,Weston_et_al_2023,Edisto,EDS_1,"Cs137, Pb210"
-645,Weston_et_al_2023,Edisto,EDS_10,"Cs137, Pb210"
-646,Weston_et_al_2023,Edisto,EDS_5,"Cs137, Pb210"
-647,Weston_et_al_2023,Edisto,EDS_9,"Cs137, Pb210"
-648,Weston_et_al_2023,James,JMS_2,"Cs137, Pb210"
-649,Weston_et_al_2023,James,JMS_3,"Cs137, Pb210"
-650,Weston_et_al_2023,James,JMS_4,"Cs137, Pb210"
-651,Weston_et_al_2023,Kennebec,KEN_1,"Cs137, Pb210"
-652,Weston_et_al_2023,Kennebec,KEN_7,"Cs137, Pb210"
-653,Weston_et_al_2023,Kennebec,KEN_8,"Cs137, Pb210"
-654,Weston_et_al_2023,Plum Island Sound,PIE_1,"Cs137, Pb210"
-655,Weston_et_al_2023,Plum Island Sound,PIE_2,"Cs137, Pb210"
-656,Weston_et_al_2023,Plum Island Sound,PIE_7,"Cs137, Pb210"
-657,Weston_et_al_2023,Plum Island Sound,PIE_8,"Cs137, Pb210"
-658,Weston_et_al_2023,York,YRK_2,"Cs137, Pb210"
-659,Weston_et_al_2023,York,YRK_3,"Cs137, Pb210"
-660,Weston_et_al_2023,York,YRK_5,"Cs137, Pb210"
+281,Krauss_et_al_2018,Waccamaw,turkey_creek_1,C14
+282,Kusumaningtyas_et_al_2018,Berau,B2,Pb210
+283,Kusumaningtyas_et_al_2018,Segara_Anakan_Lagoon_Central,C24,Pb210
+284,Kusumaningtyas_et_al_2018,Segara_Anakan_Lagoon_East,E40,"Cs137, Pb210"
+285,Lafratta_et_al_2018,False bay,1B,C14
+286,Lafratta_et_al_2018,False bay,1Rc,C14
+287,Lafratta_et_al_2018,False bay,1Rs,"C14, Pb210"
+288,Lafratta_et_al_2018,False bay,2B,"C14, Pb210"
+289,Lafratta_et_al_2018,False bay,2Rc,C14
+290,Lafratta_et_al_2018,False bay,2Rs,C14
+291,Lafratta_et_al_2018,False bay,3B,"C14, Pb210"
+292,Lafratta_et_al_2018,False bay,3Rc,"C14, Pb210"
+293,Lafratta_et_al_2018,False bay,3Rs,"C14, Pb210"
+294,Lafratta_et_al_2018,False bay,4Rc,C14
+295,Lafratta_et_al_2018,False bay,5Rc,C14
+296,Lafratta_et_al_2018,False bay,6Rc,"C14, Pb210"
+297,Lagomasino_et_al_2020,Huddy_Gut,HG1,"Cs137, Pb210"
+298,Lagomasino_et_al_2020,Huddy_Gut,HG2,"Cs137, Pb210"
+299,Lagomasino_et_al_2020,Huddy_Gut,HG3,"Cs137, Pb210"
+300,Lagomasino_et_al_2020,Porpoise_Point,PP1,"Cs137, Pb210"
+301,Lagomasino_et_al_2020,Porpoise_Point,PP2,"Cs137, Pb210"
+302,Lagomasino_et_al_2020,Porpoise_Point,PP3,"Cs137, Pb210"
+303,Luk_et_al_2020,SITE_1,MARSH_1_1,"Cs137, Pb210"
+304,Luk_et_al_2020,SITE_1,MARSH_1_2,"Cs137, Pb210"
+305,Luk_et_al_2020,SITE_1,POND_1,"Cs137, Pb210"
+306,Luk_et_al_2020,SITE_2,MARSH_2_1,"Cs137, Pb210"
+307,Luk_et_al_2020,SITE_2,MARSH_2_2,"Cs137, Pb210"
+308,Luk_et_al_2020,SITE_2,POND_2,"Cs137, Pb210"
+309,Luk_et_al_2020,SITE_3,MARSH_3_1,"Cs137, Pb210"
+310,Luk_et_al_2020,SITE_3,MARSH_3_2,"Cs137, Pb210"
+311,Luk_et_al_2020,SITE_3,POND_3,"Cs137, Pb210"
+312,Marot_et_al_2020,Grand Bay,14CCT01_GB36M,"Cs137, Pb210"
+313,Marot_et_al_2020,Grand Bay,14CCT01_GB36R,C14
+314,Marot_et_al_2020,Grand Bay,14CCT01_GB39M,"Cs137, Pb210"
+315,Marot_et_al_2020,Grand Bay,14CCT01_GB53D,"Cs137, Pb210"
+316,Marot_et_al_2020,Grand Bay,14CCT01_GB53M,"Cs137, Pb210"
+317,Marot_et_al_2020,Grand Bay,14CCT01_GB53M_2,"Cs137, Pb210"
+318,Marot_et_al_2020,Grand Bay,14CCT01_GB53R,C14
+319,Marot_et_al_2020,Grand Bay,14CCT01_GB60M,"Cs137, Pb210"
+320,Marot_et_al_2020,Grand Bay,14CCT01_GB60R,C14
+321,Marot_et_al_2020,Grand Bay,14CCT01_GB64M,"Cs137, Pb210"
+322,Marot_et_al_2020,Grand Bay,14CCT01_GB64R,C14
+323,Marot_et_al_2020,Grand Bay,16CCT03_GB230M,Pb210
+324,Marot_et_al_2020,Grand Bay,16CCT03_GB231M,Pb210
+325,Marot_et_al_2020,Grand Bay,16CCT03_GB232M,Pb210
+326,Marot_et_al_2020,Grand Bay,16CCT03_GB232M_2,Pb210
+327,Marot_et_al_2020,Grand Bay,16CCT03_GB233M,Pb210
+328,Marot_et_al_2020,Grand Bay,16CCT03_GB234M,Pb210
+329,Marot_et_al_2020,Grand Bay,16CCT03_GB235M,Pb210
+330,Marot_et_al_2020,Grand Bay,16CCT03_GB236M,Pb210
+331,Marot_et_al_2020,Grand Bay,16CCT03_GB237M,Pb210
+332,Marot_et_al_2020,Grand Bay,16CCT03_GB238M,Pb210
+333,Marot_et_al_2020,Grand Bay,16CCT03_GB239M,Pb210
+334,Marot_et_al_2020,Grand Bay,16CCT03_GB240M,Pb210
+335,Marot_et_al_2020,Grand Bay,16CCT03_GB244M,Pb210
+336,Marot_et_al_2020,Grand Bay,16CCT03_GB245M,"Cs137, Pb210"
+337,Marot_et_al_2020,Grand Bay,16CCT03_GB250V,C14
+338,Marot_et_al_2020,Grand Bay,16CCT03_GB254M,Pb210
+339,Marot_et_al_2020,Grand Bay,16CCT03_GB255V,C14
+340,Marot_et_al_2020,Grand Bay,16CCT03_GB256V,C14
+341,Marot_et_al_2020,Grand Bay,16CCT03_GB260V,C14
+342,Marot_et_al_2020,Grand Bay,16CCT03_GB265V,C14
+343,Marot_et_al_2020,Grand Bay,16CCT03_GB34M,"Cs137, Pb210"
+344,Marot_et_al_2020,Grand Bay,16CCT03_GB34S,Pb210
+345,Marot_et_al_2020,Grand Bay,16CCT07_GB301M,"Cs137, Pb210"
+346,Marot_et_al_2020,Grand Bay,16CCT07_GB302M,"Cs137, Pb210"
+347,Marot_et_al_2020,Grand Bay,16CCT07_GB303M,"Cs137, Pb210"
+348,Marot_et_al_2020,Grand Bay,16CCT07_GB304M,"Cs137, Pb210"
+349,Marot_et_al_2020,Grand Bay,16CCT07_GB305M,"Cs137, Pb210"
+350,Marot_et_al_2020,Grand Bay,16CCT07_GB306M,"Cs137, Pb210"
+351,Marot_et_al_2020,Grand Bay,16CCT07_GB307M,"Cs137, Pb210"
+352,Marot_et_al_2020,Grand Bay,16CCT07_GB308M,"Cs137, Pb210"
+353,McGlathery_et_al_2018,ManAndBoyChannel,T1_9,Pb210
+354,McGlathery_et_al_2018,SouthBay,SB152_C2,Pb210
+355,McTigue_et_al_2020,Traps_Bay,TB_1L,C14
+356,McTigue_et_al_2020,Traps_Bay,TB_2L,Pb210
+357,Messerschmidt_and_Kirwan_2020,GCREW,C3,"Cs137, Pb210"
+358,Messerschmidt_and_Kirwan_2020,GCREW,C4,"Cs137, Pb210"
+359,Noe_et_al_2016,Bulter_Island,W2,Pb210
+360,Noe_et_al_2016,Richmond_Island,W1,Pb210
+361,Noe_et_al_2016,Turkey_Creek,W3,Pb210
+362,Noe_et_al_2016,Turkey_Creek,W4,Pb210
+363,Nolte_2020,DSK,DSK_grazed_landward,"Cs137, Pb210"
+364,Nolte_2020,DSK,DSK_grazed_seaward,"Cs137, Pb210"
+365,Nolte_2020,DSK,DSK_ungrazed_landward,"Cs137, Pb210"
+366,Nolte_2020,DSK,DSK_ungrazed_seaward,"Cs137, Pb210"
+367,Nolte_2020,HH,HH_grazed_landward,"Cs137, Pb210"
+368,Nolte_2020,HH,HH_grazed_seaward,"Cs137, Pb210"
+369,Nolte_2020,HH,HH_ungrazed_landward,"Cs137, Pb210"
+370,Nolte_2020,HH,HH_ungrazed_seaward,"Cs137, Pb210"
+371,Nolte_2020,NFB,NFB_grazed_landward,"Cs137, Pb210"
+372,Nolte_2020,NFB,NFB_grazed_seaward,"Cs137, Pb210"
+373,Nolte_2020,NFB,NFB_ungrazed_landward,"Cs137, Pb210"
+374,Nolte_2020,NFB,NFB_ungrazed_seaward,"Cs137, Pb210"
+375,Nolte_2020,SNK,SNK_grazed_landward,"Cs137, Pb210"
+376,Nolte_2020,SNK,SNK_grazed_seaward,"Cs137, Pb210"
+377,Nolte_2020,SNK,SNK_ungrazed_landward,"Cs137, Pb210"
+378,Nolte_2020,SNK,SNK_ungrazed_seaward,"Cs137, Pb210"
+379,Okeefe-Suttles_et_al_2021_Cape,Bass,MA_BCNA,"Cs137, Pb210"
+380,Okeefe-Suttles_et_al_2021_Cape,Bass,MA_BCNB,"Cs137, Pb210"
+381,Okeefe-Suttles_et_al_2021_Cape,Bass,MA_BCRA,"Cs137, Pb210"
+382,Okeefe-Suttles_et_al_2021_Cape,Bass,MA_BCRB,"Cs137, Pb210"
+383,Okeefe-Suttles_et_al_2021_Cape,Boat,MA_BMNA,"Cs137, Pb210"
+384,Okeefe-Suttles_et_al_2021_Cape,Boat,MA_BMNB,"Cs137, Pb210"
+385,Okeefe-Suttles_et_al_2021_Cape,Boat,MA_BMRA,"Cs137, Pb210"
+386,Okeefe-Suttles_et_al_2021_Cape,Boat,MA_BMRB,"Cs137, Pb210"
+387,Okeefe-Suttles_et_al_2021_Cape,Quivett,MA_QCNA,"Cs137, Pb210"
+388,Okeefe-Suttles_et_al_2021_Cape,Quivett,MA_QCNB,"Cs137, Pb210"
+389,Okeefe-Suttles_et_al_2021_Cape,Quivett,MA_QCRA,"Cs137, Pb210"
+390,Okeefe-Suttles_et_al_2021_Cape,Scusset,MA_MCA,"Cs137, Pb210"
+391,Okeefe-Suttles_et_al_2021_Cape,Scusset,MA_MCB,"Cs137, Pb210"
+392,Okeefe-Suttles_et_al_2021_Cape,Scusset,MA_SMB,"Cs137, Pb210"
+393,Okeefe-Suttles_et_al_2021_Cape,Scusset,MA_SMC,"Cs137, Pb210"
+394,Okeefe-Suttles_et_al_2021_Cape,Stony,MA_SBNA,"Cs137, Pb210"
+395,Okeefe-Suttles_et_al_2021_Cape,Stony,MA_SBNB,"Cs137, Pb210"
+396,Okeefe-Suttles_et_al_2021_Cape,Stony,MA_SBRA,"Cs137, Pb210"
+397,Okeefe-Suttles_et_al_2021_Cape,Stony,MA_SBRB,"Cs137, Pb210"
+398,Okeefe-Suttles_et_al_2021_FL,E.G. Simmons,FL_EGSA,"Cs137, Pb210"
+399,Okeefe-Suttles_et_al_2021_FL,E.G. Simmons,FL_EGSB,"Cs137, Pb210"
+400,Okeefe-Suttles_et_al_2021_FL,Fort de Soto,FL_FDS,"Cs137, Pb210"
+401,Okeefe-Suttles_et_al_2021_FL,Holly House,FL_HHMA,"Cs137, Pb210"
+402,Okeefe-Suttles_et_al_2021_FL,Holly House,FL_HHMB,"Cs137, Pb210"
+403,Okeefe-Suttles_et_al_2021_FL,Rocky Creek,FL_RCRA,"Cs137, Pb210"
+404,Okeefe-Suttles_et_al_2021_FL,Rocky Creek,FL_RCRB,"Cs137, Pb210"
+405,Okeefe-Suttles_et_al_2021_FL,Upper Tampa Bay,FL_UTR,"Cs137, Pb210"
+406,Okeefe-Suttles_et_al_2021_FL,Weedon Island,FL_WI,"Cs137, Pb210"
+407,Okeefe-Suttles_et_al_2021_RI,Narragansett Bay,RI_MCA,"Cs137, Pb210"
+408,Okeefe-Suttles_et_al_2021_RI,Narragansett Bay,RI_MCB,"Cs137, Pb210"
+409,Okeefe-Suttles_et_al_2021_RI,Narragansett Bay,RI_MDA,"Cs137, Pb210"
+410,Okeefe-Suttles_et_al_2021_RI,Narragansett Bay,RI_MDB,"Cs137, Pb210"
+411,Okeefe-Suttles_et_al_2021_RI,Narragansett Bay,RI_PIA,"Cs137, Pb210"
+412,Okeefe-Suttles_et_al_2021_RI,Narragansett Bay,RI_PIB,"Cs137, Pb210"
+413,Okeefe-Suttles_et_al_2021_Wellfleet,Herring River,MA_HRCHA,"Cs137, Pb210"
+414,Okeefe-Suttles_et_al_2021_Wellfleet,Herring River,MA_HRCHB,"Cs137, Pb210"
+415,Okeefe-Suttles_et_al_2021_Wellfleet,Herring River,MA_HROCA,"Cs137, Pb210"
+416,Okeefe-Suttles_et_al_2021_Wellfleet,Herring River,MA_HROCB,"Cs137, Pb210"
+417,Okeefe-Suttles_et_al_2021_Wellfleet,Herring River,MA_HRPA,"Cs137, Pb210"
+418,Okeefe-Suttles_et_al_2021_Wellfleet,Herring River,MA_HRPB,"Cs137, Pb210"
+419,Okeefe-Suttles_et_al_2021_Wellfleet,Mayo Creek,MA_MYNA,"Cs137, Pb210"
+420,Okeefe-Suttles_et_al_2021_Wellfleet,Mayo Creek,MA_MYNB,"Cs137, Pb210"
+421,Okeefe-Suttles_et_al_2021_Wellfleet,Mayo Creek,MA_MYURA,"Cs137, Pb210"
+422,Okeefe-Suttles_et_al_2021_Wellfleet,Mayo Creek,MA_MYURB,"Cs137, Pb210"
+423,Peck_et_al_2020,Alsea,ABOR1309_01PU,"Cs137, Pb210"
+424,Peck_et_al_2020,Alsea,ABOR1309_02PU,"Cs137, Pb210"
+425,Peck_et_al_2020,Alsea,ABOR1309_03PU,"Cs137, Pb210"
+426,Peck_et_al_2020,Alsea,ABOR1309_04PU,"Cs137, Pb210"
+427,Peck_et_al_2020,Alsea,ABOR1702_01PU,"Cs137, Pb210"
+428,Peck_et_al_2020,Alsea,ABOR1702_02PU,"Cs137, Pb210"
+429,Peck_et_al_2020,Alsea,ABOR1702_05PU,"Cs137, Pb210"
+430,Peck_et_al_2020,Alsea,ABOR1702_06PU,"Cs137, Pb210"
+431,Peck_et_al_2020,Alsea,ABOR1702_07PU,"Cs137, Pb210"
+432,Peck_et_al_2020,Alsea,ABOR1702_08PU,"Cs137, Pb210"
+433,Peck_et_al_2020,Coquille,CMOR1706_01PU,"Cs137, Pb210"
+434,Peck_et_al_2020,Coquille,CMOR1706_02PU,"Cs137, Pb210"
+435,Peck_et_al_2020,Coquille,CMOR1706_03PU,"Cs137, Pb210"
+436,Peck_et_al_2020,Coquille,CMOR1706_04PU,"Cs137, Pb210"
+437,Peck_et_al_2020,Coquille,CMOR1706_05PU,"Cs137, Pb210"
+438,Peck_et_al_2020,Coquille,CMOR1706_08PU,"Cs137, Pb210"
+439,Peck_et_al_2020,Coquille,CMOR1706_09PU,"Cs137, Pb210"
+440,Peck_et_al_2020,Coquille,CMOR1706_10PU,"Cs137, Pb210"
+441,Peck_et_al_2020,Nehalem,NBOR1606_02PU,"Cs137, Pb210"
+442,Peck_et_al_2020,Nehalem,NBOR1606_03PU,"Cs137, Pb210"
+443,Peck_et_al_2020,Nehalem,NBOR1606_04PU,"Cs137, Pb210"
+444,Peck_et_al_2020,Nehalem,NBOR1606_05PU,"Cs137, Pb210"
+445,Peck_et_al_2020,Nehalem,NBOR1606_07PU,"Cs137, Pb210"
+446,Peck_et_al_2020,Nehalem,NBOR1606_08PU,"Cs137, Pb210"
+447,Peck_et_al_2020,Nehalem,NBOR1609_01PU,"Cs137, Pb210"
+448,Peck_et_al_2020,Nehalem,NBOR1609_02PU,"Cs137, Pb210"
+449,Peck_et_al_2020,Nehalem,NBOR1609_03PU,"Cs137, Pb210"
+450,Peck_et_al_2020,Nehalem,NBOR1609_04PU,"Cs137, Pb210"
+451,Peck_et_al_2020,Netarts,NTOR1009_01PU,"Cs137, Pb210"
+452,Peck_et_al_2020,Netarts,NTOR1009_02PU,"Cs137, Pb210"
+453,Peck_et_al_2020,Netarts,NTOR1009_03PU,"Cs137, Pb210"
+454,Peck_et_al_2020,Netarts,NTOR1009_04PU,"Cs137, Pb210"
+455,Peck_et_al_2020,Netarts,NTOR1709_01PU,"Cs137, Pb210"
+456,Peck_et_al_2020,Netarts,NTOR1709_02PU,"Cs137, Pb210"
+457,Peck_et_al_2020,Netarts,NTOR1709_03PU,"Cs137, Pb210"
+458,Peck_et_al_2020,Netarts,NTOR1709_04PU,"Cs137, Pb210"
+459,Peck_et_al_2020,Netarts,NTOR1802_01PU,"Cs137, Pb210"
+460,Peck_et_al_2020,Netarts,NTOR1802_02PU,"Cs137, Pb210"
+461,Peck_et_al_2020,Netarts,NTOR1802_05PU,"Cs137, Pb210"
+462,Peck_et_al_2020,Netarts,NTOR1802_06PU,"Cs137, Pb210"
+463,Peck_et_al_2020,Netarts,NTOR1802_09PU,"Cs137, Pb210"
+464,Peck_et_al_2020,Salmon River,SROR1509_01PU,"Cs137, Pb210"
+465,Peck_et_al_2020,Salmon River,SROR1509_02PU,"Cs137, Pb210"
+466,Peck_et_al_2020,Salmon River,SROR1509_03PU,"Cs137, Pb210"
+467,Peck_et_al_2020,Salmon River,SROR1509_04PU,"Cs137, Pb210"
+468,Peck_et_al_2020,Salmon River,SROR1809_01PU,"Cs137, Pb210"
+469,Peck_et_al_2020,Salmon River,SROR1809_02PU,"Cs137, Pb210"
+470,Peck_et_al_2020,Salmon River,SROR1809_03PU,"Cs137, Pb210"
+471,Peck_et_al_2020,Salmon River,SROR1809_04PU,"Cs137, Pb210"
+472,Peck_et_al_2020,Tillamook,MID.A009,"Cs137, Pb210"
+473,Peck_et_al_2020,Tillamook,NOR.A004,"Cs137, Pb210"
+474,Peck_et_al_2020,Tillamook,NS-CR.A073,"Cs137, Pb210"
+475,Peck_et_al_2020,Tillamook,SO.CR.A028,"Cs137, Pb210"
+476,Peck_et_al_2020,Tillamook,TBOR1504_01PU,"Cs137, Pb210"
+477,Peck_et_al_2020,Tillamook,TBOR1504_02PU,"Cs137, Pb210"
+478,Peck_et_al_2020,Tillamook,TBOR1504_03PU,"Cs137, Pb210"
+479,Peck_et_al_2020,Tillamook,TBOR1504_04PU,"Cs137, Pb210"
+480,Peck_et_al_2020,Tillamook,TBOR1504_05PU,"Cs137, Pb210"
+481,Peck_et_al_2020,Youngs Bay,WY01S,"Cs137, Pb210"
+482,Peck_et_al_2020,Youngs Bay,WY03S,"Cs137, Pb210"
+483,Peck_et_al_2020,Youngs Bay,WY04S,"Cs137, Pb210"
+484,Peck_et_al_2020,Youngs Bay,YBOR1502_01PU,"Cs137, Pb210"
+485,Peck_et_al_2020,Youngs Bay,YBOR1502_03PU,"Cs137, Pb210"
+486,Peck_et_al_2020,Youngs Bay,YBOR1502_04PU,"Cs137, Pb210"
+487,Piazza_et_al_2020,CRMS0128,0128_1,Cs137
+488,Piazza_et_al_2020,CRMS0128,0128_2,Cs137
+489,Piazza_et_al_2020,CRMS0128_H,0128_H_1,Cs137
+490,Piazza_et_al_2020,CRMS0128_H,0128_H_2,Cs137
+491,Piazza_et_al_2020,CRMS0135,0135_1,Cs137
+492,Piazza_et_al_2020,CRMS0135,0135_2,Cs137
+493,Piazza_et_al_2020,CRMS0135_H,0135_H_1,Cs137
+494,Piazza_et_al_2020,CRMS0135_H,0135_H_2,Cs137
+495,Piazza_et_al_2020,CRMS0147,0147_1,Cs137
+496,Piazza_et_al_2020,CRMS0147,0147_2,Cs137
+497,Piazza_et_al_2020,CRMS0147_H,0147_H_1,Cs137
+498,Piazza_et_al_2020,CRMS0147_H,0147_H_2,Cs137
+499,Piazza_et_al_2020,CRMS0164,0164_1,Cs137
+500,Piazza_et_al_2020,CRMS0164,0164_2,Cs137
+501,Piazza_et_al_2020,CRMS0164_H,0164_H_1,Cs137
+502,Piazza_et_al_2020,CRMS0164_H,0164_H_2,Cs137
+503,Piazza_et_al_2020,CRMS0219,0219_1,Cs137
+504,Piazza_et_al_2020,CRMS0219,0219_2,Cs137
+505,Piazza_et_al_2020,CRMS0219_H,0219_H_1,Cs137
+506,Piazza_et_al_2020,CRMS0219_H,0219_H_2,Cs137
+507,Piazza_et_al_2020,CRMS0268,0268_1,Cs137
+508,Piazza_et_al_2020,CRMS0268,0268_2,Cs137
+509,Piazza_et_al_2020,CRMS0268_H,0268_H_1,Cs137
+510,Piazza_et_al_2020,CRMS0268_H,0268_H_2,Cs137
+511,Piazza_et_al_2020,CRMS0294,0294_1,Cs137
+512,Piazza_et_al_2020,CRMS0294,0294_2,Cs137
+513,Piazza_et_al_2020,CRMS0294_H,0294_H_1,Cs137
+514,Piazza_et_al_2020,CRMS0294_H,0294_H_2,Cs137
+515,Piazza_et_al_2020,CRMS0312,0312_1,Cs137
+516,Piazza_et_al_2020,CRMS0312,0312_2,Cs137
+517,Piazza_et_al_2020,CRMS0312_H,0312_H_1,Cs137
+518,Piazza_et_al_2020,CRMS0312_H,0312_H_2,Cs137
+519,Piazza_et_al_2020,CRMS0326,0326_1,Cs137
+520,Piazza_et_al_2020,CRMS0326,0326_2,Cs137
+521,Piazza_et_al_2020,CRMS0326_H,0326_H_1,Cs137
+522,Piazza_et_al_2020,CRMS0326_H,0326_H_2,Cs137
+523,Piazza_et_al_2020,CRMS0326_H,0326_H_3,Cs137
+524,Piazza_et_al_2020,CRMS0605,0605_1,Cs137
+525,Piazza_et_al_2020,CRMS0605,0605_2,Cs137
+526,Piazza_et_al_2020,CRMS0605_H,0605_H_1,Cs137
+527,Piazza_et_al_2020,CRMS0605_H,0605_H_2,Cs137
+528,Piazza_et_al_2020,CRMS0610,0610_1,Cs137
+529,Piazza_et_al_2020,CRMS0610,0610_2,Cs137
+530,Piazza_et_al_2020,CRMS0610_H,0610_H_1,Cs137
+531,Piazza_et_al_2020,CRMS0610_H,0610_H_2,Cs137
+532,Piazza_et_al_2020,CRMS0651,0651_1,Cs137
+533,Piazza_et_al_2020,CRMS0651,0651_2,Cs137
+534,Piazza_et_al_2020,CRMS0651_H,0651_H_1,Cs137
+535,Piazza_et_al_2020,CRMS0651_H,0651_H_2,Cs137
+536,Piazza_et_al_2020,CRMS0669,0669_1,Cs137
+537,Piazza_et_al_2020,CRMS0669,0669_2,Cs137
+538,Piazza_et_al_2020,CRMS0672,0672_1,Cs137
+539,Piazza_et_al_2020,CRMS0672,0672_2,Cs137
+540,Piazza_et_al_2020,CRMS0672_H,0672_H_1,Cs137
+541,Piazza_et_al_2020,CRMS0672_H,0672_H_2,Cs137
+542,Piazza_et_al_2020,CRMS1277,1277_1,Cs137
+543,Piazza_et_al_2020,CRMS1277,1277_2,Cs137
+544,Piazza_et_al_2020,CRMS1277_H,1277_H_1,Cs137
+545,Piazza_et_al_2020,CRMS1277_H,1277_H_2,Cs137
+546,Piazza_et_al_2020,CRMS2156,2156_1,Cs137
+547,Piazza_et_al_2020,CRMS2156,2156_2,Cs137
+548,Poppe_and_Rybczyk_2018,Padilla_1,1_2J,Pb210
+549,Poppe_and_Rybczyk_2018,Padilla_2,2_3F,Pb210
+550,Poppe_and_Rybczyk_2018,Padilla_3,3_4F,Pb210
+551,Poppe_and_Rybczyk_2018,Padilla_4,4_5B,Pb210
+552,Poppe_and_Rybczyk_2018,Padilla_5,5_5F,Pb210
+553,Poppe_and_Rybczyk_2018,Padilla_6,6_5J,Pb210
+554,Poppe_and_Rybczyk_2019,Stillaguamish_HM1,HM1_7,"Cs137, Pb210"
+555,Poppe_and_Rybczyk_2019,Stillaguamish_HM1,HM1_8,"Cs137, Pb210"
+556,Poppe_and_Rybczyk_2019,Stillaguamish_HM3,HM3_20,"Cs137, Pb210"
+557,Poppe_and_Rybczyk_2019,Stillaguamish_HM4,HM4_21,"Cs137, Pb210"
+558,Poppe_and_Rybczyk_2019,Stillaguamish_HM5,HM5_2,"Cs137, Pb210"
+559,Poppe_and_Rybczyk_2019,Stillaguamish_LM1,LM1_10,"Cs137, Pb210"
+560,Poppe_and_Rybczyk_2019,Stillaguamish_LM1,LM1_9,"Cs137, Pb210"
+561,Poppe_and_Rybczyk_2019,Stillaguamish_LM3,LM3_13,"Cs137, Pb210"
+562,Poppe_and_Rybczyk_2019,Stillaguamish_LM4,LM4_23,"Cs137, Pb210"
+563,Poppe_and_Rybczyk_2019,Stillaguamish_LM5,LM5_3,"Cs137, Pb210"
+564,Poppe_and_Rybczyk_2019,Stillaguamish_R1,25A,"Cs137, Pb210"
+565,Poppe_and_Rybczyk_2019,Stillaguamish_R2,26A,"Cs137, Pb210"
+566,Poppe_and_Rybczyk_2019,Stillaguamish_R3,27A,"Cs137, Pb210"
+567,Poppe_and_Rybczyk_2019,Stillaguamish_R4,28A,"Cs137, Pb210"
+568,Poppe_et_al_2019,Snohomish_Marysville_Mitigation,MA_A,"Cs137, Pb210"
+569,Poppe_et_al_2019,Snohomish_North_Ebey,NE_A,"Cs137, Pb210"
+570,Poppe_et_al_2019,Snohomish_Otter_Island,OI_A,"Cs137, Pb210"
+571,Poppe_et_al_2019,Snohomish_Quilceda_Marsh,QM_A,"Cs137, Pb210"
+572,Poppe_et_al_2019,Snohomish_Qwuloolt,QW_B,"Cs137, Pb210"
+573,Poppe_et_al_2019,Snohomish_Smith_Island_City,SS_B,"Cs137, Pb210"
+574,Poppe_et_al_2019,Snohomish_Smith_Island_County,SN_B,"Cs137, Pb210"
+575,Poppe_et_al_2019,Snohomish_Spencer_Island,SP_A,"Cs137, Pb210"
+576,Poppe_et_al_2019,Snohomish_WDFW_Forest,WF_A,"Cs137, Pb210"
+577,Poppe_et_al_2019,Snohomish_WDFW_Wetland,WW_B,"Cs137, Pb210"
+578,Rodriguez_et_al_2022,JB,JB_1,C14
+579,Rodriguez_et_al_2022,JB,JB_5,C14
+580,Rodriguez_et_al_2022,JB,JB_6,C14
+581,Rodriguez_et_al_2022,JB,JB_7,C14
+582,Rodriguez_et_al_2022,LB,LB_3,C14
+583,Rodriguez_et_al_2022,LB,LB_5,C14
+584,Rodriguez_et_al_2022,LB,LB_6,C14
+585,Rodriguez_et_al_2022,LB,LB_7,C14
+586,Rodriguez_et_al_2022,LB,LB_8,C14
+587,Rodriguez_et_al_2022,NPR_U,NPR_U_1,C14
+588,Rodriguez_et_al_2022,NPR_U,NPR_U_5,C14
+589,Rodriguez_et_al_2022,SRE_U,SRE_U_1,C14
+590,Rodriguez_et_al_2022,SRE_U,SRE_U_6,C14
+591,Saunders_2013,NE_SRS1,NE_SRS1_C0050,"Cs137, Pb210"
+592,Saunders_2013,NE_SRS1,NE_SRS1_C0053,"Cs137, Pb210"
+593,Saunders_2013,SRS3,SRS3_C0010,"Cs137, Pb210"
+594,Saunders_2013,SRS3,SRS3_C0016,Pb210
+595,Saunders_2013,SRS4,SRS4_C0012,"Cs137, Pb210"
+596,Smith_et_al_2015,09WCC01,09WCC01_01,"Cs137, Pb210"
+597,Smith_et_al_2015,09WCC01,09WCC01_02,"Cs137, Pb210"
+598,Smith_et_al_2015,09WCC01,09WCC01_03,"Cs137, Pb210"
+599,Smith_et_al_2015,09WCC01,09WCC01_04,"Cs137, Pb210"
+600,Smith_et_al_2015,09WCC01,09WCC01_05,"Cs137, Pb210"
+601,Smith_et_al_2015,09WCC01,09WCC01_06,"Cs137, Pb210"
+602,Smith_et_al_2015,09WCC01,09WCC01_07,"Cs137, Pb210"
+603,Smith_et_al_2015,09WCC01,09WCC01_08,"Cs137, Pb210"
+604,Smith_et_al_2015,09WCC01,09WCC01_09,"Cs137, Pb210"
+605,Snedden_2018,171,171_1,"Cs137, Pb210"
+606,Snedden_2018,172,172_1,"Cs137, Pb210"
+607,Snedden_2018,173,173_1,"Cs137, Pb210"
+608,Snedden_2018,175,175_1,"Cs137, Pb210"
+609,Snedden_2018,189,189_1,"Cs137, Pb210"
+610,Snedden_2018,192,192_1,"Cs137, Pb210"
+611,Snedden_2018,209,209_1,"Cs137, Pb210"
+612,Snedden_2018,211,211_1,"Cs137, Pb210"
+613,Snedden_2018,224,224_1,"Cs137, Pb210"
+614,Snedden_2018,225,225_1,"Cs137, Pb210"
+615,Snedden_2018,237,237_1,"Cs137, Pb210"
+616,Snedden_2018,253,253_1,"Cs137, Pb210"
+617,Snedden_2018,261,261_1,"Cs137, Pb210"
+618,Snedden_2018,273,273_1,"Cs137, Pb210"
+619,Snedden_2018,287,287_1,"Cs137, Pb210"
+620,Snedden_2018,3054,3054_1,"Cs137, Pb210"
+621,Snedden_2018,3166,3166_1,"Cs137, Pb210"
+622,Snedden_2018,3169,3169_1,"Cs137, Pb210"
+623,Snedden_2018,3565,3565_1,"Cs137, Pb210"
+624,Snedden_2018,3617,3617_1,"Cs137, Pb210"
+625,Snedden_2018,3985,3985_1,"Cs137, Pb210"
+626,Snedden_2018,4218,4218_1,"Cs137, Pb210"
+627,Snedden_2018,4245,4245_1,"Cs137, Pb210"
+628,Snedden_2018,4529,4529_1,"Cs137, Pb210"
+629,Snedden_2018,4690,4690_1,"Cs137, Pb210"
+630,Snedden_2021,Breton_Sound_Basin,Breton_1,Cs137
+631,Snedden_2021,Breton_Sound_Basin,Breton_10,Cs137
+632,Snedden_2021,Breton_Sound_Basin,Breton_11,Cs137
+633,Snedden_2021,Breton_Sound_Basin,Breton_12,Cs137
+634,Snedden_2021,Breton_Sound_Basin,Breton_13,Cs137
+635,Snedden_2021,Breton_Sound_Basin,Breton_14,Cs137
+636,Snedden_2021,Breton_Sound_Basin,Breton_15,Cs137
+637,Snedden_2021,Breton_Sound_Basin,Breton_16,Cs137
+638,Snedden_2021,Breton_Sound_Basin,Breton_17,Cs137
+639,Snedden_2021,Breton_Sound_Basin,Breton_18,Cs137
+640,Snedden_2021,Breton_Sound_Basin,Breton_19,Cs137
+641,Snedden_2021,Breton_Sound_Basin,Breton_2,Cs137
+642,Snedden_2021,Breton_Sound_Basin,Breton_20,Cs137
+643,Snedden_2021,Breton_Sound_Basin,Breton_21,Cs137
+644,Snedden_2021,Breton_Sound_Basin,Breton_22,Cs137
+645,Snedden_2021,Breton_Sound_Basin,Breton_23,Cs137
+646,Snedden_2021,Breton_Sound_Basin,Breton_24,Cs137
+647,Snedden_2021,Breton_Sound_Basin,Breton_25,Cs137
+648,Snedden_2021,Breton_Sound_Basin,Breton_3,Cs137
+649,Snedden_2021,Breton_Sound_Basin,Breton_4,Cs137
+650,Snedden_2021,Breton_Sound_Basin,Breton_5,Cs137
+651,Snedden_2021,Breton_Sound_Basin,Breton_6,Cs137
+652,Snedden_2021,Breton_Sound_Basin,Breton_7,Cs137
+653,Snedden_2021,Breton_Sound_Basin,Breton_8,Cs137
+654,Snedden_2021,Breton_Sound_Basin,Breton_9,Cs137
+655,Thom_1992,Elk_River_Not_Diked,ER1,Cs137
+656,Thom_1992,Elk_River_Prev_Diked,ED1,Cs137
+657,Thom_1992,Nisqually_River_Delta,ND1,Cs137
+658,Thom_1992,Nisqually_River_Delta,ND2,Cs137
+659,Thom_1992,Nisqually_River_Delta,ND3,Cs137
+660,Thom_1992,Nisqually_River_Delta,ND4,Cs137
+661,Thom_1992,Padilla_Bay,PB3,Cs137
+662,Thom_1992,Salmon_River,SR1,Cs137
+663,Thom_1992,Salmon_River,SR2,Cs137
+664,Thom_1992,South_Slough,SS1,Cs137
+665,Thom_1992,Washington_Harbor,WH1,Cs137
+666,Vaughn_et_al_2020,St_Augustine,St_Augustine_Salt_Marsh,"Cs137, Pb210"
+667,Vaughn_et_al_2020,Waccasassa_Bay,Waccasassa_Bay_Salt_Marsh,"Cs137, Pb210"
+668,Wang_et_al_2023,Big_Egg,Big_Egg,"Cs137, Pb210"
+669,Wang_et_al_2023,Black_Bank,Black_Bank,"Cs137, Pb210"
+670,Wang_et_al_2023,Duck_Point,Duck_Point,"Cs137, Pb210"
+671,Wang_et_al_2023,East_High,East_High,"Cs137, Pb210"
+672,Wang_et_al_2023,Four_Sparrow,Four_Sparrow,"Cs137, Pb210"
+673,Wang_et_al_2023,Fresh_Creek,Fresh_Creek,"Cs137, Pb210"
+674,Wang_et_al_2023,JoCo,JoCo,"Cs137, Pb210"
+675,Wang_et_al_2023,Little_Egg,Little_Egg,"Cs137, Pb210"
+676,Wang_et_al_2023,Ruffle_Bar,Ruffle_Bar,"Cs137, Pb210"
+677,Wang_et_al_2023,Spring_Creek,Spring_Creek,"Cs137, Pb210"
+678,Wang_et_al_2023,Stony_Creek,Stony_Creek,"Cs137, Pb210"
+679,Wang_et_al_2023,Yellow_Bar,Yellow_Bar,"Cs137, Pb210"
+680,Watson_and_Byrne_2013,Bair_Island,Bair_Island_1,C14
+681,Watson_and_Byrne_2013,Bair_Island,Bair_Island_2,C14
+682,Watson_and_Byrne_2013,Bair_Island,Bair_Island_3,C14
+683,Watson_and_Byrne_2013,Bair_Island,Bair_Island_4,C14
+684,Watson_and_Byrne_2013,Corkscrew_Slough,Corkscrew_Slough_1,C14
+685,Watson_and_Byrne_2013,Coyote_Creek,Coyote_Creek_1,C14
+686,Watson_and_Byrne_2013,Coyote_Creek,Coyote_Creek_4,C14
+687,Watson_and_Byrne_2013,Damon_Slough,Damon_Slough_2,C14
+688,Watson_and_Byrne_2013,Greco_Island,Greco_Island_1,C14
+689,Watson_and_Byrne_2013,Mud_Slough,Mud_Slough_2,C14
+690,Watson_and_Byrne_2013,Mud_Slough,Mud_Slough_3,C14
+691,Watson_and_Byrne_2013,Plummer_Slough,Plummer_Slough_1,C14
+692,Watson_and_Byrne_2013,Ravenswood_Slough,Ravenswood_Slough_2,C14
+693,Weis_et_al_2001,Tijuana_Estuary,Tijuana_Estuary_East_low,Cs137
+694,Weis_et_al_2001,Tijuana_Estuary,Tijuana_Estuary_East_mid_1,Cs137
+695,Weis_et_al_2001,Tijuana_Estuary,Tijuana_Estuary_East_mid_2,Cs137
+696,Weis_et_al_2001,Tijuana_Estuary,Tijuana_Estuary_West_low,Cs137
+697,Weis_et_al_2001,Tijuana_Estuary,Tijuana_Estuary_West_mid_1,Cs137
+698,Weis_et_al_2001,Tijuana_Estuary,Tijuana_Estuary_West_mid_2,Cs137
+699,Weston_et_al_2023,Altamaha,ALT_3,"Cs137, Pb210"
+700,Weston_et_al_2023,Altamaha,ALT_5,"Cs137, Pb210"
+701,Weston_et_al_2023,Altamaha,ALT_6,"Cs137, Pb210"
+702,Weston_et_al_2023,Altamaha,ALT_9,"Cs137, Pb210"
+703,Weston_et_al_2023,Cape Fear,CPF_2,"Cs137, Pb210"
+704,Weston_et_al_2023,Cape Fear,CPF_4,"Cs137, Pb210"
+705,Weston_et_al_2023,Cape Fear,CPF_6,"Cs137, Pb210"
+706,Weston_et_al_2023,Cape Fear,CPF_7,"Cs137, Pb210"
+707,Weston_et_al_2023,Connecticut,CON_1,"Cs137, Pb210"
+708,Weston_et_al_2023,Connecticut,CON_2,"Cs137, Pb210"
+709,Weston_et_al_2023,Connecticut,CON_8,"Cs137, Pb210"
+710,Weston_et_al_2023,Delaware,DEL_3,"Cs137, Pb210"
+711,Weston_et_al_2023,Delaware,DEL_5,"Cs137, Pb210"
+712,Weston_et_al_2023,Delaware,DEL_9,"Cs137, Pb210"
+713,Weston_et_al_2023,Edisto,EDS_1,"Cs137, Pb210"
+714,Weston_et_al_2023,Edisto,EDS_10,"Cs137, Pb210"
+715,Weston_et_al_2023,Edisto,EDS_5,"Cs137, Pb210"
+716,Weston_et_al_2023,Edisto,EDS_9,"Cs137, Pb210"
+717,Weston_et_al_2023,James,JMS_2,"Cs137, Pb210"
+718,Weston_et_al_2023,James,JMS_3,"Cs137, Pb210"
+719,Weston_et_al_2023,James,JMS_4,"Cs137, Pb210"
+720,Weston_et_al_2023,Kennebec,KEN_1,"Cs137, Pb210"
+721,Weston_et_al_2023,Kennebec,KEN_7,"Cs137, Pb210"
+722,Weston_et_al_2023,Kennebec,KEN_8,"Cs137, Pb210"
+723,Weston_et_al_2023,Plum Island Sound,PIE_1,"Cs137, Pb210"
+724,Weston_et_al_2023,Plum Island Sound,PIE_2,"Cs137, Pb210"
+725,Weston_et_al_2023,Plum Island Sound,PIE_7,"Cs137, Pb210"
+726,Weston_et_al_2023,Plum Island Sound,PIE_8,"Cs137, Pb210"
+727,Weston_et_al_2023,York,YRK_2,"Cs137, Pb210"
+728,Weston_et_al_2023,York,YRK_3,"Cs137, Pb210"
+729,Weston_et_al_2023,York,YRK_5,"Cs137, Pb210"

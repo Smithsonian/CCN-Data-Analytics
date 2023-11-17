@@ -52,19 +52,22 @@ library(tidyverse)
 library(readxl)
 
 # source synthesis
-source("resources/pull_synthesis.R")
+# source("resources/pull_synthesis.R")
 source("coastal_wetland_nggi/scripts/nggi_utils.R")
 
 # read in reported values
-reported_raw <- read_csv("coastal_wetland_nggi/data/original/NGGI_reported_values_20230818 - literature_values.csv",
+reported_raw <- read_csv("coastal_wetland_nggi/data/original/NGGI_reported_values_20230818 - literature_values JH edit.csv",
                          na = c("---", "NA", ""))
 
 # read in data from previous NGGI
-mengdat <- read_csv("coastal_wetland_nggi/data/original/US-BC-Analysis-1-105.csv")
+mengdat <- read_csv("coastal_wetland_nggi/data/original/US-BC-Analysis-1-105_w_geog.csv")
 
 # read in synthesis data
-cores <- getSynthesisData("cores")
-bib <- getSynthesisData("citations")
+cores <- read_csv("data/CCRCN_cores.csv")
+cores <- read_csv("data/CCRCN_cores.csv",
+                  guess_max = nrow(cores))
+
+# bib <- getSynthesisData("citations")
 
 # read in climate zones
 climate_zones <- read_xlsx("coastal_wetland_nggi/data/original/Climate zones.xlsx") %>%
@@ -72,95 +75,59 @@ climate_zones <- read_xlsx("coastal_wetland_nggi/data/original/Climate zones.xls
   rename(admin_division = State, climate_zone = `Climate zone`) %>%
   select(-Color)
 
+# position info 
+core_position_cores <-  cores  %>% 
+  select(study_id, site_id, core_id, latitude, longitude, country, admin_division)
+
+core_positions_sites  <-  cores  %>% 
+  group_by(study_id, site_id) %>% 
+  summarise(latitude = mean(latitude, na.rm=T),
+            longitude = mean(longitude, na.rm=T),
+            country = first(country),
+            admin_division = first(admin_division))
+
+core_positions_studies <- cores  %>% 
+  group_by(study_id) %>% 
+  summarise(latitude = mean(latitude, na.rm=T),
+            longitude = mean(longitude, na.rm=T),
+            country = first(country),
+            admin_division = first(admin_division))
+
+reported_lat_lon_core <- reported_raw %>% 
+  filter(complete.cases(study_id, site_id, core_id)) %>%  
+  left_join(core_position_cores)
+
+reported_lat_lon_site <- reported_raw %>% 
+  filter(!is.na(site_id)&is.na(core_id)) %>%  
+  left_join(core_positions_sites)
+
+reported_lat_lon_study <- reported_raw %>% 
+  filter(!is.na(study_id)&is.na(site_id)&is.na(core_id)) %>%  
+  left_join(core_positions_studies)
+
+reported_lat_lon <- bind_rows(reported_lat_lon_core,
+                              reported_lat_lon_site,
+                              reported_lat_lon_study)
+
+missing <- reported_lat_lon %>% 
+  filter(is.na(latitude))
+# View(missing)
+
+
+# Spatial join meng data to countries and admin zones
+
+
+
 ## Standardize Reported Values ####
 
-reported_aligned <- reported_raw %>% 
-  
-  # remove study_ids duplicated in the meng data:
-  # reported_test <- reported %>% 
-  #   mutate(study_id = gsub("_et_al_|_and_.*_", "_", study_id)) # match the meng study_id structure
-  # intersect(meng$study_id, reported_test$study_id)
-  filter(study_id != "Craft_2007") %>% # 3 obs
-  filter(study_id != "Noe_et_al_2016") %>% # 4 obs
-  filter(study_id != "Johnson_et_al_2007") %>% # 1 obs
-  filter(study_id != "Boyd_and_Sommerfield_2016") %>%  # 12 obs; this was duplicated by Boyd_2012
-  # filter(study_id != "Weston_et_al_2023") %>% # 10 obs; data not in depthseries table
-  filter(study_id != "Callaway_et_al_2019") %>% # 34 obs; Callaway_2019 in reported values = Callaway_2012 in meng
-  # filter(!(study_id == "Boyd_2012" & site_id == "PM")) %>% 
-  
+reported_aligned <- reported_lat_lon %>% 
   # rename core_ids to match library data
   mutate(source = "reported_value", # create a flag to remove unmatched cores after the depthseries data merge
-         depth_min_cm = ifelse(!is.na(depth_max_cm) & is.na(depth_min_cm), 0, depth_min_cm),
-         core_id = case_when(grepl("Nanticoke", site_id) ~ paste("NRM_", core_id, sep = ""), # Allen_et_al_2022
-                             grepl("Typha", core_id) ~ gsub("Typha", "Typha ", core_id), # Arias-Ortiz_et_al_2021 
-                             grepl("Mouth", site_id) ~ "snipe_creek_M", # Arriola_and_Cable_2017
-                             grepl("MC", site_id) ~ "snipe_creek_MC",
-                             grepl("HE", site_id) ~ "snipe_creek_HE",
-                             grepl("HI", site_id) ~ "snipe_creek_HI",
-                             grepl("Upstream", site_id) ~ "snipe_creek_S",
-                             grepl("Forest", site_id) ~ "snipe_creek_F",
-                             grepl("CRMS|CRMS0", core_id) ~ gsub("CRMS|CRMS0", "", core_id), # Baustian_et_al_2021
-                             study_id == "Boyd_2012" ~ gsub("-", "", core_id), # Boyd_2012
-                             study_id == "Boyd_et_al_2017" ~ gsub("_", "", core_id), # Boyd_et_al_2017
-                             grepl("Mudflat", core_id) ~ "ELM1812-MFA1", # Carlin_et_al_2021
-                             grepl("Spartina", core_id) ~ "ELM1812-SPA2",
-                             grepl("Pickleweed", core_id) ~ "ELM1812-PWA1",
-                             grepl("Choptank_non_tidal", core_id) ~ "ChoptankNontidal", # Ensign_et_al_2020
-                             grepl("Choptank_head_of_tide", core_id) ~ "ChoptankUpperTidal",
-                             grepl("Choptank_TFFW", core_id) ~ "ChoptankMiddleTidal",
-                             grepl("Choptank_marsh", core_id) ~ "ChoptankLowerTidal",
-                             grepl("Pocomoke_non_tidal", core_id) ~ "PocomokeNontidal",
-                             grepl("Pocomoke_head_of_tide", core_id) ~ "PocomokeUpperTidal",
-                             grepl("Pocomoke_TFFW", core_id) ~ "PocomokeMiddleTidal",
-                             grepl("Pocomoke_marsh", core_id) ~ "PocomokeLowerTidal",
-                             grepl("SM02-VC1", core_id) ~ "SM02_VC1", # Johnson_et_al_2007
-                             # grepl("Traps_Bay", site_id) ~ paste("TB_", core_id, sep = ""), # McTigue_et_al_2020
-                             grepl("2J", core_id) ~ "1_2J", # Poppe_and_Rybczyk_2018
-                             grepl("3F", core_id) ~ "2_3F",
-                             grepl("4F", core_id) ~ "3_4F",
-                             study_id == "Poppe_and_Rybczyk_2018" & grepl("5B", core_id) ~ "4_5B",
-                             grepl("5F", core_id) ~ "5_5F",
-                             grepl("5J", core_id) ~ "6_5J",
-                             grepl("St_Augustine_Salt_marsh", core_id) ~ "St_Augustine_Salt_Marsh", # Vaughn_et_al_2020
-                             grepl("Waccasassa_Bay_Salt_marsh", core_id) ~ "Waccasassa_Bay_Salt_Marsh",
-                             study_id == "Weston_et_al_2023" ~ paste0(site_id, "_", core_id),
-                             core_id == "2L-Pb" ~ "TB_2L",
-                             T ~ core_id),
-         
-         # rename site_ids to match library data where only site-level values are reported
-         site_id = case_when(grepl("Wardlaw 1", site_id) ~ "Wardlaw_Shallow_Managed", # Drexler_et_al_2013
-                             grepl("Hasty Point", site_id) ~ "Hasty_Point_Managed_Shallow",
-                             grepl("Coastal EDU", site_id) ~ "Coastal_EDU_Field",
-                             grepl("Bird Field Managed", site_id) ~ "Bird_Field",
-                             grepl("Sandy Island Tidal", site_id) ~ "Sandy_Island_Natural",
-                             grepl("Sandy Island Managed", site_id) ~ "Sandy_Island_Deeply_Flooded",
-                             grepl("Poppe_and_Rybczyk_2019", study_id) ~ paste("Stillaguamish_", site_id, sep = ""), # Poppe_and_Rybczyk_2019
-                             site_id == "QM" ~ "Snohomish_Quilceda_Marsh", # Poppe_et_al_2019
-                             site_id == "HP" ~ "Snohomish_Heron_Point",
-                             site_id == "OI" ~ "Snohomish_Otter_Island",
-                             site_id == "NE" ~ "Snohomish_North_Ebey",
-                             site_id == "SP" ~ "Snohomish_Spencer_Island",
-                             site_id == "MA" ~ "Snohomish_Marysville_Mitigation",
-                             site_id == "US" ~ "Snohomish_Union_Slough",
-                             site_id == "SS" ~ "Snohomish_Smith_Island_City",
-                             site_id == "QW" ~ "Snohomish_Qwuloolt",
-                             site_id == "SN" ~ "Snohomish_Smith_Island_County",
-                             site_id == "WW" ~ "Snohomish_WDFW_Wetland",
-                             site_id == "WF" ~ "Snohomish_WDFW_Forest",
-                             T ~ site_id),
-         
-         # correct this core_id assignment
-         study_id = case_when(
-           # core_id %in% c("PM1", "PM2", "PM3", "PM4", "PM5", "PM6", 
-           #                                   "PM7", "PM8", "PM9", "PM10", "PM11", "PM12") ~ "Boyd_and_Sommerfield_2016",
-                              study_id == "Weston_et_al_2023" ~ "Weston_et_al_2020",
-                              T ~ study_id),
-         
-         pb210_rate_unit = ifelse(study_id %in% c("Arias-Ortiz_et_al_2021", "Carlin_et_al_2021"), 
-                                  "gramsPerSquareMeterPerYear", pb210_rate_unit)) 
+         depth_min_cm = ifelse(!is.na(depth_max_cm) & is.na(depth_min_cm), 0, depth_min_cm))
 
 # check mismatches
 mismatch <- anti_join(reported_aligned %>% select(study_id, core_id), cores) 
+(mismatch)
 
 ## Handle outliers in the reported values table
 
@@ -234,7 +201,7 @@ reported_clean <- reported_aligned %>%
          pb210_rate_unit = ifelse(is.na(pb210_rate), NA, pb210_rate_unit),
          cs137_rate_unit = ifelse(is.na(cs137_rate), NA, cs137_rate_unit)
          ) %>% 
-  arrange(study_id, site_id, core_id) 
+  arrange(study_id, site_id, core_id)
   
 
 ## Convert accretion rates to CAR
@@ -276,8 +243,9 @@ reported_convert <- accretionToCAR(reported_clean)
 
 # Prepare Meng's 2017 synthesis data for merge with reported values
 meng <- mengdat %>% 
-  rename(latitude = Latitude,
-         longitude = Longitude,
+  rename(
+    #latitude = Latitude,
+     #    longitude = Longitude,
          habitat = Ecosystem,
          # ecosystem = CCAP_Class,
          management = Management,
@@ -339,7 +307,8 @@ meng <- mengdat %>%
                              "R" = "restored",
                              "D" = "disturbed",
                              "M" = "impounded")) %>% 
-  select_if(~!all(is.na(.)))
+  select_if(~!all(is.na(.))) %>% 
+  filter(! study_id %in% c("Callaway_2012", "Craft_2007", "Crooks_2014", "Noe_2016", "Johnson_2007"))
 
 
 # bind all 
@@ -353,6 +322,8 @@ reported_all <- bind_rows(reported_convert, meng) %>%
   filter_at(vars(pb210_CAR, pb210_CAR_unit, cs137_CAR, cs137_CAR_unit), any_vars(!is.na(.))) %>% 
   select_if(~!all(is.na(.))) %>% 
   arrange(study_id)
+
+write_csv(reported_all, "coastal_wetland_nggi/data/derived/lit_review_processed_all.csv")
 
 # issues: 
 # Boyd 2012, core NCGB1
