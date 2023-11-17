@@ -161,6 +161,15 @@ for (i in 1:nrow(unique_cores)) {
       pb_subset_bd_joined <- mutate(pb_subset_bd_joined, dry_bulk_density_gap_filled = NA)
     }
     
+    # If there are any more blank bulk density data, approximate them
+    if (any(is.na(pb_subset_bd_joined$dry_bulk_density_gap_filled)) & 
+        !all(is.na(pb_subset_bd_joined$dry_bulk_density_gap_filled))) {
+      
+      pb_subset_bd_joined$dry_bulk_density_gap_filled <- approx(x=pb_subset_bd_joined$depth_max, y=pb_subset_bd_joined$dry_bulk_density_gap_filled, xout = pb_subset_bd_joined$depth_max, rule = 2)$y
+      
+      
+    }
+
     pb_profiles2$dry_bulk_density_gap_filled[pb_profiles2$study_id == this_study_id &
                                              pb_profiles2$site_id == this_site_id & 
                                              pb_profiles2$core_id == this_core_id] <- pb_subset_bd_joined$dry_bulk_density_gap_filled
