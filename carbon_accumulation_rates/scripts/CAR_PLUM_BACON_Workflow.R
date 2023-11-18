@@ -206,7 +206,9 @@ pb210_dates <- pb_profiles2 %>%
   select(study_id, site_id, core_id, labID, `depth(cm)`, `density(g/cm^3)`, `210Pb(Bq/kg)`, 
          `sd(210Pb)`, interval, `226Ra(Bq/kg)`, `sd(226Ra)`) %>% 
   filter(complete.cases(`210Pb(Bq/kg)`),
-         `210Pb(Bq/kg)`>0)
+         `210Pb(Bq/kg)`>0) %>% 
+  mutate(`sd(226Ra)` = ifelse(`226Ra(Bq/kg)`<=0, NA, `sd(226Ra)`),
+         `226Ra(Bq/kg)` = ifelse(`226Ra(Bq/kg)`<=0, NA, `226Ra(Bq/kg)`))
 
 # 137Cs
 cs_peaks <- read_csv("carbon_accumulation_rates/output/tabs/peak_137Cs_accretion_rates.csv") %>% 
