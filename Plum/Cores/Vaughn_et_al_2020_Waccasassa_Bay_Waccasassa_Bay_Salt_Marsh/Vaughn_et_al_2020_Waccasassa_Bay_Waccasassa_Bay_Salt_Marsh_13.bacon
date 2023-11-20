@@ -1,0 +1,23 @@
+## Ran on Sat Nov 18 00:14:31 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -68, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Vaughn_et_al_2020_Waccasassa_Bay_Waccasassa_Bay_Salt_Marsh/Vaughn_et_al_2020_Waccasassa_Bay_Waccasassa_Bay_Salt_Marsh_13.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 127.9924, 1e+05, 0, 2, 0.6106358, 3, 4, 5;
+Det 1 : 1 , 127.9924, 4.902091, 2, 2, 0.6106358, 3, 4, 5;
+Det 2 : 2 , 103.124, 4.056454, 4, 2, 0.9471351, 3, 4, 5;
+Det 3 : 3 , 84.19777, 3.395843, 6, 2, 0.7301645, 3, 4, 5;
+Det 4 : 4 , 69.52121, 1.911686, 8, 2, 0.9237491, 3, 4, 5;
+Det 5 : 5 , 64.8012, 1.837886, 10, 2, 0.7834327, 3, 4, 5;
+Det 6 : 6 , 63.66371, 2.060721, 12, 2, 1.369383, 3, 4, 5;
+Det 7 : 7 , 66.85162, 1.716992, 14, 2, 1.1732, 3, 4, 5;
+Det 8 : 8 , 73.96886, 1.894542, 18, 2, 1.149814, 3, 4, 5;
+Det 9 : 9 , 83.08774, 2.060564, 24, 2, 1.672103, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 13,  -68.02,  26500,  -68.01,  -67.99,  2.64,  1.36,  1.5,  0.3, 0, 26;

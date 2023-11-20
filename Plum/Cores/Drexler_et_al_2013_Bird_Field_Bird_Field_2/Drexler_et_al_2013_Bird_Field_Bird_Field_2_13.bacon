@@ -1,0 +1,26 @@
+## Ran on Fri Nov 17 18:54:26 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -60, 0, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Drexler_et_al_2013_Bird_Field_Bird_Field_2/Drexler_et_al_2013_Bird_Field_Bird_Field_2_13.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 200.1667, 1e+05, 0, 3, 1, 3, 4, 5;
+Det 1 : 1 , 200.1667, 14.16667, 3, 3, 1, 3, 4, 5;
+Det 2 : 2 , 218.8333, 11.5, 6, 3, 1.1, 3, 4, 5;
+Det 3 : 3 , 158.8333, 9.833333, 9, 3, 1.2, 3, 4, 5;
+Det 4 : 4 , 105.8333, 9.5, 12, 3, 1.2, 3, 4, 5;
+Det 5 : 5 , 97.83333, 9, 15, 3, 1, 3, 4, 5;
+Det 6 : 6 , 81.33333, 7.5, 18, 3, 1.1, 3, 4, 5;
+Det 7 : 7 , 76.16667, 8.5, 21, 3, 0.9, 3, 4, 5;
+Det 8 : 8 , 67.16667, 5.666667, 24, 3, 1, 3, 4, 5;
+Det 9 : 9 , 48.33333, 6.333333, 27, 3, 1, 3, 4, 5;
+Det 10 : 10 , 58, 6.166667, 30, 3, 1.1, 3, 4, 5;
+Det 11 : 11 , 51.33333, 5.5, 33, 3, 1.5, 3, 4, 5;
+Det 12 : 12 , 51.33333, 5.666667, 36, 3, 1.4, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 13,  -60.02,  26500,  -60.01,  -59.99,  2.64,  1.36,  1.5,  0.3, 0, 39;

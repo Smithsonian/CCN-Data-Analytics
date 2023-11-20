@@ -1,0 +1,28 @@
+## Ran on Fri Nov 17 18:47:32 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -59, 0, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Callaway_et_al_2019_Whale's_Tail_Whales_Tail_A_Mid/Callaway_et_al_2019_Whale's_Tail_Whales_Tail_A_Mid_23.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 79.09889, 1e+05, 0, 2, 3.970244, 3, 4, 5;
+Det 1 : 1 , 79.09889, 42.74534, 2, 2, 3.970244, 3, 4, 5;
+Det 2 : 2 , 58.57806, 31.65581, 4, 2, 3.76115, 3, 4, 5;
+Det 3 : 3 , 46.02213, 24.87054, 6, 2, 3.872629, 3, 4, 5;
+Det 4 : 4 , 41.51568, 22.43524, 8, 2, 3.562241, 3, 4, 5;
+Det 5 : 5 , 39.67779, 21.44203, 10, 2, 4.310057, 3, 4, 5;
+Det 6 : 6 , 30.714, 16.59796, 12, 2, 3.341264, 3, 4, 5;
+Det 7 : 7 , 27.00665, 14.5945, 16, 2, 4.342313, 3, 4, 5;
+Det 8 : 8 , 29.15096, 15.75329, 20, 2, 5.119272, 3, 4, 5;
+Det 9 : 9 , 28.44224, 15.3703, 24, 2, 5.612157, 3, 4, 5;
+Det 10 : 10 , 28.50728, 15.40545, 28, 2, 3.6044, 3, 4, 5;
+Det 11 : 11 , 31.50597, 17.02595, 32, 2, 4.563008, 3, 4, 5;
+Det 12 : 12 , 27.93012, 15.09355, 36, 2, 4.520566, 3, 4, 5;
+Det 13 : 13 , 33.865, 18.30078, 40, 2, 4.891786, 3, 4, 5;
+Det 14 : 14 , 27.78195, 15.01347, 44, 2, 5.213209, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 23,  -59.02,  26500,  -59.01,  -58.99,  2.64,  1.36,  1.5,  0.3, 0, 46;

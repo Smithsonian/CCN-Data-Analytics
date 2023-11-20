@@ -1,0 +1,22 @@
+## Ran on Fri Nov 17 18:10:19 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -65, 0, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Baustian_et_al_2021_Terrebonne_basin_4045/Baustian_et_al_2021_Terrebonne_basin_4045_51.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 299.3333, 1e+05, 0, 2, 2.8, 3, 4, 5;
+Det 1 : 1 , 299.3333, 32, 22, 2, 2.8, 3, 4, 5;
+Det 2 : 2 , 295.8333, 28.66667, 30, 2, 2.8, 3, 4, 5;
+Det 3 : 3 , 197.5, 23.83333, 40, 2, 2.8, 3, 4, 5;
+Det 4 : 4 , 92.33333, 11.5, 48, 2, 4.38, 3, 4, 5;
+Det 5 : 5 , 58.33333, 7.666667, 56, 2, 5.96, 3, 4, 5;
+Det 6 : 6 , 58.66667, 7.833333, 62, 2, 7.145, 3, 4, 5;
+Det 7 : 7 , 61.5, 9.666667, 80, 2, 10.7, 3, 4, 5;
+Det 8 : 8 , 76.16667, 10, 100, 2, 8.6, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 51,  -65.02,  26500,  -65.01,  -64.99,  2.64,  1.36,  1.5,  0.3, 0, 102;

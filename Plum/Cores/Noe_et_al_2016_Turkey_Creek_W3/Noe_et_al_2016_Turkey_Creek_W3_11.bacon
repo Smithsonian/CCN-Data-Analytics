@@ -1,0 +1,24 @@
+## Ran on Fri Nov 17 21:26:18 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -61, 0, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Noe_et_al_2016_Turkey_Creek_W3/Noe_et_al_2016_Turkey_Creek_W3_11.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 110, 1e+05, 0, 2, 0.7, 3, 4, 5;
+Det 1 : 1 , 110, 2.166667, 2, 2, 0.7, 3, 4, 5;
+Det 2 : 2 , 75.66667, 1.5, 4, 2, 1.5, 3, 4, 5;
+Det 3 : 3 , 58.83333, 1.166667, 6, 2, 1, 3, 4, 5;
+Det 4 : 4 , 59.16667, 1.166667, 8, 2, 1.2, 3, 4, 5;
+Det 5 : 5 , 57.5, 1.166667, 10, 2, 1, 3, 4, 5;
+Det 6 : 6 , 51.66667, 1.166667, 12, 2, 1.2, 3, 4, 5;
+Det 7 : 7 , 40.16667, 1, 14, 2, 1, 3, 4, 5;
+Det 8 : 8 , 39.16667, 1, 16, 2, 1.3, 3, 4, 5;
+Det 9 : 9 , 36, 19.45454, 18, 2, 1.45, 3, 4, 5;
+Det 10 : 10 , 24.5, 0.6666667, 20, 2, 1.6, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 11,  -61.02,  26500,  -61.01,  -60.99,  2.64,  1.36,  1.5,  0.3, 0, 22;

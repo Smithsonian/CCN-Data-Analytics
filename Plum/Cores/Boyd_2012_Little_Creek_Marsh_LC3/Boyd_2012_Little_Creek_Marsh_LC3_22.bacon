@@ -1,0 +1,25 @@
+## Ran on Fri Nov 17 19:15:57 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -61, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Boyd_2012_Little_Creek_Marsh_LC3/Boyd_2012_Little_Creek_Marsh_LC3_22.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 169.2348, 1e+05, 0, 2, 2.791907, 3, 4, 5;
+Det 1 : 1 , 169.2348, 7.457805, 2, 2, 2.791907, 3, 4, 5;
+Det 2 : 2 , 158.0892, 6.161271, 6, 2, 4.027802, 3, 4, 5;
+Det 3 : 3 , 122.7829, 5.846802, 10, 2, 5.856681, 3, 4, 5;
+Det 4 : 4 , 115.037, 5.252245, 14, 2, 6.210376, 3, 4, 5;
+Det 5 : 5 , 68.88276, 4.881456, 18, 2, 5.441266, 3, 4, 5;
+Det 6 : 6 , 40.17602, 4.599275, 22, 2, 3.01194, 3, 4, 5;
+Det 7 : 7 , 47.76593, 4.700774, 26, 2, 5.62529, 3, 4, 5;
+Det 8 : 8 , 35.44789, 4.684743, 30, 2, 2.492521, 3, 4, 5;
+Det 9 : 9 , 33.08986, 4.647452, 34, 2, 2.307589, 3, 4, 5;
+Det 10 : 10 , 42.2941, 4.96496, 38, 2, 2.819067, 3, 4, 5;
+Det 11 : 11 , 23.97691, 4.87666, 42, 2, 1.963013, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 22,  -61.02,  26500,  -61.01,  -60.99,  2.64,  1.36,  1.5,  0.3, 0, 44;

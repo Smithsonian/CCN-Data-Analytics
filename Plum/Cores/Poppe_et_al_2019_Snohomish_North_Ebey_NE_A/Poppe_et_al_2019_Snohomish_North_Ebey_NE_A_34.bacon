@@ -1,0 +1,21 @@
+## Ran on Fri Nov 17 23:42:18 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -63, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Poppe_et_al_2019_Snohomish_North_Ebey_NE_A/Poppe_et_al_2019_Snohomish_North_Ebey_NE_A_34.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 18.69427, 1e+05, 0, 2, 3.8, 3, 4, 5;
+Det 1 : 1 , 18.69427, 3.526404, 2, 2, 3.8, 3, 4, 5;
+Det 2 : 2 , 45.43226, 6.962552, 4, 2, 4.2, 3, 4, 5;
+Det 3 : 3 , 39.37688, 6.341613, 14, 2, 5.3, 3, 4, 5;
+Det 4 : 4 , 35.05111, 5.812672, 26, 2, 5.3, 3, 4, 5;
+Det 5 : 5 , 29.16694, 5.052294, 48, 2, 5.3, 3, 4, 5;
+Det 6 : 6 , 18.89072, 3.735272, 56, 2, 5, 3, 4, 5;
+Det 7 : 7 , 19.27063, 3.825927, 66, 2, 4.1, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 34,  -63.02,  26500,  -63.01,  -62.99,  2.64,  1.36,  1.5,  0.3, 0, 68;

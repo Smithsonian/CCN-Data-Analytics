@@ -1,0 +1,24 @@
+## Ran on Fri Nov 17 23:31:31 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -65, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Poppe_and_Rybczyk_2019_Stillaguamish_HM1_HM1_7/Poppe_and_Rybczyk_2019_Stillaguamish_HM1_HM1_7_26.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 46.37176, 1e+05, 0, 2, 6.3, 3, 4, 5;
+Det 1 : 1 , 46.37176, 7.28, 2, 2, 6.3, 3, 4, 5;
+Det 2 : 2 , 31.75825, 5.42, 6, 2, 6.5, 3, 4, 5;
+Det 3 : 3 , 27.10766, 4.7, 10, 2, 7, 3, 4, 5;
+Det 4 : 4 , 29.80072, 5.1, 14, 2, 6.3, 3, 4, 5;
+Det 5 : 5 , 24.4791, 4.23, 18, 2, 8.2, 3, 4, 5;
+Det 6 : 6 , 19.6424, 3.49, 24, 2, 10.3, 3, 4, 5;
+Det 7 : 7 , 21.49087, 3.5, 28, 2, 10.7, 3, 4, 5;
+Det 8 : 8 , 18.57985, 3.31, 32, 2, 10.6, 3, 4, 5;
+Det 9 : 9 , 22.00751, 3.57, 40, 2, 12.5, 3, 4, 5;
+Det 10 : 10 , 17.07693, 2.58, 50, 2, 11, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 26,  -65.02,  26500,  -65.01,  -64.99,  2.64,  1.36,  1.5,  0.3, 0, 52;

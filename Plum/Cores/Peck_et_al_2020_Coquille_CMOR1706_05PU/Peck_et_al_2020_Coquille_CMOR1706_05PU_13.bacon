@@ -1,0 +1,26 @@
+## Ran on Fri Nov 17 23:10:07 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -67, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Peck_et_al_2020_Coquille_CMOR1706_05PU/Peck_et_al_2020_Coquille_CMOR1706_05PU_13.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 85.83333, 1e+05, 0, 2, 3, 3, 4, 5;
+Det 1 : 1 , 85.83333, 4.666667, 2, 2, 3, 3, 4, 5;
+Det 2 : 2 , 55, 5, 4, 2, 3.3, 3, 4, 5;
+Det 3 : 3 , 19.5, 1, 6, 2, 9.1, 3, 4, 5;
+Det 4 : 4 , 15.33333, 1.5, 8, 2, 10, 3, 4, 5;
+Det 5 : 5 , 13.16667, 1.333333, 10, 2, 10.72221, 3, 4, 5;
+Det 6 : 6 , 11.66667, 1.666667, 12, 2, 10.4, 3, 4, 5;
+Det 7 : 7 , 19, 1.666667, 14, 2, 10.6, 3, 4, 5;
+Det 8 : 8 , 20.33333, 2.333333, 16, 2, 9, 3, 4, 5;
+Det 9 : 9 , 16, 1.666667, 18, 2, 10.7, 3, 4, 5;
+Det 10 : 10 , 9, 1.833333, 20, 2, 10.3, 3, 4, 5;
+Det 11 : 11 , 12.33333, 1.333333, 22, 2, 11.4, 3, 4, 5;
+Det 12 : 12 , 15.83333, 1.833333, 24, 2, 13.4, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 13,  -67.02,  26500,  -67.01,  -66.99,  2.64,  1.36,  1.5,  0.3, 0, 26;

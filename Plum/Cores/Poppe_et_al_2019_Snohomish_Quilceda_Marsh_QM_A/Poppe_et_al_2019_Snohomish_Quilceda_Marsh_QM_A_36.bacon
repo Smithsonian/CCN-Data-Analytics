@@ -1,0 +1,26 @@
+## Ran on Fri Nov 17 23:43:55 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -63, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Poppe_et_al_2019_Snohomish_Quilceda_Marsh_QM_A/Poppe_et_al_2019_Snohomish_Quilceda_Marsh_QM_A_36.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 121.3794, 1e+05, 0, 2, 4.2, 3, 4, 5;
+Det 1 : 1 , 121.3794, 17.06, 2, 2, 4.2, 3, 4, 5;
+Det 2 : 2 , 51.02504, 7.59, 4, 2, 4.3, 3, 4, 5;
+Det 3 : 3 , 39.2093, 5.8, 8, 2, 4.8, 3, 4, 5;
+Det 4 : 4 , 39.98704, 6.04, 14, 2, 5.9, 3, 4, 5;
+Det 5 : 5 , 36.12837, 5.38, 22, 2, 5.5, 3, 4, 5;
+Det 6 : 6 , 32.53666, 4.96, 26, 2, 6, 3, 4, 5;
+Det 7 : 7 , 27.26441, 4.37, 32, 2, 5.5, 3, 4, 5;
+Det 8 : 8 , 25.14038, 4.18, 36, 2, 6.5, 3, 4, 5;
+Det 9 : 9 , 24.46264, 4.05, 38, 2, 6.7, 3, 4, 5;
+Det 10 : 10 , 24.79328, 3.85, 40, 2, 7.2, 3, 4, 5;
+Det 11 : 11 , 20.11136, 3.22, 54, 2, 6.8, 3, 4, 5;
+Det 12 : 12 , 13.55944, 2.76, 70, 2, 8.4, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 36,  -63.02,  26500,  -63.01,  -62.99,  2.64,  1.36,  1.5,  0.3, 0, 72;

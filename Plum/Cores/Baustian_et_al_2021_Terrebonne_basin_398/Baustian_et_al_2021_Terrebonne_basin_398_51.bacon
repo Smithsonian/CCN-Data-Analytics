@@ -1,0 +1,30 @@
+## Ran on Fri Nov 17 18:07:19 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -65, 0, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Baustian_et_al_2021_Terrebonne_basin_398/Baustian_et_al_2021_Terrebonne_basin_398_51.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 265, 1e+05, 0, 2, 4, 3, 4, 5;
+Det 1 : 1 , 265, 48.16667, 2, 2, 4, 3, 4, 5;
+Det 2 : 2 , 145.5, 17.66667, 4, 2, 4, 3, 4, 5;
+Det 3 : 3 , 133.1667, 16.16667, 6, 2, 4, 3, 4, 5;
+Det 4 : 4 , 121.5, 16.33333, 10, 2, 4, 3, 4, 5;
+Det 5 : 5 , 128.1667, 17, 14, 2, 4, 3, 4, 5;
+Det 6 : 6 , 93.16667, 12.83333, 18, 2, 2.6, 3, 4, 5;
+Det 7 : 7 , 155.6667, 20.83333, 24, 2, 3.4, 3, 4, 5;
+Det 8 : 8 , 153, 20.83333, 30, 2, 3.4375, 3, 4, 5;
+Det 9 : 9 , 58.83333, 12.16667, 40, 2, 3.5, 3, 4, 5;
+Det 10 : 10 , 149.5, 18.66667, 50, 2, 3.3, 3, 4, 5;
+Det 11 : Cs_1 , -8.666667, 12.50926, 50, 1, 0, 3, 4, 0;
+Det 12 : 11 , 90, 14.16667, 62, 2, 3.06, 3, 4, 5;
+Det 13 : 12 , 95.83333, 15, 68, 2, 2.94, 3, 4, 5;
+Det 14 : 13 , 73.66667, 12.83333, 74, 2, 2.82, 3, 4, 5;
+Det 15 : 14 , 30.83333, 11.83333, 80, 2, 2.7, 3, 4, 5;
+Det 16 : 15 , 62.5, 11.66667, 100, 2, 2.6, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 51,  -65.02,  26500,  -65.01,  -64.99,  2.64,  1.36,  1.5,  0.3, 0, 102;

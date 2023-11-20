@@ -1,0 +1,22 @@
+## Ran on Fri Nov 17 23:30:01 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -63, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Poppe_and_Rybczyk_2018_Padilla_3_3_4F/Poppe_and_Rybczyk_2018_Padilla_3_3_4F_9.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 40.81, 1e+05, 0, 2, 8.9, 3, 4, 5;
+Det 1 : 1 , 40.81, 7.063841, 2, 2, 8.9, 3, 4, 5;
+Det 2 : 2 , 30.63, 5.496757, 4, 2, 10.5, 3, 4, 5;
+Det 3 : 3 , 26.15, 4.749963, 6, 2, 13.2, 3, 4, 5;
+Det 4 : 4 , 21.1, 4.001633, 8, 2, 14.2, 3, 4, 5;
+Det 5 : 5 , 18.7, 3.570551, 10, 2, 14.5, 3, 4, 5;
+Det 6 : 6 , 17.56, 3.641992, 12, 2, 13.8, 3, 4, 5;
+Det 7 : 7 , 20.84, 3.862035, 14, 2, 13.9, 3, 4, 5;
+Det 8 : 8 , 20.3, 3.865833, 16, 2, 13.6, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 9,  -63.02,  26500,  -63.01,  -62.99,  2.64,  1.36,  1.5,  0.3, 0, 18;

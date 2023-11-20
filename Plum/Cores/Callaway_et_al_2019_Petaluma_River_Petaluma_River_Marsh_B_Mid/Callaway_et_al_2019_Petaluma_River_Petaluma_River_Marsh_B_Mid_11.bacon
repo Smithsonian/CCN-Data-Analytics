@@ -1,0 +1,24 @@
+## Ran on Fri Nov 17 18:44:09 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -59, 0, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Callaway_et_al_2019_Petaluma_River_Petaluma_River_Marsh_B_Mid/Callaway_et_al_2019_Petaluma_River_Petaluma_River_Marsh_B_Mid_11.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 71.00238, 1e+05, 0, 2, 3.874326, 3, 4, 5;
+Det 1 : 1 , 71.00238, 38.36996, 2, 2, 3.874326, 3, 4, 5;
+Det 2 : 2 , 63.68593, 34.41612, 4, 2, 5.326668, 3, 4, 5;
+Det 3 : 3 , 46.9286, 25.3604, 6, 2, 5.234429, 3, 4, 5;
+Det 4 : 4 , 46.62331, 25.19542, 8, 2, 5.657711, 3, 4, 5;
+Det 5 : 5 , 46.3682, 25.05755, 10, 2, 4.227721, 3, 4, 5;
+Det 6 : 6 , 41.80477, 22.59146, 12, 2, 5.502941, 3, 4, 5;
+Det 7 : 7 , 36.74829, 19.85892, 14, 2, 3.44765, 3, 4, 5;
+Det 8 : 8 , 40.09187, 21.6658, 16, 2, 4.232814, 3, 4, 5;
+Det 9 : 9 , 29.00545, 15.67465, 18, 2, 5.224526, 3, 4, 5;
+Det 10 : 10 , 24.0582, 13.00114, 20, 2, 5.142473, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 11,  -59.02,  26500,  -59.01,  -58.99,  2.64,  1.36,  1.5,  0.3, 0, 22;

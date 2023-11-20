@@ -1,0 +1,30 @@
+## Ran on Sat Nov 18 00:18:35 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -64, 0, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Wang_et_al_2023_Stony_Creek_Stony_Creek/Wang_et_al_2023_Stony_Creek_Stony_Creek_21.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 124.3953, 1e+05, 0, 2, 3.6, 3, 4, 5;
+Det 1 : 1 , 124.3953, 6.666667, 2, 2, 3.6, 3, 4, 5;
+Det 2 : 2 , 113.3953, 6, 4, 2, 2.1, 3, 4, 5;
+Det 3 : 3 , 107.2286, 6.333333, 8, 2, 1.8, 3, 4, 5;
+Det 4 : 4 , 78.06194, 6.5, 10, 2, 1.8, 3, 4, 5;
+Det 5 : 5 , 79.89527, 6.666667, 12, 2, 2.4, 3, 4, 5;
+Det 6 : 6 , 85.89527, 5.666667, 14, 2, 1.8, 3, 4, 5;
+Det 7 : 7 , 75.56194, 6.333333, 16, 2, 1.4, 3, 4, 5;
+Det 8 : 8 , 81.89527, 6, 22, 2, 1.6, 3, 4, 5;
+Det 9 : 9 , 48.56194, 4.333333, 24, 2, 1.6, 3, 4, 5;
+Det 10 : 10 , 55.06194, 5.333333, 28, 2, 1.7, 3, 4, 5;
+Det 11 : 11 , 48.7286, 4, 30, 2, 1.8, 3, 4, 5;
+Det 12 : 12 , 47.06194, 3.833333, 32, 2, 2.6, 3, 4, 5;
+Det 13 : 13 , 39.7286, 3.333333, 34, 2, 1.7, 3, 4, 5;
+Det 14 : 14 , 47.39527, 4.5, 36, 2, 1.9, 3, 4, 5;
+Det 15 : 15 , 45.2286, 4.666667, 38, 2, 2, 3, 4, 5;
+Det 16 : 16 , 35.7286, 3.166667, 40, 2, 2.3, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 21,  -64.02,  26500,  -64.01,  -63.99,  2.64,  1.36,  1.5,  0.3, 0, 42;

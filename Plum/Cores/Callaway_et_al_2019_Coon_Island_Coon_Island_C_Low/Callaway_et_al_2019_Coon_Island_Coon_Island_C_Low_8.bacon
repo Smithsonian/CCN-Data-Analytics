@@ -1,0 +1,21 @@
+## Ran on Fri Nov 17 18:41:24 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -59, 0, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Callaway_et_al_2019_Coon_Island_Coon_Island_C_Low/Callaway_et_al_2019_Coon_Island_Coon_Island_C_Low_8.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 48.87041, 1e+05, 0, 2, 6.222746, 3, 4, 5;
+Det 1 : 1 , 48.87041, 26.40976, 2, 2, 6.222746, 3, 4, 5;
+Det 2 : 2 , 36.20953, 19.56777, 4, 2, 9.26692, 3, 4, 5;
+Det 3 : 3 , 37.46672, 20.24716, 6, 2, 7.404595, 3, 4, 5;
+Det 4 : 4 , 30.71081, 16.59624, 8, 2, 6.795704, 3, 4, 5;
+Det 5 : 5 , 30.9435, 16.72199, 10, 2, 6.120887, 3, 4, 5;
+Det 6 : 6 , 33.54362, 18.1271, 12, 2, 5.605083, 3, 4, 5;
+Det 7 : 7 , 22.54245, 12.18203, 14, 2, 5.671009, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 8,  -59.02,  26500,  -59.01,  -58.99,  2.64,  1.36,  1.5,  0.3, 0, 16;

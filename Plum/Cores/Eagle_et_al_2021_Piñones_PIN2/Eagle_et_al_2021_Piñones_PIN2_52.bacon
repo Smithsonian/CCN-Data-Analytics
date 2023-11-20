@@ -1,0 +1,24 @@
+## Ran on Fri Nov 17 20:11:01 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -66, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Eagle_et_al_2021_Piñones_PIN2/Eagle_et_al_2021_Piñones_PIN2_52.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 225.3883, 1e+05, 0, 1, 4.425, 3, 4, 5;
+Det 1 : 1 , 225.3883, 13.65833, 1, 1, 4.425, 3, 4, 5;
+Det 2 : 2 , 195.0717, 11.17833, 5, 2, 4.67, 3, 4, 5;
+Det 3 : 3 , 209.025, 9.95, 11, 2, 5.971, 3, 4, 5;
+Det 4 : 4 , 154.5917, 6.678333, 17, 2, 6.236, 3, 4, 5;
+Det 5 : 5 , 148.3183, 5.146667, 23, 2, 5.605, 3, 4, 5;
+Det 6 : 7 , 128.965, 9.853333, 35, 2, 5.517, 3, 4, 5;
+Det 7 : 8 , 124.395, 10.15, 41, 2, 2.921, 3, 4, 5;
+Det 8 : 9 , 86.30833, 4.955, 47, 2, 3.379, 3, 4, 5;
+Det 9 : 10 , 94.73667, 3.268333, 49, 2, 3.021, 3, 4, 5;
+Det 10 : 11 , 83.99333, 4.67, 51, 2, 6.092, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 52,  -66.02,  26500,  -66.01,  -65.99,  2.64,  1.36,  1.5,  0.3, 0, 52;

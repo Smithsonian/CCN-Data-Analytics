@@ -1,0 +1,31 @@
+## Ran on Fri Nov 17 19:05:53 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -61, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Arriola_and_Cable_2017_snipe_creek_low_marsh_snipe_creek_M/Arriola_and_Cable_2017_snipe_creek_low_marsh_snipe_creek_M_19.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 291.3653, 1e+05, 0, 2, 3.6, 3, 4, 5;
+Det 1 : 1 , 291.3653, 41.22, 2, 2, 3.6, 3, 4, 5;
+Det 2 : 2 , 272.6753, 40.32, 3, 1, 4.5, 3, 4, 5;
+Det 3 : 3 , 263.2353, 39.64, 4, 1, 4.7, 3, 4, 5;
+Det 4 : 4 , 208.8353, 35.76, 5, 1, 4.7, 3, 4, 5;
+Det 5 : 5 , 234.8453, 35.1, 6, 1, 4.6, 3, 4, 5;
+Det 6 : 6 , 183.8553, 35.06, 7, 1, 4.5, 3, 4, 5;
+Det 7 : 7 , 148.2253, 31.33, 8, 1, 4.7, 3, 4, 5;
+Det 8 : 8 , 121.5353, 24.71, 9, 1, 4.6, 3, 4, 5;
+Det 9 : 9 , 91.81527, 26.86, 10, 1, 4.7, 3, 4, 5;
+Det 10 : 10 , 39.02527, 26.49, 11, 1, 5, 3, 4, 5;
+Det 11 : 11 , 63.17527, 29.5, 12, 1, 4.7, 3, 4, 5;
+Det 12 : 12 , 52.38527, 25.02, 13, 1, 5, 3, 4, 5;
+Det 13 : 13 , 72.55527, 28.84, 14, 1, 4.8, 3, 4, 5;
+Det 14 : 14 , 30.83527, 20.37, 15, 1, 4.8, 3, 4, 5;
+Det 15 : 15 , 52.44527, 22.32, 16, 1, 5.4, 3, 4, 5;
+Det 16 : 16 , 45.38527, 17.37, 17, 1, 5.4, 3, 4, 5;
+Det 17 : 17 , 51.17527, 20.74, 18, 1, 5.8, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 19,  -61.02,  26500,  -61.01,  -60.99,  2.64,  1.36,  1.5,  0.3, 0, 19;

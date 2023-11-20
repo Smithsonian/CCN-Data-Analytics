@@ -1,0 +1,23 @@
+## Ran on Fri Nov 17 15:50:14 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -58, 0, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Allen_et_al_2022_Naticoke_River_Marsh_4_NRM_4C/Allen_et_al_2022_Naticoke_River_Marsh_4_NRM_4C_25.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 171.152, 1e+05, 0, 2.5, 0.737, 3, 4, 5;
+Det 1 : 1 , 171.152, 92.4912, 2.5, 2.5, 0.737, 3, 4, 5;
+Det 2 : 2 , 156.8215, 84.74694, 5, 2.5, 1.3853, 3, 4, 5;
+Det 3 : 3 , 172.407, 93.16941, 7.5, 2.5, 1.3056, 3, 4, 5;
+Det 4 : 4 , 161.9568, 87.5221, 10, 2.5, 1.1789, 3, 4, 5;
+Det 5 : 5 , 142.906, 77.22695, 15, 5, 1.4722, 3, 4, 5;
+Det 6 : 6 , 120.4967, 65.11686, 20, 5, 1.5881, 3, 4, 5;
+Det 7 : 7 , 106.2293, 57.40674, 25, 5, 2.0879, 3, 4, 5;
+Det 8 : 8 , 56.07233, 30.30171, 35, 5, 2.0834, 3, 4, 5;
+Det 9 : 9 , 23.7355, 12.82676, 60, 10, 2.8231, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 25,  -58.02,  26500,  -58.01,  -57.99,  2.64,  1.36,  1.5,  0.3, 0, 62.5;

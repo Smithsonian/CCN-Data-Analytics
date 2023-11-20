@@ -1,0 +1,24 @@
+## Ran on Fri Nov 17 19:11:31 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -60, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Boyd_2012_Buttonwood_Marsh_NCBW2/Boyd_2012_Buttonwood_Marsh_NCBW2_20.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 81.35507, 1e+05, 0, 2, 8.646679, 3, 4, 5;
+Det 1 : 1 , 81.35507, 4.271141, 2, 2, 8.646679, 3, 4, 5;
+Det 2 : 2 , 67.16803, 4.096774, 6, 2, 8.963826, 3, 4, 5;
+Det 3 : 3 , 67.4421, 4.09606, 10, 2, 8.924067, 3, 4, 5;
+Det 4 : 4 , 49.34417, 3.803019, 14, 2, 9.244256, 3, 4, 5;
+Det 5 : 5 , 46.33224, 3.619706, 18, 2, 10.24712, 3, 4, 5;
+Det 6 : 6 , 40.56676, 3.6357, 22, 2, 11.46544, 3, 4, 5;
+Det 7 : 7 , 39.48321, 3.534523, 26, 2, 11.98091, 3, 4, 5;
+Det 8 : 8 , 33.37543, 3.38711, 30, 2, 12.90892, 3, 4, 5;
+Det 9 : 9 , 30.11914, 3.317471, 34, 2, 13.44379, 3, 4, 5;
+Det 10 : 10 , 36.38591, 3.315539, 38, 2, 13.29382, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 20,  -60.02,  26500,  -60.01,  -59.99,  2.64,  1.36,  1.5,  0.3, 0, 40;

@@ -1,0 +1,34 @@
+## Ran on Fri Nov 17 20:16:08 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -64, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Giblin_and_Forbrich_2018_Nelson_Island_Creek_Giblin2018Core_3/Giblin_and_Forbrich_2018_Nelson_Island_Creek_Giblin2018Core_3_21.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 250, 135101, 0, 2, 1.3, 3, 4, 5;
+Det 1 : 1 , 250, 135.101, 2, 2, 1.3, 3, 4, 5;
+Det 2 : 2 , 250, 135.101, 4, 2, 2.5, 3, 4, 5;
+Det 3 : 3 , 100, 54.04039, 6, 2, 1.8, 3, 4, 5;
+Det 4 : 4 , 79, 42.69191, 8, 2, 2, 3, 4, 5;
+Det 5 : 5 , 78, 42.1515, 10, 2, 1.9, 3, 4, 5;
+Det 6 : 6 , 75, 40.53029, 12, 2, 1.5, 3, 4, 5;
+Det 7 : 7 , 108, 58.36362, 14, 2, 1.7, 3, 4, 5;
+Det 8 : 8 , 125, 67.55048, 16, 2, 1.9, 3, 4, 5;
+Det 9 : 9 , 117, 63.22725, 18, 2, 2, 3, 4, 5;
+Det 10 : 10 , 106, 57.28281, 20, 2, 2.1, 3, 4, 5;
+Det 11 : 11 , 107, 57.82321, 22, 2, 2.4, 3, 4, 5;
+Det 12 : 12 , 70, 37.82827, 24, 2, 2.4, 3, 4, 5;
+Det 13 : 13 , 67, 36.20706, 26, 2, 2.3, 3, 4, 5;
+Det 14 : 14 , 66, 35.66665, 28, 2, 2.1, 3, 4, 5;
+Det 15 : 15 , 56, 30.26262, 30, 2, 1.9, 3, 4, 5;
+Det 16 : 16 , 61, 32.96464, 32, 2, 1.9, 3, 4, 5;
+Det 17 : 17 , 50, 27.02019, 34, 2, 1.9, 3, 4, 5;
+Det 18 : 18 , 47, 25.39898, 36, 2, 1.6, 3, 4, 5;
+Det 19 : 19 , 39, 21.07575, 38, 2, 1.5, 3, 4, 5;
+Det 20 : 20 , 39, 21.07575, 40, 2, 1.6, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 21,  -64.02,  26500,  -64.01,  -63.99,  2.64,  1.36,  1.5,  0.3, 0, 42;

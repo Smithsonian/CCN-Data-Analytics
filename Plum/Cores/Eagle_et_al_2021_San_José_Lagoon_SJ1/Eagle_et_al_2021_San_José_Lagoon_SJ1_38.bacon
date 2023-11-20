@@ -1,0 +1,24 @@
+## Ran on Fri Nov 17 20:12:05 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -66, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Eagle_et_al_2021_San_José_Lagoon_SJ1/Eagle_et_al_2021_San_José_Lagoon_SJ1_38.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 176.1567, 108813.1, 0, 1, 0.853, 3, 4, 5;
+Det 1 : 1 , 176.1567, 17.52833, 1, 1, 0.853, 3, 4, 5;
+Det 2 : 2 , 152.9283, 9.16, 5, 2, 2.352, 3, 4, 5;
+Det 3 : 3 , 82.87167, 8.138333, 9, 2, 2.472, 3, 4, 5;
+Det 4 : 4 , 69.69167, 5.93, 11, 2, 0.607, 3, 4, 5;
+Det 5 : 5 , 71.75333, 8.475, 13, 2, 2.631, 3, 4, 5;
+Det 6 : Cs_1 , 129.7802, 108.8131, 16.5, 1, 0, 3, 4, 0;
+Det 7 : 6 , 29.43167, 5.803333, 17, 2, 1.952, 3, 4, 5;
+Det 8 : 8 , 43.42, 10.66, 29, 2, 1.148, 3, 4, 5;
+Det 9 : 9 , 40.21, 9.231667, 35, 2, 1.148, 3, 4, 5;
+Det 10 : 10 , 38.33, 24.91833, 37, 2, 1.148, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 38,  -66.02,  26500,  -66.01,  -65.99,  2.64,  1.36,  1.5,  0.3, 0, 38;

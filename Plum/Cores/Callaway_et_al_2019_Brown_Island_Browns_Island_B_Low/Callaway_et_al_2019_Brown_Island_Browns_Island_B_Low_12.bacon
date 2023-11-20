@@ -1,0 +1,25 @@
+## Ran on Fri Nov 17 18:35:33 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -60, 0, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Callaway_et_al_2019_Brown_Island_Browns_Island_B_Low/Callaway_et_al_2019_Brown_Island_Browns_Island_B_Low_12.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 74.90536, 1e+05, 0, 2, 3.45727, 3, 4, 5;
+Det 1 : 1 , 74.90536, 40.47914, 2, 2, 3.45727, 3, 4, 5;
+Det 2 : 2 , 59.96908, 32.40752, 4, 2, 2.527805, 3, 4, 5;
+Det 3 : 3 , 58.84542, 31.80029, 6, 2, 3.506219, 3, 4, 5;
+Det 4 : 4 , 38.51895, 20.81579, 8, 2, 3.00145, 3, 4, 5;
+Det 5 : 5 , 41.0826, 22.2012, 10, 2, 2.157434, 3, 4, 5;
+Det 6 : 6 , 26.89922, 14.53644, 12, 2, 2.47829, 3, 4, 5;
+Det 7 : 7 , 36.20996, 19.568, 14, 2, 3.236009, 3, 4, 5;
+Det 8 : 8 , 33.4917, 18.09904, 16, 2, 3.082937, 3, 4, 5;
+Det 9 : 9 , 24.43555, 13.20507, 18, 2, 2.95052, 3, 4, 5;
+Det 10 : 10 , 29.60522, 15.99877, 20, 2, 2.664466, 3, 4, 5;
+Det 11 : 11 , 22.95113, 12.40288, 22, 2, 2.354644, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 12,  -60.02,  26500,  -60.01,  -59.99,  2.64,  1.36,  1.5,  0.3, 0, 24;

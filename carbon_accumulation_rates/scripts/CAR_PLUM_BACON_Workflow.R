@@ -317,8 +317,11 @@ for (i in 1:nrow(cores)) {
     temp_core_name <- str_replace_all(temp_core_name, " ", "_")
     temp_core_name <- str_replace_all(temp_core_name, "-", "_")
     
+    # If the thing produced an output in the first place
+    og_file <- paste("Plum/Cores/", temp_core_name, "/", temp_core_name, "_tidy_plum.csv", sep="")
+    
     # Check to see if the file is already done
-    if (file.exists(paste("Plum/Cores/", temp_core_name, "/", temp_core_name, ".csv", sep="")) &
+    if (file.exists(og_file) &
         overwrite_stuff == F) {
       print("... already done.")
     } else {
@@ -357,7 +360,7 @@ for (i in 1:nrow(cores)) {
         radon_case <- 0
       } else if (n_pb210 == n_ra226) {
         # If number of Ra samples is equal to number of total 210 samples
-        radon_case <- 2
+        radon_case <- 1
       } else if (n_ra226 < n_pb210) {
         # If number of Ra samples is less than the number of total 210 samples
         radon_case <- 1

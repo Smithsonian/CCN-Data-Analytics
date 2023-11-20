@@ -1,0 +1,23 @@
+## Ran on Fri Nov 17 18:44:55 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -60, 0, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Callaway_et_al_2019_Rush_Ranch_Rush_Ranch_A_Low/Callaway_et_al_2019_Rush_Ranch_Rush_Ranch_A_Low_10.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 51.32846, 1e+05, 0, 2, 3.074449, 3, 4, 5;
+Det 1 : 1 , 51.32846, 27.7381, 2, 2, 3.074449, 3, 4, 5;
+Det 2 : 2 , 45.0256, 24.33201, 4, 2, 4.211028, 3, 4, 5;
+Det 3 : 3 , 35.19308, 19.01847, 6, 2, 4.31317, 3, 4, 5;
+Det 4 : 4 , 32.10108, 17.34755, 8, 2, 3.071337, 3, 4, 5;
+Det 5 : 5 , 36.12187, 19.5204, 10, 2, 4.292515, 3, 4, 5;
+Det 6 : 6 , 22.63556, 12.23234, 12, 2, 3.003714, 3, 4, 5;
+Det 7 : 7 , 26.40429, 14.26898, 14, 2, 3.899508, 3, 4, 5;
+Det 8 : 8 , 24.94288, 13.47923, 16, 2, 5.233297, 3, 4, 5;
+Det 9 : 9 , 23.33651, 12.61114, 18, 2, 5.38071, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 10,  -60.02,  26500,  -60.01,  -59.99,  2.64,  1.36,  1.5,  0.3, 0, 20;

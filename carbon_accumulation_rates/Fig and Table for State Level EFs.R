@@ -88,6 +88,6 @@ ggplot(ccn_cars_natural, aes(x = carbon_accumulation_mean)) +
 ggsave("State Level Carbon Burial Distribution.pdf", width = 7.25, height = 5)
 
 View(ccn_cars %>% 
-       filter(admin_division == "Delaware", ! is.na(carbon_accumulation_mean)) %>% 
+       filter(admin_division == "Rhode Island", ! is.na(carbon_accumulation_mean)) %>% 
        select(study_id, site_id, core_id, carbon_accumulation_mean)
      )
