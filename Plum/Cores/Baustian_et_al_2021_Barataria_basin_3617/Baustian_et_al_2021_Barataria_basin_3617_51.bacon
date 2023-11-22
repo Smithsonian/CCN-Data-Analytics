@@ -1,0 +1,26 @@
+## Ran on Fri Nov 17 17:57:03 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -65, 0, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Baustian_et_al_2021_Barataria_basin_3617/Baustian_et_al_2021_Barataria_basin_3617_51.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 233.8333, 1e+05, 0, 2, 2, 3, 4, 5;
+Det 1 : 1 , 233.8333, 39.16667, 2, 2, 2, 3, 4, 5;
+Det 2 : 2 , 260, 39.33333, 4, 2, 2, 3, 4, 5;
+Det 3 : 3 , 238.6667, 37.16667, 6, 2, 2, 3, 4, 5;
+Det 4 : 4 , 309.1667, 47.83333, 10, 2, 2, 3, 4, 5;
+Det 5 : 5 , 325.1667, 53.66667, 12, 2, 2, 3, 4, 5;
+Det 6 : 6 , 201.8333, 31.5, 14, 2, 2, 3, 4, 5;
+Det 7 : 7 , 123.8333, 21.5, 18, 2, 2.2, 3, 4, 5;
+Det 8 : 8 , 86.16667, 16.33333, 22, 2, 3.181818, 3, 4, 5;
+Det 9 : 9 , 51.5, 10.5, 40, 2, 7.6, 3, 4, 5;
+Det 10 : 10 , 61.5, 13.5, 62, 2, 4.575, 3, 4, 5;
+Det 11 : 11 , 34, 15.33333, 80, 2, 2.1, 3, 4, 5;
+Det 12 : 12 , 28.66667, 14, 100, 2, 2.4, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 51,  -65.02,  26500,  -65.01,  -64.99,  2.64,  1.36,  1.5,  0.3, 0, 102;

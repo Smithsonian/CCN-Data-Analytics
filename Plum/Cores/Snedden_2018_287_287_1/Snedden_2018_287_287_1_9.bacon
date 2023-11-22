@@ -1,0 +1,22 @@
+## Ran on Sat Nov 18 00:06:42 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -66, 0, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Snedden_2018_287_287_1/Snedden_2018_287_287_1_9.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 293.8167, 1e+05, 0, 2, 0.3, 3, 4, 5;
+Det 1 : 1 , 293.8167, 23.76667, 2, 2, 0.3, 3, 4, 5;
+Det 2 : 2 , 252.0667, 21.03333, 4, 2, 0.4, 3, 4, 5;
+Det 3 : 3 , 344.2, 20.26667, 6, 2, 0.3, 3, 4, 5;
+Det 4 : 4 , 421.3667, 17.8, 8, 2, 0.9, 3, 4, 5;
+Det 5 : 5 , 340.0833, 16.1, 10, 2, 0.8, 3, 4, 5;
+Det 6 : 6 , 192.9, 13.01667, 12, 2, 0.6, 3, 4, 5;
+Det 7 : 7 , 251.2833, 14.31667, 14, 2, 0.8, 3, 4, 5;
+Det 8 : 8 , 262.55, 13.1, 16, 2, 0.5, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 9,  -66.02,  26500,  -66.01,  -65.99,  2.64,  1.36,  1.5,  0.3, 0, 18;

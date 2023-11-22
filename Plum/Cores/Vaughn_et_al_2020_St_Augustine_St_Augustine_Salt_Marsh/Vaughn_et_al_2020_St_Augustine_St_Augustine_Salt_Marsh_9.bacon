@@ -1,0 +1,23 @@
+## Ran on Sat Nov 18 00:14:15 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -67, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Vaughn_et_al_2020_St_Augustine_St_Augustine_Salt_Marsh/Vaughn_et_al_2020_St_Augustine_St_Augustine_Salt_Marsh_9.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 65.6412, 1e+05, 0, 2, 0.8808746, 3, 4, 5;
+Det 1 : 1 , 65.6412, 1.893713, 2, 2, 0.8808746, 3, 4, 5;
+Det 2 : 2 , 32.85464, 1.27862, 4, 2, 1.248555, 3, 4, 5;
+Det 3 : 3 , 26.45043, 0.4716799, 6, 2, 2.145021, 3, 4, 5;
+Det 4 : Cs_1 , -10.75, 9.093267, 7, 1, 0, 3, 4, 0;
+Det 5 : 4 , 25.03471, 1.258039, 8, 2, 2.285337, 3, 4, 5;
+Det 6 : 5 , 14.06693, 0.9350289, 10, 2, 2.543883, 3, 4, 5;
+Det 7 : 6 , 15.2389, 0.7270345, 12, 2, 3.514404, 3, 4, 5;
+Det 8 : 7 , 17.52023, 1.011596, 14, 2, 3.792438, 3, 4, 5;
+Det 9 : 8 , 18.05142, 0.9765348, 16, 2, 3.422159, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 9,  -67.02,  26500,  -67.01,  -66.99,  2.64,  1.36,  1.5,  0.3, 0, 18;

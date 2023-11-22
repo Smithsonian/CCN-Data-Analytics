@@ -17,6 +17,8 @@ depths$depth_min <- as.numeric(depths$depth_min)
 depths[grepl("NFB_ungrazed_landward", depths$core_id) & depths$depth_max == 64, "depth_min"] <- 62
 depths[grepl("HH_ungrazed_landward", depths$core_id) & depths$depth_max == 50, "depth_min"] <- 48
 
+depths <- depths %>% 
+  filter(complete.cases(depth_min, depth_max))
 
 any(!is.na(depths$pb214_activity)&is.na(depths$pb214_unit))
 any(!is.na(depths$total_pb210_activity)&is.na(depths$pb210_unit))
@@ -60,7 +62,7 @@ unique(cores_filtered$study_id[cores_filtered$country %in% c("Germany", "Netherl
 
 # Locate peaks
 peaks_located <- cs_depths_gap_filled %>% 
-  arrange(study_id, site_id, core_id, depth_max, depth_min) %>% 
+  arrange(study_id, site_id, core_id, depth_min, depth_max) %>% 
   group_by(study_id, site_id, core_id) %>% 
   mutate(is_peak = ifelse(cs137_activity > lag(cs137_activity) & cs137_activity > lead(cs137_activity), 1, 0),
          max_core_depth = max(depth_max)) %>% 
@@ -144,8 +146,9 @@ depths_z$is_peak[is.na(depths_z$is_peak)] <- 0
  }
 
 depths_sig <- depths_z %>% 
-  mutate(sig_level = as.character(as.numeric(p_value_overall <= 0.05) + as.numeric(upper_p <= 0.05) + as.numeric(lower_p <= 0.05)))
-
+  mutate(sig_level = as.character(as.numeric(p_value_overall <= 0.05) + 
+                                    as.numeric(upper_p <= 0.05) + 
+                                    as.numeric(lower_p <= 0.05)))
 
 cs137_vis <- depths_sig %>% 
   select(study_id, site_id, core_id, depth_min, depth_max, cs137_activity, cs137_activity_se, sig_level, date) %>% 

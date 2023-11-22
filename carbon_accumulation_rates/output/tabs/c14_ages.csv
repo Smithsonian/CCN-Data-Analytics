@@ -126,44 +126,44 @@ Gerlach_et_al_2017,Mill_Bayou,LMR_14_9B,120,120,2180,15,Juncus roemerianus rhizo
 Johnson_et_al_2007,Sprague_Marsh,SM02_VC1,210,222,3220,45,Mya arenaria,216,carbonate
 Johnson_et_al_2007,Sprague_Marsh,SM02_VC1,250,260,3300,40,Macoma balthica,255,carbonate
 Johnson_et_al_2007,Sprague_Marsh,SM02_VC1,270,277,3450,40,wood,273.5,organic
-Krauss_et_al_2018,Savannah_River_high,savannah_high_1,68,69,590,30,"bulk organic, picked free of roots",68.5,organic
-Krauss_et_al_2018,Savannah_River_high,savannah_high_1,102,103,1350,30,"bulk organic, picked free of roots",102.5,organic
-Krauss_et_al_2018,Savannah_River_high,savannah_high_1,197,198,3010,30,"bulk organic, picked free of roots",197.5,organic
-Krauss_et_al_2018,Savannah_River_high,savannah_high_1,243,244,3940,30,"bulk organic, picked free of roots",243.5,organic
-Krauss_et_al_2018,Savannah_River_high,savannah_high_1,313,314,4010,30,"bulk organic, picked free of roots",313.5,organic
-Krauss_et_al_2018,Savannah_River_low,savannah_low_1,60,61,80,30,"bulk organic, picked free of roots",60.5,organic
-Krauss_et_al_2018,Savannah_River_low,savannah_low_1,76,77,130,30,"bulk organic, picked free of roots",76.5,organic
-Krauss_et_al_2018,Savannah_River_low,savannah_low_1,112,113,1060,30,"bulk organic, picked free of roots",112.5,organic
-Krauss_et_al_2018,Savannah_River_low,savannah_low_1,159,160,1900,30,"bulk organic, picked free of roots",159.5,organic
-Krauss_et_al_2018,Savannah_River_low,savannah_low_1,297,298,3820,30,"bulk organic, picked free of roots",297.5,organic
-Krauss_et_al_2018,Savannah_River_mid,savannah_mid_1,109,110,160,30,"bulk organic, picked free of roots",109.5,organic
-Krauss_et_al_2018,Savannah_River_mid,savannah_mid_1,178,180,2010,30,"bulk organic, picked free of roots",179,organic
-Krauss_et_al_2018,Savannah_River_mid,savannah_mid_1,269,270,3880,30,"bulk organic, picked free of roots",269.5,organic
-Krauss_et_al_2018,Savannah_River_mid,savannah_mid_1,346,347,5060,30,"bulk organic, picked free of roots",346.5,organic
-Krauss_et_al_2018,Savannah_River_mid,savannah_mid_2,20,21,90,30,"bulk organic, picked free of roots",20.5,organic
-Krauss_et_al_2018,Savannah_River_mid,savannah_mid_2,42,43,1210,30,"bulk organic, picked free of roots",42.5,organic
-Krauss_et_al_2018,Savannah_River_mid,savannah_mid_2,60,61,1100,30,"bulk organic, picked free of roots",60.5,organic
-Krauss_et_al_2018,Savannah_River_mid,savannah_mid_2,75,76,930,30,"bulk organic, picked free of roots",75.5,organic
-Krauss_et_al_2018,Waccamaw_River_Butler_island,butler_island_1,24,25,185,30,seeds,24.5,organic
-Krauss_et_al_2018,Waccamaw_River_Butler_island,butler_island_1,31,32,220,30,"Bulk organic, picked free of roots",31.5,organic
-Krauss_et_al_2018,Waccamaw_River_Butler_island,butler_island_1,39,40,40,30,"Bulk organic, picked free of roots",39.5,organic
-Krauss_et_al_2018,Waccamaw_River_Butler_island,butler_island_1,51,52,520,30,seeds,51.5,organic
-Krauss_et_al_2018,Waccamaw_River_Butler_island,butler_island_1,74,75,1180,30,seeds,74.5,organic
-Krauss_et_al_2018,Waccamaw_River_Richmond_island,richmond_island_1,20,21,160,30,"Bulk organic, picked free of roots",20.5,organic
-Krauss_et_al_2018,Waccamaw_River_Richmond_island,richmond_island_1,49,50,1170,30,"Bulk organic, picked free of roots",49.5,organic
-Krauss_et_al_2018,Waccamaw_River_Richmond_island,richmond_island_1,65,66,1330,30,"Bulk organic, picked free of roots",65.5,organic
-Krauss_et_al_2018,Waccamaw_River_Richmond_island,richmond_island_1,93,94,1930,30,"Bulk organic, picked free of roots",93.5,organic
-Krauss_et_al_2018,Waccamaw_River_Richmond_island,richmond_island_1,103,104,2150,30,"Bulk organic, picked free of roots",103.5,organic
-Krauss_et_al_2018,Waccamaw_River_Turkey_creek_high,turkey_creek_1,22,23,30,30,"Bulk organic, picked free of roots",22.5,organic
-Krauss_et_al_2018,Waccamaw_River_Turkey_creek_high,turkey_creek_1,31,32,220,30,"Bulk organic, picked free of roots",31.5,organic
-Krauss_et_al_2018,Waccamaw_River_Turkey_creek_high,turkey_creek_1,37,38,1260,30,"Bulk organic, picked free of roots",37.5,organic
-Krauss_et_al_2018,Waccamaw_River_Turkey_creek_high,turkey_creek_1,60,61,1850,30,"Bulk organic, picked free of roots",60.5,organic
-Krauss_et_al_2018,Waccamaw_River_Turkey_creek_high,turkey_creek_1,72,73,2180,30,"Bulk organic, picked free of roots",72.5,organic
-Krauss_et_al_2018,Waccamaw_River_Turkey_creek_high,turkey_creek_1,77,78,2030,30,"Bulk organic, picked free of roots",77.5,organic
-Krauss_et_al_2018,Waccamaw_River_Turkey_creek_low,turkey_creek_2,21,22,970,30,"Bulk organic, picked free of roots",21.5,organic
-Krauss_et_al_2018,Waccamaw_River_Turkey_creek_low,turkey_creek_2,34,36,1110,30,"Bulk organic, picked free of roots",35,organic
-Krauss_et_al_2018,Waccamaw_River_Turkey_creek_low,turkey_creek_2,41,42,2200,30,"Bulk organic, picked free of roots",41.5,organic
-Krauss_et_al_2018,Waccamaw_River_Turkey_creek_low,turkey_creek_2,83,84,3850,30,"Bulk organic, picked free of roots",83.5,organic
+Krauss_et_al_2018,Savannah,savannah_high_1,68,69,590,30,"bulk organic, picked free of roots",68.5,organic
+Krauss_et_al_2018,Savannah,savannah_high_1,102,103,1350,30,"bulk organic, picked free of roots",102.5,organic
+Krauss_et_al_2018,Savannah,savannah_high_1,197,198,3010,30,"bulk organic, picked free of roots",197.5,organic
+Krauss_et_al_2018,Savannah,savannah_high_1,243,244,3940,30,"bulk organic, picked free of roots",243.5,organic
+Krauss_et_al_2018,Savannah,savannah_high_1,313,314,4010,30,"bulk organic, picked free of roots",313.5,organic
+Krauss_et_al_2018,Savannah,savannah_low_1,60,61,80,30,"bulk organic, picked free of roots",60.5,organic
+Krauss_et_al_2018,Savannah,savannah_low_1,76,77,130,30,"bulk organic, picked free of roots",76.5,organic
+Krauss_et_al_2018,Savannah,savannah_low_1,112,113,1060,30,"bulk organic, picked free of roots",112.5,organic
+Krauss_et_al_2018,Savannah,savannah_low_1,159,160,1900,30,"bulk organic, picked free of roots",159.5,organic
+Krauss_et_al_2018,Savannah,savannah_low_1,297,298,3820,30,"bulk organic, picked free of roots",297.5,organic
+Krauss_et_al_2018,Savannah,savannah_mid_1,109,110,160,30,"bulk organic, picked free of roots",109.5,organic
+Krauss_et_al_2018,Savannah,savannah_mid_1,178,180,2010,30,"bulk organic, picked free of roots",179,organic
+Krauss_et_al_2018,Savannah,savannah_mid_1,269,270,3880,30,"bulk organic, picked free of roots",269.5,organic
+Krauss_et_al_2018,Savannah,savannah_mid_1,346,347,5060,30,"bulk organic, picked free of roots",346.5,organic
+Krauss_et_al_2018,Savannah,savannah_mid_2,20,21,90,30,"bulk organic, picked free of roots",20.5,organic
+Krauss_et_al_2018,Savannah,savannah_mid_2,42,43,1210,30,"bulk organic, picked free of roots",42.5,organic
+Krauss_et_al_2018,Savannah,savannah_mid_2,60,61,1100,30,"bulk organic, picked free of roots",60.5,organic
+Krauss_et_al_2018,Savannah,savannah_mid_2,75,76,930,30,"bulk organic, picked free of roots",75.5,organic
+Krauss_et_al_2018,Waccamaw,butler_island_1,24,25,185,30,seeds,24.5,organic
+Krauss_et_al_2018,Waccamaw,butler_island_1,31,32,220,30,"Bulk organic, picked free of roots",31.5,organic
+Krauss_et_al_2018,Waccamaw,butler_island_1,39,40,40,30,"Bulk organic, picked free of roots",39.5,organic
+Krauss_et_al_2018,Waccamaw,butler_island_1,51,52,520,30,seeds,51.5,organic
+Krauss_et_al_2018,Waccamaw,butler_island_1,74,75,1180,30,seeds,74.5,organic
+Krauss_et_al_2018,Waccamaw,richmond_island_1,20,21,160,30,"Bulk organic, picked free of roots",20.5,organic
+Krauss_et_al_2018,Waccamaw,richmond_island_1,49,50,1170,30,"Bulk organic, picked free of roots",49.5,organic
+Krauss_et_al_2018,Waccamaw,richmond_island_1,65,66,1330,30,"Bulk organic, picked free of roots",65.5,organic
+Krauss_et_al_2018,Waccamaw,richmond_island_1,93,94,1930,30,"Bulk organic, picked free of roots",93.5,organic
+Krauss_et_al_2018,Waccamaw,richmond_island_1,103,104,2150,30,"Bulk organic, picked free of roots",103.5,organic
+Krauss_et_al_2018,Waccamaw,turkey_creek_1,22,23,30,30,"Bulk organic, picked free of roots",22.5,organic
+Krauss_et_al_2018,Waccamaw,turkey_creek_1,31,32,220,30,"Bulk organic, picked free of roots",31.5,organic
+Krauss_et_al_2018,Waccamaw,turkey_creek_1,37,38,1260,30,"Bulk organic, picked free of roots",37.5,organic
+Krauss_et_al_2018,Waccamaw,turkey_creek_1,60,61,1850,30,"Bulk organic, picked free of roots",60.5,organic
+Krauss_et_al_2018,Waccamaw,turkey_creek_1,72,73,2180,30,"Bulk organic, picked free of roots",72.5,organic
+Krauss_et_al_2018,Waccamaw,turkey_creek_1,77,78,2030,30,"Bulk organic, picked free of roots",77.5,organic
+Krauss_et_al_2018,Waccamaw,turkey_creek_2,21,22,970,30,"Bulk organic, picked free of roots",21.5,organic
+Krauss_et_al_2018,Waccamaw,turkey_creek_2,34,36,1110,30,"Bulk organic, picked free of roots",35,organic
+Krauss_et_al_2018,Waccamaw,turkey_creek_2,41,42,2200,30,"Bulk organic, picked free of roots",41.5,organic
+Krauss_et_al_2018,Waccamaw,turkey_creek_2,83,84,3850,30,"Bulk organic, picked free of roots",83.5,organic
 Lafratta_et_al_2018,False bay,1B,176,176,51765,1162,shell,176,carbonate
 Lafratta_et_al_2018,False bay,1Rc,159.7,159.7,48457,937,shell,159.7,carbonate
 Lafratta_et_al_2018,False bay,1Rs,46.8,46.8,443,27,shell,46.8,carbonate
@@ -184,23 +184,23 @@ Lafratta_et_al_2018,False bay,5Rc,111.9,111.9,5061,33,shell,111.9,carbonate
 Lafratta_et_al_2018,False bay,6Rc,32.9,32.9,638,26,shell,32.9,carbonate
 Lafratta_et_al_2018,False bay,6Rc,93.6,93.6,4107,31,shell,93.6,carbonate
 Lafratta_et_al_2018,False bay,6Rc,148.7,148.7,12491,53,shell,148.7,carbonate
-Marot_et_al_2020,14CCT01,14CCT01_GB36R,48,49,105,15,Plant/Wood,48.5,organic
-Marot_et_al_2020,14CCT01,14CCT01_GB36R,86,87,1490,20,Plant/Wood,86.5,organic
-Marot_et_al_2020,14CCT01,14CCT01_GB53R,59,60,305,20,Plant/Wood,59.5,organic
-Marot_et_al_2020,14CCT01,14CCT01_GB53R,87,88,725,20,Plant/Wood,87.5,organic
-Marot_et_al_2020,14CCT01,14CCT01_GB60R,83,84,810,20,Plant/Wood,83.5,organic
-Marot_et_al_2020,14CCT01,14CCT01_GB64R,47,48,295,15,Plant/Wood,47.5,organic
-Marot_et_al_2020,14CCT01,14CCT01_GB64R,97,98,1810,20,Plant/Wood,97.5,organic
-Marot_et_al_2020,16CCT03,16CCT03_GB250V,62,63,2930,20,Plant/Wood,62.5,organic
-Marot_et_al_2020,16CCT03,16CCT03_GB250V,180,182,3170,20,Plant/Wood,181,organic
-Marot_et_al_2020,16CCT03,16CCT03_GB250V,200,203,3240,25,Plant/Wood,201.5,organic
-Marot_et_al_2020,16CCT03,16CCT03_GB255V,152,153,3780,20,Plant/Wood,152.5,organic
-Marot_et_al_2020,16CCT03,16CCT03_GB255V,222,223,5010,20,Plant/Wood,222.5,organic
-Marot_et_al_2020,16CCT03,16CCT03_GB256V,331,332,2120,15,Mollusc,331.5,carbonate
-Marot_et_al_2020,16CCT03,16CCT03_GB256V,373,374,40000,1600,Plant/Wood,373.5,organic
-Marot_et_al_2020,16CCT03,16CCT03_GB260V,208,210,3610,20,Plant/Wood,209,organic
-Marot_et_al_2020,16CCT03,16CCT03_GB265V,75,76,3600,15,Plant/Wood,75.5,organic
-Marot_et_al_2020,16CCT03,16CCT03_GB265V,252,253,48000,NA,Plant/Wood,252.5,organic
+Marot_et_al_2020,Grand Bay,14CCT01_GB36R,48,49,105,15,Plant/Wood,48.5,organic
+Marot_et_al_2020,Grand Bay,14CCT01_GB36R,86,87,1490,20,Plant/Wood,86.5,organic
+Marot_et_al_2020,Grand Bay,14CCT01_GB53R,59,60,305,20,Plant/Wood,59.5,organic
+Marot_et_al_2020,Grand Bay,14CCT01_GB53R,87,88,725,20,Plant/Wood,87.5,organic
+Marot_et_al_2020,Grand Bay,14CCT01_GB60R,83,84,810,20,Plant/Wood,83.5,organic
+Marot_et_al_2020,Grand Bay,14CCT01_GB64R,47,48,295,15,Plant/Wood,47.5,organic
+Marot_et_al_2020,Grand Bay,14CCT01_GB64R,97,98,1810,20,Plant/Wood,97.5,organic
+Marot_et_al_2020,Grand Bay,16CCT03_GB250V,62,63,2930,20,Plant/Wood,62.5,organic
+Marot_et_al_2020,Grand Bay,16CCT03_GB250V,180,182,3170,20,Plant/Wood,181,organic
+Marot_et_al_2020,Grand Bay,16CCT03_GB250V,200,203,3240,25,Plant/Wood,201.5,organic
+Marot_et_al_2020,Grand Bay,16CCT03_GB255V,152,153,3780,20,Plant/Wood,152.5,organic
+Marot_et_al_2020,Grand Bay,16CCT03_GB255V,222,223,5010,20,Plant/Wood,222.5,organic
+Marot_et_al_2020,Grand Bay,16CCT03_GB256V,331,332,2120,15,Mollusc,331.5,carbonate
+Marot_et_al_2020,Grand Bay,16CCT03_GB256V,373,374,40000,1600,Plant/Wood,373.5,organic
+Marot_et_al_2020,Grand Bay,16CCT03_GB260V,208,210,3610,20,Plant/Wood,209,organic
+Marot_et_al_2020,Grand Bay,16CCT03_GB265V,75,76,3600,15,Plant/Wood,75.5,organic
+Marot_et_al_2020,Grand Bay,16CCT03_GB265V,252,253,48000,NA,Plant/Wood,252.5,organic
 McTigue_et_al_2020,Traps_Bay,TB_1L,216,216,2416,20,macroparticulate OM sample,216,organic
 Rodriguez_et_al_2022,JB,JB_1,88,90,315,15,plant fragment,89,organic
 Rodriguez_et_al_2022,JB,JB_5,99,101,215,15,plant fragment,100,organic
@@ -215,16 +215,51 @@ Rodriguez_et_al_2022,NPR_U,NPR_U_1,100,102,345,25,plant fragment,101,organic
 Rodriguez_et_al_2022,NPR_U,NPR_U_5,73,75,530,25,plant fragment,74,organic
 Rodriguez_et_al_2022,SRE_U,SRE_U_1,78,80,195,15,plant fragment,79,organic
 Rodriguez_et_al_2022,SRE_U,SRE_U_6,57,60,450,25,plant fragment,58.5,organic
-Watson_and_Byrne_2013,NA,Bair_Island_1,254,254,1710,35,Sarcocornia rhizome,254,organic
-Watson_and_Byrne_2013,NA,Bair_Island_2,199,199,1045,35,Sarcocornia rhizome,199,organic
-Watson_and_Byrne_2013,NA,Bair_Island_3,210,210,150,35,Sarcocornia rhizome,210,organic
-Watson_and_Byrne_2013,NA,Bair_Island_4,220,220,1155,35,Sarcocornia rhizome,220,organic
-Watson_and_Byrne_2013,NA,Corkscrew_Slough_1,130,130,295,35,Sarcocornia rhizome,130,organic
-Watson_and_Byrne_2013,NA,Coyote_Creek_1,195,195,500,80,Sarcocornia rhizome,195,organic
-Watson_and_Byrne_2013,NA,Coyote_Creek_4,210,210,145,35,Sarcocornia rhizome,210,organic
-Watson_and_Byrne_2013,NA,Damon_Slough_2,173,173,1395,35,Sarcocornia rhizome,173,organic
-Watson_and_Byrne_2013,NA,Greco_Island_1,190,190,350,40,Sarcocornia rhizome,190,organic
-Watson_and_Byrne_2013,NA,Mud_Slough_2,205,205,25,40,Sarcocornia rhizome,205,organic
-Watson_and_Byrne_2013,NA,Mud_Slough_3,123,123,305,35,Sarcocornia rhizome,123,organic
-Watson_and_Byrne_2013,NA,Plummer_Slough_1,310,310,1820,50,Sarcocornia rhizome,310,organic
-Watson_and_Byrne_2013,NA,Ravenswood_Slough_2,210,210,685,35,Sarcocornia rhizome,210,organic
+Shaw_et_al_2020,GCREW,CB109,62,62,95,20,plant macrofossils,62,organic
+Shaw_et_al_2020,GCREW,CB109,78,78,385,15,plant macrofossils,78,organic
+Shaw_et_al_2020,GCREW,CB109,92,92,240,15,plant macrofossils,92,organic
+Shaw_et_al_2020,GCREW,CB109,97,97,405,15,plant macrofossils,97,organic
+Shaw_et_al_2020,GCREW,CB109,110,110,405,15,plant macrofossils,110,organic
+Shaw_et_al_2020,GCREW,CB109,117,117,665,15,plant macrofossils,117,organic
+Shaw_et_al_2020,GCREW,CB109,133,133,850,20,plant macrofossils,133,organic
+Shaw_et_al_2020,GCREW,CB109,154,154,980,20,plant macrofossils,154,organic
+Shaw_et_al_2020,GCREW,CB109,175,175,1120,20,plant macrofossils,175,organic
+Shaw_et_al_2020,GCREW,CB109,194,194,1170,25,plant macrofossils,194,organic
+Shaw_et_al_2020,GCREW,CB109,206,206,1220,20,plant macrofossils,206,organic
+Shaw_et_al_2020,GCREW,CB109,225,225,1290,20,plant macrofossils,225,organic
+Shaw_et_al_2020,GCREW,CB109,247,247,1460,25,plant macrofossils,247,organic
+Shaw_et_al_2020,GCREW,CB109,265,265,1650,20,plant macrofossils,265,organic
+Shaw_et_al_2020,GCREW,CB109,286,286,1800,20,plant macrofossils,286,organic
+Shaw_et_al_2020,GCREW,CB109,302,302,1740,20,plant macrofossils,302,organic
+Shaw_et_al_2020,GCREW,CB109,329,329,1910,20,plant macrofossils,329,organic
+Shaw_et_al_2020,GCREW,CB109,348,348,2050,25,plant macrofossils,348,organic
+Shaw_et_al_2020,GCREW,CB109,362,362,2100,15,plant macrofossils,362,organic
+Shaw_et_al_2020,GCREW,CB109,382,382,2660,25,plant macrofossils,382,organic
+Shaw_et_al_2020,GCREW,CB109,391,391,2210,20,plant macrofossils,391,organic
+Shaw_et_al_2020,GCREW,CB109,410,410,2180,20,plant macrofossils,410,organic
+Shaw_et_al_2020,GCREW,CB109,420,420,2360,20,plant macrofossils,420,organic
+Shaw_et_al_2020,GCREW,CB109,436,436,2420,15,plant macrofossils,436,organic
+Shaw_et_al_2020,GCREW,CB109,451,451,2560,20,plant macrofossils,451,organic
+Shaw_et_al_2020,GCREW,CB109,472,472,2560,20,plant macrofossils,472,organic
+Shaw_et_al_2020,GCREW,CB109,483,483,2200,20,plant macrofossils,483,organic
+Shaw_et_al_2020,GCREW,CB109,488,488,2690,25,plant macrofossils,488,organic
+Shaw_et_al_2020,GCREW,CB109,506,506,2890,30,plant macrofossils,506,organic
+Shaw_et_al_2020,GCREW,CB109,513,513,3530,20,plant macrofossils,513,organic
+Shaw_et_al_2020,GCREW,CB109,522,522,2850,15,plant macrofossils,522,organic
+Shaw_et_al_2020,GCREW,CB109,534,534,3210,20,plant macrofossils,534,organic
+Shaw_et_al_2020,GCREW,CB109,545,545,3010,120,plant macrofossils,545,organic
+Shaw_et_al_2020,GCREW,CB109,575,575,3560,20,plant macrofossils,575,organic
+Shaw_et_al_2020,GCREW,CB109,593,593,3680,20,plant macrofossils,593,organic
+Watson_and_Byrne_2013,Bair_Island,Bair_Island_1,254,254,1710,35,Sarcocornia rhizome,254,organic
+Watson_and_Byrne_2013,Bair_Island,Bair_Island_2,199,199,1045,35,Sarcocornia rhizome,199,organic
+Watson_and_Byrne_2013,Bair_Island,Bair_Island_3,210,210,150,35,Sarcocornia rhizome,210,organic
+Watson_and_Byrne_2013,Bair_Island,Bair_Island_4,220,220,1155,35,Sarcocornia rhizome,220,organic
+Watson_and_Byrne_2013,Corkscrew_Slough,Corkscrew_Slough_1,130,130,295,35,Sarcocornia rhizome,130,organic
+Watson_and_Byrne_2013,Coyote_Creek,Coyote_Creek_1,195,195,500,80,Sarcocornia rhizome,195,organic
+Watson_and_Byrne_2013,Coyote_Creek,Coyote_Creek_4,210,210,145,35,Sarcocornia rhizome,210,organic
+Watson_and_Byrne_2013,Damon_Slough,Damon_Slough_2,173,173,1395,35,Sarcocornia rhizome,173,organic
+Watson_and_Byrne_2013,Greco_Island,Greco_Island_1,190,190,350,40,Sarcocornia rhizome,190,organic
+Watson_and_Byrne_2013,Mud_Slough,Mud_Slough_2,205,205,25,40,Sarcocornia rhizome,205,organic
+Watson_and_Byrne_2013,Mud_Slough,Mud_Slough_3,123,123,305,35,Sarcocornia rhizome,123,organic
+Watson_and_Byrne_2013,Plummer_Slough,Plummer_Slough_1,310,310,1820,50,Sarcocornia rhizome,310,organic
+Watson_and_Byrne_2013,Ravenswood_Slough,Ravenswood_Slough_2,210,210,685,35,Sarcocornia rhizome,210,organic

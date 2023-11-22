@@ -1,0 +1,23 @@
+## Ran on Fri Nov 17 18:38:07 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -60, 0, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Callaway_et_al_2019_China_Camp_China_Camp_B_High/Callaway_et_al_2019_China_Camp_China_Camp_B_High_10.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 86.607, 1e+05, 0, 2, 4.559612, 3, 4, 5;
+Det 1 : 1 , 86.607, 46.80276, 2, 2, 4.559612, 3, 4, 5;
+Det 2 : 2 , 74.60197, 40.31519, 4, 2, 5.906417, 3, 4, 5;
+Det 3 : 3 , 54.66919, 29.54344, 6, 2, 6.15484, 3, 4, 5;
+Det 4 : 4 , 56.47842, 30.52116, 8, 2, 6.535397, 3, 4, 5;
+Det 5 : 5 , 42.10231, 22.75225, 10, 2, 6.07986, 3, 4, 5;
+Det 6 : 6 , 40.6741, 21.98044, 12, 2, 6.336772, 3, 4, 5;
+Det 7 : 7 , 27.9692, 15.11466, 14, 2, 4.47473, 3, 4, 5;
+Det 8 : 8 , 27.76259, 15.00301, 16, 2, 5.087865, 3, 4, 5;
+Det 9 : 9 , 27.56891, 14.89834, 18, 2, 5.33063, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 10,  -60.02,  26500,  -60.01,  -59.99,  2.64,  1.36,  1.5,  0.3, 0, 20;

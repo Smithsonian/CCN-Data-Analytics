@@ -7,12 +7,17 @@
 
 library(tidyverse)
 
-source("resources/pull_synthesis.R") # function to pull synthesis tables
+# source("resources/pull_synthesis.R") # function to pull synthesis tables
 source("coastal_wetland_nggi/scripts/nggi_utils.R")
 
 # pull cores and depthseries tables
-cores <- getSynthesisData("cores")
-ds <- getSynthesisData("depthseries")
+cores <- read_csv("data/CCRCN_cores.csv")
+
+ds <- read_csv("data/CCRCN_depthseries.csv")
+ds <- read_csv("data/CCRCN_depthseries.csv", 
+               guess_max = nrow(ds))
+ds$depth_min <- as.numeric(ds$depth_min)
+ds$depth_max <- as.numeric(ds$depth_max)
 
 ## Calculate carbon interval stock 
 

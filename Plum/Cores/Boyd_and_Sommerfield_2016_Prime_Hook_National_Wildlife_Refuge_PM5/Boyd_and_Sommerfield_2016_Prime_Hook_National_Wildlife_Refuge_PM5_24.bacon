@@ -1,0 +1,27 @@
+## Ran on Fri Nov 17 19:32:59 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -59, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Boyd_and_Sommerfield_2016_Prime_Hook_National_Wildlife_Refuge_PM5/Boyd_and_Sommerfield_2016_Prime_Hook_National_Wildlife_Refuge_PM5_24.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 262.8566, 1e+05, 0, 2, 1.11739, 3, 4, 5;
+Det 1 : 1 , 262.8566, 9.307953, 2, 2, 1.11739, 3, 4, 5;
+Det 2 : 2 , 288.1271, 8.740102, 6, 2, 1.376237, 3, 4, 5;
+Det 3 : Cs_1 , -1.5, 19.91858, 9, 1, 0, 3, 4, 0;
+Det 4 : 3 , 243.9295, 8.797457, 10, 2, 2.021754, 3, 4, 5;
+Det 5 : 4 , 144.5918, 7.364606, 14, 2, 3.07909, 3, 4, 5;
+Det 6 : 5 , 57.70742, 6.662892, 18, 2, 5.688746, 3, 4, 5;
+Det 7 : 6 , 46.51464, 6.403314, 22, 2, 5.835518, 3, 4, 5;
+Det 8 : 7 , 36.25935, 6.295837, 26, 2, 8.719188, 3, 4, 5;
+Det 9 : 8 , 42.336, 6.312308, 30, 2, 8.692301, 3, 4, 5;
+Det 10 : 9 , 35.9242, 6.541753, 34, 2, 8.231548, 3, 4, 5;
+Det 11 : 10 , 25.17396, 6.405875, 38, 2, 8.087613, 3, 4, 5;
+Det 12 : 11 , 30.73225, 6.260274, 42, 2, 7.832571, 3, 4, 5;
+Det 13 : 12 , 20.78049, 5.111779, 46, 2, 7.384001, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 24,  -59.02,  26500,  -59.01,  -58.99,  2.64,  1.36,  1.5,  0.3, 0, 48;

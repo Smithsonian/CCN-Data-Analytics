@@ -1,0 +1,22 @@
+## Ran on Fri Nov 17 18:58:13 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -60, 0, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Drexler_et_al_2013_Wardlaw_Shallow_Managed_Wardlaw_Shallow_Managed_2/Drexler_et_al_2013_Wardlaw_Shallow_Managed_Wardlaw_Shallow_Managed_2_9.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 140.6667, 1e+05, 0, 2, 0.3, 3, 4, 5;
+Det 1 : 1 , 140.6667, 13, 2, 2, 0.3, 3, 4, 5;
+Det 2 : 2 , 175.3333, 12.33333, 4, 2, 0.6, 3, 4, 5;
+Det 3 : 3 , 263.6667, 17.16667, 6, 2, 1.5, 3, 4, 5;
+Det 4 : 4 , 208.1667, 9.833333, 8, 2, 1.7, 3, 4, 5;
+Det 5 : 5 , 130, 8.833333, 10, 2, 4.2, 3, 4, 5;
+Det 6 : 6 , 74.66667, 5.333333, 12, 2, 5, 3, 4, 5;
+Det 7 : 7 , 74.83333, 7.5, 14, 2, 7.9, 3, 4, 5;
+Det 8 : 8 , 73, 4.833333, 16, 2, 8.5, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 9,  -60.02,  26500,  -60.01,  -59.99,  2.64,  1.36,  1.5,  0.3, 0, 18;

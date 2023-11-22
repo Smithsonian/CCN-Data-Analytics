@@ -1,11 +1,11 @@
 0 #d.min
-41 #d.max
+36 #d.max
 1 #d.by
 FALSE #depths.file
  #slump
-10 #acc.mean
+5 #acc.mean
 1.5 #acc.shape
-0.7 #mem.mean
+0.66 #mem.mean
 4 #mem.strength
 NA #boundary
 NA #hiatus.depths

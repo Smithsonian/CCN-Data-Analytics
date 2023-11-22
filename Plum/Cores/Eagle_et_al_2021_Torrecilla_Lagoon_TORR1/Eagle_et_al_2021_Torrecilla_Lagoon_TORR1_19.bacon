@@ -1,0 +1,23 @@
+## Ran on Fri Nov 17 20:13:33 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -66, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Eagle_et_al_2021_Torrecilla_Lagoon_TORR1/Eagle_et_al_2021_Torrecilla_Lagoon_TORR1_19.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 150.2183, 1e+05, 0, 2, 2.438, 3, 4, 5;
+Det 1 : 1 , 150.2183, 9.493333, 2, 2, 2.438, 3, 4, 5;
+Det 2 : 2 , 130.2083, 11.23667, 4, 2, 2.19, 3, 4, 5;
+Det 3 : 3 , 126.23, 8.456667, 6, 2, 1.93, 3, 4, 5;
+Det 4 : 4 , 58.11333, 10.815, 10, 2, 2.066, 3, 4, 5;
+Det 5 : 5 , 73.11167, 7.823333, 14, 2, 1.811, 3, 4, 5;
+Det 6 : 6 , 32.15833, 4.486667, 22, 2, 2.461, 3, 4, 5;
+Det 7 : 7 , 28.66167, 5.735, 28, 2, 4.025, 3, 4, 5;
+Det 8 : 8 , 38.615, 5.568333, 34, 2, 4.025, 3, 4, 5;
+Det 9 : 9 , 130.3317, 4.731667, 36, 2, 4.025, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 19,  -66.02,  26500,  -66.01,  -65.99,  2.64,  1.36,  1.5,  0.3, 0, 38;

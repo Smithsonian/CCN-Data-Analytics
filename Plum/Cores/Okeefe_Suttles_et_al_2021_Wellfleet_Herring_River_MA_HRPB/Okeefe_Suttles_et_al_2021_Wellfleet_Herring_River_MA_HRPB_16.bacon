@@ -1,0 +1,29 @@
+## Ran on Sat Nov 18 12:17:17 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -67, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Okeefe_Suttles_et_al_2021_Wellfleet_Herring_River_MA_HRPB/Okeefe_Suttles_et_al_2021_Wellfleet_Herring_River_MA_HRPB_16.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 315.06, 1e+05, 0, 2, 0.578, 3, 4, 5;
+Det 1 : 1 , 315.06, 10.74333, 2, 2, 0.578, 3, 4, 5;
+Det 2 : 2 , 437.2917, 8.615, 4, 2, 0.717, 3, 4, 5;
+Det 3 : 3 , 417.6817, 16.12333, 6, 2, 0.555, 3, 4, 5;
+Det 4 : 4 , 332.4067, 10.33833, 8, 2, 0.754, 3, 4, 5;
+Det 5 : 5 , 362.05, 12.78, 10, 2, 0.564, 3, 4, 5;
+Det 6 : 6 , 311.3233, 7.378333, 12, 2, 0.955, 3, 4, 5;
+Det 7 : 7 , 347.8067, 9.53, 14, 2, 0.69, 3, 4, 5;
+Det 8 : 8 , 283.8083, 8.883333, 16, 2, 0.744, 3, 4, 5;
+Det 9 : 9 , 214.1217, 9.613333, 18, 2, 0.687, 3, 4, 5;
+Det 10 : 10 , 161.0467, 6.618333, 20, 2, 0.836, 3, 4, 5;
+Det 11 : 11 , 116.8767, 5.761667, 22, 2, 0.902, 3, 4, 5;
+Det 12 : 12 , 131.6417, 6.121667, 24, 2, 0.789, 3, 4, 5;
+Det 13 : 13 , 152.8633, 6.558333, 26, 2, 0.851, 3, 4, 5;
+Det 14 : 14 , 101.0767, 4.963333, 28, 2, 1.076, 3, 4, 5;
+Det 15 : 15 , 188.46, 6.935, 30, 2, 0.774, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 16,  -67.02,  26500,  -67.01,  -66.99,  2.64,  1.36,  1.5,  0.3, 0, 32;

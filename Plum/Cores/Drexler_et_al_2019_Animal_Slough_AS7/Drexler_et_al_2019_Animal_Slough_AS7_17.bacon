@@ -1,0 +1,30 @@
+## Ran on Fri Nov 17 20:05:58 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -65, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Drexler_et_al_2019_Animal_Slough_AS7/Drexler_et_al_2019_Animal_Slough_AS7_17.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 110.5, 1e+05, 0, 2, 1.94, 3, 4, 5;
+Det 1 : 1 , 110.5, 10.33333, 2, 2, 1.94, 3, 4, 5;
+Det 2 : 2 , 77.83333, 9.5, 4, 2, 2.89, 3, 4, 5;
+Det 3 : 3 , 69.16667, 7.5, 6, 2, 2.6, 3, 4, 5;
+Det 4 : 4 , 45, 5.666667, 8, 2, 3.22, 3, 4, 5;
+Det 5 : 5 , 46.16667, 4.5, 10, 2, 2.92, 3, 4, 5;
+Det 6 : 6 , 44.5, 5.166667, 12, 2, 2.63, 3, 4, 5;
+Det 7 : 7 , 37.16667, 4.333333, 14, 2, 3.49, 3, 4, 5;
+Det 8 : 8 , 24.16667, 4, 16, 2, 3.87, 3, 4, 5;
+Det 9 : 9 , 27.33333, 3.833333, 18, 2, 3.55, 3, 4, 5;
+Det 10 : 10 , 22.33333, 4.166667, 20, 2, 3.52, 3, 4, 5;
+Det 11 : 11 , 16.5, 3.833333, 22, 2, 3.92, 3, 4, 5;
+Det 12 : 12 , 18.66667, 3.166667, 24, 2, 5.34, 3, 4, 5;
+Det 13 : 13 , 16.66667, 3.833333, 26, 2, 6.6, 3, 4, 5;
+Det 14 : 14 , 18.33333, 3.666667, 28, 2, 5.02, 3, 4, 5;
+Det 15 : 15 , 19, 3.666667, 30, 2, 5.62, 3, 4, 5;
+Det 16 : 16 , 20, 4, 32, 2, 6.06, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 17,  -65.02,  26500,  -65.01,  -64.99,  2.64,  1.36,  1.5,  0.3, 0, 34;

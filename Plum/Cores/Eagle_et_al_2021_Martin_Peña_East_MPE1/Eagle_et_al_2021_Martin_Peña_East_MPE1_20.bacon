@@ -1,0 +1,23 @@
+## Ran on Fri Nov 17 20:07:48 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -66, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Eagle_et_al_2021_Martin_Peña_East_MPE1/Eagle_et_al_2021_Martin_Peña_East_MPE1_20.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 270.2967, 1e+05, 0, 2, 16.577, 3, 4, 5;
+Det 1 : 1 , 270.2967, 22.19167, 2, 2, 16.577, 3, 4, 5;
+Det 2 : 2 , 302.4267, 9.98, 4, 2, 5.688, 3, 4, 5;
+Det 3 : 3 , 301.5167, 8.473333, 6, 2, 7.959, 3, 4, 5;
+Det 4 : 4 , 134.3283, 6.823333, 12, 2, 11.717, 3, 4, 5;
+Det 5 : 5 , 72.475, 6.131667, 18, 2, 5.598, 3, 4, 5;
+Det 6 : 6 , 54.42667, 4.806667, 24, 2, 16.113, 3, 4, 5;
+Det 7 : 7 , 102.695, 9.695, 30, 2, 3.09, 3, 4, 5;
+Det 8 : 8 , 89.17333, 6.661667, 36, 2, 22.674, 3, 4, 5;
+Det 9 : 9 , 77.715, 7.095, 38, 2, 10.386, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 20,  -66.02,  26500,  -66.01,  -65.99,  2.64,  1.36,  1.5,  0.3, 0, 40;

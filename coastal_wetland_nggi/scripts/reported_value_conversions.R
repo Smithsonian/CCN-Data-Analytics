@@ -132,19 +132,19 @@ reported <- reported_raw %>%
                                   carbon_stock_unit == "kilogramsPerSquareMeter" ~ carbon_stock_se * 10,
                                   T ~ carbon_stock_se),
          pb210_rate = case_when(pb210_rate_unit == "millimeterPerYear" ~ pb210_rate * .1, 
-                                pb210_rate_unit == "gramsPerSquareCentimeterPerYear" ~ pb210_rate * 0.0001,
+                                pb210_rate_unit == "gramsPerSquareCentimeterPerYear" ~ pb210_rate * 10000,
                                 pb210_rate_unit == "kilogramsPerSquareMeterPerYear" ~ pb210_rate * 1000,
                                 T ~ pb210_rate),
          pb210_rate_se = case_when(pb210_rate_unit == "millimeterPerYear" ~ pb210_rate_se * .1, 
-                                pb210_rate_unit == "gramsPerSquareCentimeterPerYear" ~ pb210_rate_se * 0.0001,
+                                pb210_rate_unit == "gramsPerSquareCentimeterPerYear" ~ pb210_rate_se * 10000,
                                 pb210_rate_unit == "kilogramsPerSquareMeterPerYear" ~ pb210_rate_se * 1000,
                                 T ~ pb210_rate_se),
          cs137_rate = case_when(cs137_rate_unit == "millimeterPerYear" ~ cs137_rate * .1,
-                                cs137_rate_unit == "gramsPerSquareCentimeterPerYear" ~ cs137_rate * 0.0001,
+                                cs137_rate_unit == "gramsPerSquareCentimeterPerYear" ~ cs137_rate * 10000,
                                 cs137_rate_unit == "kilogramsPerSquareMeterPerYear" ~ cs137_rate * 1000,
                                 T ~ cs137_rate),
          cs137_rate_se = case_when(cs137_rate_unit == "millimeterPerYear" ~ cs137_rate_se * .1,
-                                cs137_rate_unit == "gramsPerSquareCentimeterPerYear" ~ cs137_rate_se * 0.0001,
+                                cs137_rate_unit == "gramsPerSquareCentimeterPerYear" ~ cs137_rate_se * 10000,
                                 cs137_rate_unit == "kilogramsPerSquareMeterPerYear" ~ cs137_rate_se * 1000,
                                 T ~ cs137_rate_se),
          
@@ -260,14 +260,14 @@ reported_merge <- reported %>%
 ## Core-level data
 # Subset depthseries data into intervals represented by dating info
 depth_weights_core <- reported_merge %>% 
-  full_join(depth, by = c("study_id", "core_id")) %>% # site_id is inconsistently assigned, but core_id is corrected for in reported_merge
+  full_join(depth, by = c("study_id", "site_id", "core_id")) %>% # site_id is inconsistently assigned, but core_id is corrected for in reported_merge
 
   # remove observations not matched in core-level reported values 
   filter(core_id %in% unique(reported_merge$core_id)) %>% 
   filter(study_id != "Luk_et_al_2020") %>% 
 
   # extract represented core length 
-  group_by(study_id, core_id) %>% 
+  group_by(study_id, site_id, core_id) %>% 
   summarise(rate_depth_max = max(depth_max_cm), # represented depth from reported values
             rate_depth_min = min(depth_min_cm),
             horizon_max = max(depth_max), # represented depth from depthseries table
@@ -282,11 +282,11 @@ depth_weights_core <- reported_merge %>%
 
 # Extract DBD/FOM/FOC core summaries
 depth_summary_core <- reported_merge %>% 
-  full_join(depth, by = c("study_id", "core_id")) %>% 
+  full_join(depth, by = c("study_id", "site_id", "core_id")) %>% 
   filter(core_id %in% unique(reported_merge$core_id)) %>% 
   filter(study_id != "Luk_et_al_2020") %>% 
   filter(!is.na(dry_bulk_density) | !is.na(fraction_carbon) | !is.na(fraction_organic_matter)) %>% 
-  group_by(study_id, core_id) %>% 
+  group_by(study_id, site_id, core_id) %>% 
   summarise(dry_bulk_density = mean(dry_bulk_density, na.rm = T), 
             fraction_organic_matter = mean(fraction_organic_matter, na.rm = T),
             fraction_carbon = mean(fraction_carbon, na.rm = T)) %>% 
@@ -298,7 +298,7 @@ depth_summary_core <- reported_merge %>%
 depth_weights_site <- reported_merge %>% 
   full_join(depth, by = c("study_id", "site_id")) %>% 
   filter(study_id == "Luk_et_al_2020") %>% 
-  group_by(study_id, site_id) %>% 
+  group_by(study_id, site_id, site_id) %>% 
   summarise(rate_depth_max = max(depth_max_cm), 
             rate_depth_min = min(depth_min_cm),
             horizon_max = max(depth_max), 
@@ -323,7 +323,7 @@ depth_summary_site <- reported_merge %>%
 
 ## Create the finalized table ####
 synthdat <- reported_merge %>% 
-  full_join(depth_summary_site, by = c("study_id", "core_id")) %>% 
+  full_join(depth_summary_site, by = c("study_id", "site_id", "core_id")) %>% 
   left_join(dated_us_cores) %>% 
   assignEcosystem() %>% 
   mutate(weighted_dry_bulk_density = dry_bulk_density * weight, 
@@ -335,21 +335,20 @@ synthdat <- reported_merge %>%
          foc_calc = ifelse(grepl("marsh", habitat) & weighted_fraction_organic_matter > 0, 0.486 * OM_density - 0.0160 * OM_density^2,
                            ifelse(grepl("swamp", habitat) & weighted_fraction_organic_matter > 0, 0.427 * OM_density + 0.0635 * OM_density^2,
                                   NA)),
-         
          # use the FOC calculated above to convert accretion rate to C accumulation rate
-         pb_CAR = ifelse(grepl("accretion", pb_accretion) & !is.na(weighted_fraction_carbon), pb210_rate * weighted_dry_bulk_density * weighted_fraction_carbon, # if FOC is present in the library # all present in pb_CAR
-                         ifelse(grepl("accretion", pb_accretion) & !is.na(foc_calc), pb210_rate * foc_calc, # if FOC isn't present in the library, use calculated c_stock from FOM 
+         pb_CAR = ifelse(grepl("accretion", pb_accretion) & !is.na(weighted_fraction_carbon), pb210_rate * weighted_dry_bulk_density * weighted_fraction_carbon * 10000, # if FOC is present in the library # all present in pb_CAR
+                         ifelse(grepl("accretion", pb_accretion) & !is.na(foc_calc), pb210_rate * foc_calc * 10000, # if FOC isn't present in the library, use calculated c_stock from FOM 
                                 pb_CAR)), # the remainder are the already calculated/existing accumulation rates
-         pb_CAR_se = ifelse(grepl("accretion", pb_accretion) & !is.na(weighted_fraction_carbon), pb210_rate_se * weighted_dry_bulk_density * weighted_fraction_carbon, 
-                         ifelse(grepl("accretion", pb_accretion) & !is.na(foc_calc), pb210_rate_se * foc_calc, pb_CAR_se)), 
-         cs_CAR = ifelse(grepl("accretion", cs_accretion) & !is.na(weighted_fraction_carbon), cs137_rate * weighted_dry_bulk_density * weighted_fraction_carbon,
-                         ifelse(grepl("accretion", cs_accretion) & !is.na(foc_calc), cs137_rate * foc_calc, cs_CAR)),
-         cs_CAR_se = ifelse(grepl("accretion", cs_accretion) & !is.na(weighted_fraction_carbon), cs137_rate_se * weighted_dry_bulk_density * weighted_fraction_carbon,
-                            ifelse(grepl("accretion", cs_accretion) & !is.na(foc_calc), cs137_rate_se * foc_calc, cs_CAR_se))) %>% 
+         pb_CAR_se = ifelse(grepl("accretion", pb_accretion) & !is.na(weighted_fraction_carbon), pb210_rate_se * weighted_dry_bulk_density * weighted_fraction_carbon * 10000, 
+                         ifelse(grepl("accretion", pb_accretion) & !is.na(foc_calc), pb210_rate_se * foc_calc * 10000, pb_CAR_se)), 
+         cs_CAR = ifelse(grepl("accretion", cs_accretion) & !is.na(weighted_fraction_carbon), cs137_rate * weighted_dry_bulk_density * weighted_fraction_carbon * 10000,
+                         ifelse(grepl("accretion", cs_accretion) & !is.na(foc_calc), cs137_rate * foc_calc * 10000, cs_CAR)),
+         cs_CAR_se = ifelse(grepl("accretion", cs_accretion) & !is.na(weighted_fraction_carbon), cs137_rate_se * weighted_dry_bulk_density * weighted_fraction_carbon * 10000,
+                            ifelse(grepl("accretion", cs_accretion) & !is.na(foc_calc), cs137_rate_se * foc_calc * 10000, cs_CAR_se))) %>% 
   filter(!is.na(pb_CAR|cs_CAR)) %>% # remove instances without accumulation rates
   distinct() %>% 
   select(study_id, site_id, core_id, core_count, pb_CAR, pb_CAR_se, cs_CAR, cs_CAR_se, climate_zone, ecosystem, management)
 
-  
+write_csv(synthdat, "")
 
 

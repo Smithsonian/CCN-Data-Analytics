@@ -1,0 +1,26 @@
+## Ran on Fri Nov 17 19:22:33 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -61, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Boyd_2012_Port_Mahon_Marsh_MH3/Boyd_2012_Port_Mahon_Marsh_MH3_22.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 182.2976, 1e+05, 0, 2, 2.487257, 3, 4, 5;
+Det 1 : 1 , 182.2976, 7.254702, 2, 2, 2.487257, 3, 4, 5;
+Det 2 : Cs_1 , 41, 51.96152, 5, 1, 0, 3, 4, 0;
+Det 3 : 2 , 128.8201, 6.380243, 6, 2, 2.437181, 3, 4, 5;
+Det 4 : 3 , 55.24762, 5.365776, 10, 2, 2.021242, 3, 4, 5;
+Det 5 : 4 , 56.88244, 5.760247, 14, 2, 1.362837, 3, 4, 5;
+Det 6 : 5 , 38.66686, 4.878529, 18, 2, 2.023705, 3, 4, 5;
+Det 7 : 6 , 12.05089, 4.590815, 22, 2, 1.713379, 3, 4, 5;
+Det 8 : 7 , 15.68263, 5.622074, 26, 2, 1.461998, 3, 4, 5;
+Det 9 : 8 , 10.2494, 5.563962, 30, 2, 1.827559, 3, 4, 5;
+Det 10 : 9 , 9.825887, 5.109461, 34, 2, 2.070689, 3, 4, 5;
+Det 11 : 10 , 13.32447, 5.329788, 38, 2, 2.783358, 3, 4, 5;
+Det 12 : 11 , 16.48954, 4.038255, 42, 2, 3.775102, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 22,  -61.02,  26500,  -61.01,  -60.99,  2.64,  1.36,  1.5,  0.3, 0, 44;

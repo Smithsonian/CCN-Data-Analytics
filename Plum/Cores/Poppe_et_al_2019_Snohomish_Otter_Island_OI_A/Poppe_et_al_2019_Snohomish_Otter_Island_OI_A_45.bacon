@@ -1,0 +1,23 @@
+## Ran on Fri Nov 17 23:43:01 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -63, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Poppe_et_al_2019_Snohomish_Otter_Island_OI_A/Poppe_et_al_2019_Snohomish_Otter_Island_OI_A_45.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 82.58693, 1e+05, 0, 2, 1.1, 3, 4, 5;
+Det 1 : 1 , 82.58693, 8.72183, 2, 2, 1.1, 3, 4, 5;
+Det 2 : 2 , 45.72533, 5.151066, 14, 2, 4.5, 3, 4, 5;
+Det 3 : 3 , 34.60071, 4.101338, 26, 2, 5.8, 3, 4, 5;
+Det 4 : 4 , 38.64956, 4.329071, 30, 2, 6.5, 3, 4, 5;
+Det 5 : 5 , 33.27758, 3.796223, 34, 2, 5.6, 3, 4, 5;
+Det 6 : 6 , 27.25316, 3.213482, 36, 2, 5.4, 3, 4, 5;
+Det 7 : 7 , 31.5208, 3.871548, 38, 2, 7.7, 3, 4, 5;
+Det 8 : 8 , 15.69016, 2.50541, 56, 2, 4.1, 3, 4, 5;
+Det 9 : 9 , 16.46937, 2.872951, 88, 2, 2.5, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 45,  -63.02,  26500,  -63.01,  -62.99,  2.64,  1.36,  1.5,  0.3, 0, 90;

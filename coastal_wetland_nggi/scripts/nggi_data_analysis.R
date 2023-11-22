@@ -14,7 +14,6 @@ library(tidyverse)
 nggi_table <- read_csv("coastal_wetland_nggi/data/intermediate/reported_values_clean.csv")
 
 ## NGGI Summary Calculations
-
 nggi_smry <- nggi_table %>% 
   # calculate log10 of the activities in order to determine the geomean
   mutate(log10_pb210 = log10(pb210_standardized),

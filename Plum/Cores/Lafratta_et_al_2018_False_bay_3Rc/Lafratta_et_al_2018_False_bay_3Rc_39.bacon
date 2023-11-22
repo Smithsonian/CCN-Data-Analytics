@@ -1,0 +1,24 @@
+## Ran on Fri Nov 17 20:35:22 2023 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal20, 0;
+Cal 2 : Marine20;
+Cal 3 : SHCal20, 0;
+Cal 4 : ConstCal;
+##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -64, 0, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Lafratta_et_al_2018_False_bay_3Rc/Lafratta_et_al_2018_False_bay_3Rc_39.plum;
+##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
+Det 0 : NA , 15.40377, 1e+05, 0, 0.5, 7.846176, 3, 4, 5;
+Det 1 : 1 , 15.40377, 1.02458, 1, 0.5, 7.846176, 3, 4, 5;
+Det 2 : 2 , 14.12848, 1.028447, 3, 0.5, 9.736634, 3, 4, 5;
+Det 3 : 3 , 15.35379, 1.017113, 5, 0.5, 5.959669, 3, 4, 5;
+Det 4 : 4 , 11.9201, 0.8875281, 7, 0.5, 8.007686, 3, 4, 5;
+Det 5 : 5 , 12.76903, 1.078329, 9, 0.5, 8.985197, 3, 4, 5;
+Det 6 : 6 , 16.40818, 0.9797823, 11, 0.5, 7.642242, 3, 4, 5;
+Det 7 : 7 , 18.70359, 1.711795, 13, 0.5, 8.310329, 3, 4, 5;
+Det 8 : 8 , 18.53692, 1.507458, 15, 0.5, 8.434847, 3, 4, 5;
+Det 9 : 9 , 13.27003, 1.430873, 17, 0.5, 5.582133, 3, 4, 5;
+Det 10 : 10 , 13.85825, 1.189148, 19, 0.5, 7.941356, 3, 4, 5;
+
+##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 39,  -64.02,  26500,  -64.01,  -63.99,  2.64,  1.36,  1.5,  0.3, 0, 19.5;
