@@ -21,16 +21,16 @@ cores_v2 <- read_csv("https://raw.githubusercontent.com/Smithsonian/CCRCN-Data-L
                           "mudflat" = "unvegetated",
                           # we'll be comparing sampled cores to mapped habitat in which seagress, kelp, and algal mats are grouped together
                           "seagrass" = "EAB",
-                          "algal mat" = "EAB")) %>% 
+                          "algal mat" = "EAB"))
   ## SPOT FIXES
-  mutate(habitat = case_when(core_id == "ELM1812-MFA1" ~ "mudflat",
-                             study_id %in% c("Boyd_et_al_2017", "Watson_and_Byrne_2013", "Thom_1992",
-                                             "Drexler_et_al_2019", "Carlin_et_al_2021") ~ "marsh",
-                             core_id == "W4" ~ "marsh",
-                             core_id %in% c("W1", "W2", "W2") ~ "swamp",
-                             study_id == "Kauffman_et_al_2020" & vegetation_class == "forested" ~ "swamp",
-                             # "Krauss_et_al_2018" and "Ensign_et_al_2020" is a mix of marsh and swamp..too much work to assign these right now
-                             T ~ habitat))
+  # mutate(habitat = case_when(core_id == "ELM1812-MFA1" ~ "mudflat",
+  #                            study_id %in% c("Boyd_et_al_2017", "Watson_and_Byrne_2013", "Thom_1992",
+  #                                            "Drexler_et_al_2019", "Carlin_et_al_2021") ~ "marsh",
+  #                            core_id == "W4" ~ "marsh",
+  #                            core_id %in% c("W1", "W2", "W2") ~ "swamp",
+  #                            study_id == "Kauffman_et_al_2020" & vegetation_class == "forested" ~ "swamp",
+  #                            # "Krauss_et_al_2018" and "Ensign_et_al_2020" is a mix of marsh and swamp..too much work to assign these right now
+  #                            T ~ habitat))
 
 
 ## Version 1 Scores ####
@@ -179,7 +179,7 @@ rmarkdown::render(input = "blue_carbon_data_inventory/scripts/bcdi_report.Rmd",
 ## Investigate Specific studies 
 
 new_cores <- cores_v2 %>% 
-  filter(!(core_id %in% unique(cores_v1$core_id))) %>% 
-  select(study_id, state, habitat, contains("qual_code")) %>% 
-  distinct()
+  filter(!(core_id %in% unique(cores_v1$core_id))) 
+  # select(study_id, state, habitat, contains("qual_code")) %>% 
+  # distinct()
 

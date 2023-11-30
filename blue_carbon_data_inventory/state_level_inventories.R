@@ -7,8 +7,8 @@ source("blue_carbon_data_inventory/scripts/inventory_functions.R")
 full_mapped_and_core_props_long <- habitatProportions(cores_v2) %>% 
   gather(key = "sampled_v_area", value = "proportion", -c(state, habitat_simplified)) %>% 
   mutate(sampled_v_area = str_replace_all(sampled_v_area, "state_core_proportion", "sampled"),
-         sampled_v_area = str_replace_all(sampled_v_area, "mapped_proportion", "estimated area"),
-         state = factor(state, rev(unique(full_mapped_and_core_proprtions$state))))
+         sampled_v_area = str_replace_all(sampled_v_area, "mapped_proportion", "estimated area"))
+         # state = factor(state, rev(unique(full_mapped_and_core_proprtions$state))))
   # rename(state_abbrv = state) 
   # left_join(state_lookup)
 
@@ -49,10 +49,12 @@ full_mapped_and_core_props_long %>%
   coord_flip() +
   theme_bw() +
   theme(axis.text.y = element_text(size = 10)) +
-  ylab("Proportion") + xlab("Habitat")
+  ylab("Proportion") + xlab("Habitat") +
+  ggtitle("Washington Estimated vs. Sampled Habitat")
+  
   # labs(caption = fig_citation) +
   # ggtitle(str_c(temp_state, "State Estimated and Sampled Habitat", sep = " "))
-
+ggsave("blue_carbon_data_inventory/figures/cerf_figs/WA_habitat.jpg")
 
 ## Tiers
 
