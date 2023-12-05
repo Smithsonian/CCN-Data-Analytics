@@ -31,7 +31,7 @@ sourceSynthesis <- function(){
 
 quantityMetric <- function(cores){
   
-  wetland_area <- read_csv("database_inventory/data/derived/wetland_area/state_wetland_area.csv")
+  wetland_area <- read_csv("blue_carbon_data_inventory/data/derived/wetland_area/state_wetland_area.csv")
   
   core_quantity <- cores %>% 
     group_by(state) %>% 
@@ -56,7 +56,7 @@ quantityMetric <- function(cores){
 
 qualityMetric <- function(cores){
   
-  wetland_area <- read_csv("database_inventory/data/derived/wetland_area/state_wetland_area.csv")
+  wetland_area <- read_csv("blue_carbon_data_inventory/data/derived/wetland_area/state_wetland_area.csv")
   
   core_quality <- cores %>% 
     # count the number of cores per state with good quality data (for stocks, dates, or elevation)
@@ -97,7 +97,7 @@ spatialMetric <- function(cores){
                             crs = "+proj=aea +ellps=WGS84 +lat_1=29.5 +lat_2=45.5 +lon_0=-96 +x_0=0 +y_0=0")
   
   # Import HUC8 watershed data
-  huc8shp <- st_read("database_inventory/data/shapefiles/coastal_HUC8s/HUC8_AllTidalNwiAndNonTidalPlusFarmedBelowMHHWS_ObviousOutliersRemoved.shp",
+  huc8shp <- st_read("blue_carbon_data_inventory/data/shapefiles/coastal_HUC8s/HUC8_AllTidalNwiAndNonTidalPlusFarmedBelowMHHWS_ObviousOutliersRemoved.shp",
                      stringsAsFactors = F)
   
   # Common projection for watersheds
@@ -105,7 +105,7 @@ spatialMetric <- function(cores){
                               crs = "+proj=aea +ellps=WGS84 +lat_1=29.5 +lat_2=45.5 +lon_0=-96 +x_0=0 +y_0=0")
   
   # Import states
-  states <- st_read("database_inventory/data/shapefiles/us_states/states_coastline_boundaries/cb_2017_us_state_500k.shp",
+  states <- st_read("blue_carbon_data_inventory/data/shapefiles/us_states/states_coastline_boundaries/cb_2017_us_state_500k.shp",
                     stringsAsFactors = F)
   
   # Common projection for states
@@ -209,7 +209,7 @@ spatialMetric <- function(cores){
 
 habitatProportions <- function(cores){
   
-  output_states_scaled_simplified <- read_csv("database_inventory/data/derived/wetland_area/state_habitat_wetland_area.csv")
+  output_states_scaled_simplified <- read_csv("blue_carbon_data_inventory/data/derived/wetland_area/state_habitat_wetland_area.csv")
   
   # Simplify habitat categories
   cores_habitat_simplified <- cores %>% 
