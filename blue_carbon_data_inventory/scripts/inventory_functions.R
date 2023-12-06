@@ -5,35 +5,35 @@
 
 ## Source synthesis data
 
-sourceSynthesis <- function(){
-  library_url <- "https://raw.githubusercontent.com/Smithsonian/CCRCN-Data-Library/main/data/CCRCN_synthesis/"
-  
-  ## Core Synthesis ####
-  # read in core table from the CCRCN Data Library (with assigned geography)
-  cores <- read_csv(paste0(library_url, "CCRCN_cores.csv"), col_types = cols(.default = "c"))
-  
-  # subset core data for CONUS cores
-  coastal_cores <- cores %>% 
-    rename(state = admin_division) %>%
-    filter(country == "United States") %>%
-    filter(state != "Puerto Rico" & state != "Hawaii") %>%
-    mutate(habitat = recode(habitat, 
-                            "mudflat" = "unvegetated",
-                            # we'll be comparing sampled cores to mapped habitat in which seagress, kelp, and algal mats are grouped together
-                            "seagrass" = "EAB",
-                            "algal mat" = "EAB"))
-  
-  return(coastal_cores)
-}
+# sourceSynthesis <- function(){
+#   library_url <- "https://raw.githubusercontent.com/Smithsonian/CCRCN-Data-Library/main/data/CCRCN_synthesis/"
+#   
+#   ## Core Synthesis ####
+#   # read in core table from the CCRCN Data Library (with assigned geography)
+#   cores <- read_csv(paste0(library_url, "CCRCN_cores.csv"), col_types = cols(.default = "c"))
+#   
+#   # subset core data for CONUS cores
+#   coastal_cores <- cores %>% 
+#     rename(state = admin_division) %>%
+#     filter(country == "United States") %>%
+#     filter(state != "Puerto Rico" & state != "Hawaii") %>%
+#     mutate(habitat = recode(habitat, 
+#                             "mudflat" = "unvegetated",
+#                             # we'll be comparing sampled cores to mapped habitat in which seagress, kelp, and algal mats are grouped together
+#                             "seagrass" = "EAB",
+#                             "algal mat" = "EAB"))
+#   
+#   return(coastal_cores)
+# }
 
 
 ## Quantity ####
 
-quantityMetric <- function(cores){
+quantityMetric <- function(df){
   
   wetland_area <- read_csv("blue_carbon_data_inventory/data/derived/wetland_area/state_wetland_area.csv")
   
-  core_quantity <- cores %>% 
+  core_quantity <- df %>% 
     group_by(state) %>% 
     summarise(n = n()) %>% # calculate number of cores per state
     ungroup() %>% 
@@ -54,11 +54,11 @@ quantityMetric <- function(cores){
 
 ## Quality ####
 
-qualityMetric <- function(cores){
+qualityMetric <- function(df){
   
   wetland_area <- read_csv("blue_carbon_data_inventory/data/derived/wetland_area/state_wetland_area.csv")
   
-  core_quality <- cores %>% 
+  core_quality <- df %>% 
     # count the number of cores per state with good quality data (for stocks, dates, or elevation)
     filter(stocks_qual_code == "C1" | 
              dates_qual_code == "B1" | 
@@ -82,12 +82,12 @@ qualityMetric <- function(cores){
 
 ## Spatial ####
 
-spatialMetric <- function(cores){
+spatialMetric <- function(df){
   
   projcrs <- "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"
   
   # set cores as simple feature
-  cores_sf <- st_as_sf(cores,
+  cores_sf <- st_as_sf(df,
                        coords = c("longitude", "latitude"),
                        crs = projcrs)
   
@@ -207,12 +207,12 @@ spatialMetric <- function(cores){
 
 # Habitat Metric ####
 
-habitatProportions <- function(cores){
+habitatProportions <- function(df){
   
   output_states_scaled_simplified <- read_csv("blue_carbon_data_inventory/data/derived/wetland_area/state_habitat_wetland_area.csv")
   
   # Simplify habitat categories
-  cores_habitat_simplified <- cores %>% 
+  cores_habitat_simplified <- df %>% 
     # If any of: marsh, scrub/shrub, swamp, mangrove, then let the definition stand
     mutate(habitat_simplified = ifelse(habitat %in% c("marsh", "scrub/shrub", "mangrove", "swamp", "scrub shrub"),
                                        habitat,
@@ -248,9 +248,9 @@ habitatProportions <- function(cores){
   
 # full_mapped_and_core_proprtions <- habitatProportions(cores)
 
-habitatMetric <- function(cores){
+habitatMetric <- function(df){
   # call function which calculates mapped vs sampled proportions
-  full_mapped_and_core_proprtions <- habitatProportions(cores)
+  full_mapped_and_core_proprtions <- habitatProportions(df)
   
   state_level_euclidean_distance <- full_mapped_and_core_proprtions %>% 
     # mutate to get the difference for each state
@@ -290,25 +290,28 @@ habitatMetric <- function(cores){
 #        width = 3.5,
 #        height= 3.5, dpi=300)
 
-compositeMetricScore <- function(cores){
+compositeMetricScore <- function(df){
   
-  # run all metric-calculating functions
-  ranked_quantity <- quantityMetric(cores)
-  ranked_quality <- qualityMetric(cores)
-  ranked_spatial <- spatialMetric(cores)
-  ranked_habitat <- habitatMetric(cores)
-  
-  # Calculate composite score from rankings ####
-  join_ranks <- ranked_quantity %>% 
-    full_join(ranked_quality) %>% 
-    full_join(ranked_spatial) %>% 
-    full_join(ranked_habitat) %>% 
-    # set the maximum rank
-    mutate_at(vars(quantity_metric_rank, quality_metric_rank, spatial_metric_rank, habitat_metric_rank), 
-              ~ifelse(is.na(.), 23, .))
+  # # run all metric-calculating functions
+  # ranked_quantity <- quantityMetric(df)
+  # ranked_quality <- qualityMetric(df)
+  # ranked_spatial <- spatialMetric(df)
+  # ranked_habitat <- habitatMetric(df)
+  # 
+  # # Calculate composite score from rankings ####
+  # join_ranks <- ranked_quantity %>% 
+  #   full_join(ranked_quality) %>% 
+  #   full_join(ranked_spatial) %>% 
+  #   full_join(ranked_habitat) %>% 
+  #   # set the maximum rank
+  #   mutate_at(vars(quantity_metric_rank, quality_metric_rank, spatial_metric_rank, habitat_metric_rank), 
+  #             ~ifelse(is.na(.), 23, .))
   
   # calculate composite score
-  rankings <- join_ranks %>% 
+  rankings <- df %>% 
+    # set the maximum rank
+    mutate_at(vars(quantity_metric_rank, quality_metric_rank, spatial_metric_rank, habitat_metric_rank),
+              ~ifelse(is.na(.), 23, .)) %>% 
     mutate_at(vars(-state), as.numeric) %>% 
     mutate(total_metric_rank = (quantity_metric_rank + quality_metric_rank + spatial_metric_rank + habitat_metric_rank) / 4,
            total_metric_weight = quantity_metric_weight + quality_metric_weight + spatial_metric_weight + habitat_metric_weight) %>% 

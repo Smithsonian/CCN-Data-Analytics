@@ -13,64 +13,18 @@ output:
 
 ```{r setup, include=FALSE}
 # this sets the working directory to start where the R project is located
-knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+# knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
 
 # no warnings or messages
-# knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE)
 
-# load libraries
-library(tidyverse)
-library(sf)
-library(rnaturalearth)
 ```
 
-```{r inventory, echo=FALSE, warning=FALSE, message=FALSE, eval=FALSE}
-
-# source inventorying functions
-source("database_inventory/scripts/inventory_functions.R")
-
-# Import Core Data
-cores_v1 <- read_csv("database_inventory/data/synthesis/v1/CONUS_cores.csv", guess_max = 7000)
-cores_v2 <- sourceSynthesis()
-```
-
-## Report Card Scores
+## Report Card Score Breakdown
 
 ### First Iteration
 
-```{r v1-report, echo=FALSE, warning=FALSE, message=FALSE, fig.height=12, fig.width=12, eval=FALSE}
-
-# inventory the data and compute metrics
-scores_v1 <- compositeMetricScore(cores_v1)
-
-## Create Report Card Figure
-
-ggplot(scores_v1, aes(y = metric, x = state)) +
-  geom_raster(aes(fill = as.character(normalized_rank))) +
-  scale_fill_brewer(palette = "RdYlBu", direction = - 1,
-                    labels = c("Best", "", "", "Fair", "", "", "Poor", "No Data")) +
-  geom_hline(aes(yintercept = 1.5), size = 1) +
-  ylab(NULL) +
-  xlab(NULL) +
-  coord_flip() +
-  # theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust=1, size = 12),
-        legend.title = element_blank()) +
-  ggtitle("State-Level Blue Carbon Data Report Card")
-
-# extract the fill colors used by ggplot
-# g <- ggplot_build(plot)
-# unique(g$data[[1]]["fill"])
-
-# ggsave("figures/blue_carbon_report_card.jpg", width=5, height=5, dpi=300)
-
-
-# ggsave("figures/report_card_variation.jpg")
-
-```
-
-```{r fig.height=12, fig.width=12}
-## Alternative Score Card ####
+```{r v1-report, fig.height=12, fig.width=12}
 
 state_rank <- scores_v1 %>%
   filter(metric == "Total") %>%
@@ -109,34 +63,9 @@ ggsave("blue_carbon_data_inventory/figures/cerf_figs/report_card_v1.jpg", width 
 
 ```
 
-
 ### Second Iteration
 
-```{r v2-report, echo=FALSE, warning=FALSE, message=FALSE, fig.height=12, fig.width=12, eval=FALSE}
-
-
-# inventory the data and compute metrics
-scores_v2 <- compositeMetricScore(cores_v2)
-
-## Create Report Card Figure ####
-
-ggplot(scores_v2, aes(y = metric, x = state)) +
-  geom_raster(aes(fill = as.character(normalized_rank))) +
-  scale_fill_brewer(palette = "RdYlBu", direction = - 1,
-                    labels = c("Best", "", "", "Fair", "", "", "Poor", "No Data")) +
-  geom_hline(aes(yintercept = 1.5), size = 1) +
-  ylab(NULL) +
-  xlab(NULL) +
-  coord_flip() +
-  # theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust=1, size = 12),
-        legend.title = element_blank()) +
-  ggtitle("State-Level Blue Carbon Data Report Card")
-
-```
-
-```{r fig.height=12, fig.width=12}
-## Alternative Score Card ####
+```{r v2-report, fig.height=12, fig.width=12}
 
 state_rank2 <- scores_v2 %>%
   filter(metric == "Total") %>%
@@ -176,15 +105,17 @@ ggsave("blue_carbon_data_inventory/figures/cerf_figs/report_card_v2.jpg", width 
 ## Data Inventory Change
 
 ```{r comparison, echo=FALSE, warning=FALSE, message=FALSE}
-v1 <- read_csv("blue_carbon_data_inventory/tables/state_metrics_v1.csv") %>% 
-  rename(spatial_metric = spatial_representativeness_metric)
+v1 <- v1_metrics %>% 
+  select(-c(contains("_weight"), contains("_rank"), contains("mean_"))) %>% 
+  rename(spatial_metric = spatial_representativeness_metric) %>% 
+  mutate(habitat_metric = ifelse(state == "PA" | state == "DC", NA, habitat_metric))
 
-v2 <- read_csv("blue_carbon_data_inventory/tables/state_metrics_v2.csv") %>% 
-  # make this more elegant in the future
-  rename(quantity_metric_v2 = quantity_metric,
-         quality_metric_v2 = quality_metric,
-         spatial_metric_v2 = spatial_representativeness_metric,
-         habitat_metric_v2 = habitat_metric)
+v2 <- v2_metrics %>% 
+  select(-c(contains("_weight"), contains("_rank"), contains("mean_"))) %>% 
+  rename(spatial_metric = spatial_representativeness_metric) %>% 
+    mutate(habitat_metric = ifelse(state == "PA" | state == "DC", NA, habitat_metric))
+# add v2 to distinquish these metrics in the wide format
+colnames(v2)[2:length(names(v2))] <- paste0(colnames(v2)[2:length(names(v2))], "_v2")
 
 all_metrics <- full_join(v1, v2) %>% 
   mutate(across(everything(), replace_na, 0)) %>% 
@@ -193,49 +124,48 @@ all_metrics <- full_join(v1, v2) %>%
          spatial_diff = spatial_metric_v2 - spatial_metric, 
          hab_diff = habitat_metric_v2 - habitat_metric)
 
-
-# eventually create a plotMetricDiffs() fxn
-
 ```
 
-### State-Based Overview
+<!-- ### State-Based Overview -->
 
-```{r state-change, fig.height=12, fig.width=12}
+```{r state-change, fig.height=12, fig.width=12, eval=FALSE}
 # try a state-based visualization instead
 
-all_metrics_long <- all_metrics %>% 
-  select(state, contains("diff")) %>% 
-  pivot_longer(cols = -state, names_to = "metric", values_to = "change") %>% 
-  mutate(metric = recode(metric, 
-                         "spatial_diff" = "Spatial",
-                         "quant_diff" = "Quantity",
-                         "qual_diff" = "Quality",
-                          "hab_diff" = "Habitat"))
-
-all_metrics_long %>% 
-  ggplot(aes(metric, change, col = metric)) +
-  geom_point(size = 3) +
-  geom_segment(aes(xend = metric, yend = 0)) +
-  coord_flip() +
-  facet_wrap(~state, dir = "v") +
-  theme_bw(base_size = 20) +
-    theme(legend.position = "bottom")
+# all_metrics_long <- all_metrics %>% 
+#   select(state, contains("diff")) %>% 
+#   pivot_longer(cols = -state, names_to = "metric", values_to = "change") %>% 
+#   mutate(metric = recode(metric, 
+#                          "spatial_diff" = "Spatial",
+#                          "quant_diff" = "Quantity",
+#                          "qual_diff" = "Quality",
+#                           "hab_diff" = "Habitat"))
+# 
+# all_metrics_long %>% 
+#   ggplot(aes(metric, change, col = metric)) +
+#   geom_point(size = 3) +
+#   geom_segment(aes(xend = metric, yend = 0)) +
+#   coord_flip() +
+#   facet_wrap(~state, dir = "v") +
+#   theme_bw(base_size = 20) +
+#     theme(legend.position = "bottom")
 
 ```
 
-### Metric-Based Overview
+<!-- ### Metric-Based Overview -->
 
 ```{r metric-change, fig.height=12, fig.width=12, eval=FALSE}
 
-all_metrics_long %>% 
-  ggplot(aes(state, change, col = state)) +
-  geom_point(size = 3) +
-  geom_segment(aes(xend = state, yend = 0)) +
-  coord_flip() +
-  facet_wrap(~metric, nrow = 1) +
-  theme_bw(base_size = 20) +
-  theme(legend.position = "none")
+# all_metrics_long %>% 
+#   ggplot(aes(state, change, col = state)) +
+#   geom_point(size = 3) +
+#   geom_segment(aes(xend = state, yend = 0)) +
+#   coord_flip() +
+#   facet_wrap(~metric, nrow = 1) +
+#   theme_bw(base_size = 20) +
+#   theme(legend.position = "none")
 ```
+
+### Quantity
 
 ```{r echo=FALSE, message=FALSE, fig.width=12, fig.height=7}
 
@@ -257,6 +187,8 @@ all_metrics %>%
 ggsave("blue_carbon_data_inventory/figures/cerf_figs/change_quantity.jpg", width = 6, height = 6)
 ```
 
+### Quality
+
 ```{r echo=FALSE, message=FALSE, fig.width=12, fig.height=7}
 
 all_metrics %>% 
@@ -277,6 +209,8 @@ all_metrics %>%
 ggsave("blue_carbon_data_inventory/figures/cerf_figs/change_quality.jpg", width = 6, height = 6)
 ```
 
+### Spatial Coverage
+
 ```{r echo=FALSE, message=FALSE, fig.width=12, fig.height=7}
 
 all_metrics %>% 
@@ -296,6 +230,8 @@ all_metrics %>%
 
 ggsave("blue_carbon_data_inventory/figures/cerf_figs/change_spatial.jpg", width = 6, height = 6)
 ```
+
+### Habitat Coverage
 
 ```{r echo=FALSE, message=FALSE, fig.width=12, fig.height=7}
 
@@ -318,15 +254,9 @@ ggsave("blue_carbon_data_inventory/figures/cerf_figs/change_habitat.jpg", width 
 
 ```
 
+## Mapping Composite Scores
 
-<!-- ### Mapping Change -->
-
-```{r change-map, echo=FALSE, warning=FALSE, message=FALSE, eval=FALSE}
-
-# Import states
-states <- st_read("database_inventory/data/shapefiles/us_states/states_coastline_boundaries/cb_2017_us_state_500k.shp",
-                  stringsAsFactors = F)
-
+```{r}
 # Common projection for states
 states_aea <- st_transform(states, crs = "+proj=aea +ellps=WGS84 +lat_1=29.5 +lat_2=45.5 +lon_0=-96 +x_0=0 +y_0=0")
 
@@ -334,84 +264,52 @@ states_aea <- st_transform(states, crs = "+proj=aea +ellps=WGS84 +lat_1=29.5 +la
 coastal_states <- states_aea %>% 
   # filter(STUSPS %in% unique(all_metrics$state)) %>% 
   rename(state = STUSPS) %>% 
-  full_join(all_metrics)
-
-# Continental Boundaries
-# map.sf <- ne_countries(scale = 'medium', type = 'map_units', returnclass = 'sf')
-
-# map.na.sf <- map.sf[map.sf$continent == 'North America',]
-
-# map.na.sf.aea <- st_transform(map.na.sf, crs = "+proj=aea +ellps=WGS84 +lat_1=29.5 +lat_2=45.5 +lon_0=-96 +x_0=0 +y_0=0")
+  full_join(all_metrics) %>% 
+  full_join(scores_v1 %>% filter(metric == "Total") %>% select(-metric) %>% rename(normalized_rank_v1 = normalized_rank)) %>% 
+  full_join(scores_v2 %>% filter(metric == "Total") %>% select(-metric) %>% rename(normalized_rank_v2 = normalized_rank)) 
 
 ## Map States with Composite Scores ####
 
 # generate bounding box
-
 b <- st_bbox(coastal_states %>% filter(state %in% unique(all_metrics$state)))
 
-# ggplot score map
+
+```
+
+```{r fig.align='center'}
+# ggplot score map V1
 coastal_states %>% 
-  ggplot(aes(fill = quant_diff, color = quant_diff)) +
+  ggplot(aes(fill = as.character(normalized_rank_v1))) +
   geom_sf() +
-  scale_fill_continuous() +
-  scale_color_continuous() +
-    # project aes w bounding box
+  scale_fill_brewer(palette = "RdYlBu", direction = -1,
+                    name = "Composite Rank",
+                    labels = c("Best", "", "Fair", "", "Poor", "No Data")) +
+  # project aes w bounding box
   coord_sf(xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"]),
            crs="+proj=aea +ellps=WGS84 +lat_1=29.5 +lat_2=45.5 +lon_0=-96 +x_0=0 +y_0=0") +
   # Probably want to take off x and y axes text
   theme_minimal() +
-  ggtitle("Change in the Quantity of Available Blue Carbon Data") +
+  # ggtitle("Change in the Quantity of Available Blue Carbon Data") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-  
+
+# ggplot score map V2
+coastal_states %>% 
+  ggplot(aes(fill = as.character(normalized_rank_v2))) +
+  geom_sf() +
+  # scale_fill_continuous(type = "viridis") +
+  # scale_color_continuous() +
+  scale_fill_brewer(palette = "RdYlBu", direction = -1,
+                    name = "Composite Rank",
+                    labels = c("Best", "", "Fair", "", "Poor", "No Data")) +
+  # project aes w bounding box
+  coord_sf(xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"]),
+           crs="+proj=aea +ellps=WGS84 +lat_1=29.5 +lat_2=45.5 +lon_0=-96 +x_0=0 +y_0=0") +
+  # Probably want to take off x and y axes text
+  theme_minimal() +
+  # ggtitle("Change in the Quantity of Available Blue Carbon Data") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
 ```
 
-
-<!-- ### Quantity -->
-
-```{r eval=FALSE}
-all_metrics %>% 
-  mutate(state = fct_reorder(state, quant_diff)) %>% 
-  ggplot(aes(state, quant_diff)) +
-  geom_point() +
-  geom_segment(aes(xend = state, yend = 0)) + coord_flip() +
-    theme_bw(base_size = 15)
-# states with no change in quantity should not have change in the other metrics...
-
-```
-<!-- ### Quality -->
-
-```{r eval=FALSE}
-
-all_metrics %>% 
-  mutate(state = fct_reorder(state, qual_diff)) %>% 
-  ggplot(aes(state, qual_diff)) +
-  geom_point() +
-  geom_segment(aes(xend = state, yend = 0)) + coord_flip() +
-    theme_bw(base_size = 15)
-```
-
-<!-- ### Spatial Representativeness -->
-
-```{r eval=FALSE}
-all_metrics %>% 
-  mutate(state = fct_reorder(state, spatial_diff)) %>% 
-  ggplot(aes(state, spatial_diff)) +
-  geom_point() +
-  geom_segment(aes(xend = state, yend = 0)) + coord_flip() +
-    theme_bw(base_size = 15)
-# negative means the sampling became more clustered
-# positive means it became more well-dispersed
-```
-
-<!-- ### Habitat Representativeness -->
-
-```{r eval=FALSE}
-all_metrics %>% 
-  mutate(state = fct_reorder(state, hab_diff)) %>% 
-  ggplot(aes(state, hab_diff)) +
-  geom_point() +
-  geom_segment(aes(xend = state, yend = 0)) + coord_flip() +
-    theme_bw(base_size = 15)
-```
 
 
