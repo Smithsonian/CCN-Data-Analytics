@@ -5,7 +5,7 @@ ccn_cars <- read_csv("carbon_accumulation_rates/output/ccn_car_210Pb.csv")
 
 ccn_cars_cs <- read_csv("carbon_accumulation_rates/output/cs_and_horizon_car.csv")
 
-lit_all <- read_csv("coastal_wetland_nggi/data/derived/lit_review_processed_all.csv")
+lit_all <- read_csv("coastal_wetland_nggi/report/lit_review_processed_all.csv")
 
 # Pb-210 
 {
@@ -117,7 +117,7 @@ ggplot(graph_intercomparison, aes(x = `literature values`, y = `algorithm output
   theme(legend.title = element_blank(), legend.position = "bottom") +
   guides(color=guide_legend(nrow=3))
 
-ggsave("output/figs/Comparison of Lit-Review and Automated Output.pdf", width = 6.33, height = 4)
+ggsave("carbon_accumulation_rates/output/figs/Comparison of Lit-Review and Automated Output.pdf", width = 6.33, height = 4)
 
 
 

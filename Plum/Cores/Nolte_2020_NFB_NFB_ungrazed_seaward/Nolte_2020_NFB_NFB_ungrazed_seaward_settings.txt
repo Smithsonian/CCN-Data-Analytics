@@ -3,9 +3,9 @@
 1 #d.by
 FALSE #depths.file
  #slump
-3.33 #acc.mean
+5 #acc.mean
 1.5 #acc.shape
-0.5 #mem.mean
+0.66 #mem.mean
 4 #mem.strength
 NA #boundary
 NA #hiatus.depths

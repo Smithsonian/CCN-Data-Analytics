@@ -1,10 +1,5 @@
 ﻿study_id,site_id,core_id,reason
 Baustian_et_al_2021,Terrebonne basin,4045,Did not converge on a single solution
-Okeefe-Suttles_et_al_2021_RI,Narragansett Bay,RI_MCA,Convergence does not make sense.
-Okeefe-Suttles_et_al_2021_RI,Narragansett Bay,RI_MDA,Convergence does not make sense.
-Okeefe-Suttles_et_al_2021_RI,Narragansett Bay,RI_MDB,Convergence does not make sense.
-Okeefe-Suttles_et_al_2021_RI,Narragansett Bay,RI_PIA,Convergence does not make sense.
-Okeefe-Suttles_et_al_2021_RI,Narragansett Bay,RI_PIB,Convergence does not make sense.
 Poppe_et_al_2019,Snohomish_Smith_Island_City,SS_B,Convergence does not make sense.
 Snedden_2018,253,253_1,Convergence does not make sense.
 Snedden_2018,273,273_1,Convergence does not make sense.

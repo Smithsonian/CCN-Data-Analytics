@@ -1,4 +1,4 @@
-## Ran on Mon Dec  4 17:04:45 2023 
+## Ran on Wed Dec  6 12:50:09 2023 
 
 Cal 0 : ConstCal;
 Cal 1 : IntCal20, 0;
@@ -6,9 +6,9 @@ Cal 2 : Marine20;
 Cal 3 : SHCal20, 0;
 Cal 4 : ConstCal;
 ##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
-Cal 5 : Plum, 2, 50, 5, 10, 0.1, 1934, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Okeefe_Suttles_et_al_2021_RI_Narragansett_Bay_RI_PIB/Okeefe_Suttles_et_al_2021_RI_Narragansett_Bay_RI_PIB_47.plum;
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -66, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Okeefe_Suttles_et_al_2021_RI_Narragansett_Bay_RI_PIB/Okeefe_Suttles_et_al_2021_RI_Narragansett_Bay_RI_PIB_47.plum;
 ##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
-Det 0 : NA , 300.4767, 132706.4, 0, 1, 1.095, 3, 4, 5;
+Det 0 : NA , 300.4767, 1e+05, 0, 1, 1.095, 3, 4, 5;
 Det 1 : 1 , 300.4767, 12.88625, 1, 1, 1.095, 3, 4, 5;
 Det 2 : 2 , 121.5, 9.146949, 2, 1, 1.89, 3, 4, 5;
 Det 3 : 3 , 87.55833, 7.886345, 3, 1, 1.727, 3, 4, 5;
@@ -17,7 +17,7 @@ Det 5 : 5 , 110.195, 8.618456, 5, 1, 2.21, 3, 4, 5;
 Det 6 : 6 , 123.1167, 8.445906, 6, 1, 1.987, 3, 4, 5;
 Det 7 : 7 , 119.7133, 7.736996, 7, 1, 2.218, 3, 4, 5;
 Det 8 : 8 , 100.48, 8.113774, 8, 1, 2.341, 3, 4, 5;
-Det 9 : Cs_1 , -26.52083, 132.7064, 8.5, 1, 0, 3, 4, 0;
+Det 9 : Cs_1 , -12.63194, 3.612449, 8.5, 1, 0, 3, 4, 0;
 Det 10 : 9 , 137.2567, 7.621242, 9, 1, 2.406, 3, 4, 5;
 Det 11 : 10 , 100.91, 7.451696, 10, 1, 2.08, 3, 4, 5;
 Det 12 : 11 , 80.22333, 6.03232, 11, 1, 2.659, 3, 4, 5;
@@ -55,4 +55,4 @@ Det 43 : 45 , 4.131667, 7.794229, 45, 1, 2.007, 3, 4, 5;
 Det 44 : 46 , 0.2816667, 6.869821, 46, 1, 1.624, 3, 4, 5;
 
 ##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
-Bacon 0: FixT, 47,  1933.98,  26500,  1933.99,  1934.01,  2.64,  1.36,  1.5,  0.3, 0, 47;
+Bacon 0: FixT, 47,  -66.02,  26500,  -66.01,  -65.99,  2.64,  1.36,  1.5,  0.3, 0, 47;

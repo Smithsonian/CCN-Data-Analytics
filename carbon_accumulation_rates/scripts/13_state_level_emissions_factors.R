@@ -4,7 +4,7 @@ library(tidyverse)
 
 impacts <- read_csv("data/CCN_impacts.csv")
 
-ccn_cars <- read_csv("carbon_accumulation_rates/ccn_car_210Pb.csv") %>% 
+ccn_cars <- read_csv("carbon_accumulation_rates/output/ccn_car_210Pb.csv") %>% 
   filter(!is.na(carbon_accumulation_mean),
          country == "United States",
          habitat %in% c("marsh", "mangrove", "swamp", "seagrass")) %>% 
@@ -85,7 +85,7 @@ ggplot(ccn_cars_natural, aes(x = carbon_accumulation_mean)) +
   scale_fill_manual(values = cbp2) +
   scale_color_manual(values = cbp2)
 
-ggsave("State Level Carbon Burial Distribution.pdf", width = 7.25, height = 5)
+ggsave("carbon_accumulation_rates/output/figs/State Level Carbon Burial Distribution.pdf", width = 7.25, height = 5)
 
 View(ccn_cars %>% 
        filter(admin_division == "Rhode Island", ! is.na(carbon_accumulation_mean)) %>% 
@@ -169,7 +169,7 @@ ggplot(ccn_cars_natural2, aes(x = carbon_accumulation_mean)) +
   scale_fill_manual(values = cbp2) +
   scale_color_manual(values = cbp2)
 
-ggsave("State Level Carbon Burial Distribution.pdf", width = 7.25, height = 5)
+ggsave("carbon_accumulation_rates/output/figs/State Level Carbon Burial Distribution Horizons.pdf", width = 7.25, height = 5)
 
 View(ccn_cars %>% 
        filter(admin_division == "Rhode Island", ! is.na(carbon_accumulation_mean)) %>% 

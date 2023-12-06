@@ -1,4 +1,4 @@
-## Ran on Mon Dec  4 18:17:25 2023 
+## Ran on Wed Dec  6 12:47:50 2023 
 
 Cal 0 : ConstCal;
 Cal 1 : IntCal20, 0;
@@ -6,7 +6,7 @@ Cal 2 : Marine20;
 Cal 3 : SHCal20, 0;
 Cal 4 : ConstCal;
 ##          alPhi mPhi  alS  mS     Al   theta0  Radon_case  supported_data_file
-Cal 5 : Plum, 2, 50, 5, 10, 0.1, 1934, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Okeefe_Suttles_et_al_2021_RI_Narragansett_Bay_RI_PIA/Okeefe_Suttles_et_al_2021_RI_Narragansett_Bay_RI_PIA_47.plum;
+Cal 5 : Plum, 2, 50, 5, 10, 0.1, -66, 1, D:\_GitHub\CCN-Data-Analytics\Plum\Cores/Okeefe_Suttles_et_al_2021_RI_Narragansett_Bay_RI_PIA/Okeefe_Suttles_et_al_2021_RI_Narragansett_Bay_RI_PIA_47.plum;
 ##    , labID, X210Pb.Bq.kg., sd.210Pb., depth.cm., thickness.cm., density.g.cm.3., t.a, t.b, cc,  ... Plum: 210Pb data
 Det 0 : NA , 328.4617, 1e+05, 0, 1, 0.965, 3, 4, 5;
 Det 1 : 1 , 328.4617, 15.33194, 1, 1, 0.965, 3, 4, 5;
@@ -55,4 +55,4 @@ Det 43 : 43 , 15.78833, 7.485424, 45, 1, 2.19, 3, 4, 5;
 Det 44 : 44 , 10.935, 6.611068, 46, 1, 2.514, 3, 4, 5;
 
 ##		 K   MinAge   MaxAge   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
-Bacon 0: FixT, 47,  1933.98,  26500,  1933.99,  1934.01,  2,  2,  1.5,  0.6, 0, 47;
+Bacon 0: FixT, 47,  -66.02,  26500,  -66.01,  -65.99,  2.64,  1.36,  1.5,  0.3, 0, 47;
