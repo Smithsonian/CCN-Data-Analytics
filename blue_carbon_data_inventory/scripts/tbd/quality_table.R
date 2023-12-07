@@ -4,7 +4,10 @@
 library(tidyverse)
 
 # read in data
-cores <- read_csv("usa/data/derived/CONUS_cores.csv", guess_max = 7000)
+cores <- read_csv("data/CCN_cores.csv", guess_max = 10000) %>% 
+  filter(country == "United States") %>%
+  rename(state = admin_division) %>% 
+  filter(state != "Puerto Rico" & state != "Hawaii" & state != "Alaska")
 
 ## Quality metric table
 

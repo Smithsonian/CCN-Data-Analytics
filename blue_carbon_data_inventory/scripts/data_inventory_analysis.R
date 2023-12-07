@@ -41,6 +41,8 @@ v1_metrics <- v1_quantity %>% full_join(v1_quality) %>% full_join(v1_spatial) %>
 # inventory the data and compute metrics
 scores_v1 <- compositeMetricScore(v1_metrics)
 
+# habitat breakdown
+# v1_habitat_detailed <- habitatProportions(v1_cores)
 
 ## Version 2 Scores ####
 
@@ -57,6 +59,9 @@ v2_metrics <- v2_quantity %>% full_join(v2_quality) %>% full_join(v2_spatial) %>
 # inventory the data and compute metrics
 scores_v2 <- compositeMetricScore(v2_metrics)
 
+# habitat breakdown
+v2_habitat_detailed <- habitatProportions(v2_cores)
+
 ## Blue Carbon Data Inventory Report ####
 
 # Import states (for the BCDI report)
@@ -71,4 +76,3 @@ rmarkdown::render(input = "blue_carbon_data_inventory/scripts/bcdi_report.Rmd",
                   # output_format = "html_document",
                   output_file = paste0("bcdi_report_", url_date),
                   output_dir = "blue_carbon_data_inventory/inventory_reports/")
-

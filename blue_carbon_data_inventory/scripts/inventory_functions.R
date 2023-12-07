@@ -3,30 +3,6 @@
 ## Utility functions for data inventorying
 ## Generates metrics provided synthesis data
 
-## Source synthesis data
-
-# sourceSynthesis <- function(){
-#   library_url <- "https://raw.githubusercontent.com/Smithsonian/CCRCN-Data-Library/main/data/CCRCN_synthesis/"
-#   
-#   ## Core Synthesis ####
-#   # read in core table from the CCRCN Data Library (with assigned geography)
-#   cores <- read_csv(paste0(library_url, "CCRCN_cores.csv"), col_types = cols(.default = "c"))
-#   
-#   # subset core data for CONUS cores
-#   coastal_cores <- cores %>% 
-#     rename(state = admin_division) %>%
-#     filter(country == "United States") %>%
-#     filter(state != "Puerto Rico" & state != "Hawaii") %>%
-#     mutate(habitat = recode(habitat, 
-#                             "mudflat" = "unvegetated",
-#                             # we'll be comparing sampled cores to mapped habitat in which seagress, kelp, and algal mats are grouped together
-#                             "seagrass" = "EAB",
-#                             "algal mat" = "EAB"))
-#   
-#   return(coastal_cores)
-# }
-
-
 ## Quantity ####
 
 quantityMetric <- function(df){
@@ -50,7 +26,6 @@ quantityMetric <- function(df){
   return(core_quantity)
 }
 
-# quantity_v1 <- quantityMetric(cores)
 
 ## Quality ####
 
@@ -78,7 +53,6 @@ qualityMetric <- function(df){
   return(core_quality)
 }
 
-# quality_v1 <- qualityMetric(cores)
 
 ## Spatial ####
 
@@ -177,35 +151,7 @@ spatialMetric <- function(df){
   return(spatial_metric_table)
 }
 
-# spatial_v1 <- spatialMetric(cores)
-# 
-# # plot spatial ranks
-# spatial_rep_by_state %>% 
-#   mutate(state = fct_reorder(state, spatial_representativeness_metric)) %>% 
-#   ggplot(aes(x = state, y = spatial_representativeness_metric)) +
-#   geom_point() +
-#   geom_segment(aes(xend=state, yend=0)) +
-#   xlab(element_blank()) +
-#   ylab("Spatial Representativeness Score") +
-#   coord_flip()
-
-# will be included in the quadrat figure
-# ggsave("figures/spatial_rep_by_state.jpg", width=3.54, height=3.54)
-# ggsave("figures/spatial_rep_by_state.pdf", width=3.54, height=3.54)
-
-# write_csv(spatial_rep_by_state, "data/report_data/spatial_rep_by_state.csv")
-
 ## Habitat Mapped Area Estimation ####
-
-# Script calculates state-level habitat representativeness metric
-
-# read in data
-# output_states_scaled_habitat_ha <- read_csv("data/derived/ccap_state_wetland_area_habitat.csv")
-# output_states_scaled_ha <- read_csv("data/derived/ccap_state_wetland_area.csv")
-# cores <- read_csv("data/derived/CONUS_cores.csv", guess_max = 7000)
-
-
-# Habitat Metric ####
 
 habitatProportions <- function(df){
   
@@ -241,12 +187,10 @@ habitatProportions <- function(df){
   # Turn NA values for core representativeness into 0's
   full_mapped_and_core_proprtions[is.na(full_mapped_and_core_proprtions)] <- 0
   
-  # write_csv(full_mapped_and_core_proprtions, "data/report_data/mapped_and_cored_habitat_proportions.csv")
-  
   return(full_mapped_and_core_proprtions)
 }
   
-# full_mapped_and_core_proprtions <- habitatProportions(cores)
+# Habitat Metric ####
 
 habitatMetric <- function(df){
   # call function which calculates mapped vs sampled proportions
@@ -271,41 +215,9 @@ habitatMetric <- function(df){
   return(state_level_euclidean_distance)  
 }
 
-# habitat_v1 <- habitatMetric(cores)
-# why is DC and PA showing up?
-
-# Write Csv (will be different for different versions of the synthesis)
-# write_csv(state_level_euclidean_distance, "data/report_data/habitat_representativeness_metric.csv")
-
-# should be higher for states that are out of sync and lower for states more in sync.
-# ggplot(data = habitat_v1, aes(x = reorder(state, habitat_metric), y = habitat_metric)) +
-#   geom_point(pch=16) +
-#   geom_segment(aes(xend=state, yend=0)) +
-#   xlab("Top to Bottom; More to Less Represtative") +
-#   ylab("Euclidean Distance") +
-#   ggtitle("Habitat Representativeness Metric") +
-#   coord_flip()
-
-# ggsave("figures/Euclidean Distance Mapped vs Cored Habitats.jpg",
-#        width = 3.5,
-#        height= 3.5, dpi=300)
+## Composite Scoring ####
 
 compositeMetricScore <- function(df){
-  
-  # # run all metric-calculating functions
-  # ranked_quantity <- quantityMetric(df)
-  # ranked_quality <- qualityMetric(df)
-  # ranked_spatial <- spatialMetric(df)
-  # ranked_habitat <- habitatMetric(df)
-  # 
-  # # Calculate composite score from rankings ####
-  # join_ranks <- ranked_quantity %>% 
-  #   full_join(ranked_quality) %>% 
-  #   full_join(ranked_spatial) %>% 
-  #   full_join(ranked_habitat) %>% 
-  #   # set the maximum rank
-  #   mutate_at(vars(quantity_metric_rank, quality_metric_rank, spatial_metric_rank, habitat_metric_rank), 
-  #             ~ifelse(is.na(.), 23, .))
   
   # calculate composite score
   rankings <- df %>% 
