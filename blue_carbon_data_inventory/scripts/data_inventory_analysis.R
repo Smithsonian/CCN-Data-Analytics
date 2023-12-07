@@ -60,7 +60,7 @@ v2_metrics <- v2_quantity %>% full_join(v2_quality) %>% full_join(v2_spatial) %>
 scores_v2 <- compositeMetricScore(v2_metrics)
 
 # habitat breakdown
-v2_habitat_detailed <- habitatProportions(v2_cores)
+# v2_habitat_detailed <- habitatProportions(v2_cores)
 
 ## Blue Carbon Data Inventory Report ####
 

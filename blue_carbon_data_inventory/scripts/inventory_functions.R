@@ -7,7 +7,7 @@
 
 quantityMetric <- function(df){
   
-  wetland_area <- read_csv("blue_carbon_data_inventory/data/derived/wetland_area/state_wetland_area.csv")
+  wetland_area <- read_csv("blue_carbon_data_inventory/data/wetland_area/state_wetland_area.csv")
   
   core_quantity <- df %>% 
     group_by(state) %>% 
@@ -31,7 +31,7 @@ quantityMetric <- function(df){
 
 qualityMetric <- function(df){
   
-  wetland_area <- read_csv("blue_carbon_data_inventory/data/derived/wetland_area/state_wetland_area.csv")
+  wetland_area <- read_csv("blue_carbon_data_inventory/data/wetland_area/state_wetland_area.csv")
   
   core_quality <- df %>% 
     # count the number of cores per state with good quality data (for stocks, dates, or elevation)
@@ -155,7 +155,7 @@ spatialMetric <- function(df){
 
 habitatProportions <- function(df){
   
-  output_states_scaled_simplified <- read_csv("blue_carbon_data_inventory/data/derived/wetland_area/state_habitat_wetland_area.csv")
+  output_states_scaled_simplified <- read_csv("blue_carbon_data_inventory/data/wetland_area/state_habitat_wetland_area.csv")
   
   # Simplify habitat categories
   cores_habitat_simplified <- df %>% 
