@@ -13,16 +13,65 @@ output:
 
 ```{r setup, include=FALSE}
 # this sets the working directory to start where the R project is located
-# knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
 
 # no warnings or messages
-knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE)
+# knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE)
 
 ```
 
-## Report Card Score Breakdown
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+# Assemble all metrics in one table
+v1 <- v1_metrics %>% 
+  select(-c(contains("_weight"), contains("_rank"), contains("mean_"))) %>% 
+  rename(spatial_metric = spatial_representativeness_metric) %>% 
+  mutate(habitat_metric = ifelse(state == "PA" | state == "DC", NA, habitat_metric))
 
-### First Iteration
+v2 <- v2_metrics %>% 
+  select(-c(contains("_weight"), contains("_rank"), contains("mean_"))) %>% 
+  rename(spatial_metric = spatial_representativeness_metric) %>% 
+    mutate(habitat_metric = ifelse(state == "PA" | state == "DC", NA, habitat_metric))
+# add v2 to distinquish these metrics in the wide format
+colnames(v2)[2:length(names(v2))] <- paste0(colnames(v2)[2:length(names(v2))], "_v2")
+
+all_metrics <- full_join(v1, v2) %>% 
+  mutate(across(everything(), replace_na, 0)) %>% 
+  mutate(quant_diff = quantity_metric_v2 - quantity_metric,
+         qual_diff = quality_metric_v2 - quality_metric,
+         spatial_diff = spatial_metric_v2 - spatial_metric, 
+         hab_diff = habitat_metric_v2 - habitat_metric)
+
+```
+
+```{r}
+# Prepare spatial data for maps
+# Common projection for states
+states_aea <- st_transform(states, crs = "+proj=aea +ellps=WGS84 +lat_1=29.5 +lat_2=45.5 +lon_0=-96 +x_0=0 +y_0=0")
+
+# filter for coastal states
+coastal_states <- states_aea %>% 
+  # filter(STUSPS %in% unique(all_metrics$state)) %>% 
+  rename(state = STUSPS) %>% 
+  full_join(all_metrics) %>% 
+  full_join(scores_v1 %>% filter(metric == "Total") %>% select(-metric) %>% rename(normalized_rank_v1 = normalized_rank)) %>% 
+  full_join(scores_v2 %>% filter(metric == "Total") %>% select(-metric) %>% rename(normalized_rank_v2 = normalized_rank)) 
+
+## Map States with Composite Scores ####
+
+# generate bounding box
+b <- st_bbox(coastal_states %>% filter(state %in% unique(all_metrics$state)))
+
+```
+
+## Methods
+
+Methods for calculating data inventory metrics and generating composite scores are identical to the methods used in [insert link to original report]. However, the underlying data changed (see versioning document).
+
+Inventory change was determined by taking the difference between the scores for 2022 and 2023.
+
+## Data Inventory 2022
+
+### Report Card
 
 ```{r v1-report, fig.height=12, fig.width=12}
 
@@ -57,13 +106,53 @@ scores_v1 %>%
         panel.grid.minor = element_blank(),
         panel.border = element_blank(),
         panel.background = element_blank()) +
-   ggtitle("State-Level Blue Carbon Data Report Card (V1)")
+   ggtitle("State-Level Blue Carbon Data Report Card")
 
-ggsave("blue_carbon_data_inventory/figures/cerf_figs/report_card_v1.jpg", width = 6, height = 6)
+ggsave("blue_carbon_data_inventory/figures/report_card_2022.jpg", width = 6, height = 6)
 
 ```
 
-### Second Iteration
+### Composite Score Map
+
+```{r fig.width=12, fig.height=6}
+# ggplot score map V1
+ggplot() + 
+  # states
+  geom_sf(data = coastal_states, mapping = aes(fill = as.character(normalized_rank_v1)), 
+          color = "darkgrey",
+          size = 0.1) +
+  # custom colors...this scales it to 5 categories instead of 7, mismatching the colors
+  scale_fill_manual(values = c("#4375B5", "#91BEDB", "#E0F3F8", "#FFFDC0", "#FEE090"), na.value = "lightgrey",
+                    name = "Composite Rank", labels = c("Best", "", "Fair", "", "Poor", "No Data")) +
+  # project aes w bounding box
+  coord_sf(xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"]),
+           crs="+proj=aea +ellps=WGS84 +lat_1=29.5 +lat_2=45.5 +lon_0=-96 +x_0=0 +y_0=0") +
+  # Probably want to take off x and y axes text
+  theme_minimal() +
+  ggtitle("Coastal State Composite Scores") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+# ggplot score map V2
+coastal_states %>%
+  ggplot(aes(fill = as.character(normalized_rank_v2))) +
+  geom_sf() +
+  # scale_fill_continuous(type = "viridis") +
+  # scale_color_continuous() +
+  scale_fill_brewer(palette = "RdYlBu", direction = -1, na.value = "lightgrey",
+                    name = "Composite Rank", labels = c("Best", "", "Fair", "", "Poor", "No Data")) +
+  # project aes w bounding box
+  coord_sf(xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"]),
+           crs="+proj=aea +ellps=WGS84 +lat_1=29.5 +lat_2=45.5 +lon_0=-96 +x_0=0 +y_0=0") +
+  # Probably want to take off x and y axes text
+  theme_minimal() +
+  # ggtitle("Change in the Quantity of Available Blue Carbon Data") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+
+## Data Inventory 2023
+
+### Report Card
 
 ```{r v2-report, fig.height=12, fig.width=12}
 
@@ -97,34 +186,197 @@ scores_v2 %>%
         panel.grid.minor = element_blank(),
         panel.border = element_blank(),
         panel.background = element_blank()) +
-   ggtitle("State-Level Blue Carbon Data Report Card (V2)")
+   ggtitle("State-Level Blue Carbon Data Report Card")
 
-ggsave("blue_carbon_data_inventory/figures/cerf_figs/report_card_v2.jpg", width = 6, height = 6)
+ggsave("blue_carbon_data_inventory/figures/report_card_2023.jpg", width = 6, height = 6)
+```
+
+### Composite Scores Map
+
+```{r fig.width=12, fig.height=6}
+
+# ggplot score map
+ggplot() + 
+  # states
+  geom_sf(data = coastal_states, mapping = aes(fill = as.character(normalized_rank_v2)), 
+          color = "darkgrey",
+          size = 0.1) +
+  # custom colors...this scales it to 5 categories instead of 7, mismatching the colors
+  scale_fill_manual(values = c("#4375B5", "#91BEDB", "#E0F3F8", "#FFFDC0", "#FEE090"), na.value = "lightgrey",
+                    name = "Composite Rank",
+                    labels = c("Best", "", "Fair", "", "Poor", "No Data")) +
+  # project aes w bounding box
+  coord_sf(xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"]),
+           crs="+proj=aea +ellps=WGS84 +lat_1=29.5 +lat_2=45.5 +lon_0=-96 +x_0=0 +y_0=0") +
+  # Probably want to take off x and y axes text
+  theme_minimal() +
+  ggtitle("Coastal State Composite Scores") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+        # legend.position = "none")
+```
+
+### Data Metrics Breakdown 
+
+```{r fig.width=12, fig.height=12}
+
+library(gridExtra)
+
+## Construct State-Level Quadrat Figure ####
+quantity_plot <- ggplot(data = all_metrics, aes(x = reorder(state, quantity_metric_v2), y = quantity_metric_v2)) +
+  geom_point(pch=16) +
+  geom_segment(aes(xend=state, yend=0)) +
+  xlab(NULL) +
+  ylab("Cores per 1000 ha tidal wetland") +
+  # ggtitle("A. Quantity") +
+  coord_flip() +
+  # labs(color = "Detailed in report?") +
+  theme_minimal()
+
+# (quantity_plot) 
+# ggsave("figures/state_quantity.jpg", width = 6.5, height = 6.5, quantity_plot)
+
+quality_plot <- ggplot(data = all_metrics, aes(x = reorder(state, quality_metric_v2), y = quality_metric_v2)) +
+  geom_point(pch=16) +
+  geom_segment(aes(xend=state, yend=0)) +
+  xlab(NULL) +
+  ylab("High Quality Cores per 1000 ha \ntidal wetland") +
+  # ggtitle("B. Quality") +
+  coord_flip() +
+  # labs(color = "Detailed in report?") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+# (quality_plot) 
+# ggsave("figures/state_quality.jpg", width = 6.5, height = 6.5, quality_plot)
+
+spatial_plot <- ggplot(data = all_metrics, aes(x = reorder(state, spatial_metric_v2), y = spatial_metric_v2)) +
+  geom_point(pch=16) +
+  geom_segment(aes(xend=state, yend=0)) +
+  xlab(NULL) +
+  ylab("Mean Sampling Distance\n/ Idealized Sampling Distance") +
+  # ggtitle("C. Spatial Representativeness") +
+  coord_flip() +
+  # labs(color = "Detailed in report?") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+# (spatial_plot) 
+# ggsave("figures/state_spatialrep.jpg", width = 6.5, height = 6.5, spatial_plot)
+
+
+habitat_plot <- ggplot(data = all_metrics, 
+                       aes(x = reorder(state, habitat_metric_v2), y = habitat_metric_v2)) +
+  geom_point(pch=16) +
+  geom_segment(aes(xend=state, yend=0)) +
+  xlab(NULL) +
+  ylab("1 - Distance Between Sampled\nand Mapped Proportions") +
+  # ggtitle("D. Habitat Representativeness") +
+  coord_flip() +
+  # labs(color = "Detailed in report?") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+# (habitat_plot)
+# ggsave("figures/state_habitatrep.jpg", width = 6.5, height = 6.5, habitat_plot)
+
+# assemble quadrat figure
+grid.arrange(nrow=2, ncol=2,
+             quantity_plot, quality_plot, 
+             spatial_plot, habitat_plot,
+             left = "Lower to Higher Ranking")
+
+```
+
+### Habitat Representativeness
+
+```{r fig.width=12, fig.height=12}
+
+habitat_detailed <- v2_habitat_detailed %>% 
+  gather(key = "sampled_v_area", value = "proportion", -c(state, habitat_simplified)) %>% 
+  mutate(sampled_v_area = recode(sampled_v_area, 
+                                 "state_core_proportion" = "sampled",
+                                 "mapped_proportion" = "estimated area"))
+
+# create a custom color scale that will be used in the state reports as well
+habs <- sort(unique(habitat_detailed$habitat_simplified))
+hab_colorbrew <- c("#FC8D62", "#8DA0CB","#A6D854", "#FFD92F", "#E78AC3") # set 2 (colorblind friendly)
+names(hab_colorbrew) <- habs # associate habitats with the colors
+hab_colors <- scale_fill_manual(name = "habitat", values = hab_colorbrew) # create custom fill
+# alternatives:
+# hab_colorbrew <- brewer.pal(length(unique(pew_core_habitat$habitat)), "Set2")
+# hab_colorbrew <- c("#80B1D3", "#FDB462", "#B3DE69", "#FCCDE5", "#8DD3C7", "#BEBADA", "#FFFFB3", "#FB8072") # set 3 
+
+ggplot(habitat_detailed, aes(x=state, y=proportion, fill=habitat_simplified)) +
+  geom_bar(stat = "identity") +
+  hab_colors +
+  facet_wrap(.~sampled_v_area) +
+  xlab(NULL) +
+  coord_flip() +
+  theme_minimal() +
+  # labs(caption = fig_citation, fill = element_blank(), y = "Proportion") +
+  ggtitle("State-level Comparison of Sampled and Mapped Habitat") +
+  theme(axis.text.y = element_text(size = 12))
+
+# state specific breakdown
+# compare sampled to mapped habitat representation
+
+# # need to cycle through a for loop to output 
+# habitat_detailed %>% 
+#   filter(state == "WA") %>%
+#   mutate(habitat_simplified = fct_reorder(habitat_simplified, proportion)) %>%
+#   # plot
+#   ggplot(aes(x = habitat_simplified, y = proportion, fill = habitat_simplified)) +
+#   geom_col(position = "dodge", show.legend = F) +
+#   facet_grid(~sampled_v_area) +
+#   hab_colors +
+#   scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) +
+#   coord_flip() +
+#   theme_bw() +
+#   theme(axis.text.y = element_text(size = 10)) +
+#   ylab("Proportion") + xlab("Habitat") +
+#   ggtitle("Washington Estimated vs. Sampled Habitat")
+```
+
+<!-- ### Quality  -->
+
+
+```{r quality-metric, echo=FALSE, eval=FALSE}
+# Isolate definitions for quality codes
+quality_defs <- read_csv("https://raw.githubusercontent.com/Smithsonian/CCRCN-Data-Library/main/docs/ccrcn_database_structure.csv") %>%
+  select(attribute_name, format_unit_codes) %>%
+  filter(attribute_name %in% c("stocks_qual_code", "dates_qual_code", "elevation_qual_code")) %>%
+  mutate(code_definition = str_split(format_unit_codes, "; ")) %>%
+  unnest(code_definition) %>%
+  separate(code_definition, into = c("quality_code", "code_definition"), sep = " = ") %>%
+  select(quality_code, code_definition) %>%
+  arrange(quality_code)
+
+quality_smry <- v2_cores %>% 
+  select(study_id, site_id, core_id, state, stocks_qual_code, dates_qual_code, elevation_qual_code) %>% 
+  pivot_longer(cols = c(stocks_qual_code, dates_qual_code, elevation_qual_code), names_to = "use_category",
+               values_to = "quality_code") %>% 
+  drop_na(quality_code) %>% 
+  distinct() %>% 
+  count(state, use_category, quality_code, name = "core_count") %>% 
+  left_join(quality_defs) %>% 
+  mutate(use_category = recode(use_category,
+                               "dates_qual_code" = "Dated stratigraphy",
+                               "stocks_qual_code" = "Carbon stock",
+                               "elevation_qual_code" = "Elevation")) %>% 
+  drop_na(state) %>% 
+  arrange(state, use_category) %>% select(-use_category)
+
+DT::datatable(quality_smry,
+          options = list(searching = TRUE,
+                         paging = FALSE,
+                         info = FALSE,
+                         scrollY = 300,
+                         scrollX = 300,
+                         scrollCollapse = TRUE),
+          rownames = FALSE)
 ```
 
 ## Data Inventory Change
-
-```{r comparison, echo=FALSE, warning=FALSE, message=FALSE}
-v1 <- v1_metrics %>% 
-  select(-c(contains("_weight"), contains("_rank"), contains("mean_"))) %>% 
-  rename(spatial_metric = spatial_representativeness_metric) %>% 
-  mutate(habitat_metric = ifelse(state == "PA" | state == "DC", NA, habitat_metric))
-
-v2 <- v2_metrics %>% 
-  select(-c(contains("_weight"), contains("_rank"), contains("mean_"))) %>% 
-  rename(spatial_metric = spatial_representativeness_metric) %>% 
-    mutate(habitat_metric = ifelse(state == "PA" | state == "DC", NA, habitat_metric))
-# add v2 to distinquish these metrics in the wide format
-colnames(v2)[2:length(names(v2))] <- paste0(colnames(v2)[2:length(names(v2))], "_v2")
-
-all_metrics <- full_join(v1, v2) %>% 
-  mutate(across(everything(), replace_na, 0)) %>% 
-  mutate(quant_diff = quantity_metric_v2 - quantity_metric,
-         qual_diff = quality_metric_v2 - quality_metric,
-         spatial_diff = spatial_metric_v2 - spatial_metric, 
-         hab_diff = habitat_metric_v2 - habitat_metric)
-
-```
 
 <!-- ### State-Based Overview -->
 
@@ -184,7 +436,7 @@ all_metrics %>%
   theme(legend.position="bottom") +
   ggtitle("Change in Quantity of Available Cores per State")
 
-ggsave("blue_carbon_data_inventory/figures/cerf_figs/change_quantity.jpg", width = 6, height = 6)
+ggsave("blue_carbon_data_inventory/figures/change_quantity.jpg", width = 6, height = 6)
 ```
 
 ### Quality
@@ -206,7 +458,7 @@ all_metrics %>%
   theme(legend.position="bottom") +
   ggtitle("Change in Use and Completeness of Cores")
 
-ggsave("blue_carbon_data_inventory/figures/cerf_figs/change_quality.jpg", width = 6, height = 6)
+ggsave("blue_carbon_data_inventory/figures/change_quality.jpg", width = 6, height = 6)
 ```
 
 ### Spatial Coverage
@@ -228,7 +480,7 @@ all_metrics %>%
   theme(legend.position="bottom") +
   ggtitle("Change in Spatial Coverage of Cores")
 
-ggsave("blue_carbon_data_inventory/figures/cerf_figs/change_spatial.jpg", width = 6, height = 6)
+ggsave("blue_carbon_data_inventory/figures/change_spatial.jpg", width = 6, height = 6)
 ```
 
 ### Habitat Coverage
@@ -250,215 +502,11 @@ all_metrics %>%
   theme(legend.position="bottom") +
   ggtitle("Change in Habitat Representativeness of Cores")
 
-ggsave("blue_carbon_data_inventory/figures/cerf_figs/change_habitat.jpg", width = 6, height = 6)
+ggsave("blue_carbon_data_inventory/figures/change_habitat.jpg", width = 6, height = 6)
 
 ```
 
-## Mapping Composite Scores
+## Database Citation
 
-```{r}
-# Common projection for states
-states_aea <- st_transform(states, crs = "+proj=aea +ellps=WGS84 +lat_1=29.5 +lat_2=45.5 +lon_0=-96 +x_0=0 +y_0=0")
-
-# filter for coastal states
-coastal_states <- states_aea %>% 
-  # filter(STUSPS %in% unique(all_metrics$state)) %>% 
-  rename(state = STUSPS) %>% 
-  full_join(all_metrics) %>% 
-  full_join(scores_v1 %>% filter(metric == "Total") %>% select(-metric) %>% rename(normalized_rank_v1 = normalized_rank)) %>% 
-  full_join(scores_v2 %>% filter(metric == "Total") %>% select(-metric) %>% rename(normalized_rank_v2 = normalized_rank)) 
-
-## Map States with Composite Scores ####
-
-# generate bounding box
-b <- st_bbox(coastal_states %>% filter(state %in% unique(all_metrics$state)))
-
-```
-
-```{r fig.align='center'}
-# ggplot score map V1
-ggplot() + 
-  # states
-  geom_sf(data = coastal_states, mapping = aes(fill = as.character(normalized_rank_v1)), 
-          color = "darkgrey",
-          size = 0.1) +
-  # custom colors...this scales it to 5 categories instead of 7, mismatching the colors
-  scale_fill_manual(values = c("#4375B5", "#91BEDB", "#E0F3F8", "#FFFDC0", "#FEE090"), na.value = "lightgrey",
-                    name = "Composite Rank",
-                    labels = c("Best", "", "Fair", "", "Poor", "No Data")) +
-  # project aes w bounding box
-  coord_sf(xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"]),
-           crs="+proj=aea +ellps=WGS84 +lat_1=29.5 +lat_2=45.5 +lon_0=-96 +x_0=0 +y_0=0") +
-  # Probably want to take off x and y axes text
-  theme_minimal() +
-  ggtitle("Coastal State Composite Scores") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-
-# ggplot score map V2
-# coastal_states %>% 
-#   ggplot(aes(fill = as.character(normalized_rank_v2))) +
-#   geom_sf() +
-#   # scale_fill_continuous(type = "viridis") +
-#   # scale_color_continuous() +
-#   scale_fill_brewer(palette = "RdYlBu", direction = -1,
-#                     name = "Composite Rank",
-#                     labels = c("Best", "", "Fair", "", "Poor", "No Data")) +
-#   # project aes w bounding box
-#   coord_sf(xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"]),
-#            crs="+proj=aea +ellps=WGS84 +lat_1=29.5 +lat_2=45.5 +lon_0=-96 +x_0=0 +y_0=0") +
-#   # Probably want to take off x and y axes text
-#   theme_minimal() +
-#   # ggtitle("Change in the Quantity of Available Blue Carbon Data") +
-#   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-
-```
-
-```{r}
-
-# ggplot score map
-ggplot() + 
-  # states
-  geom_sf(data = coastal_states, mapping = aes(fill = as.character(normalized_rank_v2)), 
-          color = "darkgrey",
-          size = 0.1) +
-  # custom colors...this scales it to 5 categories instead of 7, mismatching the colors
-  scale_fill_manual(values = c("#4375B5", "#91BEDB", "#E0F3F8", "#FFFDC0", "#FEE090"), na.value = "lightgrey",
-                    name = "Composite Rank",
-                    labels = c("Best", "", "Fair", "", "Poor", "No Data")) +
-  # project aes w bounding box
-  coord_sf(xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"]),
-           crs="+proj=aea +ellps=WGS84 +lat_1=29.5 +lat_2=45.5 +lon_0=-96 +x_0=0 +y_0=0") +
-  # Probably want to take off x and y axes text
-  theme_minimal() +
-  ggtitle("Coastal State Composite Scores") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-        # legend.position = "none")
-```
-
-
-
-## Current Metric Breakdown
-
-### Overview 
-
-```{r fig.width=12, fig.height=12}
-
-library(gridExtra)
-
-## Construct State-Level Quadrat Figure ####
-quantity_plot <- ggplot(data = all_metrics, aes(x = reorder(state, quantity_metric_v2), y = quantity_metric_v2)) +
-  geom_point(pch=16) +
-  geom_segment(aes(xend=state, yend=0)) +
-  xlab(NULL) +
-  ylab("Cores per 1000 ha tidal wetland") +
-  # ggtitle("A. Quantity") +
-  coord_flip() +
-  # labs(color = "Detailed in report?") +
-  theme_minimal()
-
-# (quantity_plot) 
-# ggsave("figures/state_quantity.jpg", width = 6.5, height = 6.5, quantity_plot)
-
-quality_plot <- ggplot(data = all_metrics, aes(x = reorder(state, quality_metric_v2), y = quality_metric_v2)) +
-  geom_point(pch=16) +
-  geom_segment(aes(xend=state, yend=0)) +
-  xlab(NULL) +
-  ylab("High Quality Cores per 1000 ha \ntidal wetland") +
-  # ggtitle("B. Quality") +
-  coord_flip() +
-  # labs(color = "Detailed in report?") +
-  theme_minimal() +
-  theme(legend.position = "none")
-
-# (quality_plot) 
-# ggsave("figures/state_quality.jpg", width = 6.5, height = 6.5, quality_plot)
-
-
-spatial_plot <- ggplot(data = all_metrics, aes(x = reorder(state, spatial_metric_v2), y = spatial_metric_v2)) +
-  geom_point(pch=16) +
-  geom_segment(aes(xend=state, yend=0)) +
-  xlab(NULL) +
-  ylab("Mean Sampling Distance\n/ Idealized Sampling Distance") +
-  # ggtitle("C. Spatial Representativeness") +
-  coord_flip() +
-  # labs(color = "Detailed in report?") +
-  theme_minimal() +
-  theme(legend.position = "none")
-
-# (spatial_plot) 
-# ggsave("figures/state_spatialrep.jpg", width = 6.5, height = 6.5, spatial_plot)
-
-
-habitat_plot <- ggplot(data = all_metrics, 
-                       aes(x = reorder(state, habitat_metric_v2), y = habitat_metric_v2)) +
-  geom_point(pch=16) +
-  geom_segment(aes(xend=state, yend=0)) +
-  xlab(NULL) +
-  ylab("1 - Distance Between Sampled\nand Mapped Proportions") +
-  # ggtitle("D. Habitat Representativeness") +
-  coord_flip() +
-  # labs(color = "Detailed in report?") +
-  theme_minimal() +
-  theme(legend.position = "none")
-
-# (habitat_plot)
-# ggsave("figures/state_habitatrep.jpg", width = 6.5, height = 6.5, habitat_plot)
-
-# assemble quadrat figure
-grid.arrange(nrow=2, ncol=2,
-             quantity_plot, quality_plot, 
-             spatial_plot, habitat_plot,
-             left = "Lower to Higher Ranking")
-
-```
-
-### Habitat Breakdown
-
-```{r}
-
-habitat_detailed <- habitatProportions(v2_cores) %>% 
-  gather(key = "sampled_v_area", value = "proportion", -c(state, habitat_simplified)) %>% 
-  mutate(sampled_v_area = recode(sampled_v_area, 
-                                 "state_core_proportion" = "sampled",
-                                 "mapped_proportion" = "estimated area"))
-
-# create a custom color scale that will be used in the state reports as well
-habs <- sort(unique(habitat_detailed$habitat_simplified))
-hab_colorbrew <- c("#FC8D62", "#8DA0CB","#A6D854", "#FFD92F", "#E78AC3") # set 2 (colorblind friendly)
-names(hab_colorbrew) <- habs # associate habitats with the colors
-hab_colors <- scale_fill_manual(name = "habitat", values = hab_colorbrew) # create custom fill
-# alternatives:
-# hab_colorbrew <- brewer.pal(length(unique(pew_core_habitat$habitat)), "Set2")
-# hab_colorbrew <- c("#80B1D3", "#FDB462", "#B3DE69", "#FCCDE5", "#8DD3C7", "#BEBADA", "#FFFFB3", "#FB8072") # set 3 
-
-ggplot(habitat_detailed, aes(x=state, y=proportion, fill=habitat_simplified)) +
-  geom_bar(stat = "identity") +
-  hab_colors +
-  facet_wrap(.~sampled_v_area) +
-  xlab(NULL) +
-  coord_flip() +
-  theme_minimal() +
-  # labs(caption = fig_citation, fill = element_blank(), y = "Proportion") +
-  ggtitle("State-level Comparison of Sampled and Mapped Habitat") +
-  theme(axis.text.y = element_text(size = 12))
-
-# state specific breakdown
-# compare sampled to mapped habitat representation
-
-# # need to cycle through a for loop to output 
-# habitat_detailed %>% 
-#   filter(state == "WA") %>%
-#   mutate(habitat_simplified = fct_reorder(habitat_simplified, proportion)) %>%
-#   # plot
-#   ggplot(aes(x = habitat_simplified, y = proportion, fill = habitat_simplified)) +
-#   geom_col(position = "dodge", show.legend = F) +
-#   facet_grid(~sampled_v_area) +
-#   hab_colors +
-#   scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) +
-#   coord_flip() +
-#   theme_bw() +
-#   theme(axis.text.y = element_text(size = 10)) +
-#   ylab("Proportion") + xlab("Habitat") +
-#   ggtitle("Washington Estimated vs. Sampled Habitat")
-```
+Coastal Carbon Network (2023). Database: Coastal Carbon Library (Version 1.1.0). Smithsonian Environmental Research Center. Dataset. https://doi.org/10.25573/serc.21565671
 

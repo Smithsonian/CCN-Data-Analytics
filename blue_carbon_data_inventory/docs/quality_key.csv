@@ -1,9 +1,0 @@
-Quality Tier,Quality Sub-Tier,Definition
-Carbon Stock,C2 - Good,Carbon stock data complete not confirmed to be a complete profile
-Carbon Stock,C1 - Best,Carbon stock data complete confirmed to be a complete profile
-Age-depth,B2 - Good,Dating information present but not complete
-Age-depth,B1 - Best,Dating information present and complete
-Elevation,A3 - Good,Elevation data present but of low quality dating info present
-Elevation,A2 - Better,Elevation data is high quality but dating info present but incomplete
-Elevation,A1 - Best,Elevation data is high quality and dating info is complete
-NA,Not available,Data is not available for the core at a given quality tier

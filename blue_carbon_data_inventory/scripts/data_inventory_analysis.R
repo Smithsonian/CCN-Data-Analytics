@@ -60,7 +60,7 @@ v2_metrics <- v2_quantity %>% full_join(v2_quality) %>% full_join(v2_spatial) %>
 scores_v2 <- compositeMetricScore(v2_metrics)
 
 # habitat breakdown
-# v2_habitat_detailed <- habitatProportions(v2_cores)
+v2_habitat_detailed <- habitatProportions(v2_cores)
 
 ## Blue Carbon Data Inventory Report ####
 
@@ -68,11 +68,28 @@ scores_v2 <- compositeMetricScore(v2_metrics)
 states <- st_read("blue_carbon_data_inventory/data/shapefiles/us_states/states_coastline_boundaries/cb_2017_us_state_500k.shp",
                   stringsAsFactors = F)
 
-url_date <- format(Sys.time(), "%Y%m%d %H%M")
-formated_date <- format(Sys.time(), "%Y/%m/%d-%H:%M")
+# url_date <- format(Sys.time(), "%Y%m%d %H%M")
+# formated_date <- format(Sys.time(), "%Y/%m/%d-%H:%M")
 
 # generate data contributor report
 rmarkdown::render(input = "blue_carbon_data_inventory/scripts/bcdi_report.Rmd",
                   # output_format = "html_document",
-                  output_file = paste0("bcdi_report_", url_date),
-                  output_dir = "blue_carbon_data_inventory/inventory_reports/")
+                  # output_file = paste0("bcdi_report_", url_date),
+                  output_dir = "blue_carbon_data_inventory/report/")
+
+## Bibliography ####
+
+# create bibliography for data used to update emissions factors
+bib <- read_csv("data/CCN_study_citations.csv")
+
+# library(RefManageR)
+
+# filter synthesis study citations by relevant studies
+bcdi_bib <- bib %>% 
+  filter(study_id %in% unique(v2_cores$study_id)) %>% 
+  mutate(across(everything(), as.character)) %>% 
+  arrange(study_id)
+
+# write bib to report folder
+write_csv(bcdi_bib, "blue_carbon_data_inventory/report/BCDI_bibliography.csv")
+
