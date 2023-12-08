@@ -22,10 +22,6 @@ library(DT)
 # reported_natural <- reported_all %>% filter(management == "natural") %>% filter(habitat != "mudflat")
 ```
 
-## Methods
-
-**Coming Soon**
-
 ## Accumulation Rates Overview
 
 ```{r, echo=FALSE, fig.width=12, fig.height=6}
@@ -246,3 +242,6 @@ datatable(smry_all %>%
 
 ```
 
+## Database Citation
+
+Coastal Carbon Network (2023). Database: Coastal Carbon Library (Version 1.1.0). Smithsonian Environmental Research Center. Dataset. https://doi.org/10.25573/serc.21565671

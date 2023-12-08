@@ -306,6 +306,10 @@ grid.arrange(nrow=2, ncol=2,
 
 ### State Data Quality
 
+This figure provides a more detailed look at the utility and completeness of the soil carbon data which is available for each state. The use category *Stocks* refers to soil cores which contain information that can be used to calculate carbon stock. For stocks, *good* indicates that carbon stock data is complete but not confirmed to represent the full wetland profile, and *best* indicates that carbon stock data is complete and represents a full profile. The *carbon accumulation rate (CAR)* category refers to soil cores wtih dated stratigraphy. In this category, *good* indicates the dating information is present but not complete, and *best* indicates that dating information is both present and complete. Lastly, the *Modeling* category refers to soil cores with both dated stratigraphy and associated elevation data, which is useful for modeling and forecasting wetland dynamics. In this category, *good* indicates that either (1) elevation data is low quality and dating information is present or (2) elevation data is high quality but dating information is incomplete. Soil cores that qualify for *best* in this category have high quality elevation data and complete dating information. See [Section 3.1](https://smithsonian.github.io/CCRCN-Pew-Project/methods.html#the-coastal-carbon-library) of the original data inventory report for more information.
+
+Notes: These categories are not mutually exclusive, because a single profile may possess information which is relevant to all three use categories. Also note that Y-axes are scaled differently for each state. 
+
 ```{r quality-metric, echo=FALSE, fig.width=12, fig.height=12}
 
 # Isolate quality codes from current core table and conver to long form

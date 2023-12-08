@@ -6,11 +6,10 @@ This folder contains the public-facing literature review, data, and analysis whi
 
 **Contents**
 
-- /data: Contains the input data for the analysis.
+- /data: Contains the input data for the analysis. This includes the climate zone lookup table, the previously assembled table of reported values (2017 inventory), and the table of sediment accretion and carbon accumulation rates extracted from new literature for the 2022 inventory.
 - /report: Contains the output for the 2022 NGGI inventory, including an updated emissions factors table, analysis report, and associated bibliography.
 - /scripts: Contains the scripts used to conduct this analysis.
-- /docs: (Probably going to delete this folder)
 
-*To Reproduce this Analysis*
+**To Reproduce this Analysis**
 
-Run nggi_data_analysis.R in the scripts folder.
+Run *nggi_data_analysis.R* in the scripts folder. This sources the functions in *nggi_utils.R* to perform the data analysis. It then renders *NGGI_2022_report.Rmd* to summarize these findings in a data visualization report.
