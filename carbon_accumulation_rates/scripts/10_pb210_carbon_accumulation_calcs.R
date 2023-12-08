@@ -240,7 +240,7 @@ for (i in 1:nrow(cores_output)) {
 
 
 
-write_csv(cores_output, "carbon_accumulation_rates/output/ccn_car_210Pb.csv")
+write_csv(cores_output, "carbon_accumulation_rates/output/tabs/ccn_car_210Pb.csv")
 
 View(cores_output %>% filter(admin_division == "Maryland") %>% 
        select(study_id:core_id, accretion_yr_per_cm_mean:carbon_accumulation_lower_CI))

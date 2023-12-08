@@ -121,5 +121,5 @@ avg_carbon_per_horizon <- all_together_now_gapfilled %>%
             carbon_accumulation_lower_CI = qunif(0.025, low_CAR, high_CAR)) %>% 
   filter(complete.cases(carbon_accumulation_upper_CI, carbon_accumulation_lower_CI))
         
-write_csv(avg_carbon_per_horizon, "carbon_accumulation_rates/output/cs_and_horizon_car.csv")
+write_csv(avg_carbon_per_horizon, "carbon_accumulation_rates/output/tabs/cs_and_horizon_car.csv")
 

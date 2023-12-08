@@ -1,9 +1,9 @@
 # Join lit-review and automated 
 library(tidyverse)
 
-ccn_cars <- read_csv("carbon_accumulation_rates/output/ccn_car_210Pb.csv")
+ccn_cars <- read_csv("carbon_accumulation_rates/output/tabs/ccn_car_210Pb.csv")
 
-ccn_cars_cs <- read_csv("carbon_accumulation_rates/output/cs_and_horizon_car.csv")
+ccn_cars_cs <- read_csv("carbon_accumulation_rates/output/tabs/cs_and_horizon_car.csv")
 
 lit_all <- read_csv("coastal_wetland_nggi/report/lit_review_processed_all.csv")
 
