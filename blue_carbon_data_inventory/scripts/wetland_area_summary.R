@@ -11,11 +11,11 @@ library(foreign)
 # Calculate wetland area by state and by state habitat
 
 # Parse CCAP classes into habitats 
-ccap_estimated_to_mapped_raw <- read_csv("database_inventory/data/CCAP/2010Classes/CCAP2010DataOutput.csv") %>%
+ccap_estimated_to_mapped_raw <- read_csv("blue_carbon_data_inventory/data/CCAP/2010Classes/CCAP2010DataOutput.csv") %>%
   select(...1, perPixelScaler) %>%
   rename(abbrevs = ...1)
 
-ccap_support <- read_csv("database_inventory/data/CCAP/2010Classes/ccapPixelCounts.csv") %>%
+ccap_support <- read_csv("blue_carbon_data_inventory/data/CCAP/2010Classes/ccapPixelCounts.csv") %>%
   select(-pixels)
 
 ccap_estimated_to_mapped <- ccap_estimated_to_mapped_raw %>%
@@ -130,6 +130,27 @@ output_states_scaled_ha <- output_states_scaled_simplified %>%
   mutate(percent_wetland = 100*(estimated_area_ha/sum(estimated_area_ha)))
 
 # Write to file (all three might not be necessary eventually)
-write_csv(output_states_scaled_simplified, "database_inventory/data/derived/wetland_area/state_habitat_wetland_area.csv")
+write_csv(output_states_scaled_simplified, "blue_carbon_data_inventory/data/wetland_area/state_habitat_wetland_area.csv")
 # write_csv(output_states_scaled_habitat_ha, "data/report_data/ccap_state_habitat_wetland_area.csv")
-write_csv(output_states_scaled_ha, "database_inventory/data/derived/wetland_area/state_wetland_area.csv")
+write_csv(output_states_scaled_ha, "blue_carbon_data_inventory/data/wetland_area/state_wetland_area.csv")
+
+## Plot State Wetland Area ####
+
+output_states_scaled_ha %>%
+  mutate(percent_wetland = 100*(estimated_area_ha/sum(estimated_area_ha))) %>% 
+  # reorder factors to plot in decending order
+  mutate(state = fct_reorder(state, percent_wetland)) %>%
+  # plot percent total CONUS wetland per state
+  ggplot(aes(state, percent_wetland, fill = percent_wetland)) +
+  geom_col() +
+  # set gradient color palette
+  scale_fill_gradient(name = "Percent\nWetland", low = "#b2e2e2", high = "#006d2c") +
+  # make sure the text doesnt get cropped
+  ylim(0, max(32, na.rm = T) + 2) +
+  coord_flip() +
+  geom_text(aes(label = paste0(round(percent_wetland, 2), "%")), size = 3, hjust = -0.2) +
+  ylab("Proportion of Total Tidal Wetland (%)") + xlab("State") +
+  theme_classic()
+
+ggsave("blue_carbon_data_inventory/figures/state_wetland_proportion.jpg", width = 6, height = 6)
+

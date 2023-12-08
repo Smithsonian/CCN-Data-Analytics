@@ -4,7 +4,7 @@ library(tidyverse)
 library(sf)
 
 # source inventorying functions
-source("blue_carbon_data_inventory/scripts/inventory_functions.R")
+source("blue_carbon_data_inventory/scripts/bcdi_functions.R")
 
 # Import Core Data ####
 
@@ -15,12 +15,11 @@ cores <- read_csv("data/CCN_cores.csv", guess_max = 11000) %>%
   filter(country == "United States") %>%
   filter(state != "Puerto Rico" & state != "Hawaii" & state != "Alaska") %>%
   # standardize habitat classes to align with mapping products used in habitat metric
-  mutate(habitat = recode(
-    habitat, 
-    "mudflat" = "unvegetated",
-    # grouping seagrass, kelp, and algal mats together (because the mapping products don't distinguish these)
-    "seagrass" = "EAB",
-    "algal mat" = "EAB"))
+  mutate(habitat = recode(habitat, 
+                          "mudflat" = "unvegetated",
+                          # grouping seagrass, kelp, and algal mats together (because the mapping products don't distinguish these)
+                          "seagrass" = "EAB",
+                          "algal mat" = "EAB"))
 
 # determine the studies included in each version 
 v1_studies <- read_csv("https://ndownloader.figshare.com/files/42289539", guess_max = 7000) %>% distinct(study_id) %>% pull(study_id)
@@ -46,7 +45,7 @@ scores_v1 <- compositeMetricScore(v1_metrics)
 
 ## Version 2 Scores ####
 
-v2_cores <- cores %>% filter(study_id %in% v2_studies)
+v2_cores <- cores %>% filter(study_id %in% v2_studies) # kind of unneccessary
 
 v2_quantity <- quantityMetric(v2_cores)
 v2_quality <- qualityMetric(v2_cores)
@@ -60,7 +59,7 @@ v2_metrics <- v2_quantity %>% full_join(v2_quality) %>% full_join(v2_spatial) %>
 scores_v2 <- compositeMetricScore(v2_metrics)
 
 # habitat breakdown
-v2_habitat_detailed <- habitatProportions(v2_cores)
+# v2_habitat_detailed <- habitatProportions(v2_cores)
 
 ## Blue Carbon Data Inventory Report ####
 
@@ -74,7 +73,7 @@ states <- st_read("blue_carbon_data_inventory/data/shapefiles/us_states/states_c
 # generate data contributor report
 rmarkdown::render(input = "blue_carbon_data_inventory/scripts/bcdi_report.Rmd",
                   # output_format = "html_document",
-                  # output_file = paste0("bcdi_report_", url_date),
+                  output_file = "BCDI_report",
                   output_dir = "blue_carbon_data_inventory/report/")
 
 ## Bibliography ####
