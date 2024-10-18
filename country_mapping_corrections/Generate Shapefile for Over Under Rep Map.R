@@ -93,10 +93,8 @@ write_csv(left_out_countries, "Countries_w_no_EEZs.csv")
 eez_and_countries <- eez2 %>% 
   bind_rows(countries2)
 
-# Let's do a version where only the countries w EEZ's are included
-eez_and_countries2 <- eez_and_countries %>% filter(country %in% eez2$country)
 
-eez_and_countries2 <- eez_and_countries2 %>% 
+eez_and_countries2 <- eez_and_countries %>% 
   # Fixing disagreements between what EEZ map calls a territory 
   # vs what ESRI calls a country
   # First, fix minor spelling differences. Defer to ESRI countries spelling
@@ -134,6 +132,16 @@ eez_and_countries2 <- eez_and_countries2 %>%
                             country, 
                             territory)
          )
+
+# Let's do a version where only the countries w EEZ's are included
+eez_and_countries2 <- eez_and_countries2 %>% 
+  filter(country %in% c(eez2$country,
+                        sort(unique(eez$TERRITORY1)),
+                        sort(unique(eez$TERRITORY2)),
+                        sort(unique(eez$TERRITORY3)),
+                        sort(unique(eez$SOVEREIGN2)),
+                        sort(unique(eez$SOVEREIGN))
+                        ))
 
 # What's left should be territories that are so small their EEZ is mapped, but country is not
 # ... and countries who are surrounded by disputed waters
