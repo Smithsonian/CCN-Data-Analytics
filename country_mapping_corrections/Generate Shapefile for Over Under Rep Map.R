@@ -170,7 +170,16 @@ st_write(eez_and_countries2, "data/CCN_maps/CCN_Countries_and_EEZ_map.shp", appe
 st_write(eez_and_countries2 %>% filter(source == "countries"), "data/CCN_maps/CCN_Countries_map.shp", append = F)
 st_write(eez_and_countries2 %>% filter(source == "EEZ"), "data/CCN_maps/CCN_EEZ_map.shp", append = F)
 
- 
+# write coutnry output
+unique_countries <- eez_and_countries2 %>% 
+  as_tibble() %>% 
+  select(country, territory) %>% 
+  filter(country != "Disputed") %>% 
+  distinct_all() %>% 
+  arrange(country, territory)
+
+write_csv(unique_countries, "CCN_Official_Countries_and_Territories_Spelling.csv")
+
 # st_write(anti_meridian_sf, "AntiMeridian.shp")
 
 #   
