@@ -64,6 +64,7 @@ seagrass_spellcheck <- seagrass %>%
                              grepl("St. Lucia", country) ~ "Saint Lucia",
                              grepl("Grenadine", country) ~ "Saint Vincent and the Grenadines",
                              country == "Cape Verde" ~ "Cabo Verde",
+                             grepl("Tanz", country) ~ "Tanzania",
                              TRUE ~ country),
          territory = case_when(country == "Brunei" ~ "Brunei",
                                country == "China" ~ "China",
@@ -89,6 +90,7 @@ seagrass_spellcheck <- seagrass %>%
                                territory == "Australia (incl Jervis Bay Territory)" ~ "Australia", #check this 
                                grepl("and Saba", territory) ~ "Bonaire, Sint Eustatius and Saba", #also called BES Islands 
                                territory == "Cape Verde" ~ "Cabo Verde",
+                               grepl("Tanz", territory) ~ "Tanzania",
                              TRUE ~ territory))
 
 
@@ -121,11 +123,39 @@ ccn_countries_add <- ccn_countries %>% rbind(countries_add)
   
   
 #test again
-matchtest2 <- anti_join(seagrass_spellcheck, ccn_countries_add)
+matchtest2 <- anti_join(seagrass_spellcheck, ccn_countries)
 
+
+#update more territories and fix formatting 
+seagrass_area_update <- matchtest2 %>%  
+  mutate(country = case_when(country == "West Bank" ~ "Palestinian Territory",
+                             country == "Taiwan" ~ "China",
+                             country == "Western Sahara" ~ "Disputed",
+                             country == "Spratly Islands" ~ "Disputed", 
+                             TRUE ~ country),
+         territory = case_when(grepl("Pales", country) ~ "Palestinian Territory",
+                               grepl("Pitcairn", territory) ~ "Pitcairn",
+                               grepl("Reunion", territory) ~ "Réunion",
+                               territory == "Japan (Ryukyu)" ~ "Japan",
+                               territory == "Virgin Islands (British)" ~ "British Virgin Islands",
+                               territory == "Virgin Islands (USA)" ~ "US Virgin Islands",
+                               grepl("Viet", territory) ~ "Vietnam",
+                               territory == "Taiwan (China)" ~ "China",
+                               territory == "Tokelau"|territory == "Cook Islands"|territory == "Niue" ~ "New Zealand",
+                               grepl("United Kingdom", territory) ~ "United Kingdom",
+                               grepl("Venezuela", territory) ~ "Venezuela",
+                               territory == "Ashmore and Cartier Islands"|territory == "Christmas Island"|
+                                 territory == "Cocos (Keeling) Islands"|territory == "Norfolk Island" ~ "Australia",
+                               TRUE ~ territory)) 
+#remove NA country?
+
+#test again 
+matchtest3 <- anti_join(seagrass_area_update, ccn_countries)
 
 #notes 
 # Juan de Nova, Europa, Glorioso Islands, Ile Saint Paul, Iles Ker --> inlcuded in "French southern territories"
+# Western Sahara spans 2 bioregions --> 2 and 3 
+
 
 
 #### ..Curate Country-Level Stocks ####
@@ -135,8 +165,7 @@ mangroveMarsh <- read_csv("country_mapping_corrections/Global_Mangrove_Marsh_Sum
 
 
 #write files to integrate data 
-#format?
-
+#format? csv?
 write_csv(seagrass_global, "")
 
 
