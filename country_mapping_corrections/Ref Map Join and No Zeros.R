@@ -31,9 +31,11 @@ st_write(mangrove_marsh_map, "data/CCN_maps/Global_Mangrove_Marsh_Summaries_noZe
 # Check areas
 some_checks <- mangrove_marsh_map %>% 
   as_tibble() %>% 
-  group_by(territory) %>% 
+  group_by(country, territory) %>% 
   summarise(marsh_area_m2 = sum(marsh_area_m2),
-            mangrove_area_m2 = sum(mangrove_area_m2))
+            mangrove_area_m2 = sum(mangrove_area_m2)) %>% 
+  mutate(total_area_m2 = marsh_area_m2 + mangrove_area_m2) %>% 
+  arrange(-total_area_m2)
 
 head(some_checks %>% arrange(-marsh_area_m2))
 tail(some_checks %>% arrange(-marsh_area_m2))
@@ -41,3 +43,11 @@ tail(some_checks %>% arrange(-marsh_area_m2))
 head(some_checks %>% arrange(-mangrove_area_m2))
 tail(some_checks %>% arrange(-mangrove_area_m2))
 # Makes sense to me
+
+head(some_checks)
+tail(some_checks)
+
+# Join with seagrass 
+seagrass <- read_csv("blue_carbon_data_inventory/sea")
+
+write_csv(some_checks, "country_mapping_corrections/Global_Mangrove_Marsh_Summaries_byTerritoryAndCountry.csv")

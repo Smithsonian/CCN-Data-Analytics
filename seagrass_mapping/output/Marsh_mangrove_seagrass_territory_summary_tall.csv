@@ -1,0 +1,709 @@
+territory,ecosystem,hectare,country
+Cabo Verde,mangrove,NA,Cabo Verde
+Cabo Verde,marsh,NA,Cabo Verde
+Cabo Verde,seagrass,0.002,Cabo Verde
+Cabo Verde,total,0.002,Cabo Verde
+Nauru,mangrove,2.563445520019531,Nauru
+Nauru,marsh,0,Nauru
+Nauru,seagrass,NA,Nauru
+Nauru,total,2.563445520019531,Nauru
+Saint Barthelemy,mangrove,2.9658124816894533,France
+Saint Barthelemy,marsh,0,France
+Saint Barthelemy,seagrass,NA,France
+Saint Barthelemy,total,2.9658124816894533,France
+Israel,mangrove,0,Israel
+Israel,marsh,9.182645513916016,Israel
+Israel,seagrass,NA,Israel
+Israel,total,9.182645513916016,Israel
+Syria,mangrove,0,Syria
+Syria,marsh,12.165178649902344,Syria
+Syria,seagrass,NA,Syria
+Syria,total,12.165178649902344,Syria
+Canarias,mangrove,0,Spain
+Canarias,marsh,12.711602993092256,Spain
+Canarias,seagrass,NA,Spain
+Canarias,total,12.711602993092256,Spain
+Saint Martin,mangrove,15.191869620433136,France
+Saint Martin,marsh,0,France
+Saint Martin,seagrass,NA,France
+Saint Martin,total,15.191869620433136,France
+Réunion,mangrove,0,France
+Réunion,marsh,21.063476586914067,France
+Réunion,seagrass,NA,France
+Réunion,total,21.063476586914067,France
+Aruba,mangrove,73.25662073766371,Aruba
+Aruba,marsh,0,Aruba
+Aruba,seagrass,NA,Aruba
+Aruba,total,73.25662073766371,Aruba
+Jordan,mangrove,NA,Jordan
+Jordan,marsh,NA,Jordan
+Jordan,seagrass,137,Jordan
+Jordan,total,137,Jordan
+Slovenia,mangrove,0,Slovenia
+Slovenia,marsh,139.53107912657498,Slovenia
+Slovenia,seagrass,8,Slovenia
+Slovenia,total,147.53107912657498,Slovenia
+Iraq,mangrove,0,Iraq
+Iraq,marsh,179.71506682052316,Iraq
+Iraq,seagrass,NA,Iraq
+Iraq,total,179.71506682052316,Iraq
+Bonaire,mangrove,219.17305991881128,Netherlands
+Bonaire,marsh,0,Netherlands
+Bonaire,seagrass,NA,Netherlands
+Bonaire,total,219.17305991881128,Netherlands
+Dominica,mangrove,NA,Dominica
+Dominica,marsh,NA,Dominica
+Dominica,seagrass,265,Dominica
+Dominica,total,265,Dominica
+Saint Pierre and Miquelon,mangrove,0,France
+Saint Pierre and Miquelon,marsh,272.82772579807647,France
+Saint Pierre and Miquelon,seagrass,NA,France
+Saint Pierre and Miquelon,total,272.82772579807647,France
+Oman,mangrove,232.064671155599,Oman
+Oman,marsh,82.57630041503907,Oman
+Oman,seagrass,NA,Oman
+Oman,total,314.64097157063804,Oman
+Guam,mangrove,31.006784185719212,United States
+Guam,marsh,0,United States
+Guam,seagrass,307,United States
+Guam,total,338.00678418571925,United States
+Saint Vincent and the Grenadines,mangrove,46.53762900735294,Saint Vincent and the Grenadines
+Saint Vincent and the Grenadines,marsh,0,Saint Vincent and the Grenadines
+Saint Vincent and the Grenadines,seagrass,320,Saint Vincent and the Grenadines
+Saint Vincent and the Grenadines,total,366.53762900735296,Saint Vincent and the Grenadines
+Namibia,mangrove,0,Namibia
+Namibia,marsh,446.56362700168984,Namibia
+Namibia,seagrass,NA,Namibia
+Namibia,total,446.56362700168984,Namibia
+Iceland,mangrove,NA,Iceland
+Iceland,marsh,NA,Iceland
+Iceland,seagrass,500,Iceland
+Iceland,total,500,Iceland
+Djibouti,mangrove,533.5000753703997,Djibouti
+Djibouti,marsh,0,Djibouti
+Djibouti,seagrass,NA,Djibouti
+Djibouti,total,533.5000753703997,Djibouti
+Congo,mangrove,353.60366523882703,Congo
+Congo,marsh,203.68229158325195,Congo
+Congo,seagrass,NA,Congo
+Congo,total,557.285956822079,Congo
+French Southern Territories,mangrove,570.8453322627288,France
+French Southern Territories,marsh,0,France
+French Southern Territories,seagrass,NA,France
+French Southern Territories,total,570.8453322627288,France
+Singapore,mangrove,580.7095356470442,Singapore
+Singapore,marsh,0,Singapore
+Singapore,seagrass,33.7,Singapore
+Singapore,total,614.4095356470442,Singapore
+Bosnia and Herzegovina,mangrove,0,Bosnia and Herzegovina
+Bosnia and Herzegovina,marsh,636.2995038603182,Bosnia and Herzegovina
+Bosnia and Herzegovina,seagrass,NA,Bosnia and Herzegovina
+Bosnia and Herzegovina,total,636.2995038603182,Bosnia and Herzegovina
+Belgium,mangrove,0,Belgium
+Belgium,marsh,680.5881743058026,Belgium
+Belgium,seagrass,NA,Belgium
+Belgium,total,680.5881743058026,Belgium
+Northern Mariana Islands,mangrove,27.14599829063266,United States
+Northern Mariana Islands,marsh,0,United States
+Northern Mariana Islands,seagrass,670,United States
+Northern Mariana Islands,total,697.1459982906327,United States
+Falkland Islands,mangrove,0,United Kingdom
+Falkland Islands,marsh,734.4327710434619,United Kingdom
+Falkland Islands,seagrass,NA,United Kingdom
+Falkland Islands,total,734.4327710434619,United Kingdom
+Saint Lucia,mangrove,139.16074779770793,Saint Lucia
+Saint Lucia,marsh,0,Saint Lucia
+Saint Lucia,seagrass,665,Saint Lucia
+Saint Lucia,total,804.1607477977079,Saint Lucia
+Curacao,mangrove,78.45165415019912,Netherlands
+Curacao,marsh,0,Netherlands
+Curacao,seagrass,800,Netherlands
+Curacao,total,878.4516541501991,Netherlands
+Grenada,mangrove,210.23294316705443,Grenada
+Grenada,marsh,0,Grenada
+Grenada,seagrass,709,Grenada
+Grenada,total,919.2329431670545,Grenada
+Seychelles,mangrove,1089.7806735122501,Seychelles
+Seychelles,marsh,0,Seychelles
+Seychelles,seagrass,NA,Seychelles
+Seychelles,total,1089.7806735122501,Seychelles
+Montserrat,mangrove,NA,United Kingdom
+Montserrat,marsh,NA,United Kingdom
+Montserrat,seagrass,1307,United Kingdom
+Montserrat,total,1307,United Kingdom
+Anguilla,mangrove,4.963787585449219,United Kingdom
+Anguilla,marsh,0,United Kingdom
+Anguilla,seagrass,1370,United Kingdom
+Anguilla,total,1374.9637875854494,United Kingdom
+Libya,mangrove,0,Libya
+Libya,marsh,231.9130986406154,Libya
+Libya,seagrass,1155,Libya
+Libya,total,1386.9130986406155,Libya
+Bermuda,mangrove,NA,United Kingdom
+Bermuda,marsh,NA,United Kingdom
+Bermuda,seagrass,1625,United Kingdom
+Bermuda,total,1625,United Kingdom
+Palestinian Territory,mangrove,NA,Palestinian Territory
+Palestinian Territory,marsh,NA,Palestinian Territory
+Palestinian Territory,seagrass,1745,Palestinian Territory
+Palestinian Territory,total,1745,Palestinian Territory
+Comoros,mangrove,108.96542810759898,Comoros
+Comoros,marsh,15.081191412353517,Comoros
+Comoros,seagrass,2131,Comoros
+Comoros,total,2255.046619519953,Comoros
+Côte d'Ivoire,mangrove,1989.2327155709775,Côte d'Ivoire
+Côte d'Ivoire,marsh,300.4633496555703,Côte d'Ivoire
+Côte d'Ivoire,seagrass,NA,Côte d'Ivoire
+Côte d'Ivoire,total,2289.6960652265475,Côte d'Ivoire
+Bulgaria,mangrove,0,Bulgaria
+Bulgaria,marsh,2117.12410246393,Bulgaria
+Bulgaria,seagrass,295,Bulgaria
+Bulgaria,total,2412.12410246393,Bulgaria
+Wallis and Futuna,mangrove,17.56200729408414,France
+Wallis and Futuna,marsh,0,France
+Wallis and Futuna,seagrass,2430,France
+Wallis and Futuna,total,2447.562007294084,France
+Somalia,mangrove,2467.800387308182,Somalia
+Somalia,marsh,31.879222683129402,Somalia
+Somalia,seagrass,NA,Somalia
+Somalia,total,2499.6796099913113,Somalia
+Sint Maarten,mangrove,0.059131049852558216,Netherlands
+Sint Maarten,marsh,0,Netherlands
+Sint Maarten,seagrass,2734,Netherlands
+Sint Maarten,total,2734.0591310498526,Netherlands
+French Polynesia,mangrove,1.6588104064941407,France
+French Polynesia,marsh,0,France
+French Polynesia,seagrass,2870,France
+French Polynesia,total,2871.6588104064945,France
+Montenegro,mangrove,0,Montenegro
+Montenegro,marsh,2885.810280745299,Montenegro
+Montenegro,seagrass,NA,Montenegro
+Montenegro,total,2885.810280745299,Montenegro
+Mauritius,mangrove,22.573217227663527,Mauritius
+Mauritius,marsh,0,Mauritius
+Mauritius,seagrass,3000,Mauritius
+Mauritius,total,3022.5732172276635,Mauritius
+Mauritania,mangrove,26.57986772432215,Mauritania
+Mauritania,marsh,3114.923529781566,Mauritania
+Mauritania,seagrass,NA,Mauritania
+Mauritania,total,3141.5033975058877,Mauritania
+Finland,mangrove,0,Finland
+Finland,marsh,919.0940333659212,Finland
+Finland,seagrass,3000,Finland
+Finland,total,3919.094033365921,Finland
+British Virgin Islands,mangrove,77.41188000193878,United Kingdom
+British Virgin Islands,marsh,0,United Kingdom
+British Virgin Islands,seagrass,3991,United Kingdom
+British Virgin Islands,total,4068.411880001939,United Kingdom
+Lithuania,mangrove,0,Lithuania
+Lithuania,marsh,4199.755016810253,Lithuania
+Lithuania,seagrass,NA,Lithuania
+Lithuania,total,4199.755016810253,Lithuania
+Morocco,mangrove,0,Morocco
+Morocco,marsh,4609.741128295157,Morocco
+Morocco,seagrass,NA,Morocco
+Morocco,total,4609.741128295157,Morocco
+Kuwait,mangrove,0,Kuwait
+Kuwait,marsh,100.30193826162301,Kuwait
+Kuwait,seagrass,5000,Kuwait
+Kuwait,total,5100.301938261623,Kuwait
+Martinique,mangrove,1076.1296096507353,France
+Martinique,marsh,0,France
+Martinique,seagrass,4100,France
+Martinique,total,5176.129609650736,France
+Peru,mangrove,4152.285516313671,Peru
+Peru,marsh,1130.2988633622952,Peru
+Peru,seagrass,NA,Peru
+Peru,total,5282.584379675966,Peru
+Timor-Leste,mangrove,1013.5807087431305,Timor-Leste
+Timor-Leste,marsh,34.09663980712891,Timor-Leste
+Timor-Leste,seagrass,4266,Timor-Leste
+Timor-Leste,total,5313.67734855026,Timor-Leste
+Eritrea,mangrove,5496.288309518346,Eritrea
+Eritrea,marsh,0,Eritrea
+Eritrea,seagrass,313,Eritrea
+Eritrea,total,5809.288309518346,Eritrea
+Saint Kitts and Nevis,mangrove,51.90686580295936,Saint Kitts and Nevis
+Saint Kitts and Nevis,marsh,0,Saint Kitts and Nevis
+Saint Kitts and Nevis,seagrass,6042,Saint Kitts and Nevis
+Saint Kitts and Nevis,total,6093.90686580296,Saint Kitts and Nevis
+Trinidad and Tobago,mangrove,6323.9436454463475,Trinidad and Tobago
+Trinidad and Tobago,marsh,69.19762915649414,Trinidad and Tobago
+Trinidad and Tobago,seagrass,112,Trinidad and Tobago
+Trinidad and Tobago,total,6505.141274602842,Trinidad and Tobago
+Georgia,mangrove,0,Georgia
+Georgia,marsh,6916.706712381111,Georgia
+Georgia,seagrass,NA,Georgia
+Georgia,total,6916.706712381111,Georgia
+Algeria,mangrove,0,Algeria
+Algeria,marsh,2897.0361866119742,Algeria
+Algeria,seagrass,4056,Algeria
+Algeria,total,6953.036186611975,Algeria
+Malta,mangrove,NA,Malta
+Malta,marsh,NA,Malta
+Malta,seagrass,7056,Malta
+Malta,total,7056,Malta
+Norway,mangrove,0,Norway
+Norway,marsh,555.3789903934734,Norway
+Norway,seagrass,6637.000000000001,Norway
+Norway,total,7192.378990393475,Norway
+Cyprus,mangrove,0,Cyprus
+Cyprus,marsh,324.9966718261719,Cyprus
+Cyprus,seagrass,7004,Cyprus
+Cyprus,total,7328.996671826172,Cyprus
+Liberia,mangrove,7805.309361820498,Liberia
+Liberia,marsh,57.74904014282227,Liberia
+Liberia,seagrass,NA,Liberia
+Liberia,total,7863.058401963321,Liberia
+US Virgin Islands,mangrove,185.9726113614191,United States
+US Virgin Islands,marsh,0,United States
+US Virgin Islands,seagrass,8409,United States
+US Virgin Islands,total,8594.97261136142,United States
+North Korea,mangrove,0,North Korea
+North Korea,marsh,8811.67630984873,North Korea
+North Korea,seagrass,NA,North Korea
+North Korea,total,8811.67630984873,North Korea
+Barbados,mangrove,34.89502379150391,Barbados
+Barbados,marsh,0,Barbados
+Barbados,seagrass,9017,Barbados
+Barbados,total,9051.895023791505,Barbados
+Brunei,mangrove,10897.136578377891,Brunei
+Brunei,marsh,38.32652387084961,Brunei
+Brunei,seagrass,NA,Brunei
+Brunei,total,10935.463102248741,Brunei
+Guadeloupe,mangrove,3000.738882327642,France
+Guadeloupe,marsh,0,France
+Guadeloupe,seagrass,8200,France
+Guadeloupe,total,11200.738882327641,France
+Equatorial Guinea,mangrove,12673.725328361335,Equatorial Guinea
+Equatorial Guinea,marsh,27.092528076171877,Equatorial Guinea
+Equatorial Guinea,seagrass,NA,Equatorial Guinea
+Equatorial Guinea,total,12700.817856437508,Equatorial Guinea
+Albania,mangrove,0,Albania
+Albania,marsh,8590.465595664544,Albania
+Albania,seagrass,4406,Albania
+Albania,total,12996.465595664544,Albania
+Palau,mangrove,5612.048089753781,Palau
+Palau,marsh,0,Palau
+Palau,seagrass,7998,Palau
+Palau,total,13610.04808975378,Palau
+Cayman Islands,mangrove,7545.221162515845,United Kingdom
+Cayman Islands,marsh,67.91645802298751,United Kingdom
+Cayman Islands,seagrass,6390,United Kingdom
+Cayman Islands,total,14003.137620538831,United Kingdom
+Micronesia,mangrove,9406.40783512781,Micronesia
+Micronesia,marsh,0,Micronesia
+Micronesia,seagrass,4869,Micronesia
+Micronesia,total,14275.407835127808,Micronesia
+Sweden,mangrove,0,Sweden
+Sweden,marsh,13303.231793345994,Sweden
+Sweden,seagrass,1825,Sweden
+Sweden,total,15128.231793345994,Sweden
+Ireland,mangrove,0,Ireland
+Ireland,marsh,14933.481103135866,Ireland
+Ireland,seagrass,1710,Ireland
+Ireland,total,16643.481103135866,Ireland
+Latvia,mangrove,0,Latvia
+Latvia,marsh,17386.1773217883,Latvia
+Latvia,seagrass,NA,Latvia
+Latvia,total,17386.1773217883,Latvia
+Poland,mangrove,0,Poland
+Poland,marsh,17726.68909170813,Poland
+Poland,seagrass,265,Poland
+Poland,total,17991.68909170813,Poland
+Portugal,mangrove,0,Portugal
+Portugal,marsh,17113.647422986734,Portugal
+Portugal,seagrass,1691,Portugal
+Portugal,total,18804.647422986734,Portugal
+Togo,mangrove,144.0890219665527,Togo
+Togo,marsh,567.640457989502,Togo
+Togo,seagrass,18889,Togo
+Togo,total,19600.729479956055,Togo
+Netherlands,mangrove,0,Netherlands
+Netherlands,marsh,20001.804852331858,Netherlands
+Netherlands,seagrass,276,Netherlands
+Netherlands,total,20277.804852331858,Netherlands
+Democratic Republic of the Congo,mangrove,20425.148104235966,Democratic Republic of the Congo
+Democratic Republic of the Congo,marsh,254.00552694544174,Democratic Republic of the Congo
+Democratic Republic of the Congo,seagrass,NA,Democratic Republic of the Congo
+Democratic Republic of the Congo,total,20679.15363118141,Democratic Republic of the Congo
+Guyana,mangrove,20359.90119306479,Guyana
+Guyana,marsh,3740.4952860368803,Guyana
+Guyana,seagrass,NA,Guyana
+Guyana,total,24100.39647910167,Guyana
+Antigua and Barbuda,mangrove,921.8812352540735,Antigua and Barbuda
+Antigua and Barbuda,marsh,43.62834771728515,Antigua and Barbuda
+Antigua and Barbuda,seagrass,25101,Antigua and Barbuda
+Antigua and Barbuda,total,26066.50958297136,Antigua and Barbuda
+South Korea,mangrove,0,South Korea
+South Korea,marsh,19347.05367490345,South Korea
+South Korea,seagrass,7000,South Korea
+South Korea,total,26347.05367490345,South Korea
+Turkey,mangrove,0,Turkey
+Turkey,marsh,27065.539451589262,Turkey
+Turkey,seagrass,231,Turkey
+Turkey,total,27296.539451589262,Turkey
+Kiribati,mangrove,17.82347323120117,Kiribati
+Kiribati,marsh,0,Kiribati
+Kiribati,seagrass,27786,Kiribati
+Kiribati,total,27803.823473231205,Kiribati
+Uruguay,mangrove,0,Uruguay
+Uruguay,marsh,30830.087188483616,Uruguay
+Uruguay,seagrass,NA,Uruguay
+Uruguay,total,30830.087188483616,Uruguay
+El Salvador,mangrove,33594.80797582847,El Salvador
+El Salvador,marsh,395.2587894104004,El Salvador
+El Salvador,seagrass,NA,El Salvador
+El Salvador,total,33990.06676523887,El Salvador
+Croatia,mangrove,0,Croatia
+Croatia,marsh,5435.881462294108,Croatia
+Croatia,seagrass,29966,Croatia
+Croatia,total,35401.881462294106,Croatia
+Guatemala,mangrove,34562.32593733862,Guatemala
+Guatemala,marsh,1317.1343201917703,Guatemala
+Guatemala,seagrass,481,Guatemala
+Guatemala,total,36360.46025753039,Guatemala
+Bahrain,mangrove,84.12919578515147,Bahrain
+Bahrain,marsh,0,Bahrain
+Bahrain,seagrass,36598,Bahrain
+Bahrain,total,36682.12919578516,Bahrain
+American Samoa,mangrove,NA,United States
+American Samoa,marsh,NA,United States
+American Samoa,seagrass,38114,United States
+American Samoa,total,38114,United States
+Costa Rica,mangrove,38794.395821399805,Costa Rica
+Costa Rica,marsh,1582.3950128504612,Costa Rica
+Costa Rica,seagrass,16,Costa Rica
+Costa Rica,total,40392.79083425027,Costa Rica
+Kenya,mangrove,32027.00631160523,Kenya
+Kenya,marsh,174.16964630126955,Kenya
+Kenya,seagrass,11322,Kenya
+Kenya,total,43523.1759579065,Kenya
+Estonia,mangrove,0,Estonia
+Estonia,marsh,29610.32685709311,Estonia
+Estonia,seagrass,15500,Estonia
+Estonia,total,45110.32685709311,Estonia
+Saudi Arabia,mangrove,8104.606409818881,Saudi Arabia
+Saudi Arabia,marsh,143.56556077854532,Saudi Arabia
+Saudi Arabia,seagrass,37000,Saudi Arabia
+Saudi Arabia,total,45248.171970597425,Saudi Arabia
+United States Minor Outlying Islands,mangrove,NA,United States
+United States Minor Outlying Islands,marsh,NA,United States
+United States Minor Outlying Islands,seagrass,48716,United States
+United States Minor Outlying Islands,total,48716,United States
+South Africa,mangrove,1352.7772766907221,South Africa
+South Africa,marsh,9865.9862668492,South Africa
+South Africa,seagrass,38103,South Africa
+South Africa,total,49321.76354353993,South Africa
+Chile,mangrove,0,Chile
+Chile,marsh,49554.36096252689,Chile
+Chile,seagrass,200,Chile
+Chile,total,49754.36096252689,Chile
+Pakistan,mangrove,50580.15436051102,Pakistan
+Pakistan,marsh,216.11527682291666,Pakistan
+Pakistan,seagrass,NA,Pakistan
+Pakistan,total,50796.269637333935,Pakistan
+Marshall Islands,mangrove,1.184014306640625,Marshall Islands
+Marshall Islands,marsh,0,Marshall Islands
+Marshall Islands,seagrass,51070,Marshall Islands
+Marshall Islands,total,51071.184014306644,Marshall Islands
+Germany,mangrove,0,Germany
+Germany,marsh,37660.448333696535,Germany
+Germany,seagrass,16330,Germany
+Germany,total,53990.448333696535,Germany
+Solomon Islands,mangrove,46178.79586110952,Solomon Islands
+Solomon Islands,marsh,0,Solomon Islands
+Solomon Islands,seagrass,7895.999999999999,Solomon Islands
+Solomon Islands,total,54074.79586110951,Solomon Islands
+Greece,mangrove,0,Greece
+Greece,marsh,23068.21036444075,Greece
+Greece,seagrass,41141,Greece
+Greece,total,64209.210364440754,Greece
+Dominican Republic,mangrove,17992.148965329015,Dominican Republic
+Dominican Republic,marsh,1884.4719002209952,Dominican Republic
+Dominican Republic,seagrass,46020,Dominican Republic
+Dominican Republic,total,65896.62086555002,Dominican Republic
+Turks and Caicos Islands,mangrove,17101.44822758325,United Kingdom
+Turks and Caicos Islands,marsh,43.4397965209961,United Kingdom
+Turks and Caicos Islands,seagrass,48912,United Kingdom
+Turks and Caicos Islands,total,66056.88802410424,United Kingdom
+Romania,mangrove,0,Romania
+Romania,marsh,68457.88162529434,Romania
+Romania,seagrass,NA,Romania
+Romania,total,68457.88162529434,Romania
+Puerto Rico,mangrove,8294.338600921776,United States
+Puerto Rico,marsh,266.0184092590332,United States
+Puerto Rico,seagrass,60392,United States
+Puerto Rico,total,68952.35701018081,United States
+United Kingdom,mangrove,0,United Kingdom
+United Kingdom,marsh,57790.37948999436,United Kingdom
+United Kingdom,seagrass,13158.000000000002,United Kingdom
+United Kingdom,total,70948.37948999436,United Kingdom
+Samoa,mangrove,379.20562811870485,Samoa
+Samoa,marsh,0,Samoa
+Samoa,seagrass,73412,Samoa
+Samoa,total,73791.20562811871,Samoa
+Gambia,mangrove,70613.36236277327,Gambia
+Gambia,marsh,3365.5727744598985,Gambia
+Gambia,seagrass,NA,Gambia
+Gambia,total,73978.93513723316,Gambia
+Japan,mangrove,0,Japan
+Japan,marsh,27955.227463023093,Japan
+Japan,seagrass,47457,Japan
+Japan,total,75412.2274630231,Japan
+Suriname,mangrove,74555.97970688016,Suriname
+Suriname,marsh,4369.264649773931,Suriname
+Suriname,seagrass,NA,Suriname
+Suriname,total,78925.24435665409,Suriname
+Haiti,mangrove,14572.119061233843,Haiti
+Haiti,marsh,4022.042010170588,Haiti
+Haiti,seagrass,61227,Haiti
+Haiti,total,79821.16107140444,Haiti
+Cambodia,mangrove,47387.13476722262,Cambodia
+Cambodia,marsh,1722.5838751591225,Cambodia
+Cambodia,seagrass,33814,Cambodia
+Cambodia,total,82923.71864238175,Cambodia
+New Zealand,mangrove,31299.306919661285,New Zealand
+New Zealand,marsh,26903.58334816478,New Zealand
+New Zealand,seagrass,29400,New Zealand
+New Zealand,total,87602.89026782606,New Zealand
+French Guiana,mangrove,87669.33782501635,France
+French Guiana,marsh,537.348028040987,France
+French Guiana,seagrass,NA,France
+French Guiana,total,88206.68585305732,France
+Angola,mangrove,26861.62135263579,Angola
+Angola,marsh,1828.869711518363,Angola
+Angola,seagrass,59667,Angola
+Angola,total,88357.49106415415,Angola
+Jamaica,mangrove,9564.080960732881,Jamaica
+Jamaica,marsh,2195.0425017944335,Jamaica
+Jamaica,seagrass,78116,Jamaica
+Jamaica,total,89875.12346252732,Jamaica
+Fiji,mangrove,88529.74967463649,Fiji
+Fiji,marsh,0,Fiji
+Fiji,seagrass,3836,Fiji
+Fiji,total,92365.74967463649,Fiji
+Tanzania,mangrove,93124.27060454409,Tanzania
+Tanzania,marsh,531.6856545706477,Tanzania
+Tanzania,seagrass,4607,Tanzania
+Tanzania,total,98262.95625911474,Tanzania
+Vanuatu,mangrove,1353.5042232777316,Vanuatu
+Vanuatu,marsh,14.924750793457031,Vanuatu
+Vanuatu,seagrass,110044,Vanuatu
+Vanuatu,total,111412.4289740712,Vanuatu
+United Arab Emirates,mangrove,11903.937565825048,United Arab Emirates
+United Arab Emirates,marsh,695.7945543406048,United Arab Emirates
+United Arab Emirates,seagrass,102637,United Arab Emirates
+United Arab Emirates,total,115236.73212016565,United Arab Emirates
+New Caledonia,mangrove,24289.993721358114,France
+New Caledonia,marsh,158.34757798461914,France
+New Caledonia,seagrass,93600,France
+New Caledonia,total,118048.34129934273,France
+Mayotte,mangrove,499.0025809364469,France
+Mayotte,marsh,0,France
+Mayotte,seagrass,127526,France
+Mayotte,total,128025.00258093646,France
+Ecuador,mangrove,128751.24988177583,Ecuador
+Ecuador,marsh,106.83205906953701,Ecuador
+Ecuador,seagrass,NA,Ecuador
+Ecuador,total,128858.08194084538,Ecuador
+Qatar,mangrove,384.1240322630161,Qatar
+Qatar,marsh,72.02228556774664,Qatar
+Qatar,seagrass,132375,Qatar
+Qatar,total,132831.14631783075,Qatar
+China,mangrove,0,China
+China,marsh,125543.24628738986,China
+China,seagrass,9145.4,China
+China,total,134688.64628738986,China
+Gabon,mangrove,137684.86611984036,Gabon
+Gabon,marsh,3893.500077814223,Gabon
+Gabon,seagrass,NA,Gabon
+Gabon,total,141578.3661976546,Gabon
+Benin,mangrove,5161.948049715123,Benin
+Benin,marsh,5333.526096280374,Benin
+Benin,seagrass,136397,Benin
+Benin,total,146892.4741459955,Benin
+Sri Lanka,mangrove,21707.883896971412,Sri Lanka
+Sri Lanka,marsh,657.7009404641306,Sri Lanka
+Sri Lanka,seagrass,140406,Sri Lanka
+Sri Lanka,total,162771.58483743554,Sri Lanka
+Denmark,mangrove,0,Denmark
+Denmark,marsh,29352.264302393636,Denmark
+Denmark,seagrass,134500,Denmark
+Denmark,total,163852.26430239363,Denmark
+France,mangrove,0,France
+France,marsh,73263.3594274067,France
+France,seagrass,103897,France
+France,total,177160.35942740671,France
+Cameroon,mangrove,201379.62156762744,Cameroon
+Cameroon,marsh,0,Cameroon
+Cameroon,seagrass,NA,Cameroon
+Cameroon,total,201379.62156762744,Cameroon
+Vietnam,mangrove,211776.52720864193,Vietnam
+Vietnam,marsh,1353.522832490378,Vietnam
+Vietnam,seagrass,15745,Vietnam
+Vietnam,total,228875.05004113226,Vietnam
+Maldives,mangrove,85.8724580721268,Maldives
+Maldives,marsh,0,Maldives
+Maldives,seagrass,237899,Maldives
+Maldives,total,237984.87245807215,Maldives
+Egypt,mangrove,174.12702992185106,Egypt
+Egypt,marsh,18972.352611913466,Egypt
+Egypt,seagrass,220262,Egypt
+Egypt,total,239408.47964183532,Egypt
+Argentina,mangrove,0,Argentina
+Argentina,marsh,257832.1464354581,Argentina
+Argentina,seagrass,100,Argentina
+Argentina,total,257932.1464354581,Argentina
+Colombia,mangrove,212734.62508383405,Colombia
+Colombia,marsh,4873.980524262721,Colombia
+Colombia,seagrass,43352,Colombia
+Colombia,total,260960.60560809675,Colombia
+Thailand,mangrove,247699.15720023742,Thailand
+Thailand,marsh,1924.6419963515343,Thailand
+Thailand,seagrass,25573,Thailand
+Thailand,total,275196.799196589,Thailand
+Iran,mangrove,12068.394816352351,Iran
+Iran,marsh,1301.0902432963771,Iran
+Iran,seagrass,271434,Iran
+Iran,total,284803.4850596487,Iran
+Ghana,mangrove,13310.531028390293,Ghana
+Ghana,marsh,1848.5654186862841,Ghana
+Ghana,seagrass,273259,Ghana
+Ghana,total,288418.0964470766,Ghana
+Senegal,mangrove,140924.16259040238,Senegal
+Senegal,marsh,5541.0790861461455,Senegal
+Senegal,seagrass,149078,Senegal
+Senegal,total,295543.24167654855,Senegal
+Tonga,mangrove,792.229366120654,Tonga
+Tonga,marsh,10.770621923828124,Tonga
+Tonga,seagrass,299152,Tonga
+Tonga,total,299954.9999880445,Tonga
+Spain,mangrove,0,Spain
+Spain,marsh,36739.036149661355,Spain
+Spain,seagrass,275931,Spain
+Spain,total,312670.03614966135,Spain
+Bahamas,mangrove,80780.95939138958,Bahamas
+Bahamas,marsh,13060.694934677733,Bahamas
+Bahamas,seagrass,225051,Bahamas
+Bahamas,total,318892.6543260673,Bahamas
+Panama,mangrove,152769.17752702066,Panama
+Panama,marsh,269.1497154672899,Panama
+Panama,seagrass,180212,Panama
+Panama,total,333250.3272424879,Panama
+Philippines,mangrove,257965.7683491977,Philippines
+Philippines,marsh,760.6359904218608,Philippines
+Philippines,seagrass,97800,Philippines
+Philippines,total,356526.40433961956,Philippines
+Honduras,mangrove,66648.23113532591,Honduras
+Honduras,marsh,42486.58933654929,Honduras
+Honduras,seagrass,273912,Honduras
+Honduras,total,383046.8204718752,Honduras
+India,mangrove,382823.1467152802,India
+India,marsh,5608.57411902339,India
+India,seagrass,51659.00000000001,India
+India,total,440090.7208343036,India
+Sudan,mangrove,352.14652183612895,Sudan
+Sudan,marsh,0,Sudan
+Sudan,seagrass,442463,Sudan
+Sudan,total,442815.1465218361,Sudan
+Bangladesh,mangrove,443779.4144964575,Bangladesh
+Bangladesh,marsh,22192.57534635168,Bangladesh
+Bangladesh,seagrass,NA,Bangladesh
+Bangladesh,total,465971.9898428092,Bangladesh
+Venezuela,mangrove,335619.16740120086,Venezuela
+Venezuela,marsh,13989.797933806129,Venezuela
+Venezuela,seagrass,127242,Venezuela
+Venezuela,total,476850.96533500694,Venezuela
+Papua New Guinea,mangrove,471331.3072834025,Papua New Guinea
+Papua New Guinea,marsh,5921.288025763418,Papua New Guinea
+Papua New Guinea,seagrass,11720,Papua New Guinea
+Papua New Guinea,total,488972.5953091659,Papua New Guinea
+Tunisia,mangrove,0,Tunisia
+Tunisia,marsh,5845.3756279153995,Tunisia
+Tunisia,seagrass,500062,Tunisia
+Tunisia,total,505907.37562791543,Tunisia
+Myanmar,mangrove,505637.9077341638,Myanmar
+Myanmar,marsh,13255.963348038256,Myanmar
+Myanmar,seagrass,426,Myanmar
+Myanmar,total,519319.87108220207,Myanmar
+Mozambique,mangrove,318485.4459116783,Mozambique
+Mozambique,marsh,137405.11774871315,Mozambique
+Mozambique,seagrass,72794.99999999999,Mozambique
+Mozambique,total,528685.5636603915,Mozambique
+Yemen,mangrove,1072.845538468233,Yemen
+Yemen,marsh,0,Yemen
+Yemen,seagrass,535426,Yemen
+Yemen,total,536498.8455384683,Yemen
+Belize,mangrove,56776.69841533214,Belize
+Belize,marsh,6846.635964541828,Belize
+Belize,seagrass,484784,Belize
+Belize,total,548407.3343798739,Belize
+Malaysia,mangrove,557490.2433511058,Malaysia
+Malaysia,marsh,412.9726082765586,Malaysia
+Malaysia,seagrass,892,Malaysia
+Malaysia,total,558795.2159593824,Malaysia
+Russian Federation,mangrove,0,Russian Federation
+Russian Federation,marsh,551566.5872021696,Russian Federation
+Russian Federation,seagrass,49220.00000000001,Russian Federation
+Russian Federation,total,600786.5872021696,Russian Federation
+Sierra Leone,mangrove,158318.93436074056,Sierra Leone
+Sierra Leone,marsh,1964.6038187746299,Sierra Leone
+Sierra Leone,seagrass,444562,Sierra Leone
+Sierra Leone,total,604845.5381795152,Sierra Leone
+Ukraine,mangrove,0,Ukraine
+Ukraine,marsh,95260.996449714,Ukraine
+Ukraine,seagrass,586158,Ukraine
+Ukraine,total,681418.9964497141,Ukraine
+Nicaragua,mangrove,73341.91450607294,Nicaragua
+Nicaragua,marsh,59987.10395687818,Nicaragua
+Nicaragua,seagrass,556556,Nicaragua
+Nicaragua,total,689885.0184629512,Nicaragua
+Madagascar,mangrove,271503.03034042264,Madagascar
+Madagascar,marsh,16285.441838321029,Madagascar
+Madagascar,seagrass,579346,Madagascar
+Madagascar,total,867134.4721787438,Madagascar
+Italy,mangrove,0,Italy
+Italy,marsh,25413.240112250165,Italy
+Italy,seagrass,903058,Italy
+Italy,total,928471.2401122502,Italy
+Canada,mangrove,0,Canada
+Canada,marsh,908925.6603220975,Canada
+Canada,seagrass,64500,Canada
+Canada,total,973425.6603220975,Canada
+Brazil,mangrove,1052648.9297948407,Brazil
+Brazil,marsh,116635.9934145346,Brazil
+Brazil,seagrass,42934,Brazil
+Brazil,total,1212218.9232093755,Brazil
+Guinea,mangrove,244709.6867624126,Guinea
+Guinea,marsh,309.00778122699813,Guinea
+Guinea,seagrass,1290066,Guinea
+Guinea,total,1535084.6945436397,Guinea
+Nigeria,mangrove,695995.3890766172,Nigeria
+Nigeria,marsh,2044.5350053831328,Nigeria
+Nigeria,seagrass,887687,Nigeria
+Nigeria,total,1585726.9240820005,Nigeria
+Mexico,mangrove,726770.838718409,Mexico
+Mexico,marsh,118500.13856099341,Mexico
+Mexico,seagrass,957738,Mexico
+Mexico,total,1803008.9772794023,Mexico
+Guinea-Bissau,mangrove,347722.93196327676,Guinea-Bissau
+Guinea-Bissau,marsh,6694.652650764567,Guinea-Bissau
+Guinea-Bissau,seagrass,1539714,Guinea-Bissau
+Guinea-Bissau,total,1894131.5846140413,Guinea-Bissau
+Cuba,mangrove,426538.82141912245,Cuba
+Cuba,marsh,71218.66162558901,Cuba
+Cuba,seagrass,1607300,Cuba
+Cuba,total,2105057.4830447114,Cuba
+Indonesia,mangrove,2690026.02970222,Indonesia
+Indonesia,marsh,19185.025313539343,Indonesia
+Indonesia,seagrass,293464,Indonesia
+Indonesia,total,3002675.05501576,Indonesia
+United States,mangrove,234873.37986244247,United States
+United States,marsh,1985593.068046005,United States
+United States,seagrass,1442238,United States
+United States,total,3662704.4479084476,United States
+Australia,mangrove,957544.357169472,Australia
+Australia,marsh,227645.7763116497,Australia
+Australia,seagrass,8301298,Australia
+Australia,total,9486488.133481123,Australia
