@@ -33,8 +33,6 @@ mangrove_marsh_map_centroid_tab <- mangrove_marsh_map_centroid %>%
 # Import country and territory level summaries
 country_territory_areas <- read_csv("seagrass_mapping/output/Marsh_mangrove_seagrass_territory_summary_tall.csv")
 
-
-
 # Internal Functions 
 {
   standardizeDepths <- function(df, target_intervals){
@@ -101,12 +99,15 @@ depths_deep <- depths %>%
 target_intervals <- data.frame(horizon_min = c(0,10,25,50), horizon_max = c(10,25,50,100))
 
 synthesis_stocks <- standardizeDepths(depths_deep, target_intervals) %>% 
+  # converty gC per cm^2 to m^2
+  # 10,000 cm^2 m^-2
   mutate(stock_gCm2 = carbon_density * (horizon_max - horizon_min) * 10000,
          # convert gC m-2 to MgC ha-1
          stock_MgHa = stock_gCm2 * (10^4/10^6)) %>% 
   group_by(study_id, site_id, core_id) %>% 
   # Get core level averages
   summarise(stock_MgHa = sum(stock_MgHa)) %>% 
+  # filter out cores without at least one observation per target depth increment
   filter(complete.cases(stock_MgHa))
 
 # Create sf version
@@ -151,23 +152,25 @@ sp_points_table <- sp_points_country %>%
   as_tibble() %>% 
   select(-geometry)
 
-country_averages <- sp_points_table %>% 
-  group_by(country, terrtry, habitat, HYBAS_I, FishId) %>% 
-  summarise(stock_MgHa_mean = mean(stock_MgHa),
-            n = n(),
-            stock_MgHa_se = sd(stock_MgHa)/sqrt(n)
-            ) %>% 
+site_numbers <- sp_points_table %>% 
+  select(country, terrtry, habitat, HYBAS_I, FishId) %>%
+  distinct_all() %>% 
+  group_by(country, terrtry, habitat) %>% 
+  summarise(n_sites = n()) %>% 
   ungroup() %>% 
+  rename(territory = terrtry)
+
+country_averages <- sp_points_table %>% 
   rename(territory = terrtry) %>% 
   group_by(habitat, country, territory) %>% 
-  summarise(stock_MgHa_mean = mean(stock_MgHa_mean),
-            n = sum(n),
-            n_sites = n(),
-            stock_MgHa_se = sqrt(sum(stock_MgHa_se^2))) %>% 
+  summarise(stock_MgHa_mean = mean(stock_MgHa),
+            n = n(),
+            stock_MgHa_se = sd(stock_MgHa)/sqrt(n)) %>% 
   arrange(habitat, -stock_MgHa_mean) %>% 
   ungroup() %>% 
   mutate(stock_MgHa_upper_CI = qnorm(0.975, stock_MgHa_mean, stock_MgHa_se),
-         stock_MgHa_lower_CI= qnorm(0.025, stock_MgHa_mean, stock_MgHa_se))
+         stock_MgHa_lower_CI= qnorm(0.025, stock_MgHa_mean, stock_MgHa_se)) %>% 
+  left_join(site_numbers)
 
 IPCC_tier_I <- as_tibble(data.frame(habitat = c("mangrove", "marsh", "seagrass"),
                                       TierI_mean = c(386, 255, 108),
@@ -206,7 +209,6 @@ ggplot(country_averages_sig_diff, aes(x = territory, y = stock_MgHa_mean)) +
         axis.text.x = element_text(angle = 45, hjust = 1)) +
   scale_fill_manual(values = c("white", "black"), na.translate = F)
 
-library(ggrepel)
 
 ggplot(country_averages_sig_diff, aes(x = territory, y = stock_MgHa_mean)) +
   geom_point(aes(color = habitat)) +
@@ -226,7 +228,12 @@ ggplot(country_averages_sig_diff, aes(x = territory, y = stock_MgHa_mean)) +
 
 # 
 
-marsh_mangrove_seagrass_tall <- read_csv("seagrass_mapping/output/Marsh_mangrove_seagrass_territory_summary_tall.csv")
+marsh_mangrove_seagrass_tall <- read_csv("seagrass_mapping/output/Marsh_mangrove_seagrass_territory_summary_tall.csv") %>% 
+  mutate(hectare_UpperCI = case_when(ecosystem == "marsh" ~ hectare*59780/52880,
+                                     ecosystem == "mangrove" ~ hectare*176910/152604),
+         hectare_LowerCI = case_when(ecosystem == "marsh" ~ hectare*32030/52880,
+                                     ecosystem == "mangrove" ~ hectare*133996/152604)
+  )
 
 all_stocks <- marsh_mangrove_seagrass_tall %>% 
   filter(ecosystem != "total") %>% 
@@ -243,13 +250,19 @@ all_stocks <- marsh_mangrove_seagrass_tall %>%
          TierIorII = ifelse(is.na(stock_MgHa_mean),
                               "Tier I", "Tier II"),
          Total_Stocks = compiled_EF * hectare,
-         Total_Stockers_UpperCI = compiled_UpperCI * hectare,
-         Total_Stockers_LowerCI = compiled_LowerCI * hectare)
+         Total_Stocks_se = Total_Stocks * sqrt(((compiled_UpperCI-compiled_LowerCI)/3.92/compiled_EF)^2 + 
+           ((hectare_UpperCI-hectare_LowerCI)/3.92/hectare)^2), 
+         Total_Stockers_UpperCI = Total_Stocks + Total_Stocks_se*1.92,
+         Total_Stockers_LowerCI = Total_Stocks - Total_Stocks_se*1.92)
+all_stocks[all_stocks < 0] <- 0
 
 territory_totals <- all_stocks %>% 
+  # I think we may want to keep seagrasses out because of the lack of accuracy assessment
+  # data
+  filter(habitat != "seagrass") %>% 
   group_by(territory) %>% 
   summarise(Total_Stocks = sum(Total_Stocks, na.rm = T),
-            Total_SE = sqrt((sum((Total_Stockers_UpperCI-Total_Stockers_LowerCI), na.rm=T)/3.92)),
+            Total_SE = sqrt((sum((Total_Stockers_UpperCI-Total_Stockers_LowerCI), na.rm=T)/3.92)^2),
             Total_Stockers_UpperCI = Total_Stocks-(Total_SE*3.92/2),
             Total_Stockers_LowerCI = Total_Stocks+(Total_SE*3.92/2)) %>% 
   ungroup() %>% 
@@ -277,6 +290,70 @@ ggplot(all_stocks_vis, aes(x = territory, y = Total_Stocks)) +
 
 # Create a master figure
 
+# hectares, mid, upper CI, lower CI
+# point for seagrass
+# Add variable
+hecatare_master <- all_stocks_vis %>% 
+  select(territory, habitat, hectare, hectare_LowerCI, hectare_UpperCI) %>% 
+  rename(mid = hectare,
+         lowerCI = hectare_LowerCI,
+         upperCI = hectare_UpperCI) %>% 
+  mutate(mid_point = ifelse(habitat == "seagrass", mid, NA),
+         mid = ifelse(habitat == "seagrass", NA, mid),
+         variable = "Area (hectare)")
+
+# Tier II Stocks
+# mid, upper CI, lower CI
+# Include sig diff from Tier I
+# Add variable
+tier_II_master <- all_stocks_vis %>% 
+  select(territory, habitat, stock_MgHa_mean, stock_MgHa_lower_CI,  stock_MgHa_upper_CI,
+         n, n_sites, overlaps_TierI, text_position) %>% 
+  rename(mid = stock_MgHa_mean,
+       lowerCI = stock_MgHa_lower_CI,
+       upperCI = stock_MgHa_upper_CI) %>% 
+  mutate(variable = "Tier II Emissions Factor\n(MgC per hectare)")
+
+# Total by habitat
+# mid, upper CI, lower CI
+# Point for seagrass
+# Add variable
+total_master <- all_stocks_vis %>% 
+  select(territory, habitat, Total_Stocks, Total_Stockers_LowerCI, Total_Stockers_UpperCI) %>% 
+  rename(mid = Total_Stocks,
+         lowerCI = Total_Stockers_LowerCI,
+         upperCI = Total_Stockers_UpperCI) %>% 
+  mutate(variable = ifelse(habitat != "total", "Total Stock (MgC)", "Mangrove+Marsh Stock\n(MgC)"))
+
+big_graph <- hecatare_master %>% 
+  bind_rows(tier_II_master) %>% 
+  bind_rows(total_master) %>% 
+  mutate(variable = factor(variable, levels = c("Area (hectare)",
+                                                "Tier II Emissions Factor\n(MgC per hectare)",
+                                                "Total Stock (MgC)",
+                                                "Mangrove+Marsh Stock\n(MgC)")))
+
+ggplot(big_graph, aes(x = territory, y = mid)) +
+  geom_point(aes(color = habitat, y = mid_point),  position = position_dodge(width = 0.90)) +
+  geom_crossbar(aes(ymin = lowerCI, ymax = upperCI, color = habitat, fill = overlaps_TierI),
+                position = position_dodge(width = 0.90)) +
+  facet_grid(.~variable, scale="free") +
+  scale_y_continuous(labels = scales::comma) +
+  coord_flip() +
+  theme(axis.text.y = element_text(size = 8),
+        axis.text.x = element_text(angle = 45, hjust = 1)) +
+  xlab(NULL) +
+  ylab(NULL) +
+  scale_fill_manual(values = c("white", "black"), na.translate = F) +
+  theme(legend.title = element_blank())
+
+ggsave("All areas efs and stocks plot.jpg", height = 20, width = 10)  
+
+
+
+# Join
+# Convert territories to factors
+# Convert variables to factors
 
 # 
 # 
