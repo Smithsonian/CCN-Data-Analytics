@@ -1,0 +1,101 @@
+---
+title: "TEST Country Insights"
+output: html_document
+date: "2024-12-06"
+toc: true
+runtime: shiny
+---
+
+Testing a way to generate country-specific info and figures, creating ideally a downloadable report, this might work better as an html instead, if we wanted any kind of interactvity 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r}
+country <- "Country" #specifiy country 
+territory <- "Territory" #specify territory #NOTE -- how do we treat territory when a country's report is downloaded? maybe just a list of them 
+
+
+#read in all data 
+carbon_stocks <- read_csv("/carbon_stocks.csv")
+emissions_factors <- read_csv("/emissions_factors.csv")
+ecosystem_area <- read_csv("/ecosystem_area.csv")
+citations <- read_csv("/citations.csv")
+
+
+```
+
+One idea of how to do this -> create lookup tables of each of the values we want to pull, by country, then use chunks of code to write text and include inline code to change these 
+^ the one problem here is how do we change the country 
+
+```{r}
+#get top line numbers for country 
+#made up numbers to test 
+lowC <- 10
+highC <-99
+CI <-5
+totalStock <- 150
+mangroveClow <- 15
+mangroveChigh <- 86
+
+
+```
+
+
+```{r} 
+# Citations 
+library(knitr)
+ 
+#pull all country-level citations from big table 
+citations
+country_citations <- citations %>% filter(country == country)
+
+knitr::kable(country_citations, caption = "Citations")
+
+```
+
+
+
+## Country Insights 
+
+This report includes country-specific insights and more detailed analysis and figures, including carbon stocks, emissions factors, and ecosystem wetland area for mangrove, marsh, and seagrass ecosystems. This report details information for `r country`, including data from `r territory`
+
+
+
+##MAP - Add interactive leaflet widget of country, pull from use in app 
+```{r}
+library(leaflet)
+
+```
+
+
+
+
+## Carbon Stock Estimates 
+
+We estimate that `r country` and `r territory` contains between (`r lowC` to `r highC`, `r CI`) metric tonnes of soil C to a depth of 1 m, with a mean estimate of (total stock) metric tonnes C. 
+
+This total estimate includes mangrove carbon stocks (low to high, 95% CI, mean = total stock),
+tidal marsh carbon stocks
+
+Seagrass carbon stocks were not included in the total value due to lack of a global, transparent, and independently assessed seagrass habitat map, however, best available areas and stocks are listed below.
+
+
+## Wetland Areas and Activities Data 
+
+
+
+## Including Plots
+
+Include all plots from tabs in app 
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+
+
+
+
