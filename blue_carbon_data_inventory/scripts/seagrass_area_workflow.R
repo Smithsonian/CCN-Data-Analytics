@@ -8,6 +8,7 @@ library(readr)
 library(readxl)
 library(janitor)
 library(countrycode)
+library(sf)
 
 #read in ccn country spellings 
 ccn_countries <- as_tibble(st_read("data/CCN_maps/Countries_w_EEZ_fishnet_Hydrobasins06_dissolved_241023.shp")) %>% 
@@ -16,7 +17,7 @@ ccn_countries <- as_tibble(st_read("data/CCN_maps/Countries_w_EEZ_fishnet_Hydrob
   arrange(country, territory)
 
 #seagrass global area dataset from mackenzie et al 2020
-seagrass <- read_xlsx("ERL_15_7_074041_suppdata.xlsx", sheet = 1) %>% 
+seagrass <- read_xlsx("data/ERL_15_7_074041_suppdata.xlsx", sheet = 1) %>% 
   row_to_names(row_number = 11)
 
 
@@ -171,6 +172,42 @@ global_seagrass_data <- seagrass_spellcheck %>%
   summarise(seagrass_area_m2 = sum(seagrass_area_km2)*1000000)
 
 # View(global_seagrass_data)
+
+
+#separating high-med and low confidence seagrass area - to reference in app input?
+seagrass_data_confidence <- seagrass_vis %>% 
+  select(country, territory, `Seagrass Area_km2\r\nModerate to High Confidence`, 
+         `Seagrass Area_km2\r\nLow Confidence`) %>% 
+  mutate(High_Confidence = `Seagrass Area_km2\r\nModerate to High Confidence`,
+         Low_Confidence = `Seagrass Area_km2\r\nLow Confidence`,
+         seagrass_area_km2 = ifelse(!is.na(High_Confidence), High_Confidence, Low_Confidence),
+         confidence = ifelse(!is.na(High_Confidence), "High_Confidence", "Low_Confidence"),
+         seagrass_area_m2 = seagrass_area_km2*1000000) %>% 
+  select(-`Seagrass Area_km2\r\nModerate to High Confidence`, -`Seagrass Area_km2\r\nLow Confidence`,
+         -High_Confidence, -Low_Confidence, -seagrass_area_km2) %>% 
+  filter(complete.cases(seagrass_area_m2)) %>% #remove rows with no area data 
+  group_by(country, territory, confidence) %>% 
+  summarise(seagrass_area_m2 = sum(seagrass_area_m2))
+  
+  
+  # mutate(highconfidence_m2 = ifelse(confidence == "High_Confidence", sum(seagrass_area_m2), NA),
+  #        lowconfidence_m2 = ifelse(confidence == "Low_Confidence", sum(seagrass_area_m2), NA)) %>%
+  # ungroup() %>% 
+  select(-seagrass_area_m2, -territory) %>% distinct() %>% 
+  group_by(country) %>% 
+  mutate(percentage_high = ifelse(is.na(lowconfidence_m2), 100, highconfidence_m2/(lowconfidence_m2 + highconfidence_m2)))
+
+
+
+
+#note on this ^ all individual territories area fall under one confidence variable except Comoros,
+# which has 95% of its area classified as low confidence, and ~4.79% as high-med confidence 
+# both of these values are on the same line, and right now we have only included the high confidence number 
+
+write_csv(seagrass_data_confidence, "seagrass_mapping/output/Seagrass_country_territory_confidence_summary.csv")
+
+
+#######
 
 write_csv(global_seagrass_data, "seagrass_mapping/output/Seagrass_contry_territory_summary.csv")
 

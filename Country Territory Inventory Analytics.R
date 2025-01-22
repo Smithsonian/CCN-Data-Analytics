@@ -341,7 +341,7 @@ ggplot(big_graph, aes(x = territory, y = mid)) +
   scale_y_continuous(labels = scales::comma) +
   coord_flip() +
   theme(axis.text.y = element_text(size = 8),
-        axis.text.x = element_text(angle = 45, hjust = 1)) +
+        axis.text.x = element_text(angle = 45, hjust = 1)) + 
   xlab(NULL) +
   ylab(NULL) +
   scale_fill_manual(values = c("white", "black"), na.translate = F) +
@@ -349,6 +349,12 @@ ggplot(big_graph, aes(x = territory, y = mid)) +
 
 ggsave("All areas efs and stocks plot.jpg", height = 20, width = 10)  
 
+
+#Writing csv files - stock tables for csv input 
+#curate for app input in prepare_app_data.R
+write_csv(hecatare_master, "inventory_app_input/hectare_area.csv")
+write_csv(all_stocks_vis, "inventory_app_input/all_stocks_table.csv")
+write_csv(total_master, "inventory_app_input/total_stocks.csv")
 
 
 # Join

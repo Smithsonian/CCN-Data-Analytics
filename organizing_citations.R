@@ -19,10 +19,10 @@ ccn_countries <- read_csv("CCN_Official_Countries_and_Territories_Spelling.csv")
 
 #CCA citations
 library_citation <- as.data.frame(GetBibEntryWithDOI("https://doi.org/10.25573/serc.21565671.v6")) %>% 
-  remove_rownames()
+  remove_rownames() %>% mutate(bibliography_id = "CCN_Data_Library")
 
 ccn_studies <- read_csv("data/CCN_study_citations.csv")
-study_bib_info <- read_csv("study_bib_info.csv") #where did this list come from? 
+ccn_cores <- read_csv("data/CCN_cores.csv") 
 
 
 #get full country and ecosystem list 
@@ -36,7 +36,7 @@ full_country_list <- country_territory_areas %>%
 
 ##Seagrass paper citation  AND individual sources
 #spotfix citation formatting errors, match seagrass source to country 
-seagrass <- read_xlsx("ERL_15_7_074041_suppdata.xlsx", sheet = 1) %>% 
+seagrass <- read_xlsx("data/ERL_15_7_074041_suppdata.xlsx", sheet = 1) %>% 
   row_to_names(row_number = 11) %>% 
   rename(country = Sovereign, territory = Country) %>% 
   select(country, Source) %>%
@@ -48,7 +48,7 @@ seagrass <- read_xlsx("ERL_15_7_074041_suppdata.xlsx", sheet = 1) %>%
                             TRUE ~ str_squish(Source))) %>% filter(!is.na(Source))
 
 #read in sources from supplementary data and paper citation                   <-- Need to FIX FORMATTING
-seagrass_sources <- read_xlsx("ERL_15_7_074041_suppdata.xlsx", sheet = 2)
+seagrass_sources <- read_xlsx("data/ERL_15_7_074041_suppdata.xlsx", sheet = 2)
 
 #join and spotfix, standardize country names 
 seagrass_source_country <- full_join(seagrass, seagrass_sources) %>% 
@@ -902,10 +902,19 @@ seagrassestake2 <- rbind(
 FIXseagrass_citations <- seagrass_source_country %>% 
   select(-reference) %>% 
   full_join(seagrassestake2) %>% 
-  filter(!bibliography_id == "Gerakaris et al. 2020") %>% 
+  filter(!bibliography_id == "Gerakaris et al. 2020") %>% #remove duplicate with formatting error
   distinct()
 
 ###
+
+#Add country and habitat information to CCN Library citations
+ccn_cores_country <- ccn_cores %>% 
+  select(study_id, habitat, country) %>% distinct()
+
+
+ccn_study_citations <- full_join(ccn_studies, ccn_cores_country) %>% 
+  rename(ecosystem = habitat) %>%
+  distinct()
 
 
 #Len J McKenzie et al 2020 Environ. Res. Lett. 15 074041
@@ -926,25 +935,31 @@ worthington_et_al_2024 <- as.data.frame(GetBibEntryWithDOI("https://doi.org/10.1
          ecosystem = "marsh")
 
 
-# Mangrove citation 
+# Global Mangrove Watch citation 
 gmw <- as.data.frame(GetBibEntryWithDOI("https://doi.org/10.3390/rs10101669")) %>% 
   remove_rownames() %>% 
   mutate(bibliography_id = "Bunting_et_al_2018",
          ecosystem = "mangrove")
 
 
-add_citations <- bind_rows(mckenzie_et_al, worthington_et_al_2024, gmw)
+add_citations <- bind_rows(mckenzie_et_al, worthington_et_al_2024, gmw, library_citation)
 
 
 ## Add marsh, mangrove, seagrass citations to each country 
-## Add CCN library citation - countries and ecosystems?
+## Add CCN library citations
 
 country_index <- full_country_list %>% 
   filter(!ecosystem == "total") %>% 
   full_join(add_citations) %>% 
-  full_join(FIXseagrass_citations) %>% 
-  select(country, ecosystem, bibliography_id, everything())
+  full_join(FIXseagrass_citations) %>%
+  mutate(volume = ifelse(!is.na(volume), as.numeric(volume), NA),
+         year = as.numeric(year)) %>% 
+  full_join(ccn_study_citations) %>% 
+ # mutate(study_id = ifelse(is.na(study_id), bibliography_id, study_id),
+        # bibliography_id = paste0(bibliography_id, "_", ecosystem, "_", country)) %>% 
+  select(country, ecosystem, bibliography_id, study_id, everything())
   
+##NEED TO FIX SPACES IN BIB ID NAMES 
 
 #4. Write full citation list to csv ####
 write_csv(country_index, "inventory_app_input/citations_by_country.csv")
@@ -952,14 +967,21 @@ write_csv(country_index, "inventory_app_input/citations_by_country.csv")
 
 #convert to bib? 
 ## getting errors with duplicate row_names/bibliography, same sources cited for multiple countries 
+# warning message: duplicate rownames are not allowed - adding ecosystem and country to bib id fixes this 
 
-country_Bib <- as.BibEntry(country_index %>% 
-                             column_to_rownames(var = "bibliography_id")) 
+country_Bib <- as.BibEntry(country_index %>%
+                            # mutate(bibliography_id = paste0(bibliography_id, "_", ecosystem, "_", country)) %>% 
+                             column_to_rownames(var = "bibliography_id"))
 
 WriteBib(country_Bib, "inventory_app_input/citations_by_country.bib")
 
 
+#write bib file without duplicate bib entries
+bib_unique <- as.BibEntry(country_index %>% 
+  select(-country, -ecosystem) %>% distinct() %>% 
+  column_to_rownames(var = "bibliography_id"))
 
+WriteBib(bib_unique, "inventory_app_input/unique_citations.bib")
 
 
 
