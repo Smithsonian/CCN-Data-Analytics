@@ -218,7 +218,11 @@ var.out   <- coda.samples(model = j.model,
                           variable.names = c("beta1",
                                              "beta2",
                                              "tau_study",
-                                             "tau_random"
+                                             "tau_random",
+                                             "beta1_mu_global",
+                                             "beta2_mu_global",
+                                             "beta1_tau_global",
+                                             "beta2_tau_global"
                           ),
                           n.iter = 2000)
 
@@ -241,15 +245,17 @@ tidy_sum <- tidy_jags %>%
 
 # Just get the model params 
 param_iterations <- tidy_jags %>% 
-  filter(grepl("beta", Parameter)) %>% 
+  filter(grepl("beta", Parameter) & ! grepl("tau", Parameter)) %>% 
   # Separate into habitat code and beta
   separate(Parameter, into = c("Parameter", "habitat_code"), sep = "\\[") %>% 
-  mutate(habitat_code = as.numeric(str_remove_all(habitat_code, "\\]"))) %>% 
+  mutate(Parameter = str_remove_all(Parameter, "_mu_global"),
+    habitat_code = as.numeric(str_remove_all(habitat_code, "\\]")),
+         habitat_code = ifelse(is.na(habitat_code), 7, habitat_code)) %>% 
   spread(key = Parameter, value = value)
 
 # Pivot
-habitat_definiations <- data.frame(habitat_code = 1:6,
-                                   habitat = c("marsh", "mangrove", "seagrass", "scrub/shrub", "swamp", "mudflat"))
+habitat_definiations <- data.frame(habitat_code = 1:7,
+                                   habitat = c("marsh", "mangrove", "seagrass", "scrub/shrub", "swamp", "mudflat", "global"))
 
 
 tidy_sum_output <- tidy_sum %>% 
@@ -314,11 +320,14 @@ ggsave("OM and C Relationship/figs/Median_Comparison.jpg", width = 90, height =6
 
 
 paramVis <- tidy_sum %>% 
-  filter(grepl("beta", Parameter)) %>% 
+  filter(grepl("beta", Parameter)&!grepl("tau", Parameter)) %>% 
   # Separate into habitat code and beta
   separate(Parameter, into = c("Parameter", "habitat_code"), sep = "\\[") %>% 
-  mutate(habitat_code = as.numeric(str_remove_all(habitat_code, "\\]"))) %>% 
+  mutate(habitat_code = as.numeric(str_remove_all(habitat_code, "\\]")),
+         habitat_code = ifelse(is.na(habitat_code), 7, habitat_code),
+         Parameter = str_remove_all(Parameter, "_mu_global")) %>% 
   left_join(habitat_definiations) %>% 
+  mutate(habitat = factor(habitat, levels = c("mangrove", "marsh", "mudflat", "scrub/shrub", "seagrass", "swamp", "global"))) %>% 
   mutate(Parameter = recode(Parameter, "beta1"="slope param. 1", "beta2"="slope param. 2"))
 
 ggplot(paramVis, aes(x = habitat, y = mean, color = habitat)) +
@@ -335,16 +344,70 @@ ggsave("OM and C Relationship/figs/Parameter_comparison.jpg", width = 180, heigh
 
 library(corrplot)
 tidy_jags_pivot <- tidy_jags %>% 
+  mutate(Parameter = recode(Parameter, 
+                            "beta1[1]" = ":beta[list(1,mangrove)]",
+                            "beta1[2]" = ":beta[list(1,marsh)]",
+                            "beta1[3]" = ":beta[list(1,mudflat)]",
+                            "beta1[4]" = ":beta[list(1,shrub)]",
+                            "beta1[5]" = ":beta[list(1,seagrass)]",
+                            "beta1[6]" = ":beta[list(1,swamp)]",
+                            "beta2[1]" = ":beta[list(2,mangrove)]",
+                            "beta2[2]" = ":beta[list(2,marsh)]",
+                            "beta2[3]" = ":beta[list(2,mudflat)]",
+                            "beta2[4]" = ":beta[list(2,shrub)]",
+                            "beta2[5]" = ":beta[list(2,seagrass)]",
+                            "beta2[6]" = ":beta[list(2,swamp)]",
+                            "beta1_mu_global" = ":mu[list(hab,1)]",
+                            "beta1_tau_global" = ":tau[list(hab,1)]",
+                            "beta2_mu_global" = ":mu[list(hab,2)]",
+                            "beta2_tau_global" = ":tau[list(hab,2)]",
+                            "tau_random" = ":tau[sample]",
+                            "tau_study"=":tau[study]"
+                            )) %>% 
   spread(key = Parameter, value = value) %>% 
   select(-c(Iteration, Chain))
 
 corr_tab <- cor(tidy_jags_pivot, method = "spearman")
-write_csv(as.data.frame(corr_tab), "OM and C Relationship/tabs/Correlation_Table.csv")
+write_csv(as.data.frame(round(corr_tab, 2)), "OM and C Relationship/tabs/Correlation_Table.csv")
 
 corr <- round(corr_tab, 1) # rounded to one decimal point
 
 jpeg(filename = "OM and C Relationship/figs/Parameter_Correlation_plot.jpg", width = 130, height = 130, bg = "white", units = "mm", res = 380)
-corrplot(corr, method = "circle", type = "upper", diag = F,  tl.col="black", addCoef.col = "black")
+corrplot(corr, method = "circle", type = "upper", diag = F,  tl.col="black", addCoef.col = "black") +
+  scale_x_discrete(scales::label_parse)
+
 dev.off()
   
+
+# Significance analysis 
+sig_analysis1 <- tidy_jags %>% 
+  filter(grepl("beta", Parameter) & ! grepl("tau|mu", Parameter)) %>% 
+  # Separate into habitat code and beta
+  separate(Parameter, into = c("Parameter", "habitat_code"), sep = "\\[") %>% 
+  mutate(Parameter = str_remove_all(Parameter, "_mu_global"),
+         habitat_code = as.numeric(str_remove_all(habitat_code, "\\]")),
+         habitat_code = ifelse(is.na(habitat_code), 7, habitat_code)) %>% 
+  left_join(habitat_definiations)
+
+sig_analysis2 <- tidy_jags %>% 
+  filter(grepl("mu", Parameter)) %>% 
+  # Separate into habitat code and beta
+  mutate(Parameter = str_remove_all(Parameter, "_mu_global")) %>% 
+  rename(global_mean = value)
+
+sig_analysis <- sig_analysis1 %>% 
+  left_join(sig_analysis2) %>%
+  mutate(gt_null = as.numeric(value>global_mean),
+         site_level_minus_global_mean = value-global_mean) %>% 
+  group_by(Parameter, habitat) %>% 
+  summarise(pct_gt_null = sum(gt_null)/n()*100,
+            site_level_re_mean = mean(site_level_minus_global_mean),
+            site_level_re_se = sd(site_level_minus_global_mean),
+            site_level_re_lower_ci = quantile(site_level_minus_global_mean, 0.025),
+            site_level_re_upper_ci = quantile(site_level_minus_global_mean, 0.975)
+            ) %>% 
+  mutate(pct_lt_null = 100 - pct_gt_null)
+(sig_analysis)
+write_csv(sig_analysis, "OM and C Relationship/tabs/Par_Sig_table.csv")
+
 

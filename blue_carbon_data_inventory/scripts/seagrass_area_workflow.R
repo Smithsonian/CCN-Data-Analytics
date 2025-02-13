@@ -151,7 +151,17 @@ ggplot(seagrass_vis, aes(x = MaxEnt_km2, y = `Seagrass Area_km2\r\nModerate to H
   geom_point() +
   geom_point(aes(y = `Seagrass Area_km2\r\nLow Confidence`), color = "red") +
   scale_x_log10() +
-  scale_y_log10() 
+  scale_y_log10() +
+  geom_abline()
+
+seagrass_vis <- seagrass_spellcheck %>% 
+  mutate(MaxEnt_km2 = as.numeric(MaxEnt_km2),
+         `Seagrass Area_km2\r\nModerate to High Confidence` = as.numeric(`Seagrass Area_km2\r\nModerate to High Confidence`),
+         `Seagrass Area_km2\r\nLow Confidence` = as.numeric(`Seagrass Area_km2\r\nLow Confidence`))
+
+ggplot(seagrass_vis, aes(x = MaxEnt_km2, y = `Seagrass Area_km2\r\nModerate to High Confidence`)) +
+  geom_point() +
+  geom_point(aes(y = `Seagrass Area_km2\r\nLow Confidence`), color = "red")
 
 #### ..Curate Country-Level Stocks ####
 

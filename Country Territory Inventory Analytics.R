@@ -287,6 +287,21 @@ ggplot(all_stocks_vis, aes(x = territory, y = Total_Stocks)) +
   theme(axis.text.y = element_text(size = 8),
         axis.text.x = element_text(angle = 45, hjust = 1)) 
 
+# top 10 
+ggplot(all_stocks_vis, aes(x = territory, y = Total_Stocks)) +
+  geom_point(aes(color = habitat)) +
+  geom_crossbar(aes(ymin = Total_Stockers_LowerCI, ymax = Total_Stockers_UpperCI, color = habitat)) +
+  # geom_hline(data = IPCC_tier_I, aes(yintercept = TierI_mean)) +
+  # geom_hline(data = IPCC_tier_I, aes(yintercept = TierI_MgHa_UpperCI), lty = 2) + 
+  # geom_hline(data = IPCC_tier_I, aes(yintercept = TierI_LowerCI), lty = 2) + 
+  # geom_text(aes(label = n_sites, y = text_position), size = 2.5, nudge_y = -15) +
+  # geom_ribbon(data = IPCC_tier_I, aes(ymin = TierI_LowerCI, ymax = TierI_MgHa_UpperCI)) +
+  facet_grid(.~habitat, scale="free") +
+  scale_y_continuous(labels = scales::comma) +
+  coord_flip() +
+  theme(axis.text.y = element_text(size = 8),
+        axis.text.x = element_text(angle = 45, hjust = 1)) 
+
 
 # Create a master figure
 
@@ -349,11 +364,31 @@ ggplot(big_graph, aes(x = territory, y = mid)) +
 
 ggsave("All areas efs and stocks plot.jpg", height = 20, width = 10)  
 
+top_10_territories <- sort(unique(big_graph$territory))
+top_10_territories <- top_10_territories[(length(top_10_territories)-10):length(top_10_territories)]
 
+big_graph_top_10 <- big_graph %>% 
+  filter(territory %in% top_10_territories)
 
+ggplot(big_graph_top_10, aes(x = territory, y = mid)) +
+  geom_point(aes(color = habitat, y = mid_point),  position = position_dodge(width = 0.90)) +
+  geom_crossbar(aes(ymin = lowerCI, ymax = upperCI, color = habitat, fill = overlaps_TierI),
+                position = position_dodge(width = 0.90)) +
+  facet_grid(.~variable, scale="free") +
+  scale_y_continuous(labels = scales::comma) +
+  coord_flip() +
+  theme(axis.text.y = element_text(size = 8),
+        axis.text.x = element_text(angle = 45, hjust = 1)) +
+  xlab(NULL) +
+  ylab(NULL) +
+  scale_fill_manual(values = c("white", "black"), na.translate = F) +
+  theme(legend.title = element_blank())
 # Join
 # Convert territories to factors
 # Convert variables to factors
+
+ggsave("All areas efs and stocks plot Top 10.jpg", height = 4, width = 8.5)  
+
 
 # 
 # 
