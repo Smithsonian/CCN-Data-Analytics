@@ -175,13 +175,32 @@ country_averages <- sp_points_table %>%
 IPCC_tier_I <- as_tibble(data.frame(habitat = c("mangrove", "marsh", "seagrass"),
                                       TierI_mean = c(386, 255, 108),
                                       TierI_LowerCI = c(351,254,84),
-                                      TierI_MgHa_UpperCI = c(424,297,139)))
+                                      TierI_UpperCI = c(424,297,139)))
+
+Tier_III_tall <- read_csv("tier_III_efs/data/Global_Mangrove_Marsh_CarbonMeans_tall.csv") %>% 
+  mutate(TierIII_UpperCI = qnorm(0.975, MgPerHa, MgPerHa_sd),
+         TierIII_LowerCI= qnorm(0.025,  MgPerHa, MgPerHa_sd)) %>% 
+  rename(TierIII_mean = MgPerHa,
+         habitat = ecosystem) %>% 
+  dplyr::select(territory, habitat, TierIII_mean, TierIII_LowerCI, TierIII_UpperCI)
 
 country_averages_sig_diff <- country_averages %>% 
+  full_join(Tier_III_tall) %>% 
   left_join(IPCC_tier_I) %>% 
-  mutate(overlaps_TierI = ifelse(pmax(stock_MgHa_lower_CI, TierI_LowerCI) < pmin(stock_MgHa_upper_CI, TierI_MgHa_UpperCI), 
-                                 "overlaps Tier I",
-                                 "sig. different from Tier I"))
+  mutate(tierII_gtlt_tier_I = ifelse(stock_MgHa_mean>TierI_mean , "greater than", "less than"),
+    tier_II_overlaps_TierI = ifelse(pmax(stock_MgHa_lower_CI, TierI_LowerCI) < pmin(stock_MgHa_upper_CI, TierI_UpperCI), 
+                                 "Country-specific average overlaps Tier I",
+                                 paste0("Country-specific average is significantly ", tierII_gtlt_tier_I, " Tier I")),
+         tierIII_gtlt_tier_II =  ifelse(TierIII_mean>stock_MgHa_mean , "greater than", "less than"),
+         tierII_overlaps_tierIII = ifelse(pmax(stock_MgHa_lower_CI, TierIII_LowerCI) < pmin(stock_MgHa_upper_CI, TierIII_UpperCI), 
+                                          "Remote-sensing esimate overlaps country-specific average",
+                                          paste0("Remote-sensing esimate is significantly ", tierIII_gtlt_tier_II, " country-specific average")),
+        tierIII_gtlt_tier_I =  ifelse(TierIII_mean>TierI_mean , "greater than", "less than"),
+             tierIII_overlaps_tierI = ifelse(pmax(TierI_LowerCI, TierIII_LowerCI) < pmin(TierI_UpperCI, TierIII_UpperCI), 
+                                         "Remote-sensing esimate overlaps Tier I",
+                                         paste0("Remote-sensing esimate is significantly ", tierIII_gtlt_tier_I, " Tier I")))
+  
+  
 country_averages_sig_diff[country_averages_sig_diff<0] <- 0
 
 # View(country_averages_sig_diff)
@@ -198,24 +217,24 @@ country_averages_sig_diff <- country_averages_sig_diff %>%
   mutate(territory = factor(territory, country_hab_TierI_diff$territory)) %>% 
   mutate(text_position = pmin(stock_MgHa_mean, stock_MgHa_lower_CI, na.rm=T))
 
-ggplot(country_averages_sig_diff, aes(x = territory, y = stock_MgHa_mean)) +
+ggplot(country_averages_sig_diff %>% filter(complete.cases(tier_II_overlaps_TierI)), aes(x = territory, y = stock_MgHa_mean)) +
   geom_point(aes(color = habitat), position = position_dodge(width = 0.90)) +
   geom_crossbar(aes(ymin = stock_MgHa_lower_CI, ymax = stock_MgHa_upper_CI, color = habitat,
-                    fill = overlaps_TierI), position = position_dodge(width = 0.90)) +
+                    fill = tier_II_overlaps_TierI), position = position_dodge(width = 0.90)) +
   # facet_grid(.~ecosystem, scale="free") +
   scale_y_continuous(labels = scales::comma) +
   coord_flip() +
   theme(axis.text.y = element_text(size = 8),
         axis.text.x = element_text(angle = 45, hjust = 1)) +
-  scale_fill_manual(values = c("white", "black"), na.translate = F)
+  scale_fill_manual(values = c("grey", "black", "white"), na.translate = F)
 
 
-ggplot(country_averages_sig_diff, aes(x = territory, y = stock_MgHa_mean)) +
+ggplot(country_averages_sig_diff %>% filter(complete.cases(tier_II_overlaps_TierI)), aes(x = territory, y = stock_MgHa_mean)) +
   geom_point(aes(color = habitat)) +
   geom_crossbar(aes(ymin = stock_MgHa_lower_CI, ymax = stock_MgHa_upper_CI, color = habitat,
-                    fill = overlaps_TierI)) +
+                    fill = tier_II_overlaps_TierI)) +
   geom_hline(data = IPCC_tier_I, aes(yintercept = TierI_mean)) +
-  geom_hline(data = IPCC_tier_I, aes(yintercept = TierI_MgHa_UpperCI), lty = 2) + 
+  geom_hline(data = IPCC_tier_I, aes(yintercept = TierI_UpperCI), lty = 2) + 
   geom_hline(data = IPCC_tier_I, aes(yintercept = TierI_LowerCI), lty = 2) + 
   geom_text(aes(label = n_sites, y = text_position), size = 2.5, nudge_y = -15) +
   # geom_ribbon(data = IPCC_tier_I, aes(ymin = TierI_LowerCI, ymax = TierI_MgHa_UpperCI)) +
@@ -224,7 +243,7 @@ ggplot(country_averages_sig_diff, aes(x = territory, y = stock_MgHa_mean)) +
   coord_flip() +
   theme(axis.text.y = element_text(size = 8),
         axis.text.x = element_text(angle = 45, hjust = 1)) +
-  scale_fill_manual(values = c("white", "black"), na.translate = F)
+  scale_fill_manual(values = c("grey", "black", "white"), na.translate = F)
 
 # 
 
@@ -239,12 +258,12 @@ all_stocks <- marsh_mangrove_seagrass_tall %>%
   filter(ecosystem != "total") %>% 
   rename(habitat=ecosystem) %>% 
   left_join(country_averages_sig_diff) %>% 
-  select(-c(TierI_mean, TierI_LowerCI, TierI_MgHa_UpperCI)) %>% 
+  select(-c(TierI_mean, TierI_LowerCI, TierI_UpperCI)) %>% 
   left_join(IPCC_tier_I) %>% 
   mutate(compiled_EF = ifelse(is.na(stock_MgHa_mean),
                               TierI_mean, stock_MgHa_mean),
          compiled_UpperCI = ifelse(is.na(stock_MgHa_mean),
-                                   TierI_MgHa_UpperCI, stock_MgHa_upper_CI),
+                                   TierI_UpperCI, stock_MgHa_upper_CI),
          compiled_LowerCI = ifelse(is.na(stock_MgHa_mean),
                                    TierI_LowerCI, stock_MgHa_lower_CI),
          TierIorII = ifelse(is.na(stock_MgHa_mean),
@@ -252,8 +271,8 @@ all_stocks <- marsh_mangrove_seagrass_tall %>%
          Total_Stocks = compiled_EF * hectare,
          Total_Stocks_se = Total_Stocks * sqrt(((compiled_UpperCI-compiled_LowerCI)/3.92/compiled_EF)^2 + 
            ((hectare_UpperCI-hectare_LowerCI)/3.92/hectare)^2), 
-         Total_Stockers_UpperCI = Total_Stocks + Total_Stocks_se*1.92,
-         Total_Stockers_LowerCI = Total_Stocks - Total_Stocks_se*1.92)
+         Total_Stocks_UpperCI = Total_Stocks + Total_Stocks_se*1.92,
+         Total_Stocks_LowerCI = Total_Stocks - Total_Stocks_se*1.92)
 all_stocks[all_stocks < 0] <- 0
 
 territory_totals <- all_stocks %>% 
@@ -275,7 +294,7 @@ all_stocks_vis <- all_stocks %>%
 
 ggplot(all_stocks_vis, aes(x = territory, y = Total_Stocks)) +
   geom_point(aes(color = habitat)) +
-  geom_crossbar(aes(ymin = Total_Stockers_LowerCI, ymax = Total_Stockers_UpperCI, color = habitat)) +
+  geom_crossbar(aes(ymin = Total_Stocks_LowerCI, ymax = Total_Stocks_UpperCI, color = habitat)) +
   # geom_hline(data = IPCC_tier_I, aes(yintercept = TierI_mean)) +
   # geom_hline(data = IPCC_tier_I, aes(yintercept = TierI_MgHa_UpperCI), lty = 2) + 
   # geom_hline(data = IPCC_tier_I, aes(yintercept = TierI_LowerCI), lty = 2) + 
@@ -290,7 +309,7 @@ ggplot(all_stocks_vis, aes(x = territory, y = Total_Stocks)) +
 # top 10 
 ggplot(all_stocks_vis, aes(x = territory, y = Total_Stocks)) +
   geom_point(aes(color = habitat)) +
-  geom_crossbar(aes(ymin = Total_Stockers_LowerCI, ymax = Total_Stockers_UpperCI, color = habitat)) +
+  geom_crossbar(aes(ymin = Total_Stocks_LowerCI, ymax = Total_Stocks_UpperCI, color = habitat)) +
   # geom_hline(data = IPCC_tier_I, aes(yintercept = TierI_mean)) +
   # geom_hline(data = IPCC_tier_I, aes(yintercept = TierI_MgHa_UpperCI), lty = 2) + 
   # geom_hline(data = IPCC_tier_I, aes(yintercept = TierI_LowerCI), lty = 2) + 
@@ -323,7 +342,7 @@ hecatare_master <- all_stocks_vis %>%
 # Add variable
 tier_II_master <- all_stocks_vis %>% 
   select(territory, habitat, stock_MgHa_mean, stock_MgHa_lower_CI,  stock_MgHa_upper_CI,
-         n, n_sites, overlaps_TierI, text_position) %>% 
+         n, n_sites, tier_II_overlaps_TierI, text_position) %>% 
   rename(mid = stock_MgHa_mean,
        lowerCI = stock_MgHa_lower_CI,
        upperCI = stock_MgHa_upper_CI) %>% 
@@ -350,7 +369,7 @@ big_graph <- hecatare_master %>%
 
 ggplot(big_graph, aes(x = territory, y = mid)) +
   geom_point(aes(color = habitat, y = mid_point),  position = position_dodge(width = 0.90)) +
-  geom_crossbar(aes(ymin = lowerCI, ymax = upperCI, color = habitat, fill = overlaps_TierI),
+  geom_crossbar(aes(ymin = lowerCI, ymax = upperCI, color = habitat, fill = tier_II_overlaps_TierI),
                 position = position_dodge(width = 0.90)) +
   facet_grid(.~variable, scale="free") +
   scale_y_continuous(labels = scales::comma) +
@@ -359,7 +378,7 @@ ggplot(big_graph, aes(x = territory, y = mid)) +
         axis.text.x = element_text(angle = 45, hjust = 1)) + 
   xlab(NULL) +
   ylab(NULL) +
-  scale_fill_manual(values = c("white", "black"), na.translate = F) +
+  scale_fill_manual(values = c("grey", "black", "white"), na.translate = F) +
   theme(legend.title = element_blank())
 
 ggsave("All areas efs and stocks plot.jpg", height = 20, width = 10)  
@@ -378,7 +397,7 @@ big_graph_top_10 <- big_graph %>%
 
 ggplot(big_graph_top_10, aes(x = territory, y = mid)) +
   geom_point(aes(color = habitat, y = mid_point),  position = position_dodge(width = 0.90)) +
-  geom_crossbar(aes(ymin = lowerCI, ymax = upperCI, color = habitat, fill = overlaps_TierI),
+  geom_crossbar(aes(ymin = lowerCI, ymax = upperCI, color = habitat, fill = tier_II_overlaps_TierI),
                 position = position_dodge(width = 0.90)) +
   facet_grid(.~variable, scale="free") +
   scale_y_continuous(labels = scales::comma) +
@@ -387,7 +406,7 @@ ggplot(big_graph_top_10, aes(x = territory, y = mid)) +
         axis.text.x = element_text(angle = 45, hjust = 1)) +
   xlab(NULL) +
   ylab(NULL) +
-  scale_fill_manual(values = c("white", "black"), na.translate = F) +
+  scale_fill_manual(values = c("grey", "black", "white"), na.translate = F) +
   theme(legend.title = element_blank())
 # Join
 # Convert territories to factors
