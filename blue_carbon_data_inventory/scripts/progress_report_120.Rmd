@@ -1,0 +1,150 @@
+---
+title: "US Blue Carbon Data Inventory"
+author: "Coastal Carbon Network"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: 
+  html_document:
+    code_folding: hide
+    toc: true
+    toc_float: true
+    theme: spacelab
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+# this sets the working directory to start where the R project is located
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file(),
+                     warning = FALSE, message = FALSE, echo = FALSE)
+
+# no warnings or messages
+# knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE)
+
+```
+
+```{r}
+
+# all_rankings_clean %>%
+#   filter(!(state %in% c("PA", "DC"))) %>% 
+#   # filter(version != "1.1.1") %>% 
+# ggplot(aes(date, quantity_metric, col = state)) + 
+#   geom_point() + geom_line()
+
+# all_rankings_clean %>%
+#   filter(!(state %in% c("PA", "DC"))) %>% 
+#   # filter(version != "1.1.1") %>% 
+#   # mutate(state = fct_reorder(state, quality_metric)) %>% 
+#   ggplot(aes(state, quantity_metric)) + 
+#   geom_point() + 
+#   geom_line() + 
+#   coord_flip()
+
+
+## Data Transformation
+
+rankings_wide <- all_rankings_clean %>%
+  filter(version != "1.1.1") %>% # drop intermediate version
+  filter(!(state %in% c("PA", "DC"))) %>% 
+  mutate(version = paste0("v", version)) %>%
+  select(-date) %>%
+  pivot_wider(names_from = version, 
+              values_from = c(quantity_metric, quality_metric, spatial_metric, habitat_metric)) %>% 
+  mutate(across(everything(), replace_na, 0)) %>% 
+  mutate(quant_diff = quantity_metric_v1.3.0 - quantity_metric_v1.0.0,
+         qual_diff = quality_metric_v1.3.0 - quality_metric_v1.0.0,
+         spatial_diff = spatial_metric_v1.3.0 - spatial_metric_v1.0.0, 
+         hab_diff = habitat_metric_v1.3.0 - habitat_metric_v1.0.0)
+```
+
+```{r}
+
+
+# Quantity
+rankings_wide %>% 
+  mutate(state = fct_reorder(state, quantity_metric_v1.3.0)) %>% 
+  
+  ggplot() +
+  geom_point(aes(quantity_metric_v1.0.0, state, col = "previous"), alpha = 0.6, size = 2) +
+  geom_point(aes(quantity_metric_v1.3.0, state, col = "current"), alpha = 0.6, size = 2) +
+  scale_color_manual(values = c("previous" = "red", "current" = "blue")) +
+  geom_segment(data = rankings_wide %>% filter(quant_diff > 0), 
+               aes(y = state, yend = state, x = quantity_metric_v1.0.0, xend = quantity_metric_v1.3.0), 
+               colour = "black", arrow = arrow(length = unit(0.2, "cm"))) +
+  # facet_wrap(climate_zone ~ management, dir = "h") +
+  xlab("Cores per 1000ha Wetland Habitat") + ylab("") +
+  theme_bw(base_size = 15) +
+  theme(legend.position="bottom") +
+  ggtitle("Change in Quantity of Available Cores per State")
+
+ggsave("blue_carbon_data_inventory/figures/change_quantity_v130.jpg", width = 6, height = 6)
+
+
+```
+
+```{r}
+
+# Quality
+rankings_wide %>% 
+  mutate(state = fct_reorder(state, quality_metric_v1.3.0)) %>% 
+
+  ggplot() +
+  geom_point(aes(quality_metric_v1.0.0, state, col = "previous"), alpha = 0.6, size = 2) +
+  geom_point(aes(quality_metric_v1.3.0, state, col = "current"), alpha = 0.6, size = 2) +
+    scale_color_manual(values = c("previous" = "red", "current" = "blue")) +
+
+      geom_segment(data = rankings_wide %>% filter(qual_diff > 0), 
+               aes(y = state, yend = state, x = quality_metric_v1.0.0, xend = quality_metric_v1.3.0), 
+               colour = "black", arrow = arrow(length = unit(0.15, "cm"))) +
+  # facet_wrap(climate_zone ~ management, dir = "h") +
+  xlab("Cores per 1000ha Wetland Habitat") + ylab("") +
+  theme_bw(base_size = 15) +
+  theme(legend.position="bottom") +
+  ggtitle("Change in Quality of Available Cores per State")
+
+ggsave("blue_carbon_data_inventory/figures/change_quality_v130.jpg", width = 6, height = 6)
+```
+
+
+## Report Card 2024
+
+```{r report-2022, fig.height=12, fig.width=12}
+
+state_rank <- all_scores %>% 
+  # filter(version == current_version) %>%
+  filter(version == current_version) %>%
+  filter(metric == "Total") %>%
+  mutate(normalized_rank = ifelse(is.na(normalized_rank), 5, normalized_rank)) %>%
+  arrange(-normalized_rank)
+
+all_scores %>% filter(version == current_version) %>%
+  mutate(metric = factor(metric, c("Total", "Quantity", "Quality", "Spatial coverage", "Habitat coverage"))) %>%
+  mutate(state = factor(state, state_rank$state)) %>%
+  mutate(normalized_rank = as.character(normalized_rank)) %>%
+  ggplot(aes(metric, state, fill = normalized_rank)) +
+  geom_tile(color = "white", size = 0.5) +
+  # coord_equal() +
+  # geom_hline(aes(yintercept = 6.5), size = 0.5, col = "grey") +
+  # geom_hline(aes(yintercept = 9.5), size = 0.5, col = "grey") +
+  # geom_hline(aes(yintercept = 17.5), size = 0.5, col = "grey") +
+  # geom_hline(aes(yintercept = 21.5), size = 0.5, col = "grey") +
+  geom_vline(aes(xintercept = 1.5), linewidth = 0.5, col = "black") +
+  ylab(NULL) + xlab(NULL) +
+  scale_fill_brewer(palette = "RdYlBu", direction = -1,
+                    labels = c("Best", "", "", "Fair", "", "", "Poor", "No Data")) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) + # wrap text
+
+  # facet_wrap(vars(metric)) +
+  theme_bw(base_size = 15) +
+  theme(legend.title = element_blank(),
+    # axis.text.x = element_text(angle = 90),
+        axis.line = element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank()) +
+   ggtitle("State-Level Blue Carbon Data Report Card", subtitle = "July 2024")
+
+ggsave("blue_carbon_data_inventory/figures/report_card_jul2024.jpg", width = 6, height = 6)
+
+```
+
+

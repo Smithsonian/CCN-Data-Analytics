@@ -1,0 +1,116 @@
+state,metric,normalized_rank,version,date
+PA,Quantity,NA,1.3.0,2024-07-02
+DC,Quantity,NA,1.3.0,2024-07-02
+GA,Quantity,5,1.3.0,2024-07-02
+FL,Quantity,4,1.3.0,2024-07-02
+MD,Quantity,5,1.3.0,2024-07-02
+VA,Quantity,4,1.3.0,2024-07-02
+NJ,Quantity,5,1.3.0,2024-07-02
+NH,Quantity,1,1.3.0,2024-07-02
+TX,Quantity,3,1.3.0,2024-07-02
+MS,Quantity,1,1.3.0,2024-07-02
+SC,Quantity,5,1.3.0,2024-07-02
+NY,Quantity,3,1.3.0,2024-07-02
+ME,Quantity,0,1.3.0,2024-07-02
+CT,Quantity,2,1.3.0,2024-07-02
+DE,Quantity,2,1.3.0,2024-07-02
+WA,Quantity,2,1.3.0,2024-07-02
+RI,Quantity,3,1.3.0,2024-07-02
+LA,Quantity,4,1.3.0,2024-07-02
+NC,Quantity,4,1.3.0,2024-07-02
+AL,Quantity,1,1.3.0,2024-07-02
+OR,Quantity,0,1.3.0,2024-07-02
+CA,Quantity,1,1.3.0,2024-07-02
+MA,Quantity,2,1.3.0,2024-07-02
+PA,Quality,NA,1.3.0,2024-07-02
+DC,Quality,NA,1.3.0,2024-07-02
+GA,Quality,3,1.3.0,2024-07-02
+FL,Quality,4,1.3.0,2024-07-02
+MD,Quality,5,1.3.0,2024-07-02
+VA,Quality,3,1.3.0,2024-07-02
+NJ,Quality,4,1.3.0,2024-07-02
+NH,Quality,6,1.3.0,2024-07-02
+TX,Quality,5,1.3.0,2024-07-02
+MS,Quality,2,1.3.0,2024-07-02
+SC,Quality,4,1.3.0,2024-07-02
+NY,Quality,6,1.3.0,2024-07-02
+ME,Quality,2,1.3.0,2024-07-02
+CT,Quality,3,1.3.0,2024-07-02
+DE,Quality,1,1.3.0,2024-07-02
+WA,Quality,2,1.3.0,2024-07-02
+RI,Quality,1,1.3.0,2024-07-02
+LA,Quality,4,1.3.0,2024-07-02
+NC,Quality,1,1.3.0,2024-07-02
+AL,Quality,2,1.3.0,2024-07-02
+OR,Quality,0,1.3.0,2024-07-02
+CA,Quality,1,1.3.0,2024-07-02
+MA,Quality,0,1.3.0,2024-07-02
+PA,Spatial coverage,NA,1.3.0,2024-07-02
+DC,Spatial coverage,NA,1.3.0,2024-07-02
+GA,Spatial coverage,4,1.3.0,2024-07-02
+FL,Spatial coverage,2,1.3.0,2024-07-02
+MD,Spatial coverage,2,1.3.0,2024-07-02
+VA,Spatial coverage,3,1.3.0,2024-07-02
+NJ,Spatial coverage,3,1.3.0,2024-07-02
+NH,Spatial coverage,5,1.3.0,2024-07-02
+TX,Spatial coverage,1,1.3.0,2024-07-02
+MS,Spatial coverage,5,1.3.0,2024-07-02
+SC,Spatial coverage,2,1.3.0,2024-07-02
+NY,Spatial coverage,1,1.3.0,2024-07-02
+ME,Spatial coverage,5,1.3.0,2024-07-02
+CT,Spatial coverage,4,1.3.0,2024-07-02
+DE,Spatial coverage,4,1.3.0,2024-07-02
+WA,Spatial coverage,1,1.3.0,2024-07-02
+RI,Spatial coverage,5,1.3.0,2024-07-02
+LA,Spatial coverage,0,1.3.0,2024-07-02
+NC,Spatial coverage,1,1.3.0,2024-07-02
+AL,Spatial coverage,4,1.3.0,2024-07-02
+OR,Spatial coverage,2,1.3.0,2024-07-02
+CA,Spatial coverage,3,1.3.0,2024-07-02
+MA,Spatial coverage,0,1.3.0,2024-07-02
+PA,Habitat coverage,NA,1.3.0,2024-07-02
+DC,Habitat coverage,NA,1.3.0,2024-07-02
+GA,Habitat coverage,4,1.3.0,2024-07-02
+FL,Habitat coverage,4,1.3.0,2024-07-02
+MD,Habitat coverage,3,1.3.0,2024-07-02
+VA,Habitat coverage,5,1.3.0,2024-07-02
+NJ,Habitat coverage,2,1.3.0,2024-07-02
+NH,Habitat coverage,2,1.3.0,2024-07-02
+TX,Habitat coverage,5,1.3.0,2024-07-02
+MS,Habitat coverage,4,1.3.0,2024-07-02
+SC,Habitat coverage,1,1.3.0,2024-07-02
+NY,Habitat coverage,2,1.3.0,2024-07-02
+ME,Habitat coverage,5,1.3.0,2024-07-02
+CT,Habitat coverage,3,1.3.0,2024-07-02
+DE,Habitat coverage,3,1.3.0,2024-07-02
+WA,Habitat coverage,5,1.3.0,2024-07-02
+RI,Habitat coverage,1,1.3.0,2024-07-02
+LA,Habitat coverage,1,1.3.0,2024-07-02
+NC,Habitat coverage,2,1.3.0,2024-07-02
+AL,Habitat coverage,0,1.3.0,2024-07-02
+OR,Habitat coverage,4,1.3.0,2024-07-02
+CA,Habitat coverage,1,1.3.0,2024-07-02
+MA,Habitat coverage,0,1.3.0,2024-07-02
+PA,Total,NA,1.3.0,2024-07-02
+DC,Total,NA,1.3.0,2024-07-02
+GA,Total,4,1.3.0,2024-07-02
+FL,Total,3,1.3.0,2024-07-02
+MD,Total,3,1.3.0,2024-07-02
+VA,Total,3,1.3.0,2024-07-02
+NJ,Total,3,1.3.0,2024-07-02
+NH,Total,3,1.3.0,2024-07-02
+TX,Total,3,1.3.0,2024-07-02
+MS,Total,3,1.3.0,2024-07-02
+SC,Total,3,1.3.0,2024-07-02
+NY,Total,3,1.3.0,2024-07-02
+ME,Total,3,1.3.0,2024-07-02
+CT,Total,2,1.3.0,2024-07-02
+DE,Total,2,1.3.0,2024-07-02
+WA,Total,2,1.3.0,2024-07-02
+RI,Total,2,1.3.0,2024-07-02
+LA,Total,2,1.3.0,2024-07-02
+NC,Total,2,1.3.0,2024-07-02
+AL,Total,1,1.3.0,2024-07-02
+OR,Total,1,1.3.0,2024-07-02
+CA,Total,1,1.3.0,2024-07-02
+MA,Total,0,1.3.0,2024-07-02
